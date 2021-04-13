@@ -83,7 +83,7 @@ SET search_path TO pwacp;
 
 /* Create Tables */
 
-CREATE TABLE "햞bol" 
+CREATE TABLE "Arbol" 
 (
 	"Descripcion" varchar NULL,
 	"Estado" integer NULL,
@@ -94,7 +94,7 @@ CREATE TABLE "햞bol"
 	"FechaModificacion" date NULL,
 	"FechaEliminacion" date NULL,
 	"햞bolID" integer NOT NULL,
-	"DistribuccionID" integer NOT NULL,
+	"DistribucionID" integer NOT NULL,
 	"FamiliaID" integer NOT NULL,
 	"GeneroID" integer NOT NULL,
 	"FloracionID" integer NOT NULL,
@@ -105,7 +105,7 @@ CREATE TABLE "햞bol"
 CREATE TABLE "Banner"
 (
 	"Descripcion" varchar NULL,
-	"Estado" varchar NULL,
+	"Estado" integer NULL,
 	"Imagen" varchar NULL,
 	"FechaCreacion" date NOT NULL,
 	"FechaModificacion" date NULL,
@@ -188,7 +188,7 @@ CREATE TABLE "Floracion"
 CREATE TABLE "Genero"
 (
 	"Descripcion" varchar NULL,
-	"Estado" varchar NULL,
+	"Estado" integer NULL,
 	"Nombre" varchar NULL,
 	"FechaCreacion" date NOT NULL,
 	"FechaModificacion" date NULL,
@@ -265,7 +265,7 @@ CREATE TABLE "Publicaciones"
 	"FechaEliminacion" date NULL,
 	"PublicacionesID" integer NOT NULL,
 	"Titulo" varchar NULL,
-	"UsuarioID" integer NOT NULL,
+	"UsuarioID" integer NOT NULL
 )
 ;
 
@@ -273,7 +273,6 @@ CREATE TABLE "Publicaciones"
 CREATE TABLE "Region"
 (
 	"Estado" integer NULL,
-	"Idregion" varchar NULL,
 	"Nombre" varchar NULL,
 	"FechaCreacion" date NOT NULL,
 	"FechaModificacion" date NULL,
@@ -383,8 +382,8 @@ ALTER TABLE "CatalogoDeProductos" ADD CONSTRAINT "PK_CatalogoDeProductos"
 ;
 
 
-ALTER TABLE "Distribuccion" ADD CONSTRAINT "PK_Distribuccion"
-	PRIMARY KEY ("DistribuccionID")
+ALTER TABLE "Distribucion" ADD CONSTRAINT "PK_Distribucion"
+	PRIMARY KEY ("DistribucionID")
 ;
 
 ALTER TABLE "Evento" ADD CONSTRAINT "PK_Evento"
@@ -464,8 +463,8 @@ ALTER TABLE "Usuario" ADD CONSTRAINT "PK_Usuario"
 
 /* Create Foreign Key Constraints */
 
-ALTER TABLE "햞bol" ADD CONSTRAINT "FK_햞bol_Distribuccion"
-	FOREIGN KEY ("DistribuccionID") REFERENCES "Distribuccion" ("DistribuccionID") ON DELETE No Action ON UPDATE No Action
+ALTER TABLE "햞bol" ADD CONSTRAINT "FK_햞bol_Distribucion"
+	FOREIGN KEY ("DistribucionID") REFERENCES "Distribucion" ("DistribucionID") ON DELETE No Action ON UPDATE No Action
 ;
 
 ALTER TABLE "햞bol" ADD CONSTRAINT "FK_햞bol_Familia"
@@ -496,7 +495,7 @@ ALTER TABLE "CatalogoDeProductos" ADD CONSTRAINT "FK_CatalogoDeProductos_Usuario
 	FOREIGN KEY ("UsuarioID") REFERENCES "Usuario" ("UsuarioID") ON DELETE No Action ON UPDATE No Action
 ;
 
-ALTER TABLE "Distribuccion" ADD CONSTRAINT "FK_Distribuccion_Pais"
+ALTER TABLE "Distribucion" ADD CONSTRAINT "FK_Distribucion_Pais"
 	FOREIGN KEY ("PaisID") REFERENCES "Pais" ("PaisID") ON DELETE No Action ON UPDATE No Action
 ;
 
