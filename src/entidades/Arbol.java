@@ -9,8 +9,8 @@ public class Arbol {
 	private String descripcion;
 	private int estado;
 	private String geoma;
-	private String Nombrecientifico;
-	private String Nombrecomun;
+	private String nombrecientifico;
+	private String nombrecomun;
     private Timestamp fechaCreacion;
 	private Timestamp fechaModificacion;
 	private Timestamp fechaEliminacion;

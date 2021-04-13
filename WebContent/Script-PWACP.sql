@@ -273,7 +273,6 @@ CREATE TABLE "Publicaciones"
 CREATE TABLE "Region"
 (
 	"Estado" integer NULL,
-	"Idregion" varchar NULL,
 	"Nombre" varchar NULL,
 	"FechaCreacion" date NOT NULL,
 	"FechaModificacion" date NULL,
