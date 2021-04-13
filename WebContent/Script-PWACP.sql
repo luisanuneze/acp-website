@@ -131,7 +131,7 @@ CREATE TABLE "CatalogoDeProductos"
 ;
 
 
-CREATE TABLE "Distribuccion"
+CREATE TABLE "Distribucion"
 (
 	"Descripcion" varchar(50) NULL,
 	"Estado" integer NULL,
@@ -139,7 +139,7 @@ CREATE TABLE "Distribuccion"
 	"FechaCreacion" date NOT NULL,
 	"FechaModificacion" date NULL,
 	"FechaEliminacion" date NULL,
-	"DistribuccionID" integer NOT NULL,
+	"DistribucionID" integer NOT NULL,
 	"PaisID" integer NOT NULL
 )
 ;
@@ -245,7 +245,7 @@ CREATE TABLE "Opciones"
 
 CREATE TABLE "Pais"
 (
-	"Estado" varchar NULL,
+	"Estado" integer NULL,
 	"Nombre" varchar NULL,
 	"FechaCreacion" date NOT NULL,
 	"FechaModificacion" date NULL,
@@ -272,7 +272,7 @@ CREATE TABLE "Publicaciones"
 
 CREATE TABLE "Region"
 (
-	"Estado" varchar NULL,
+	"Estado" integer NULL,
 	"Idregion" varchar NULL,
 	"Nombre" varchar NULL,
 	"FechaCreacion" date NOT NULL,
