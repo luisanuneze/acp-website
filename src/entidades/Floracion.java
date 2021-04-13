@@ -40,5 +40,4 @@ public class Floracion {
 	public void setEstado(int estado) {
 		Estado = estado;
 	}
-
 }

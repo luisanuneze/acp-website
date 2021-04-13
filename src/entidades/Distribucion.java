@@ -62,5 +62,4 @@ public class Distribucion {
 	public void setEstado(int estado) {
 		Estado = estado;
 	}
-	
 }
