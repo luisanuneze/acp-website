@@ -90,9 +90,9 @@ CREATE TABLE "Árbol"
 	"Geoma"   GEOMETRY(POINT, 4326) NULL,
 	"Nombrecientifico" varchar NULL,
 	"Nombrecomun" varchar NULL,
-	"FechaCreacion" timestap NOT NULL,
-	"FechaModificacion" timestap NULL,
-	"FechaEliminacion" timestap NULL,
+	"FechaCreacion" date NOT NULL,
+	"FechaModificacion" date NULL,
+	"FechaEliminacion" date NULL,
 	"ÁrbolID" integer NOT NULL,
 	"DistribuccionID" integer NOT NULL,
 	"FamiliaID" integer NOT NULL,
@@ -107,9 +107,9 @@ CREATE TABLE "Banner"
 	"Descripcion" varchar NULL,
 	"Estado" varchar NULL,
 	"Imagen" varchar NULL,
-	"FechaCreacion" timestap NOT NULL,
-	"FechaModificacion" timestap NULL,
-	"FechaEliminacion" timestap NULL,
+	"FechaCreacion" date NOT NULL,
+	"FechaModificacion" date NULL,
+	"FechaEliminacion" date NULL,
 	"BannerID" integer NOT NULL,
 	"UsuarioID" integer NOT NULL
 )
@@ -121,9 +121,9 @@ CREATE TABLE "CatalogoDeProductos"
 	"Estado" integer NULL,
 	"Foto" varchar NULL,
 	"Nombre" varchar(50) NULL,
-	"FechaCreacion" timestap NOT NULL,
-	"FechaModificacion" timestap NULL,
-	"FechaEliminacion" timestap NULL,
+	"FechaCreacion" date NOT NULL,
+	"FechaModificacion" date NULL,
+	"FechaEliminacion" date NULL,
 	"CatalogoDeProductosID" integer NOT NULL,
 	"TipoProductoID" integer NOT NULL,
 	"UsuarioID" integer NOT NULL
@@ -136,9 +136,9 @@ CREATE TABLE "Distribuccion"
 	"Descripcion" varchar(50) NULL,
 	"Estado" integer NULL,
 	"Nombre" varchar NULL,
-	"FechaCreacion" timestap NOT NULL,
-	"FechaModificacion" timestap NULL,
-	"FechaEliminacion" timestap NULL,
+	"FechaCreacion" date NOT NULL,
+	"FechaModificacion" date NULL,
+	"FechaEliminacion" date NULL,
 	"DistribuccionID" integer NOT NULL,
 	"PaisID" integer NOT NULL
 )
@@ -154,9 +154,9 @@ CREATE TABLE "Evento"
 	"Nombre" varchar NULL,
 	"Tipoevento" varchar NULL,
 	"Ubicacion" varchar NULL,
-	"FechaCreacion" timestap NOT NULL,
-	"FechaModificacion" timestap NULL,
-	"FechaEliminacion" timestap NULL,
+	"FechaCreacion" date NOT NULL,
+	"FechaModificacion" date NULL,
+	"FechaEliminacion" date NULL,
 	"EventoID" integer NOT NULL,
 	"UsuarioID" integer NOT NULL
 )
@@ -167,9 +167,9 @@ CREATE TABLE "Familia"
 	"Descripcion" varchar NULL,
 	"Estado" integer NULL,
 	"Nombre" varchar NULL,
-	"FechaCreacion" timestap NOT NULL,
-	"FechaModificacion" timestap NULL,
-	"FechaEliminacion" timestap NULL,
+	"FechaCreacion" date NOT NULL,
+	"FechaModificacion" date NULL,
+	"FechaEliminacion" date NULL,
 	"FamiliaID" integer NOT NULL
 )
 ;
@@ -190,9 +190,9 @@ CREATE TABLE "Genero"
 	"Descripcion" varchar NULL,
 	"Estado" varchar NULL,
 	"Nombre" varchar NULL,
-	"FechaCreacion" timestap NOT NULL,
-	"FechaModificacion" timestap NULL,
-	"FechaEliminacion" timestap NULL,
+	"FechaCreacion" date NOT NULL,
+	"FechaModificacion" date NULL,
+	"FechaEliminacion" date NULL,
 	"GeneroID" integer NOT NULL
 )
 ;
@@ -203,7 +203,7 @@ CREATE TABLE "Home"
 	"Historia" varchar NULL,
 	"Mision" varchar NULL,
 	"Vision" varchar NULL,
-	"FechaModificacion" timestap NULL,
+	"FechaModificacion" date NULL,
 	"HomeID" integer NOT NULL,
 	"UsuarioID" integer NOT NULL
 )
@@ -215,7 +215,7 @@ CREATE TABLE "Info_footer"
 	"Descripcion" varchar NULL,
 	"Extension" varchar NULL,
 	"Telefono" integer NULL,
-	"FechaModificacion" timestap NULL,
+	"FechaModificacion" date NULL,
 	"Info_footerID" integer NOT NULL,
 	"UsuarioID" integer NOT NULL
 )
@@ -225,8 +225,8 @@ CREATE TABLE "Mapa"
 (
 	"Estado" integer NULL,
 	"Nombre" varchar NULL,
-	"FechaModificacion" timestap NULL,
-	"FechaEliminacion" timestap NULL,
+	"FechaModificacion" date NULL,
+	"FechaEliminacion" date NULL,
 	"MapaID" integer NOT NULL,
 	"ÁrbolID" integer NOT NULL,
 	"SectorID" integer NOT NULL
@@ -247,9 +247,9 @@ CREATE TABLE "Pais"
 (
 	"Estado" varchar NULL,
 	"Nombre" varchar NULL,
-	"FechaCreacion" timestap NOT NULL,
-	"FechaModificacion" timestap NULL,
-	"FechaEliminacion" timestap NULL,
+	"FechaCreacion" date NOT NULL,
+	"FechaModificacion" date NULL,
+	"FechaEliminacion" date NULL,
 	"PaisID" integer NOT NULL,
 	"RegionID" integer NOT NULL
 )
@@ -260,9 +260,9 @@ CREATE TABLE "Publicaciones"
 	"Descripcion" varchar NULL,
 	"Estado" integer NULL,
 	"Multimedia" varchar NULL,
-	"FechaCreacion" timestap NOT NULL,
-	"FechaModificacion" timestap NULL,
-	"FechaEliminacion" timestap NULL,
+	"FechaCreacion" date NOT NULL,
+	"FechaModificacion" date NULL,
+	"FechaEliminacion" date NULL,
 	"PublicacionesID" integer NOT NULL,
 	"Titulo" varchar NULL,
 	"UsuarioID" integer NOT NULL,
@@ -275,9 +275,9 @@ CREATE TABLE "Region"
 	"Estado" varchar NULL,
 	"Idregion" varchar NULL,
 	"Nombre" varchar NULL,
-	"FechaCreacion" timestap NOT NULL,
-	"FechaModificacion" timestap NULL,
-	"FechaEliminacion" timestap NULL,
+	"FechaCreacion" date NOT NULL,
+	"FechaModificacion" date NULL,
+	"FechaEliminacion" date NULL,
 	"RegionID" integer NOT NULL
 )
 ;
@@ -286,9 +286,9 @@ CREATE TABLE "Rol"
 (
 	"Estado" integer NULL,
 	"Roldescripcion" varchar NULL,
-	"FechaCreacion" timestap NOT NULL,
-	"FechaModificacion" timestap NULL,
-	"FechaEliminacion" timestap NULL,
+	"FechaCreacion" date NOT NULL,
+	"FechaModificacion" date NULL,
+	"FechaEliminacion" date NULL,
 	"RolID" integer NOT NULL
 )
 ;
@@ -296,9 +296,9 @@ CREATE TABLE "Rol"
 CREATE TABLE "Rol_opciones"
 (
 	"Rol_opcionesID" integer NOT NULL,
-	"FechaCreacion" timestap NOT NULL,
-	"FechaModificacion" timestap NULL,
-	"FechaEliminacion" timestap NULL,
+	"FechaCreacion" date NOT NULL,
+	"FechaModificacion" date NULL,
+	"FechaEliminacion" date NULL,
 	"OpcionesID" integer NOT NULL,
 	"RolID" integer NOT NULL
 )
@@ -307,9 +307,9 @@ CREATE TABLE "Rol_opciones"
 CREATE TABLE "Rol_usuario"
 (
 	"Rol_usuarioID" integer NOT NULL,
-	"FechaCreacion" timestap NOT NULL,
-	"FechaModificacion" timestap NULL,
-	"FechaEliminacion" timestap NULL,
+	"FechaCreacion" date NOT NULL,
+	"FechaModificacion" date NULL,
+	"FechaEliminacion" date NULL,
 	"RolID" integer NOT NULL,
 	"UsuarioID" integer NOT NULL
 )
@@ -320,7 +320,7 @@ CREATE TABLE "Sector"
 	"Estado" integer NULL,
 	"Geoms"  GEOMETRY(POINT, 4326) NULL,
 	"Nombre" varchar NULL,
-	"FechaModificacion" timestap NULL,
+	"FechaModificacion" date NULL,
 	"SectorID" integer NOT NULL
 )
 ;
@@ -331,9 +331,9 @@ CREATE TABLE "Servicios"
 	"Estado" integer NULL,
 	"Foto" varchar NULL,
 	"Nombre" varchar NULL,
-	"FechaCreacion" timestap NOT NULL,
-	"FechaModificacion" timestap NULL,
-	"FechaEliminacion" timestap NULL,
+	"FechaCreacion" date NOT NULL,
+	"FechaModificacion" date NULL,
+	"FechaEliminacion" date NULL,
 	"ServiciosID" integer NOT NULL,
 	"UsuarioID" integer NOT NULL
 )
@@ -346,9 +346,9 @@ CREATE TABLE "TipoProducto"
 	"Descripcion" varchar NULL,
 	"Estado" integer NULL,
 	"Tipoproducto" varchar NULL,
-	"FechaCreacion" timestap NOT NULL,
-	"FechaModificacion" timestap NULL,
-	"FechaEliminacion" timestap NULL,
+	"FechaCreacion" date NOT NULL,
+	"FechaModificacion" date NULL,
+	"FechaEliminacion" date NULL,
 	"TipoProductoID" integer NOT NULL
 )
 ;
@@ -361,9 +361,9 @@ CREATE TABLE "Usuario"
 	"Estado" integer NULL,
 	"Nombres" varchar NULL,
 	"Usuario" varchar NULL,
-	"FechaCreacion" timestap NOT NULL,
-	"FechaModificacion" timestap NULL,
-	"FechaEliminacion" timestap NULL,
+	"FechaCreacion" date NOT NULL,
+	"FechaModificacion" date NULL,
+	"FechaEliminacion" date NULL,
 	"UsuarioID" integer NOT NULL
 )
 ;
