@@ -6,7 +6,7 @@ public class Arbol {
 
 	//Atributos
 	
-	private String Descripcion;
+	private String descripcion;
 	private int estado;
 	private String geoma;
 	private String Nombrecientifico;

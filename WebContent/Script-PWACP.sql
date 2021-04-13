@@ -15,7 +15,7 @@ DROP TABLE IF EXISTS "Banner" CASCADE
 DROP TABLE IF EXISTS "CatalogoDeProductos" CASCADE
 ;
 
-DROP TABLE IF EXISTS "Distribuccion" CASCADE
+DROP TABLE IF EXISTS "Distribucion" CASCADE
 ;
 
 DROP TABLE IF EXISTS "Evento" CASCADE
@@ -83,7 +83,7 @@ SET search_path TO pwacp;
 
 /* Create Tables */
 
-CREATE TABLE "Arbol" 
+CREATE TABLE "Árbol" 
 (
 	"Descripcion" varchar NULL,
 	"Estado" integer NULL,
@@ -105,7 +105,7 @@ CREATE TABLE "Arbol"
 CREATE TABLE "Banner"
 (
 	"Descripcion" varchar NULL,
-	"Estado" integer NULL,
+	"Estado"integer NULL,
 	"Imagen" varchar NULL,
 	"FechaCreacion" date NOT NULL,
 	"FechaModificacion" date NULL,
@@ -273,6 +273,7 @@ CREATE TABLE "Publicaciones"
 CREATE TABLE "Region"
 (
 	"Estado" integer NULL,
+	"Idregion" varchar NULL,
 	"Nombre" varchar NULL,
 	"FechaCreacion" date NOT NULL,
 	"FechaModificacion" date NULL,
