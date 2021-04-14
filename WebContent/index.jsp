@@ -2,13 +2,14 @@
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
+
 <head>
 <meta charset="ISO-8859-1">
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
   <title>PWACP - Portal Web Arboreto Carmelo Palma</title>
+  
   <meta content="" name="description">
-
   <meta content="" name="keywords">
 
   <!-- Favicons -->
@@ -36,11 +37,14 @@
   * License: https://bootstrapmade.com/license/
   ======================================================== -->
 </head>
-<body>
 
-<%@ include file="/menu/header.jsp" %>
+<body>
+  <!-- ======= Header ======= -->
+  <%@ include file="/menu/header.jsp" %>
+  <!-- End Header -->
 
   <main id="main">
+  
     <!-- Empty seccion for space-->
     <div id="empty" class="empty">
     </div>    
@@ -126,26 +130,8 @@
   </main><!-- End #main -->
 
   <!-- ======= Footer ======= -->
-  <footer id="footer" class="footer">
-
-    <div class="container">
-
-      <h4><strong>Contacto</strong></h4>
-      <p>
-        Universidad Centroamericana (UCA) <br>
-        Managua, Nicaragua<br><br>
-        <strong>Teléfono:</strong> (+505) 2278 3923<br>
-        <strong>Ext:</strong> 1155<br>
-      </p>      
-
-      <br><center><hr></center>
-
-      <div class="credits">
-        Designed by Tiny Trees
-      </div>
-
-    </div>
-  </footer><!-- End Footer -->
+    <%@ include file="/menu/footer.jsp" %>
+  <!-- End Footer -->
 
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
