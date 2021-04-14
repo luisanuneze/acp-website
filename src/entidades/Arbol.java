@@ -21,13 +21,13 @@ public class Arbol {
 	private int floracionID;
 	private int usuarioID;
 	
-	//Metodos 
+	//Metodos
 	
 	public String getDescripcion() {
-		return Descripcion;
+		return descripcion;
 	}
 	public void setDescripcion(String descripcion) {
-		Descripcion = descripcion;
+		this.descripcion = descripcion;
 	}
 	public int getEstado() {
 		return estado;
@@ -42,16 +42,16 @@ public class Arbol {
 		this.geoma = geoma;
 	}
 	public String getNombrecientifico() {
-		return Nombrecientifico;
+		return nombrecientifico;
 	}
 	public void setNombrecientifico(String nombrecientifico) {
-		Nombrecientifico = nombrecientifico;
+		this.nombrecientifico = nombrecientifico;
 	}
 	public String getNombrecomun() {
-		return Nombrecomun;
+		return nombrecomun;
 	}
 	public void setNombrecomun(String nombrecomun) {
-		Nombrecomun = nombrecomun;
+		this.nombrecomun = nombrecomun;
 	}
 	public Timestamp getFechaCreacion() {
 		return fechaCreacion;
@@ -107,6 +107,7 @@ public class Arbol {
 	public void setUsuarioID(int usuarioID) {
 		this.usuarioID = usuarioID;
 	}
+	
 	
 	
 	
