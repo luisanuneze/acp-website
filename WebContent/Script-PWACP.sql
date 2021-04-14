@@ -288,7 +288,8 @@ CREATE TABLE  Rol
 	 FechaCreacion  date NOT NULL,
 	 FechaModificacion  date NULL,
 	 FechaEliminacion  date NULL,
-	 RolID  integer NOT NULL
+	 RolID  integer NOT NULL,
+	 Rol varchar NULL
 )
 ;
 
