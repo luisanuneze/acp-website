@@ -6,7 +6,7 @@
 <head>
 <meta charset="ISO-8859-1">
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
- 
+
   <title>PWACP - Portal Web Arboreto Carmelo Palma</title>
   
   <meta content="" name="description">
@@ -28,49 +28,41 @@
   <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
 
   <!-- Template Main CSS File -->
-  <link href="assets/css/style.css" rel="stylesheet">
-  
+    <link href="assets/css/style.css" rel="stylesheet">
 </head>
 
 <body>
 
   <main id="main">
   
-  	  <!-- Inicio de sesion -->
-      <div id="section-login" class="section-login">
-      
-  		  <!-- Seccion del banner -->
-  		  <%@ include file="/menu/banner.jsp" %>
-      	  <!-- Finaliza seccion del banner -->
-          
-          <!-- Formulario de inicio de sesion -->
-          <div id="formulario" class="formulario">
-              <form action="index.jsp">
-                  <h2>Inicio de sesión</h2>
-                  <div class="form-group">
-                      <label for="email"> Correo:</label>
-                      <input placeholder="Ingrese su correo electrónico" type="email" class="form-control" id="email">
-                  </div>
-                  <div class="form-group">
-                      <label for="pwd"> Contraseña:</label>
-                      <input placeholder="Ingrese su contraseña" type="password" class="form-control" id="pwd">
-                  </div>
-                  <div class="checkbox">
-                      <label><input type="checkbox" id="check">  Mantener sesión iniciada </label> </br></br>
-                  </div>
-                  <div class="button-iniciar"></br>
-                  	<button>Iniciar sesión</button></br></br>
-				  </div>
-                  <a href="recuperacionCuenta.jsp">¿Olvidaste tu contraseña?</a>
-                  
-                  <!-- <br><br><br><h4><strong>Seguimos trabajando, <br> para mejorar su servicio</strong></h4>
-                  <img style="width: 120px; align-items: center;" src="https://www.movilring.com/wp-content/uploads/2018/07/1.png"> -->
-              </form>
+     <!-- Inicio de sesion -->
+     <div id="section-login" class="section-login">
+     
+    	 <!-- Seccion del banner -->
+	  	 <%@ include file="/menu/banner.jsp" %>
+   	 	 <!-- Finaliza seccion del banner -->
+     
+         <!-- Formulario de inicio de sesion -->
+         <div id="formulario" class="formulario">
+             <form action="index.jsp">
+                 <h2>Recuperación de contraseña</h2>
+                 <div class="form-group">
+                     <label for="email"> Correo:</label>
+                     <input placeholder="Ingrese su correo electrónico" type="email" class="form-control" id="email">
+                 </div>
+                 
+                 <div class="button-iniciar">
+                 	<button>Confirmar</button></br>
+                 </div>
 
-          </div>
-          <!-- Finaliza formulario de inicio de sesion -->
-      </div>
-	  <!-- Finaliza inicio de sesion -->
+                 <!-- <br><br><br><h4><strong>Seguimos trabajando, <br> para mejorar su servicio</strong></h4>
+               <img style="width: 120px; align-items: center;" src="https://www.movilring.com/wp-content/uploads/2018/07/1.png"> -->
+           </form>
+
+       </div>
+       <!-- Finaliza formulario de inicio de sesion -->
+   </div>
+   <!-- Finaliza inicio de sesion -->
   </main>
   
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
@@ -85,7 +77,7 @@
   <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
 
   <!-- Template Main JS File -->
-  <script src="assets/js/main.js"></script>
+    <script src="assets/js/main.js"></script>
 
 </body>
 
