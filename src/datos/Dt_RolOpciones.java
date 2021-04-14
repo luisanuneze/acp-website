@@ -20,7 +20,7 @@ public class Dt_RolOpciones {
 	// Metodo para llenar el ResultSet
 	public void llenaRsRolOpc(Connection c){
 		try{
-			ps = c.prepareStatement("select * from public.Rol_opciones", ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE, ResultSet.HOLD_CURSORS_OVER_COMMIT);
+			ps = c.prepareStatement("select * from public.rol_opciones", ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE, ResultSet.HOLD_CURSORS_OVER_COMMIT);
 			rsRolOpc = ps.executeQuery();
 		}
 		catch (Exception e){
