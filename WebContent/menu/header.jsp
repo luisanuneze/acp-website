@@ -20,9 +20,9 @@
         <ul>
           <li><a class="nav-link scrollto active" href="index.jsp">Página principal</a></li>
           <li><a class="nav-link" href="#">Eventos</a></li>
-          <li><a class="nav-link" href="arboles.html">Árboles</a></li>
+          <li><a class="nav-link" href="arboles.jsp">Árboles</a></li>
           <li><a class="nav-link" href="#">Mapa</a></li>
-          <li><a class="nav-link" href="publicaciones.html">Publicaciones</a></li>
+          <li><a class="nav-link" href="publicaciones.jsp">Publicaciones</a></li>
           <li class="dropdown"><a href="#"><span>In case</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
               <li><a href="#">Drop Down 1</a></li>
