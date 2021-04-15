@@ -5,47 +5,54 @@ import java.sql.Timestamp;
 public class Usuario {
 	
 	//Atributos
-	private int UsuarioID;
-	private String Usuario;
-	private String Contrasenia;
-	private String Nombres;
-	private String Apellidos;
-	private String Email;
+	private int usuarioID;
+	private String usuario;
+	private String contrasenia;
+	private String nombres;
+	private String apellidos;
+	private String email;
 	private Timestamp fechaCreacion;
 	private Timestamp fechaModificacion;
 	private Timestamp fechaEliminacion;
 	private int estado;
 	
 	//Metodos
+	
 	public int getUsuarioID() {
-		return UsuarioID;
+		return usuarioID;
 	}
-	public void setUsuarioID(int UsuarioID) {
-		this.UsuarioID = UsuarioID;
+	public void setUsuarioID(int usuarioID) {
+		this.usuarioID = usuarioID;
 	}
 	public String getUsuario() {
-		return Usuario;
+		return usuario;
 	}
-	public void setUsuario(String Usuario) {
-		this.Usuario = Usuario;
+	public void setUsuario(String usuario) {
+		this.usuario = usuario;
 	}
 	public String getContrasenia() {
-		return Contrasenia;
+		return contrasenia;
 	}
-	public void setContrasenia(String Contrasenia) {
-		this.Contrasenia = Contrasenia;
+	public void setContrasenia(String contrasenia) {
+		this.contrasenia = contrasenia;
 	}
 	public String getNombres() {
-		return Nombres;
+		return nombres;
 	}
-	public void setNombre(String Nombres) {
-		this.Nombres = Nombres;
+	public void setNombres(String nombres) {
+		this.nombres = nombres;
 	}
 	public String getApellidos() {
-		return Apellidos;
+		return apellidos;
 	}
-	public void setApellido(String Apellidos) {
-		this.Apellidos = Apellidos;
+	public void setApellidos(String apellidos) {
+		this.apellidos = apellidos;
+	}
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
 	}
 	public Timestamp getFechaCreacion() {
 		return fechaCreacion;
@@ -65,18 +72,14 @@ public class Usuario {
 	public void setFechaEliminacion(Timestamp fechaEliminacion) {
 		this.fechaEliminacion = fechaEliminacion;
 	}
-	public String Email() {
-		return Email;
-	}
-	public void setEmail(String Email) {
-		this.Email = Email;
-	}
 	public int getEstado() {
 		return estado;
 	}
 	public void setEstado(int estado) {
 		this.estado = estado;
 	}
+	
+	
 	
 	
 	
