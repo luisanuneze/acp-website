@@ -58,7 +58,7 @@
       
         <!-- Boton de edicion-->
         <div id="button-edicion" class="button-edicion">
-          <a href="edicionSeccion.html"><button> Editar secciones</button></a>
+          <a href="edicionSeccion.jsp"><button> Editar secciones</button></a>
         </div>
         <!-- Termina boton de edicion-->
 

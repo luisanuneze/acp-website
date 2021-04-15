@@ -34,11 +34,13 @@
 
 <body>
 
-  <!-- ======= Header ======= --> 
+  <!-- ======= Header ======= -->
   <%@ include file="/menu/header.jsp" %>
   <!-- End Header -->
-  
+
+
   <main id="main">
+  
     <!-- Empty seccion for space-->
     <div id="empty" class="empty">
     </div>    
@@ -49,41 +51,32 @@
 
       <div class="container" data-aos="fade-up">  
       
-        <!-- Despliegue de filtros -->
-        <div class="">
-            Filtrar árboles por:
-            <select class="form-select" name="selecciona...">
-                <option value="value1">Valor 1</option>
-                <option value="value2">Valor 2</option>
-                <option value="value3">Valor 3</option>
-            </select>
-        </div> 
-        <!-- Termina despliegue de filtros-->
+        <div class="d-flex">
+            <div class="arboles d-flex flex-column form">
+                <img src="https://image.flaticon.com/icons/png/512/2975/2975970.png" ><hr>
+                <p>Nombre común</p>
+            </div>
+            <div class="contenido-arboles formulario">
+                <form action="">
+                    <label>Nombre común: </label>
+                    <input type="text">
+                    <label>Nombre científico: </label>
+                    <input type="text">
+                    <label>Familia: </label>
+                    <input type="text">
+                    <label>Altura:</label>
+                    <input type="text">
+                </form>
 
-        <div class="card-view">
-            <a href="edicionArboles.jsp"><div class="arboles d-flex flex-column">
-                <img src="https://image.flaticon.com/icons/png/512/2975/2975970.png" ><hr>
-                <p>Nombre común</p>
-            </div></a>
-            <a href="edicionArboles.jsp"><div class="arboles d-flex flex-column">
-                <img src="https://image.flaticon.com/icons/png/512/2975/2975970.png" ><hr>
-                <p>Nombre común</p>
-            </div></a>
-            <a href="edicionArboles.jsp"><div class="arboles d-flex flex-column">
-                <img src="https://image.flaticon.com/icons/png/512/2975/2975970.png" ><hr>
-                <p>Nombre común</p>
-            </div></a>
-            <a href="edicionArboles.jsp"><div class="arboles new-arbol d-flex flex-column">
-                <center><img src="https://www.flaticon.es/premium-icon/icons/svg/2623/2623098.svg" ><hr></center>
-                <p>Agregar nuevo árbol</p>
-            </div></a>
+            </div>
         </div>
       </div>
 
     </section>
     <!-- End Inicio Section -->
 
-  </main><!-- End #main -->
+  </main>
+  <!-- End #main -->
 
   <!-- ======= Footer ======= -->
   <%@ include file="/menu/footer.jsp" %>

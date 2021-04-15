@@ -49,7 +49,7 @@
                   <h2>Inicio de sesión</h2>
                   <div class="form-group">
                       <label for="email"> Correo:</label>
-                      <input placeholder="Ingrese su correo electrónico" type="email" class="form-control" id="email">
+                      <input placeholder="Ingrese su correo electrónico" type="text" class="form-control" id="email">
                   </div>
                   <div class="form-group">
                       <label for="pwd"> Contraseña:</label>
@@ -58,8 +58,8 @@
                   <div class="checkbox">
                       <label><input type="checkbox" id="check">  Mantener sesión iniciada </label> </br></br>
                   </div>
-                  <div class="button-iniciar"></br>
-                  	<button>Iniciar sesión</button></br></br>
+                  <div class="button-iniciar">
+                  	<button>Iniciar sesión</button></br>
 				  </div>
                   <a href="recuperacionCuenta.jsp">¿Olvidaste tu contraseña?</a>
                   

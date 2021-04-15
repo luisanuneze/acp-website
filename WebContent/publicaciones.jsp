@@ -15,6 +15,7 @@
   <!-- Favicons -->
   <link href="assets/img/logo.png" rel="icon">
   <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+  <link href="assets/fontawesome-free-5.14.0-web/css/fontawesome.min.css" rel="stylesheet">
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
@@ -34,59 +35,57 @@
 
 <body>
 
-  <!-- ======= Header ======= --> 
-  <%@ include file="/menu/header.jsp" %>
+  <!-- ======= Header ======= -->
+  <%@ include file="/menu/header.jsp"  %>
   <!-- End Header -->
-  
+
   <main id="main">
-    <!-- Empty seccion for space-->
-    <div id="empty" class="empty">
-    </div>    
-    <!-- End Empty Section -->  
-
-    <!-- ======= Inicio Section ======= -->
-    <section id="about" class="about">
-
-      <div class="container" data-aos="fade-up">  
-      
-        <!-- Despliegue de filtros -->
-        <div class="">
-            Filtrar árboles por:
-            <select class="form-select" name="selecciona...">
-                <option value="value1">Valor 1</option>
-                <option value="value2">Valor 2</option>
-                <option value="value3">Valor 3</option>
-            </select>
-        </div> 
-        <!-- Termina despliegue de filtros-->
-
-        <div class="card-view">
-            <a href="edicionArboles.jsp"><div class="arboles d-flex flex-column">
-                <img src="https://image.flaticon.com/icons/png/512/2975/2975970.png" ><hr>
-                <p>Nombre común</p>
-            </div></a>
-            <a href="edicionArboles.jsp"><div class="arboles d-flex flex-column">
-                <img src="https://image.flaticon.com/icons/png/512/2975/2975970.png" ><hr>
-                <p>Nombre común</p>
-            </div></a>
-            <a href="edicionArboles.jsp"><div class="arboles d-flex flex-column">
-                <img src="https://image.flaticon.com/icons/png/512/2975/2975970.png" ><hr>
-                <p>Nombre común</p>
-            </div></a>
-            <a href="edicionArboles.jsp"><div class="arboles new-arbol d-flex flex-column">
-                <center><img src="https://www.flaticon.es/premium-icon/icons/svg/2623/2623098.svg" ><hr></center>
-                <p>Agregar nuevo árbol</p>
-            </div></a>
-        </div>
+      <!-- Empty seccion for space-->
+      <div id="empty" class="empty">
       </div>
+      <!-- End Empty Section -->
 
-    </section>
-    <!-- End Inicio Section -->
+      <!-- ======= Inicio Section ======= -->
+      <section id="about" class="about">
 
-  </main><!-- End #main -->
+          <div class="container" data-aos="fade-up">
+
+              <div class="publicaciones">
+
+                  <div class="content div-publicaciones">
+                      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/PDF_file_icon.svg/833px-PDF_file_icon.svg.png">
+                      <div id="Content-publicacion" class="Content-publicacion">
+                          <h2>Investigación de especímenes descubiertos en zonas secas de la zona central de Nicaragua</h2>
+                      </div>
+                  </div>
+
+                  <div class="content div-publicaciones">
+                      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/PDF_file_icon.svg/833px-PDF_file_icon.svg.png">
+                      <div id="Content-publicacion" class="Content-publicacion">
+                          <h2>Recopilación de ejecución de brigadas enfocadas en salvaguardar la flora del Atlántico Norte</h2>
+                      </div>
+                  </div>
+
+              </div>
+
+              <!-- Boton anadir publicacion-->
+                  <div id="button-anadirpub" class="button-anadirpub">
+                      <a href="#"><button> Añadir nueva publicación</button></a>
+                  </div>
+          </div>
+
+          <!-- <div class="col-lg-6 d-flex align-items-center" data-aos="zoom-out" data-aos-delay="200">
+              <img src="assets/img/about.jpg" class="img-fluid" alt="">
+          </div> -->
+          </div>
+      </section>
+      <!-- End Inicio Section -->
+
+  </main>
+  <!-- End #main -->
 
   <!-- ======= Footer ======= -->
-  <%@ include file="/menu/footer.jsp" %>
+  <%@ include file="/menu/footer.jsp"  %>
   <!-- End Footer -->
 
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
