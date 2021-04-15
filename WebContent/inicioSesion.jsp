@@ -36,7 +36,7 @@
 
   <main id="main">
   
-  	  <!-- Inicio de sesion -->
+  	  <!-- Inicio de sesion --> 
       <div id="section-login" class="section-login">
       
   		  <!-- Seccion del banner -->

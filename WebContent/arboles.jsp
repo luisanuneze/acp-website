@@ -33,11 +33,10 @@
 
 <body>
 
-  <!-- ======= Header ======= -->
+  <!-- ======= Header ======= --> 
   <%@ include file="/menu/header.jsp" %>
   <!-- End Header -->
-
-
+  
   <main id="main">
     <!-- Empty seccion for space-->
     <div id="empty" class="empty">
