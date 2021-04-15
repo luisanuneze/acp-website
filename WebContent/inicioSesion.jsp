@@ -37,31 +37,31 @@
   <main id="main">
   
   	  <!-- Inicio de sesion --> 
-      <div id="section-login" class="section-login">
+      <div id="section-login" class="section-login row">
       
   		  <!-- Seccion del banner -->
   		  <%@ include file="/menu/banner.jsp" %>
       	  <!-- Finaliza seccion del banner -->
           
           <!-- Formulario de inicio de sesion -->
-          <div id="formulario" class="formulario">
-              <form action="index.jsp">
+          <div id="formulario" class="formulario col">
+              <form action="index.jsp" class="col">
                   <h2>Inicio de sesión</h2>
                   <div class="form-group">
                       <label for="email"> Correo:</label>
-                      <input placeholder="Ingrese su correo electrónico" type="text" class="form-control" id="email">
+                      <input  placeholder="Ingrese su correo electrónico" type="text" class="form-control w-100" id="email">
                   </div>
                   <div class="form-group">
                       <label for="pwd"> Contraseña:</label>
-                      <input placeholder="Ingrese su contraseña" type="password" class="form-control" id="pwd">
+                      <input placeholder="Ingrese su contraseña" type="password" class="form-control w-100" id="pwd">
                   </div>
                   <div class="checkbox">
                       <label><input type="checkbox" id="check">  Mantener sesión iniciada </label> </br></br>
                   </div>
                   <div class="button-iniciar">
                   	<button>Iniciar sesión</button></br>
-				  </div>
                   <a href="recuperacionCuenta.jsp">¿Olvidaste tu contraseña?</a>
+				  </div>
                   
                   <!-- <br><br><br><h4><strong>Seguimos trabajando, <br> para mejorar su servicio</strong></h4>
                   <img style="width: 120px; align-items: center;" src="https://www.movilring.com/wp-content/uploads/2018/07/1.png"> -->

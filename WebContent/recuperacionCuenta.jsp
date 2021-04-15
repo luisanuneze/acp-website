@@ -36,23 +36,23 @@
   <main id="main">
   
      <!-- Inicio de sesion --> 
-     <div id="section-login" class="section-login">
+     <div id="section-login" class="section-login row">
      
     	 <!-- Seccion del banner -->
 	  	 <%@ include file="/menu/banner.jsp" %>
    	 	 <!-- Finaliza seccion del banner -->
      
          <!-- Formulario de inicio de sesion -->
-         <div id="formulario" class="formulario">
-             <form action="index.jsp">
+         <div id="formulario" class="formulario col">
+             <form action="index.jsp" class="col">
                  <h2>Recuperación de contraseña</h2>
                  <div class="form-group">
                      <label for="email"> Correo:</label>
-                     <input placeholder="Ingrese su correo electrónico" type="email" class="form-control" id="email">
+                     <input placeholder="Ingrese su correo electrónico" type="email" class="form-control w-100" id="email">
                  </div>
                  
                  <div class="button-iniciar">
-                 	<button>Confirmar</button></br>
+                 	<button>Confirmar</button>
                  </div>
 
                  <!-- <br><br><br><h4><strong>Seguimos trabajando, <br> para mejorar su servicio</strong></h4>
