@@ -25,7 +25,7 @@
           <li><a class="nav-link" href="publicaciones.jsp">Publicaciones</a></li>
           <li class="dropdown"><a href="#"><span>Seguridad</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
-              <li><a href="tblUsuarios.jsp">Usuarios</a></li>
+              <li><a class="nav-link" href="tblUsuarios.jsp">Usuarios</a></li>
               <!--<li class="dropdown"><a href="#"><span>Deep Drop Down</span> <i class="bi bi-chevron-right"></i></a>
                 <ul>
                   <li><a href="#">Deep Drop Down 1</a></li>
@@ -35,8 +35,8 @@
                   <li><a href="#">Deep Drop Down 5</a></li>
                 </ul>
               </li> -->
-              <li><a href="tblRol.jsp">Roles</a></li>
-              <li><a href="tblOpciones.jsp">Opciones</a></li>
+              <li><a class="nav-link" href="tblRol.jsp">Roles</a></li>
+              <li><a class="nav-link" href="tblOpciones.jsp">Opciones</a></li>
             </ul>
           </li>
           <li><a class="nav-link scrollto" href="#contact">Contact</a></li>

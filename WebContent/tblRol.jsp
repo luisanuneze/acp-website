@@ -85,7 +85,7 @@
                         <div class="card-body">
                         	<div align="right">
                         		<h7> | </h7>
-                        		<a href="rolOpc.jsp">
+                        		<a href="NuevoRol.jsp">
                         			<h7 class="fas fa-user-plus fa-2x" title="Registrar Nuevo Rol">Nuevo</h7>
                         		</a>
                         		<h7>    ||   </h7>
