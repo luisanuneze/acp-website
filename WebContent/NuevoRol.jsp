@@ -58,8 +58,6 @@
 
         		<form class="rol" method="post" action="./Sl_GestionRol" >
 								<!-- El valor de este input es para el Servlet opcion guardar -->
-                            	<input name="RolID" type="hidden" value="<%=r.getRolID()%>" />
-                            	<input name="opcion" type="hidden" value="2" />
                                 <div class="form-group row">
                                     <div class="col-sm-6 mb-3 mb-sm-0">
                                         <input type="text" class="form-control form-control-user" name="txtRol" id="txtRol"
