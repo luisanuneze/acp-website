@@ -136,8 +136,6 @@ public class Dt_Genero {
 						rsGenero.updateString("nombre", gen.getNombre());
 						rsGenero.updateString("descripcion", gen.getDescripcion());
 						rsGenero.updateTimestamp("fechacreacion", gen.getFechaCreacion());
-						rsGenero.updateTimestamp("fechamodificacion", gen.getFechaModificacion());
-						rsGenero.updateTimestamp("fechacreacion", gen.getFechaEliminacion());
 						rsGenero.updateInt("estado", 1);
 						rsGenero.insertRow();
 						rsGenero.moveToCurrentRow();

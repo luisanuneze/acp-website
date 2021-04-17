@@ -6,7 +6,6 @@ public class Region {
 
 	//Atributos
 	private int Estado;
-	private String Idregion;
 	private String Nombre;
 	private Timestamp FechaCreacion;
 	private Timestamp FechaModificacion;
@@ -21,12 +20,7 @@ public class Region {
 	public void setEstado(int estado) {
 		Estado = estado;
 	}
-	public String getIdregion() {
-		return Idregion;
-	}
-	public void setIdregion(String idregion) {
-		Idregion = idregion;
-	}
+	
 	public String getNombre() {
 		return Nombre;
 	}

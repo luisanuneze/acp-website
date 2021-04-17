@@ -67,7 +67,15 @@ SELECT * FROM VW_RolOpciones;
 ---=============---
 --- SCRIPT YARÓ ---
 ---=============---
+-- VW_PaisRegion --
+CREATE OR REPLACE VIEW VW_PaisRegion AS 
+SELECT pais.paisid AS "ID", pais.nombre AS "Pais", 
+pais.estado AS "Estado".
+region.nombre AS "Region"
+FROM pais, region
+WHERE pais.regionid = region.regionid;
 
+SELECT * FROM VW_PaisRegions;
 
 ---==============---
 --- SCRIPT LAURA ---

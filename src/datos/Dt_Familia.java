@@ -137,8 +137,6 @@ public class Dt_Familia {
 					rsFamilia.updateString("nombre", fam.getNombre());
 					rsFamilia.updateString("descripcion", fam.getDescripcion());
 					rsFamilia.updateTimestamp("fechacreacion", fam.getFechaCreacion());
-					rsFamilia.updateTimestamp("fechamodificacion", fam.getFechaModificacion());
-					rsFamilia.updateTimestamp("fechacreacion", fam.getFechaEliminacion());
 					rsFamilia.updateInt("estado", 1);
 					rsFamilia.insertRow();
 					rsFamilia.moveToCurrentRow();
