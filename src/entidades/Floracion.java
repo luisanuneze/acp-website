@@ -1,5 +1,5 @@
 package entidades;
-
+//cambio
 public class Floracion {
 	
 	//Atributos
