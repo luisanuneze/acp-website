@@ -41,9 +41,10 @@ public class Dt_Opciones {
 			rs = ps.executeQuery();
 			while(rs.next()){
 				Opciones opc = new Opciones();
-				opc.setOpcionesID(rs.getInt("OpcionesID"));
-				opc.setDescripcion(rs.getString("Descripcion"));
-				opc.setEstado(rs.getInt("Estado"));
+				opc.setOpcionesID(rs.getInt("opcionesID"));
+				opc.setOpcion(rs.getString("opcion"));
+				opc.setDescripcion(rs.getString("descripcion"));
+				opc.setEstado(rs.getInt("estado"));
 				listOpc.add(opc);
 			}
 		}

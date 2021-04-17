@@ -90,7 +90,7 @@
                         		</a>
                         		<h7>    ||   </h7>
                         		
-                        		<a href="rolUser.jsp">
+                        		<a href="tblRolUser.jsp">
                         			<h7 class="fas fa-user-plus fa-2x" title="Agregar rol a Usuario">Rol a Usuario</h7>
                         		</a>
                         		<h7> |</h7>

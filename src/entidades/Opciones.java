@@ -5,6 +5,7 @@ public class Opciones {
 	//Atributos
 	
 	private int OpcionesID;
+	private String Opcion;
 	private String Descripcion;
 	private int Estado;
 	
@@ -15,6 +16,12 @@ public class Opciones {
 	}
 	public void setOpcionesID(int opcionesID) {
 		OpcionesID = opcionesID;
+	}
+	public String getOpcion() {
+		return Opcion;
+	}
+	public void setOpcion(String opcion) {
+		Opcion = opcion;
 	}
 	public String getDescripcion() {
 		return Descripcion;
