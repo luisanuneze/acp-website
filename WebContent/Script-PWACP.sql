@@ -239,7 +239,8 @@ CREATE TABLE  Opciones
 (
 	 Descripcion  varchar NULL,
 	 Estado  integer NULL,
-	 OpcionesID  integer NOT NULL
+	 OpcionesID  integer NOT NULL,
+	 Opcion varchar NULL
 )
 ;
 
