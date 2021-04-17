@@ -3,41 +3,45 @@ package entidades;
 public class Floracion {
 	
 	//Atributos
-	private int FloracionID;
-	private String Nombre;
-	private String Descripcion;
-	private String Temporada;
-	private int Estado;
+	private int floracionID;
+	private String nombre;
+	private String descripcion;
+	private String temporada;
+	private int estado;
 	
 	//Metodos
+	
+	
 	public int getFloracionID() {
-		return FloracionID;
+		return floracionID;
 	}
 	public void setFloracionID(int floracionID) {
-		FloracionID = floracionID;
+		this.floracionID = floracionID;
 	}
 	public String getNombre() {
-		return Nombre;
+		return nombre;
 	}
 	public void setNombre(String nombre) {
-		Nombre = nombre;
+		this.nombre = nombre;
 	}
 	public String getDescripcion() {
-		return Descripcion;
+		return descripcion;
 	}
 	public void setDescripcion(String descripcion) {
-		Descripcion = descripcion;
+		this.descripcion = descripcion;
 	}
 	public String getTemporada() {
-		return Temporada;
+		return temporada;
 	}
 	public void setTemporada(String temporada) {
-		Temporada = temporada;
+		this.temporada = temporada;
 	}
 	public int getEstado() {
-		return Estado;
+		return estado;
 	}
 	public void setEstado(int estado) {
-		Estado = estado;
+		this.estado = estado;
 	}
+	
+
 }

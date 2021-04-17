@@ -15,6 +15,7 @@ public class Genero {
 	
 	//Metodos
 	
+	
 	public String getDescripcion() {
 		return descripcion;
 	}
@@ -57,6 +58,9 @@ public class Genero {
 	public void setGeneroID(int generoID) {
 		this.generoID = generoID;
 	}
+	
+	
+
 	
 	
 	
