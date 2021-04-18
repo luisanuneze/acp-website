@@ -130,6 +130,27 @@ WHERE distribucion.paisid = pais.paisid;
 
 SELECT * FROM VW_Distribucion;
 
+-- VW_Arbol --
+CREATE OR REPLACE VIEW VW_Arbol AS 
+SELECT arbol.arbolid AS "ID",
+arbol.nombrecientifico AS "NombreCientifico",
+arbol.nombrecomun AS "NombreComun", 
+arbol.descripcion AS "Descripcion",
+arbol.estado AS "Estado",
+familia.nombre AS "Familia",
+genero.nombre AS "Genero",
+floracion.nombre AS "EpocaFloracion",
+distribucion.nombre AS "Distribucion"
+FROM arbol, distribucion, familia, genero, floracion
+WHERE arbol.familiaid = familia.familiaid 
+AND arbol.generoid = genero.generoid
+AND arbol.floracionid = floracion.floracionid
+AND arbol.distribucionid = distribucion.distribucionid;
+
+SELECT * FROM VW_Arbol;
+
+
+
 
 -- Inserts Region --
     INSERT INTO public.region(
@@ -199,6 +220,14 @@ SELECT * FROM VW_Distribucion;
 	nombre, temporada, estado, descripcion)
 	VALUES ('Invierno HS', 'Junio 21 - Diciembre 21', 1, 'Epoca de Invierno en el Hemisferio Sur.');
 	
+	-- Inserts Arbol --
+    INSERT INTO public.arbol(
+	nombrecientifico, nombrecomun, estado, descripcion, distribucionid, familiaid, generoid, floracionid, fechacreacion)
+	VALUES ('Juglans neotropica', 'Cedro negro', 1, 'Miden 40 cm de largo por 25 cm de ancho, con 12 pares folíolos de borde aserrado y asimétricos. Requiere de suelos profundos, fértiles y bien drenados.Su madera es moderadamente pesada, se emplea para elaborar enchapes, carpintería, ebanistería fina , pisos y en construcción.', 1, 1, 1, 5, '2021-04-17');
+	
+
+	
+		
 	
 		
 ---==============---
