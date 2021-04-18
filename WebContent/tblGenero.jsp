@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1" import="entidades.Familia, datos.Dt_Familia, java.util.*;" %>
+    pageEncoding="ISO-8859-1" import="entidades.Genero, datos.Dt_Genero, java.util.*;" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -51,23 +51,23 @@
       <div class="container" data-aos="fade-up">
 
        <div>
-          <h1 class="h3 mb-2 text-gray-800">Gestión de Familias</h1><br>
+          <h1 class="h3 mb-2 text-gray-800">Gestión de Género</h1><br>
        
-          <!-- DataTables Familia -->
+          <!-- DataTables Genero -->
           <div class="card shadow mb-4">
               <div class="card-header py-3">
-                  <h4 class="m-0 font-weight-bold text-primary">Familias registradas</h4>
+                  <h4 class="m-0 font-weight-bold text-primary">Géneros registrados</h4>
               </div>
               <div class="card-body">
               	<div align="right">
               	</div>
               	
                   <div class="table-responsive">
-                      <table class="table table-bordered" id="tblFamilia" width="100%" cellspacing="0">
+                      <table class="table table-bordered" id="tblGenero" width="100%" cellspacing="0">
                       <%
-                      	ArrayList<Familia> listFamilia = new ArrayList<Familia>();
-                      	Dt_Familia dtf = new Dt_Familia();
-                      	listFamilia = dtf.listaFamiliasActivas();
+                      	ArrayList<Genero> listGenero = new ArrayList<Genero>();
+                      	Dt_Genero dtf = new Dt_Genero();
+                      	listGenero = dtf.listaGenerosActivos();
                       	
                       %>
                           <thead>
@@ -90,14 +90,14 @@
                           </tfoot>
                           <tbody>
                          		<%
-                             		for(Familia fa: listFamilia){
+                             		for(Genero ge: listGenero){
                              	%>
                              <tr>
-                                 <td><%=fa.getFamiliaID() %></td>
-                                 <td><%=fa.getNombre() %></td>
-                                 <td><%=fa.getDescripcion() %></td>
-                                 <td><%=fa.getFechaCreacion() %></td>
-                                 <td><a id="btn-edita-abrir" href="NuevaFamilia.jsp"> <i class="fas fa-edit" >Editar</i></a> 
+                                 <td><%=ge.getGeneroID() %></td>
+                                 <td><%=ge.getNombre() %></td>
+                                 <td><%=ge.getDescripcion() %></td>
+                                 <td><%=ge.getFechaCreacion() %></td>
+                                 <td><a id="btn-edita-abrir" href="NuevoGenero.jsp"> <i class="fas fa-edit" >Editar</i></a> 
                                  	<a href="#"> <i class="fas fa-trash-alt">Eliminar</i></a> 
                                  	<a href="#"> <i class="fas fa-eye">Visualizar</i>
 										</a></td>
@@ -111,7 +111,7 @@
               </div>
           </div>
           
-          <!-- Fin DataTables Familia -->
+          <!-- Fin DataTables Genero -->
           
        
        </div>

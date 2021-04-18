@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1" import="entidades.Familia, datos.Dt_Familia, java.util.*;" %>
+    pageEncoding="ISO-8859-1" import="entidades.Floracion, datos.Dt_Floracion, java.util.*;" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -51,23 +51,23 @@
       <div class="container" data-aos="fade-up">
 
        <div>
-          <h1 class="h3 mb-2 text-gray-800">Gestión de Familias</h1><br>
+          <h1 class="h3 mb-2 text-gray-800">Gestión de Floración</h1><br>
        
-          <!-- DataTables Familia -->
+          <!-- DataTables Floracion -->
           <div class="card shadow mb-4">
               <div class="card-header py-3">
-                  <h4 class="m-0 font-weight-bold text-primary">Familias registradas</h4>
+                  <h4 class="m-0 font-weight-bold text-primary">Floraciones registradas</h4>
               </div>
               <div class="card-body">
               	<div align="right">
               	</div>
               	
                   <div class="table-responsive">
-                      <table class="table table-bordered" id="tblFamilia" width="100%" cellspacing="0">
+                      <table class="table table-bordered" id="tblFloracion" width="100%" cellspacing="0">
                       <%
-                      	ArrayList<Familia> listFamilia = new ArrayList<Familia>();
-                      	Dt_Familia dtf = new Dt_Familia();
-                      	listFamilia = dtf.listaFamiliasActivas();
+                      	ArrayList<Floracion> listFloracion = new ArrayList<Floracion>();
+                      	Dt_Floracion dtf = new Dt_Floracion();
+                      	listFloracion = dtf.listaFloracionsActivos();
                       	
                       %>
                           <thead>
@@ -75,7 +75,7 @@
                                   <th>ID</th>
                                   <th>Nombre</th>
                                   <th>Descripción</th>
-                                  <th>Fecha creación</th>
+                                  <th>Temporada</th>
                                   <th>Opciones</th>
                               </tr>
                           </thead>
@@ -84,20 +84,20 @@
                                   <th>ID</th>
                                   <th>Nombre</th>
                                   <th>Descripción</th>
-                                  <th>Fecha creación</th>
+                                  <th>Temporada</th>
                                   <th>Opciones</th>
                               </tr>
                           </tfoot>
                           <tbody>
                          		<%
-                             		for(Familia fa: listFamilia){
+                             		for(Floracion flo: listFloracion){
                              	%>
                              <tr>
-                                 <td><%=fa.getFamiliaID() %></td>
-                                 <td><%=fa.getNombre() %></td>
-                                 <td><%=fa.getDescripcion() %></td>
-                                 <td><%=fa.getFechaCreacion() %></td>
-                                 <td><a id="btn-edita-abrir" href="NuevaFamilia.jsp"> <i class="fas fa-edit" >Editar</i></a> 
+                                 <td><%=flo.getFloracionID() %></td>
+                                 <td><%=flo.getNombre() %></td>
+                                 <td><%=flo.getDescripcion() %></td>
+                                 <td><%=flo.getTemporada() %></td>
+                                 <td><a id="btn-edita-abrir" href="NuevaFloracion.jsp"> <i class="fas fa-edit" >Editar</i></a> 
                                  	<a href="#"> <i class="fas fa-trash-alt">Eliminar</i></a> 
                                  	<a href="#"> <i class="fas fa-eye">Visualizar</i>
 										</a></td>
@@ -111,7 +111,7 @@
               </div>
           </div>
           
-          <!-- Fin DataTables Familia -->
+          <!-- Fin DataTables Floracion -->
           
        
        </div>
