@@ -53,9 +53,11 @@
       
         <div class="row ">
         	<!-- Cardview -->
-            <div class="arboles col-sm-2 card-view">
-                <img src="https://image.flaticon.com/icons/png/512/2975/2975970.png" ><hr>
-                <p>Nombre común</p>
+            <div class="col-sm-2 arboles card-view">
+                <div class="">
+	                <img src="https://image.flaticon.com/icons/png/512/2975/2975970.png" ><hr>
+	                <p>Nombre común</p>
+                </div>
             </div>
             <!-- Fin cardview -->
             
@@ -134,6 +136,7 @@
 	                <button> Guardar </button>
 	                <a href="arboles.jsp"><button> Regresar </button></a>
 	                </div>
+	             </div>
                 </form>
             </div>
         </div>
