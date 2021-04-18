@@ -34,6 +34,7 @@
               </li> -->
             </ul>
           </li>
+          <li><a class="nav-link" href="tblServicios.jsp">Servicios</a></li>
           <li><a class="nav-link" href="#">Mapa</a></li>
           <li><a class="nav-link" href="publicaciones.jsp">Publicaciones</a></li>
           <li class="dropdown"><a href="#"><span>Seguridad</span> <i class="bi bi-chevron-down"></i></a>
