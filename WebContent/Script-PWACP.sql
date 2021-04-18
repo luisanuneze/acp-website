@@ -6,7 +6,7 @@
 
 /* Drop Tables */
 
-DROP TABLE IF EXISTS  햞bol  CASCADE
+DROP TABLE IF EXISTS  Arbol  CASCADE
 ;
 
 DROP TABLE IF EXISTS  Banner  CASCADE
@@ -83,7 +83,7 @@ SET search_path TO pwacp;
 
 /* Create Tables */
 
-CREATE TABLE  햞bol  
+CREATE TABLE  Arbol  
 (
 	 Descripcion  varchar NULL,
 	 Estado  integer NULL,
@@ -93,7 +93,7 @@ CREATE TABLE  햞bol
 	 FechaCreacion  date NOT NULL,
 	 FechaModificacion  date NULL,
 	 FechaEliminacion  date NULL,
-	 햞bolID  integer NOT NULL,
+	 ArbolID  integer NOT NULL,
 	 DistribucionID  integer NOT NULL,
 	 FamiliaID  integer NOT NULL,
 	 GeneroID  integer NOT NULL,
@@ -228,7 +228,7 @@ CREATE TABLE  Mapa
 	 FechaModificacion  date NULL,
 	 FechaEliminacion  date NULL,
 	 MapaID  integer NOT NULL,
-	 햞bolID  integer NOT NULL,
+	 ArbolID  integer NOT NULL,
 	 SectorID  integer NOT NULL
 )
 ;
@@ -371,8 +371,8 @@ CREATE TABLE  Usuario
 
 /* Create Primary Keys, Indexes, Uniques, Checks */
 
-ALTER TABLE  햞bol  ADD CONSTRAINT  PK_햞bol 
-	PRIMARY KEY ( 햞bolID )
+ALTER TABLE  Arbol  ADD CONSTRAINT  PK_Arbol 
+	PRIMARY KEY ( ArbolID )
 ;
 
 ALTER TABLE  Banner  ADD CONSTRAINT  PK_Banner 
@@ -465,23 +465,23 @@ ALTER TABLE  Usuario  ADD CONSTRAINT  PK_Usuario
 
 /* Create Foreign Key Constraints */
 
-ALTER TABLE  햞bol  ADD CONSTRAINT  FK_햞bol_Distribucion 
+ALTER TABLE  Arbol  ADD CONSTRAINT  FK_Arbol_Distribucion 
 	FOREIGN KEY ( DistribucionID ) REFERENCES  Distribucion  ( DistribucionID ) ON DELETE No Action ON UPDATE No Action
 ;
 
-ALTER TABLE  햞bol  ADD CONSTRAINT  FK_햞bol_Familia 
+ALTER TABLE  Arbol  ADD CONSTRAINT  FK_Arbol_Familia 
 	FOREIGN KEY ( FamiliaID ) REFERENCES  Familia  ( FamiliaID ) ON DELETE No Action ON UPDATE No Action
 ;
 
-ALTER TABLE  햞bol  ADD CONSTRAINT  FK_햞bol_Genero 
+ALTER TABLE  Arbol  ADD CONSTRAINT  FK_Arbol_Genero 
 	FOREIGN KEY ( GeneroID ) REFERENCES  Genero  ( GeneroID ) ON DELETE No Action ON UPDATE No Action
 ;
 
-ALTER TABLE  햞bol  ADD CONSTRAINT  FK_햞bol_Floracion 
+ALTER TABLE  Arbol  ADD CONSTRAINT  FK_Arbol_Floracion 
 	FOREIGN KEY ( FloracionID ) REFERENCES  Floracion  ( FloracionID ) ON DELETE No Action ON UPDATE No Action
 ;
 
-ALTER TABLE  햞bol  ADD CONSTRAINT  FK_햞bol_Usuario 
+ALTER TABLE  Arbol  ADD CONSTRAINT  FK_Arbol_Usuario 
 	FOREIGN KEY ( UsuarioID ) REFERENCES  Usuario  ( UsuarioID ) ON DELETE No Action ON UPDATE No Action
 ;
 
@@ -514,8 +514,8 @@ ALTER TABLE  Info_footer  ADD CONSTRAINT  FK_Info_footer_Usuario
 	FOREIGN KEY ( UsuarioID ) REFERENCES  Usuario  ( UsuarioID ) ON DELETE No Action ON UPDATE No Action
 ;
 
-ALTER TABLE  Mapa  ADD CONSTRAINT  FK_Mapa_햞bol 
-	FOREIGN KEY ( 햞bolID ) REFERENCES  햞bol  ( 햞bolID ) ON DELETE No Action ON UPDATE No Action
+ALTER TABLE  Mapa  ADD CONSTRAINT  FK_Mapa_Arbol 
+	FOREIGN KEY ( ArbolID ) REFERENCES  Arbol  ( ArbolID ) ON DELETE No Action ON UPDATE No Action
 ;
 
 ALTER TABLE  Mapa  ADD CONSTRAINT  FK_Mapa_Sector 
