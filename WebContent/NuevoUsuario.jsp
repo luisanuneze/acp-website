@@ -57,51 +57,49 @@
         		<h2 class="form-header" style="color: black;">Registrar Nuevo Usuario</h2>
         		<br>
 
-        		<form class="user" method="post" action="./Sl_GestionUsuario">
+        		<form class="user row" method="post" action="./Sl_GestionUsuario">
         		<!-- El valor de este input es para el Servlet opcion guardar -->
-                            	<input name="opcion" type="hidden" value="1" />
-                                <div class="form-group row">
-                                    <div class="col-sm-6 mb-3 mb-sm-0">
-                                        <input type="text" class="form-control form-control-user" name="txtUserName" id="txtUserName"
-                                            placeholder="Nombre de Usuario" required>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <input type="email" class="form-control form-control-user" name="txtEmail" id="txtEmail"
-                                            placeholder="Email" required>
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <div class="col-sm-6 mb-3 mb-sm-0">
-                                        <input type="text" class="form-control form-control-user" name="txtNombres" id="txtNombres"
-                                            placeholder="Nombres" required>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <input type="password" class="form-control form-control-user" name="txtPwd" id="txtPwd"
-                                            placeholder="Contraseña" required>
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <div class="col-sm-6">
-                                    	<input type="text" class="form-control form-control-user" name="txtApellidos" id="txtApellidos"
-                                        	placeholder="Apellidos" required>
-                                	</div>
-                                    <div class="col-sm-6">
-                                        <input type="password" class="form-control form-control-user" name="txtPwd2"
-                                            id="txtPwd2" placeholder="Repetir Contraseña">
-                                    </div>
-                                </div>
-                                <!-- <a href="login.html" class="btn btn-primary btn-user btn-block">
-                                    Register Account
-                                </a> 
-                                <hr>
-                                <a href="index.html" class="btn btn-google btn-user btn-block">
-                                    <i class="fab fa-google fa-fw"></i> Register with Google
-                                </a>
-                                <a href="index.html" class="btn btn-facebook btn-user btn-block">
-                                    <i class="fab fa-facebook-f fa-fw"></i> Register with Facebook
-                                </a>-->
-                                
-                            </form>
+                	<input name="opcion" type="hidden" value="1" />
+                    <div class="form-group col-sm-6">
+                        <div class="col-sm-12 mb-3 mb-sm-0">
+                            <input type="text" class="form-control form-control-user" name="txtUserName" id="txtUserName"
+                                placeholder="Nombre de Usuario" required>
+                        </div>
+                        <div class="col-sm-12 mb-3 mb-sm-0">
+                            <input type="text" class="form-control form-control-user" name="txtNombres" id="txtNombres"
+                                placeholder="Nombres" required>
+                        </div>
+                        <div class="col-sm-12 mb-3 mb-sm-0">
+                        	<input type="text" class="form-control form-control-user" name="txtApellidos" id="txtApellidos"
+                            	placeholder="Apellidos" required>
+                    	</div>
+                    </div>
+                    <div class="form-group col-sm-6">
+                        <div class="col-sm-12 mb-3 mb-sm-0">
+                            <input type="email" class="form-control form-control-user" name="txtEmail" id="txtEmail"
+                                placeholder="Email" required>
+                        </div>
+                        <div class="col-sm-12 mb-3 mb-sm-0">
+                            <input type="password" class="form-control form-control-user" name="txtPwd" id="txtPwd"
+                                placeholder="Contraseña" required>
+                        </div>
+                        <div class="col-sm-12 mb-3 mb-sm-0">
+                            <input type="password" class="form-control form-control-user" name="txtPwd2"
+                                id="txtPwd2" placeholder="Repetir Contraseña">
+                        </div>
+                    </div>
+                    <!-- <a href="login.html" class="btn btn-primary btn-user btn-block">
+                        Register Account
+                    </a> 
+                    <hr>
+                    <a href="index.html" class="btn btn-google btn-user btn-block">
+                        <i class="fab fa-google fa-fw"></i> Register with Google
+                    </a>
+                    <a href="index.html" class="btn btn-facebook btn-user btn-block">
+                        <i class="fab fa-facebook-f fa-fw"></i> Register with Facebook
+                    </a>-->
+                    
+                </form>
 
         <br>
 
