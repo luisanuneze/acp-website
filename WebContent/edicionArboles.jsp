@@ -51,23 +51,90 @@
 
       <div class="container" data-aos="fade-up">  
       
-        <div class="d-flex">
-            <div class="arboles d-flex flex-column form">
+        <div class="row ">
+        	<!-- Cardview -->
+            <div class="arboles col-sm-2 card-view">
                 <img src="https://image.flaticon.com/icons/png/512/2975/2975970.png" ><hr>
                 <p>Nombre común</p>
             </div>
-            <div class="contenido-arboles formulario">
-                <form action="">
-                    <label>Nombre común: </label>
-                    <input type="text">
-                    <label>Nombre científico: </label>
-                    <input type="text">
-                    <label>Familia: </label>
-                    <input type="text">
-                    <label>Altura:</label>
-                    <input type="text">
+            <!-- Fin cardview -->
+            
+            <!-- Formulario arboles -->
+            <div class="contenido-arboles formulario col-sm-10">
+                <form action="arboles.jsp" class="row">
+                  <div class="row">
+	                <div class="form-group col-sm-6">
+	                	<div class="col-sm-12">
+                            Nombre común: 
+                            <div class="col-sm-12">
+                            <input type="text" class="form-control" name="" id=""
+                                placeholder="Nombre común" required>
+                            </div>
+                        </div>
+	                	<div class="col-sm-12">
+                            Nombre científico: 
+                            <div class="col-sm-12">
+                            <input type="text" class="form-control" name="" id=""
+                                placeholder="Nombre científico" required>
+                            </div>
+                        </div>
+	                	<div class="col-sm-12">
+                            Género: 
+                            <div class="col-sm-10">
+                            	<select class="form-select" name="selecciona...">
+                                 <option value="value1">Valor 1</option>
+                                 <option value="value2">Valor 2</option>
+                                 <option value="value3">Valor 3</option>
+                                </select>
+                            </div> <br>
+                        </div>
+	                </div>
+	                
+	                <div class="form-group col-sm-6">
+	                	<div class="col-sm-12">
+                            Familia: 
+                            <div class="col-sm-12">
+                            	<select class="form-select" name="selecciona...">
+                                 <option value="value1">Valor 1</option>
+                                 <option value="value2">Valor 2</option>
+                                 <option value="value3">Valor 3</option>
+                                </select>
+                            </div> <br>
+                        </div>
+	                	<div class="col-sm-12">
+                            Floración: 
+                            <div class="col-sm-12">
+                            	<select class="form-select" name="selecciona...">
+                                 <option value="value1">Valor 1</option>
+                                 <option value="value2">Valor 2</option>
+                                 <option value="value3">Valor 3</option>
+                                </select>
+                            </div> <br>
+                        </div>
+	                	<div class="col-sm-12">
+                            Distribución: 
+                            <div class="col-sm-12">
+                            	<select class="form-select" name="selecciona...">
+                                 <option value="value1">Valor 1</option>
+                                 <option value="value2">Valor 2</option>
+                                 <option value="value3">Valor 3</option>
+                                </select>
+                            </div> <br>
+                        </div>
+	                </div>
+	                <div class="form-group col-sm-12">
+	                	Descripción:
+						<div class="col-sm-12">
+              				<textarea class="form-control" name="message" rows="6" placeholder="Descripción" required></textarea>
+			            </div> <br>
+	               </div>
+                    
+	                <!-- Botones -->
+	                <div class="col-md-10 button-iniciar">
+	                <button> Guardar </button>
+	                <a href="arboles.jsp"><button> Regresar </button></a>
+	                </div>
                 </form>
-
             </div>
         </div>
       </div>
