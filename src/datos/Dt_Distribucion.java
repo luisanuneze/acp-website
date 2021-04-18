@@ -21,11 +21,11 @@ public class Dt_Distribucion {
 			// Metodo para llenar el ResultSet
 			public void llenaRsDistribucion(Connection c){
 				try{
-					ps = c.prepareStatement("select * from public.pais", ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE, ResultSet.HOLD_CURSORS_OVER_COMMIT);
+					ps = c.prepareStatement("select * from public.distribucion", ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE, ResultSet.HOLD_CURSORS_OVER_COMMIT);
 					rsDistribucion = ps.executeQuery();
 				}
 				catch (Exception e){
-					System.out.println("DATOS: ERROR EN LISTAR PAIS "+ e.getMessage());
+					System.out.println("DATOS: ERROR EN LISTAR Distribucion "+ e.getMessage());
 					e.printStackTrace();
 				}
 			}

@@ -239,3 +239,58 @@ SELECT * FROM VW_Arbol;
 --- SCRIPT LUISA ---
 ---==============---
 
+--- Inserts Servicios ---
+INSERT INTO public.servicios(
+	nombre, foto, descripcion, fechacreacion, estado)
+	VALUES ('Venta de semillas', 'imagen.png', 
+			'Ofrecemos una gran variedad de semillas...', '2021-04-18 00:00:00',1);
+
+INSERT INTO public.servicios(
+	nombre, foto, descripcion, fechacreacion, estado)
+	VALUES ('Visitas Guiadas', 'imagen.png', 
+			'Ofrecemos un servicio de recorrido dentro...', '2021-04-18 00:00:00',1);
+	
+INSERT INTO public.servicios(
+	nombre, foto, descripcion, fechacreacion, estado)
+	VALUES ('Charlas', 'imagen.png', 
+			'Como parte de nuestros servicios, damos...', '2021-04-18 00:00:00',1);
+	
+SELECT * FROM servicios;
+
+--- Inserts Tipo Producto ---
+
+INSERT INTO public.tipoproducto(
+	tipoproducto, descripcion, fechacreacion, estado)
+	VALUES ('Semilla de flor', 'Semillas que germinan flores', 
+			'2021-04-18 00:00:00', 1);
+
+INSERT INTO public.tipoproducto(
+	tipoproducto, descripcion, fechacreacion, estado)
+	VALUES ('Semilla de arbol', 'Semillas que germinan arboles', 
+			'2021-04-18 00:00:00', 1);
+
+SELECT * FROM tipoproducto;
+
+--- Inserts Catalogo de Productos ---
+
+INSERT INTO public.catalogodeproductos(
+	nombre, tipoproductoid, foto, descripcion,fechacreacion, estado)
+	VALUES ('Semilla de Marango', 2, 'imagen.png', 'Semilla del Arbol de Marango, que...',
+			'2021-04-18 00:00:00', 1);
+
+INSERT INTO public.catalogodeproductos(
+	nombre, tipoproductoid, foto, descripcion,fechacreacion, estado)
+	VALUES ('Semilla de Girasol', 1, 'imagen.png', 'Semilla de flor de Girasol, que...',
+			'2021-04-18 00:00:00', 1);
+
+SELECT * FROM catalogodeproductos;
+
+CREATE OR REPLACE VIEW VW_Productos AS
+SELECT catalogodeproductos.catalogodeproductosid AS "ID", catalogodeproductos.nombre AS "Nombre",
+tipoproducto.tipoproducto AS "TipoProducto", catalogodeproductos.foto AS "Foto", catalogodeproductos.descripcion AS "Descripcion",
+catalogodeproductos.estado AS "Estado"
+FROM catalogodeproductos, tipoproducto
+WHERE catalogodeproductos.tipoproductoid = tipoproducto.tipoproductoid;
+
+SELECT * FROM VW_Productos;
+
