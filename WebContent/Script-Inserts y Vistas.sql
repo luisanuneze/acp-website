@@ -7,6 +7,14 @@ INSERT INTO public.usuario(
 	apellidos, contrasenia, email, estado, nombres, usuario, fechacreacion)
 	VALUES ('Saldivar', 1234, 'iris@gmail.com', 1, 'Iris', 'iriS', '2021-04-16');
 	
+INSERT INTO public.usuario(
+	apellidos, contrasenia, email, estado, nombres, usuario, fechacreacion)
+	VALUES ('Cordero Montoya', 1234, 'armamo@gmail.com', 1, 'Armando Ernesto', 'Aecm', '2021-04-18');
+	
+INSERT INTO public.usuario(
+	apellidos, contrasenia, email, estado, nombres, usuario, fechacreacion)
+	VALUES ('Berríos', 1234, 'mabx@gmail.com', 1, 'Marcos', 'mabx11', '2021-04-18');
+	
 SELECT * FROM usuario;
 
 -- Inserts Rol --
@@ -14,6 +22,15 @@ INSERT INTO public.rol(
 	rol, roldescripcion, fechacreacion, estado)
 	VALUES ('Administrador', 'Encargado de gestionar todo el Portal Web', '2020-04-01', 1);
 
+INSERT INTO public.rol(
+	rol, roldescripcion, fechacreacion, estado)
+	VALUES ('Sub-administrador', 'Encargado de gestionar todo el Portal Web excepto la Seguridad', '2020-04-18', 1);
+
+INSERT INTO public.rol(
+	rol, roldescripcion, fechacreacion, estado)
+	VALUES ('Pasante', 'Tiene ciertos permisos de gestion del Portal', '2020-04-18', 1);
+
+	
 SELECT * FROM rol;
 
 -- Inserts Opciones --
@@ -21,6 +38,14 @@ INSERT INTO public.opciones(
 	opcion, descripcion, estado)
 	VALUES ('tblUsuarios.jsp', 'Interfaz que controla la gestion de Usuarios', 1);
 
+INSERT INTO public.opciones(
+	opcion, descripcion, estado)
+	VALUES ('tblRol.jsp', 'Interfaz que controla la gestion de Roles', 1);
+
+INSERT INTO public.opciones(
+	opcion, descripcion, estado)
+	VALUES ('tblOpciones.jsp', 'Interfaz que lista las Opcioens del portal', 1);
+	
 SELECT * FROM opciones;
 
 ---===============---
@@ -31,6 +56,14 @@ SELECT * FROM opciones;
 INSERT INTO public.rol_usuario(
 	usuarioid, rolid, fechacreacion)
 	VALUES (1, 1, '2021-04-16');
+	
+INSERT INTO public.rol_usuario(
+	usuarioid, rolid, fechacreacion)
+	VALUES (2, 3, '2021-04-18');
+	
+INSERT INTO public.rol_usuario(
+	usuarioid, rolid, fechacreacion)
+	VALUES (3, 2, '2021-04-18');
 
 SELECT * FROM rol_usuario;
 
@@ -38,6 +71,14 @@ SELECT * FROM rol_usuario;
 INSERT INTO public.rol_opciones(
 	rolid, opcionesid, fechacreacion)
 	VALUES (1, 1, '2021-04-16');
+	
+INSERT INTO public.rol_opciones(
+	rolid, opcionesid, fechacreacion)
+	VALUES (1, 2, '2021-04-18');
+	
+INSERT INTO public.rol_opciones(
+	rolid, opcionesid, fechacreacion)
+	VALUES (1, 3, '2021-04-18');
 
 SELECT * FROM rol_opciones;
 

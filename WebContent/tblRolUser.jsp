@@ -21,6 +21,9 @@
   <link href="assets/img/logo.png" rel="icon">
   <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
+  <!-- Custom fonts for this template -->
+  <link href="assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 
@@ -84,14 +87,10 @@
                         </div>
                         <div class="card-body">
                         	<div align="right">
-                        		<h7> | </h7>
-                        		<a href="NuevoRolUser.jsp">
-                        			<h7 class="fas fa-user-plus fa-2x" title="Asignar Rol a Usuario">Nuevo</h7>
-                        		</a>
-                        		<h7>    
+                        		  
                         		&nbsp;&nbsp;
                         		<!-- Button trigger modal -->
-                        		<a href="#" data-toggle="modal" data-target="#modalNewRolUser">
+                        		<a href="NuevoRolUser.jsp" data-toggle="modal" data-target="#modalNuevoRolUser">
                         			<i class="fas fa-plus-square fa-2x" title="Registrar Nuevo Rol a Usuario"></i>
                         		</a>
                         		<!-- FIN Button trigger modal -->
@@ -188,6 +187,12 @@
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
             
+    <!-- Bootstrap core JavaScript-->
+    <script src="assets/vendor/jquery/jquery.min.js"></script>
+    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="assets/vendor/jquery-easing/jquery.easing.min.js"></script>
 
 <!-- DATATABLE -->
 <script src="DataTables/DataTables-1.10.21/js/jquery.dataTables.js"></script>
@@ -213,7 +218,7 @@
         $('#tblRolUser').DataTable({
             dom: 'Bfrtip',
             buttons: [
-//             'pdf',
+            'pdf',
             'excel',
             'print'
             ]

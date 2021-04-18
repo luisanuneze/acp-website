@@ -23,6 +23,10 @@
 <link href="assets/img/logo.png" rel="icon">
 <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
+<!-- Custom fonts for this template -->
+  <link href="assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+
+
 <!-- Google Fonts -->
 <link
 	href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
@@ -89,9 +93,9 @@
 
 					<div class="card-body">
 						<div align="right">
-							<h7> | </h7>
-							<a href="tblRolOpc.jsp"> <h7 class="fas fa-user-plus fa-2x"
-									title="Retornar a la pagina anterior">Volver</h7>
+							
+							<a href="tblRolOpc.jsp"> <h7 class="fas fa-arrow-left fa-2x"
+									title="Retornar a la pagina anterior"></h7>
 							</a>
 
 						</div>
@@ -142,11 +146,11 @@
 								</div>
 								<hr>
 								<div class="text-center">
-									<input class="btn btn-primary btn-user btn-block" type="submit"
+									<input style="background-color:#0e203f; color:white" class="btn btn-primary btn-user btn-block" type="submit"
 										value="Guardar" />
-								</div>
-								<div class="text-center">
-									<input class="btn btn-google btn-user btn-block" type="reset"
+								
+								
+									<input style="background-color:#0e203f; color:white" class="btn btn-google btn-user btn-block" type="reset"
 										value="Cancelar" />
 								</div>
 							</form>

@@ -101,8 +101,8 @@
 
 				<!-- Botones -->
 				<div class="col-md-6">
-					<button>Actualizar</button>
-					<a href="tblRol.jsp"><button>Regresar</button></a>
+					<button style="background-color:#0e203f; color:white"> Actualizar </button>
+                    <a href="tblRol.jsp"><button style="background-color:#0e203f; color:white"> Regresar </button></a>
 				</div>
 
 			</div>

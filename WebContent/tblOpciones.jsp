@@ -20,7 +20,10 @@
   <!-- Favicons -->
   <link href="assets/img/logo.png" rel="icon">
   <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
-
+  
+  <!-- Custom fonts for this template -->
+  <link href="assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+   
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 
@@ -83,18 +86,11 @@
                         </div>
                         <div class="card-body">
                         	<div align="right">
-                        		<a href="NuevoRol.jsp">
-                        			<i class="fas fa-user-plus fa-2x" title="Registrar Nuevo Rol"></i>
-                        		</a>
-                        		&nbsp;&nbsp;
-                        		<!-- Button trigger modal -->
-                        		<a href="#" data-toggle="modal" data-target="#modalNewUser">
-                        			<i class="fas fa-plus-square fa-2x" title="Registrar Nuevo Rol"></i>
-                        		</a>
-                        		<!-- FIN Button trigger modal -->
+                        		
+                        		
                         		&nbsp;&nbsp;
                         		<a href="#">
-                        			<i class="fas fa-print fa-2x" title="Imprimir Lista de Roles Activos"></i>
+                        			<i class="fas fa-print fa-2x" title="Imprimir Lista de Opciones Activas"></i>
                         		</a>
                         		
                         	</div>
@@ -112,7 +108,7 @@
                                             <th>ID</th>
                                             <th>Opciones</th>
                                             <th>Estado</th>
-                                            <th>Opciones</th>
+                                            <!--<th>Opciones</th>-->
                                         </tr>
                                     </thead>
                                     <tfoot>
@@ -120,7 +116,7 @@
                                            	<th>ID</th>
                                             <th>Opciones</th>
                                             <th>Estado</th>
-                                            <th>Opciones</th>
+                                            <!--<th>Opciones</th>-->
                                         </tr>
                                     </tfoot>
                                     <tbody>
@@ -131,7 +127,7 @@
                                            <td><%=opc.getOpcionesID() %></td>
                                            <td><%=opc.getDescripcion() %></td>
                                            <td><%=opc.getEstado()==1||opc.getEstado()==2?"ACTIVO":"INACTIVO" %></td>
-                                           <td>
+                                           <!--<td>
                                            		<a id="btn-edita-abrir" href="editRol.jsp?OpcionesID=<%=opc.getOpcionesID()%>">
                         							<i class="fas fa-edit" title="Modificar datos del Rol"></i>
                         						</a>
@@ -142,7 +138,7 @@
                         							<i class="fas fa-eye" title="Visualizar Rol"></i>
                         						</a>
                                            
-                                           </td>
+                                           </td> -->
                                        </tr>
                                        		<%
                                        		}
@@ -179,6 +175,12 @@
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
             
+  <!-- Bootstrap core JavaScript-->
+  <script src="assets/vendor/jquery/jquery.min.js"></script>
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Core plugin JavaScript-->
+  <script src="assets/vendor/jquery-easing/jquery.easing.min.js"></script>
 
 <!-- DATATABLE -->
 <script src="DataTables/DataTables-1.10.21/js/jquery.dataTables.js"></script>
@@ -204,7 +206,7 @@
         $('#tblUsers').DataTable({
             dom: 'Bfrtip',
             buttons: [
-//             'pdf',
+             'pdf',
             'excel',
             'print'
             ]

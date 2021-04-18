@@ -23,6 +23,9 @@
 <link href="assets/img/logo.png" rel="icon">
 <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
+<!-- Custom fonts for this template -->
+<link href="assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+
 <!-- Google Fonts -->
 <link
 	href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
@@ -94,15 +97,7 @@
 					</div>
 					<div class="card-body">
 						<div align="right">
-							<h7> | </h7>
-							<a href="NuevoRol.jsp"> <h7 class="fas fa-rol-plus fa-2x"
-									title="Registrar Nuevo Rol">Nuevo</h7>
-							</a>
-							<h7> || </h7>
-							<a href="tblRolOpc.jsp"> <h7 class="fas fa-opcrol fa-2x"
-									title="Agregar Opcion a Rol">Opción a Rol</h7>
-							</a>
-							<h7> |</h7>
+							
 							&nbsp;&nbsp;
 							<!-- Button trigger modal -->
 							<a href="NuevoRol.jsp" data-toggle="modal" data-target="#modalNuevoRol">
@@ -111,6 +106,10 @@
 							<!-- FIN Button trigger modal -->
 							&nbsp;&nbsp; <a href="#"> <i class="fas fa-print fa-2x"
 								title="Imprimir Lista de Roles Activos"></i>
+							</a>
+							
+							<a href="tblRolOpc.jsp"> 
+							<button style="background-color:#0e203f; color:white"> Opcion a Rol </button>
 							</a>
 
 						</div>
@@ -150,9 +149,9 @@
 										<td><%=r.getEstado()==1||r.getEstado()==2?"ACTIVO":"INACTIVO" %></td>
 										<td><a id="btn-edita-abrir"
 											href="EditarRol.jsp?rolID=<%=r.getRolID()%>"> <i
-												class="fas fa-edit" title="Modificar datos del Rol">Editar</i>
+												class="fas fa-edit" title="Modificar datos del Rol"></i>
 										</a> <a href="#"> <i class="fas fa-trash-alt"
-												title="Eliminar Rol">Eliminar</i>
+												title="Eliminar Rol"></i>
 										</a> <a href="#"> <i class="fas fa-eye" title="Visualizar Rol"></i>
 										</a></td>
 									</tr>
@@ -193,7 +192,14 @@
 
 	<!-- Template Main JS File -->
 	<script src="assets/js/main.js"></script>
+	
+	<!-- Bootstrap core JavaScript-->
+    <script src="assets/vendor/jquery/jquery.min.js"></script>
+    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
+    <!-- Core plugin JavaScript-->
+    <script src="assets/vendor/jquery-easing/jquery.easing.min.js"></script>
+	
 
 	<!-- DATATABLE -->
 	<script src="DataTables/DataTables-1.10.21/js/jquery.dataTables.js"></script>
@@ -218,7 +224,7 @@
 			$('#tblRol').DataTable({
 				dom : 'Bfrtip',
 				buttons : [
-				//             'pdf',
+				             'pdf',
 				'excel', 'print' ]
 
 			});
