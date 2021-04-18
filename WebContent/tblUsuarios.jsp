@@ -107,7 +107,7 @@
 							</a>
 							<!-- FIN Button trigger modal -->
 							&nbsp;&nbsp; <a href="#"> <i class="fas fa-print fa-2x"
-								title="Imprimir Lista de Roles Activos"></i>
+								title="Imprimir Lista de Usuarios Activos"></i>
 							</a> 
 							<a href="tblRolUser.jsp">
 								<button style="background-color: #0e203f; color: white">
