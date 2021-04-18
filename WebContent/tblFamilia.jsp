@@ -13,6 +13,9 @@
   <!-- Favicons -->
   <link href="assets/img/logo.png" rel="icon">
   <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+  
+  <!-- Custom fonts for this template -->
+  <link href="assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
@@ -46,34 +49,9 @@
     <section id="about" class="about">
 
       <div class="container" data-aos="fade-up">
- 
-   		<h2 class="form-header" style="color: black;">Registrar Nueva Familia</h2>
-   		<br>
-			<form action="forms/contact.php" method="post" class="php-email-form">
-	          <div class="row gy-4">
-	            <div class="col-md-12">
-	              <input type="text" class="form-control" placeholder="Nombre" required>
-	            </div>
-	
-	            <div class="col-md-12">
-	              <textarea class="form-control" name="message" rows="6" placeholder="Descripción" required></textarea>
-	            </div>
-	          </div>
-        	</form>
-
-        <br>
-        
-         <!-- Botones -->
-        <div class="button-formulario">
-          <button> Limpiar </button>
-          <button> Guardar </button>
-          <a href="index.jsp"><button> Regresar </button></a>
-          <button> Eliminar </button>
-        </div>
-        
-        <br><br><br>
 
        <div>
+          <h1 class="h3 mb-2 text-gray-800">Gestión de Familias</h1><br>
        
           <!-- DataTables Familia -->
           <div class="card shadow mb-4">
@@ -98,7 +76,7 @@
                                   <th>Nombre</th>
                                   <th>Descripcion</th>
                                   <th>Creacion</th>
-                                  <th>Modificacion</th>
+                                  <th>Opciones</th>
                               </tr>
                           </thead>
                           <tfoot>
@@ -107,7 +85,7 @@
                                   <th>Nombre</th>
                                   <th>Descripcion</th>
                                   <th>Creacion</th>
-                                  <th>Modificacion</th>
+                                  <th>Opciones</th>
                               </tr>
                           </tfoot>
                           <tbody>
@@ -119,7 +97,10 @@
                                  <td><%=fa.getNombre() %></td>
                                  <td><%=fa.getDescripcion() %></td>
                                  <td><%=fa.getFechaCreacion() %></td>
-                                 <td><%=fa.getFechaModificacion() %></td>
+                                 <td><a id="btn-edita-abrir" href="index.jsp"> <i class="fas fa-edit" >Editar</i></a> 
+                                 	<a href="#"> <i class="fas fa-trash-alt">Eliminar</i></a> 
+                                 	<a href="#"> <i class="fas fa-eye">Visualizar</i>
+										</a></td>
                              </tr>
                              		<%
                              		}
