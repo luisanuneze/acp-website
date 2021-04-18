@@ -43,9 +43,9 @@ public class Dt_Region {
 						reg.setRegionID(rs.getInt("regionID"));
 						reg.setNombre(rs.getString("nombre"));
 						reg.setEstado(rs.getInt("estado"));
-						reg.setFechaCreacion(rs.getTimestamp("fechacreacion"));
-						reg.setFechaModificacion(rs.getTimestamp("fechamodificacion"));
-						reg.setFechaEliminacion(rs.getTimestamp("fechaeliminacion"));
+						reg.setFechaCreacion(rs.getTimestamp("fechaCreacion"));
+						reg.setFechaModificacion(rs.getTimestamp("fechaModificacion"));
+						reg.setFechaEliminacion(rs.getTimestamp("fechaEliminacion"));
 						listRegion.add(reg);
 					}
 				}
@@ -131,7 +131,7 @@ public class Dt_Region {
 								rsRegion.moveToInsertRow();
 //								rsUsuario.updateInt("UsuarioID", 2);
 								rsRegion.updateString("nombre", reg.getNombre());
-								rsRegion.updateTimestamp("fechacreacion", reg.getFechaCreacion());
+								rsRegion.updateTimestamp("fechaCreacion", reg.getFechaCreacion());
 								rsRegion.updateInt("estado", 1);
 								rsRegion.insertRow();
 								rsRegion.moveToCurrentRow();

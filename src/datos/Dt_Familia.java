@@ -47,9 +47,9 @@ public class Dt_Familia {
 						fam.setNombre(rs.getString("nombre"));
 						fam.setDescripcion(rs.getString("descripcion"));
 						fam.setEstado(rs.getInt("estado"));
-						fam.setFechaCreacion(rs.getTimestamp("fechacreacion"));
-						fam.setFechaModificacion(rs.getTimestamp("fechamodificacion"));
-						fam.setFechaEliminacion(rs.getTimestamp("fechaeliminacion"));
+						fam.setFechaCreacion(rs.getTimestamp("fechaCreacion"));
+						fam.setFechaModificacion(rs.getTimestamp("fechaModificacion"));
+						fam.setFechaEliminacion(rs.getTimestamp("fechaEliminacion"));
 						listFamilia.add(fam);
 					}
 				}
@@ -136,7 +136,7 @@ public class Dt_Familia {
 //					rsUsuario.updateInt("UsuarioID", 2);
 					rsFamilia.updateString("nombre", fam.getNombre());
 					rsFamilia.updateString("descripcion", fam.getDescripcion());
-					rsFamilia.updateTimestamp("fechacreacion", fam.getFechaCreacion());
+					rsFamilia.updateTimestamp("fechaCreacion", fam.getFechaCreacion());
 					rsFamilia.updateInt("estado", 1);
 					rsFamilia.insertRow();
 					rsFamilia.moveToCurrentRow();

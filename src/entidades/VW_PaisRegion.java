@@ -5,7 +5,7 @@ public class VW_PaisRegion {
 	//Atributos
 	private int ID;
 	private String Pais;
-	private String Estado;
+	private int Estado;
 	private String Region;
 	
 	//Metodos
@@ -22,10 +22,10 @@ public class VW_PaisRegion {
 	public void setPais(String pais) {
 		Pais = pais;
 	}
-	public String getEstado() {
+	public int getEstado() {
 		return Estado;
 	}
-	public void setEstado(String estado) {
+	public void setEstado(int estado) {
 		Estado = estado;
 	}
 	public String getRegion() {

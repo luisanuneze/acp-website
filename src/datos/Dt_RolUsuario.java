@@ -83,7 +83,7 @@ public class Dt_RolUsuario {
 			rsRolUser.moveToInsertRow();
 			rsRolUser.updateInt("iduser", ru.getUsuarioID());
 			rsRolUser.updateInt("idrol", ru.getRolId());
-			rsRolUser.updateTimestamp("fcreacion", ru.getFechaCreacion());
+			rsRolUser.updateTimestamp("fechaCreacion", ru.getFechaCreacion());
 			rsRolUser.insertRow();
 			rsRolUser.moveToCurrentRow();
 			guardado = true;

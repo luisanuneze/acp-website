@@ -46,9 +46,9 @@ public class Dt_Genero {
 							gen.setNombre(rs.getString("nombre"));
 							gen.setDescripcion(rs.getString("descripcion"));
 							gen.setEstado(rs.getInt("estado"));
-							gen.setFechaCreacion(rs.getTimestamp("fechacreacion"));
-							gen.setFechaModificacion(rs.getTimestamp("fechamodificacion"));
-							gen.setFechaEliminacion(rs.getTimestamp("fechaeliminacion"));
+							gen.setFechaCreacion(rs.getTimestamp("fechaCreacion"));
+							gen.setFechaModificacion(rs.getTimestamp("fechaModificacion"));
+							gen.setFechaEliminacion(rs.getTimestamp("fechaEliminacion"));
 							listGenero.add(gen);
 						}
 					}
@@ -135,7 +135,7 @@ public class Dt_Genero {
 //						rsUsuario.updateInt("UsuarioID", 2);
 						rsGenero.updateString("nombre", gen.getNombre());
 						rsGenero.updateString("descripcion", gen.getDescripcion());
-						rsGenero.updateTimestamp("fechacreacion", gen.getFechaCreacion());
+						rsGenero.updateTimestamp("fechaCreacion", gen.getFechaCreacion());
 						rsGenero.updateInt("estado", 1);
 						rsGenero.insertRow();
 						rsGenero.moveToCurrentRow();
