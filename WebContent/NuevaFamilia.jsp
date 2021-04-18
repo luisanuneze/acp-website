@@ -4,12 +4,11 @@
 <html>
 
 <head>
-<meta charset="ISO-8859-1">
-<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<meta charset="ISO-8859-1"><meta content="width=device-width, initial-scale=1.0" name="viewport">
 
   <title>PWACP - Portal Web Arboreto Carmelo Palma</title>
+  
   <meta content="" name="description">
-
   <meta content="" name="keywords">
 
   <!-- Favicons -->
@@ -34,11 +33,11 @@
 
 <body>
 
-  <!-- ======= Header ======= -->
+  <!-- ======= Header ======= --> 
   <%@ include file="/menu/header.jsp" %>
   <!-- End Header -->
 
-  <main id="main">
+   <main id="main">
     <!-- Empty seccion for space-->
     <div id="empty" class="empty">
     </div>    
@@ -48,36 +47,41 @@
     <section id="about" class="about">
 
       <div class="container" data-aos="fade-up">
-
-   		<h2 class="form-header" style="color: black;">Edición de Secciones</h2>
+ 
+   		<h2 class="form-header" style="color: black;">Registrar Nueva Familia</h2>
    		<br>
-        <form action="forms/contact.php" method="post" class="php-email-form">
-          <div class="row gy-4">
-            <div class="col-md-12">
-              <input type="text" class="form-control" name="titulo" placeholder="Título" required>
-            </div>
-
-            <div class="col-md-12">
-              <textarea class="form-control" name="message" rows="6" placeholder="Contenido" required></textarea>
-            </div>
-          </div>
-        </form>
+			<form action="forms/contact.php" method="post" class="php-email-form">
+	          <div class="row gy-4">
+	            <div class="col-md-12">
+	              <input type="text" class="form-control" placeholder="Nombre" required>
+	            </div>
+	
+	            <div class="col-md-12">
+	              <textarea class="form-control" name="message" rows="6" placeholder="Descripción" required></textarea>
+	            </div>
+	          </div>
+        	</form>
 
         <br>
 
         <!-- Botones -->
-        <div class="col-md-6 button-formulario">
+        <div class="button-formulario">
           <button> Guardar </button>
-          <a href="edicionSeccion.jsp"><button> Regresar </button></a>
+          <a href="edicionArboles.jsp"><button> Regresar </button></a>
         </div>
 
       </div>
+
 
     </section>
     <!-- End Inicio Section -->
 
   </main>
   <!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+    <%@ include file="/menu/footer.jsp" %>
+  <!-- End Footer -->
 
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
@@ -94,5 +98,4 @@
   <script src="assets/js/main.js"></script>
 
 </body>
-
 </html>
