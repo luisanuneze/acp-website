@@ -49,7 +49,7 @@
 
       <div class="container" data-aos="fade-up">
 
-   		<h2 class="form-header" style="color: black;">Edición de Secciones</h2>
+   		<h2 class="form-header" style="color: black;">Edición de Visión</h2>
    		<br>
         <form action="forms/contact.php" method="post" class="php-email-form">
           <div class="row gy-4">

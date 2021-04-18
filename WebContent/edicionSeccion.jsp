@@ -51,27 +51,21 @@
        
                <div class="edicion-section ">
        
-                   <a href="formularioSeccion.jsp"><div class="content">    
+                   <a href="EditarVision.jsp"><div class="content">    
                        <div id="Content-edicion" class="Content-edicion">
                        <h2>Editar sección de visión</h2>
                        </div>
                    </div></a>
        
-                   <a href="formularioSeccion.jsp"><div class="content">    
+                   <a href="EditarMision.jsp"><div class="content">    
                        <div id="Content-edicion" class="Content-edicion">
                            <h2>Editar sección de misión</h2>
                        </div>    
                    </div></a>
 
-                   <a href="formularioSeccion.jsp"><div class="content">    
+                   <a href="EditarHistoria.jsp"><div class="content">    
                        <div id="Content-edicion" class="Content-edicion">
                            <h2>Editar sección de historia</h2>
-                       </div>    
-                   </div></a>
-
-                   <a href="formularioSeccion.jsp"><div class="content">    
-                       <div id="Content-edicion" class="Content-edicion">
-                           <h2>Agregar contenido</h2>
                        </div>    
                    </div></a>
 

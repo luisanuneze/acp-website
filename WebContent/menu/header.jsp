@@ -21,7 +21,7 @@
 
       <nav id="navbar" class="navbar">
         <ul>
-          <li><a class="nav-link scrollto active" href="index.jsp">Página principal</a></li>
+          <li><a class="nav-link scrollto" href="index.jsp">Página principal</a></li>
           <li><a class="nav-link" href="#">Eventos</a></li>
            <li class="dropdown"><a href="arboles.jsp"><span>Árboles</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
@@ -38,8 +38,8 @@
               </li> 
             </ul>
           </li>
-          <li><a class="nav-link" href="tblServicios.jsp">Servicios</a></li>
           <li><a class="nav-link" href="#">Mapa</a></li>
+          <li><a class="nav-link" href="tblServicios.jsp">Servicios</a></li>
           <li><a class="nav-link" href="publicaciones.jsp">Publicaciones</a></li>
           <li class="dropdown"><a href="#"><span>Seguridad</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
@@ -57,7 +57,6 @@
               <li><a class="nav-link" href="tblOpciones.jsp">Opciones</a></li>
             </ul>
           </li>
-          <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
           <li><a href="inicioSesion.jsp"><img src="assets/img/usuario.png"></a></li>
           
         </ul>
