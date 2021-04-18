@@ -46,6 +46,7 @@ public class Dt_Floracion {
 								Floracion flor = new Floracion();
 								flor.setFloracionID(rs.getInt("floracionID"));
 								flor.setNombre(rs.getString("nombre"));
+								flor.setTemporada(rs.getString("temporada"));
 								flor.setDescripcion(rs.getString("descripcion"));
 								flor.setEstado(rs.getInt("estado"));
 								listFloracion.add(flor);
@@ -90,6 +91,7 @@ public class Dt_Floracion {
 							{
 								flor.setFloracionID(floracionID);
 								flor.setNombre(rs.getString("nombre"));
+								flor.setTemporada(rs.getString("temporada"));
 								flor.setDescripcion(rs.getString("descripcion"));
 								flor.setEstado(rs.getInt("estado"));
 								
