@@ -165,8 +165,8 @@ public class Dt_Usuario {
 			return guardado;
 		}
 		
-		// Metodo para modificar rol
-		public boolean modificarRol(Usuario user)
+		// Metodo para modificar usuarios
+		public boolean modificarUser(Usuario user)
 		{
 			boolean modificado=false;	
 			try
@@ -192,7 +192,7 @@ public class Dt_Usuario {
 			}
 			catch (Exception e)
 			{
-				System.err.println("ERROR AL ACTUALIZAR ROL "+e.getMessage());
+				System.err.println("ERROR AL ACTUALIZAR USUARIO "+e.getMessage());
 				e.printStackTrace();
 			}
 			finally
