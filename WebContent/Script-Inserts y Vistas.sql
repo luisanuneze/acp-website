@@ -67,6 +67,7 @@ SELECT * FROM VW_RolOpciones;
 ---=============---
 --- SCRIPT YARÓ ---
 ---=============---
+
 -- VW_PaisRegion --
 CREATE OR REPLACE VIEW VW_PaisRegion AS 
 SELECT pais.paisid AS "ID", pais.nombre AS "Pais", 
@@ -75,8 +76,90 @@ region.nombre AS "Region"
 FROM pais, region
 WHERE pais.regionid = region.regionid;
 
-SELECT * FROM VW_PaisRegions;
+SELECT * FROM VW_PaisRegion;
 
+-- VW_Distribucion --
+CREATE OR REPLACE VIEW VW_Distribucion AS 
+SELECT distribucion.distribucionid AS "ID",distribucion.nombre AS "Distribucion", 
+distribucion.descripcion AS "Descripcion",
+distribucion.estado AS "Estado",
+pais.nombre AS "Pais"
+FROM distribucion, pais
+WHERE distribucion.paisid = pais.paisid;
+
+SELECT * FROM VW_Distribucion;
+
+
+-- Inserts Region --
+    INSERT INTO public.region(
+	nombre, estado, fechacreacion)
+	VALUES ('Sur América', 1, '2021-04-17');
+	
+	INSERT INTO public.region(
+	nombre, estado, fechacreacion)
+	VALUES ('Centroamerica', 1, '2021-04-17');
+	
+	INSERT INTO public.region(
+	nombre, estado, fechacreacion)
+	VALUES ('Norte América', 1, '2021-04-17');
+	
+	-- Inserts Pais --
+    INSERT INTO public.pais(
+	nombre, estado, regionid, fechacreacion)
+	VALUES ('Venezuela', 1, 1, '2021-04-17');
+	
+	  INSERT INTO public.pais(
+	nombre, estado, regionid, fechacreacion)
+	VALUES ('Perú', 1, 1, '2021-04-17');
+	
+	  INSERT INTO public.pais(
+	nombre, estado, regionid, fechacreacion)
+	VALUES ('Brasil', 1, 1, '2021-04-17');
+
+-- Inserts Distribucion --
+    INSERT INTO public.distribucion(
+	nombre, estado, descripcion, paisid, fechacreacion)
+	VALUES ('O Venezuela', 1, 'Desde el oeste de Venezuela hasta al norte de Perú' ,1, '2021-04-17');
+	
+	-- Inserts Familia --
+    INSERT INTO public.familia(
+	nombre, estado, descripcion, fechacreacion)
+	VALUES ('Juglandaceae', 1, 'Las Juglandaceae son una familia de plantas conocida como la familia de las nueces. Los miembros de esta familia son nativos de América , Eurasia y el sudeste asiático .' , '2021-04-17');
+	
+		
+-- Inserts Genero --
+    INSERT INTO public.genero(
+	nombre, estado, descripcion, fechacreacion)
+	VALUES ('Juglans', 1, 'Los nogales son cualquier especie de árbol del género de plantas Juglans , el género tipo de la familia Juglandaceae , cuyas semillas se conocen como nueces.' , '2021-04-17');
+	
+		
+	-- Inserts Floracion --
+    INSERT INTO public.floracion(
+	nombre, temporada, estado, descripcion)
+	VALUES ('Primavera', 'Marzo 20 - Junio 21 ', 1, 'En esta época del año, comienzan a salir las flores y crecen las hojas en los árboles.');
+	
+	INSERT INTO public.floracion(
+	nombre, temporada, estado, descripcion)
+	VALUES ('Verano', 'Junio 21 - Septiembre 22', 1, 'El verano es la temporada con mayor calor, los días son más largos porque el Sol proporciona luz directa a la Tierra. ');
+	
+	INSERT INTO public.floracion(
+	nombre, temporada, estado, descripcion)
+	VALUES ('Otoño', 'Septiembre 22 - Dieciembre 21', 1, 'El otoño es la estación del año donde desciende la temperatura, las hojas de los árboles pierden su color verde y comienzan a caer.');
+	
+	INSERT INTO public.floracion(
+	nombre, temporada, estado, descripcion)
+	VALUES ('Invierno', 'Diciembre 21 - Marzo 20', 1, 'Es una estación donde hace más frío, incluso cae nieve en algunas regiones. Los días son más cortos pues el Sol proporciona luz indirecta a la Tierra.');
+	
+	INSERT INTO public.floracion(
+	nombre, temporada, estado, descripcion)
+	VALUES ('Verano HS', 'Diciembre 21 - Junio 21', 1, 'Epoca de Verano en el Hemisferio Sur.');
+	
+	INSERT INTO public.floracion(
+	nombre, temporada, estado, descripcion)
+	VALUES ('Invierno HS', 'Junio 21 - Diciembre 21', 1, 'Epoca de Invierno en el Hemisferio Sur.');
+	
+	
+		
 ---==============---
 --- SCRIPT LAURA ---
 ---==============---
