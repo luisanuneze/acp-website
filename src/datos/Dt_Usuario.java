@@ -164,5 +164,53 @@ public class Dt_Usuario {
 			
 			return guardado;
 		}
+		
+		// Metodo para modificar rol
+		public boolean modificarRol(Usuario user)
+		{
+			boolean modificado=false;	
+			try
+			{
+				c = PoolConexion.getConnection();
+				this.llenaRsUsuario(c);
+				rsUsuario.beforeFirst();
+				while (rsUsuario.next())
+				{
+					if(rsUsuario.getInt(1)==user.getUsuarioID())
+					{
+						rsUsuario.updateString("usuario", user.getUsuario());
+						rsUsuario.updateString("contrasenia", user.getContrasenia());
+						rsUsuario.updateString("nombres", user.getNombres());
+						rsUsuario.updateString("apellidos", user.getApellidos());
+						rsUsuario.updateTimestamp("fechaModicacion", user.getFechaModificacion());
+						rsUsuario.updateInt("estado", 2);
+						rsUsuario.updateRow();
+						modificado=true;
+						break;
+					}
+				}
+			}
+			catch (Exception e)
+			{
+				System.err.println("ERROR AL ACTUALIZAR ROL "+e.getMessage());
+				e.printStackTrace();
+			}
+			finally
+			{
+				try {
+					if(rsUsuario != null){
+						rsUsuario.close();
+					}
+					if(c != null){
+						PoolConexion.closeConnection(c);
+					}
+					
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+			return modificado;
+		}
 
 }

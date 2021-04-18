@@ -27,7 +27,7 @@ public class Dt_Region {
 			}
 			catch (Exception e){
 				System.out.println("DATOS: ERROR EN LISTAR REGIONES "+ e.getMessage());
-				e.printStackTrace();
+				e.printStackTrace();}
 		}
 	
 			//Metodo para visualizar regiones registradas y activas

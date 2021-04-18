@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import entidades.Rol;
+import entidades.Usuario;
 
 public class Dt_Rol {
 	
@@ -116,6 +117,91 @@ public class Dt_Rol {
 				}
 				
 				return r;
+			}
+			
+			//Metodo para almacenar nuevo Rol
+			public boolean guardarRol(Rol rol){
+				boolean guardado = false;
+				
+				try{
+					c = PoolConexion.getConnection();
+					this.llenaRsRol(c);
+					rsRol.moveToInsertRow();
+//					rsUsuario.updateInt("UsuarioID", 2);
+					rsRol.updateString("rol", rol.getRol());
+					rsRol.updateString("roldescripcion", rol.getRoldescripcion());
+					rsRol.updateTimestamp("fechacreacion", rol.getFechaCreacion());
+					rsRol.updateInt("Estado", 1);
+					rsRol.insertRow();
+					rsRol.moveToCurrentRow();
+					guardado = true;
+				}
+				catch (Exception e) {
+					System.err.println("ERROR AL GUARDAR Rol "+e.getMessage());
+					e.printStackTrace();
+				}
+				finally{
+					try {
+						if(rsRol != null){
+							rsRol.close();
+						}
+						if(c != null){
+							PoolConexion.closeConnection(c);
+						}
+						
+					} catch (SQLException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				}
+				
+				return guardado;
+			}
+			
+			// Metodo para modificar rol
+			public boolean modificarRol(Rol rol)
+			{
+				boolean modificado=false;	
+				try
+				{
+					c = PoolConexion.getConnection();
+					this.llenaRsRol(c);
+					rsRol.beforeFirst();
+					while (rsRol.next())
+					{
+						if(rsRol.getInt(1)==rol.getRolID())
+						{
+							rsRol.updateString("rol", rol.getRol());
+							rsRol.updateString("roldescripcion", rol.getRoldescripcion());
+							rsRol.updateTimestamp("fechaModificacion", rol.getFechaModificacion());
+							rsRol.updateInt("estado", 2);
+							rsRol.updateRow();
+							modificado=true;
+							break;
+						}
+					}
+				}
+				catch (Exception e)
+				{
+					System.err.println("ERROR AL ACTUALIZAR ROL "+e.getMessage());
+					e.printStackTrace();
+				}
+				finally
+				{
+					try {
+						if(rsRol != null){
+							rsRol.close();
+						}
+						if(c != null){
+							PoolConexion.closeConnection(c);
+						}
+						
+					} catch (SQLException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				}
+				return modificado;
 			}
 
 }

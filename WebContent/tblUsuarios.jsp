@@ -146,11 +146,11 @@
                                            <td><%=us.getApellidos() %></td>
                                            <td><%=us.getEstado()==1||us.getEstado()==2?"ACTIVO":"INACTIVO" %></td>
                                            <td>
-                                           		<a id="btn-edita-abrir" href="editUsuario.jsp?usuarioID=<%=us.getUsuarioID()%>">
-                        							<i class="fas fa-edit" title="Modificar datos del Usuario"></i>
+                                           		<a id="btn-edita-abrir" href="EditarUsuario.jsp?usuarioID=<%=us.getUsuarioID()%>">
+                        							<i class="fas fa-edit" title="Modificar datos del Usuario">Editar</i>
                         						</a>
                                            		<a href="#">
-                        							<i class="fas fa-trash-alt" title="Eliminar Usuario"></i>
+                        							<i class="fas fa-trash-alt" title="Eliminar Usuario">Eliminar</i>
                         						</a>
                                            		<a href="#">
                         							<i class="fas fa-eye" title="Visualizar Usuario"></i>
