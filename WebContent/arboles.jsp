@@ -50,16 +50,21 @@
       <div class="container" data-aos="fade-up">  
       
         <!-- Despliegue de filtros -->
-        <div class="">
-            Filtrar árboles por:
-            <select class="form-select" name="selecciona...">
-                <option value="value1">Valor 1</option>
-                <option value="value2">Valor 2</option>
-                <option value="value3">Valor 3</option>
-            </select>
+        <div class="form-group row">
+        	<div class="col-sm-3">
+        	Filtrar árboles por: 
+	        	<select class="form-select col-sm-3" name="selecciona...">
+	                <option value="value1">Valor 1</option>
+	                <option value="value2">Valor 2</option>
+	                <option value="value3">Valor 3</option>
+	            </select>
+        	</div>
+            
         </div> 
         <!-- Termina despliegue de filtros-->
-
+        
+        
+        <!-- Cardview arboles -->
         <div class="card-view">
             <a href="edicionArboles.jsp"><div class="arboles d-flex flex-column">
                 <img src="https://image.flaticon.com/icons/png/512/2975/2975970.png" ><hr>
@@ -78,12 +83,15 @@
                 <p>Agregar nuevo árbol</p>
             </div></a>
         </div>
+        <!-- Fin cardviews -->
+        
       </div>
 
     </section>
     <!-- End Inicio Section -->
 
-  </main><!-- End #main -->
+  </main>
+  <!-- End #main -->
 
   <!-- ======= Footer ======= -->
   <%@ include file="/menu/footer.jsp" %>
