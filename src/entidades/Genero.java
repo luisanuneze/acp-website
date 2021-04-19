@@ -1,5 +1,5 @@
 package entidades;
-
+//cambio
 import java.sql.Timestamp;
 
 public class Genero {
@@ -14,6 +14,7 @@ public class Genero {
 	private int generoID;
 	
 	//Metodos
+	
 	
 	public String getDescripcion() {
 		return descripcion;
@@ -57,6 +58,9 @@ public class Genero {
 	public void setGeneroID(int generoID) {
 		this.generoID = generoID;
 	}
+	
+	
+
 	
 	
 	

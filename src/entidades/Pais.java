@@ -10,7 +10,7 @@ public class Pais {
     private Timestamp fechaCreacion;
 	private Timestamp fechaModificacion;
 	private Timestamp fechaEliminacion;
-	private int PaidID;
+	private int PaisID;
 	private int RegionID;
 	
 	//Metodos
@@ -45,11 +45,11 @@ public class Pais {
 	public void setFechaEliminacion(Timestamp fechaEliminacion) {
 		this.fechaEliminacion = fechaEliminacion;
 	}
-	public int getPaidID() {
-		return PaidID;
+	public int getPaisID() {
+		return PaisID;
 	}
-	public void setPaidID(int paidID) {
-		PaidID = paidID;
+	public void setPaisID(int paisID) {
+		PaisID = paisID;
 	}
 	public int getRegionID() {
 		return RegionID;

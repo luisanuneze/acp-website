@@ -32,6 +32,10 @@ h1, h2, h3, h4, h5, h6 {
 font-family: "Nunito", sans-serif;
 }
 
+.fas{
+ color: #081C44;
+}
+
 /*--------------------------------------------------------------
 # Login
 --------------------------------------------------------------*/
@@ -60,7 +64,7 @@ font-family: "Nunito", sans-serif;
 
 .formulario{
     align-items: center;
-    padding: 30px;
+    padding: 80px;
     padding-top: 60px;
 }
 
@@ -69,8 +73,12 @@ font-family: "Nunito", sans-serif;
 }
 
 .form-group input{
-    width: 300px;
+    width: 80%; 
     margin-bottom: 30px;
+}
+
+.centrado{
+	text-align: center;
 }
 
 /*--------------------------------------------------------------
@@ -485,14 +493,23 @@ section {
 # Boton personalizado
 --------------------------------------------------------------*/
 
-button {
+button, .button {
     border-radius: 15px;
-    padding: 7px 15px 7px 15px;
+    margin: 10px;
+    padding: 10px 30px 10px 30px;
     background-color: #F3F3F3;
     border: 1.2px solid rgba(0, 0, 0, 0.10);
     -webkit-box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.15);
     -moz-box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.15);
     -box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.15), 0;
+}
+
+.button{
+	margin: 50px 10px;
+}
+
+.button:hover{
+    color: white;
 }
 
 button:hover {
@@ -515,7 +532,7 @@ button:hover {
 # Boton de cancelar y anadir publicacion
 --------------------------------------------------------------*/
 
-.button-cancelar, .button-anadirpub {
+.button-cancelar, .button-anadirpub, .button-iniciar {
     text-align: center;
     margin-bottom: 20px;
     padding: 10px;
@@ -532,6 +549,10 @@ button:hover {
     color: white;
 }
 
+.button-formulario button, .button{
+    background: #081C44;
+    color: white;
+}
 
 /*--------------------------------------------------------------
 # Borrar Section
@@ -756,14 +777,17 @@ button:hover {
 }
 
 .card-view{
+	height: 100%;
     padding:  50px 30px;
     align-items: center;
     justify-content: space-evenly;
     display: flex;
     flex-wrap: wrap;
+    max-height: 100vh;
 }
 
-.arboles{    
+.arboles{   
+    margin-top: 40px;
     padding: 15px 30px;
     border: 1px solid rgba(0, 0, 0, 0.10);
     -webkit-box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.05);
@@ -788,6 +812,56 @@ button:hover {
     line-height: 10px;
     text-align: center;
     color: #081C44;
+}
+
+/*--------------------------------------------------------------
+# Modals arboles
+--------------------------------------------------------------*/
+.modal-container{
+	opacity: 0;
+	visibility: hidden;
+	position: fixed;
+	z-index: 1000;
+	width: 100%;
+	height: 100vh; 
+	top: 0;
+	left: 0;
+	background: rgba(0,0,0,0.5);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.modal{
+	width: 40%;
+	height: 50%;
+	background: white;
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-evenly;
+	position: relative;
+	transition: transform 1s;
+	transform: translateY(0%);
+	border-radius: 10px;
+}
+
+.close{
+	position: absolute;
+	top: 5px;
+	right: 5px;
+	display: inline-block;
+	width: 25px;
+	height: 25px;
+	background: red;
+	color: white;
+	line-height: 25px;
+	cursor: pointer;
+	border-radius: 50%;
+}
+
+.modal-close{
+	transform: translateY(-200%);
 }
 
 /*--------------------------------------------------------------

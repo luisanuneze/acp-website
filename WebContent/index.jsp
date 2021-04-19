@@ -1,14 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+    pageEncoding="ISO-8859-1" import="entidades.Genero, datos.Dt_Genero, entidades.Home, datos.Dt_Home, java.util.*;" %>
 <!DOCTYPE html>
 <html>
+
 <head>
 <meta charset="ISO-8859-1">
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
   <title>PWACP - Portal Web Arboreto Carmelo Palma</title>
+  
   <meta content="" name="description">
-
   <meta content="" name="keywords">
 
   <!-- Favicons -->
@@ -36,11 +37,15 @@
   * License: https://bootstrapmade.com/license/
   ======================================================== -->
 </head>
+
 <body>
 
-<%@ include file="/menu/header.jsp" %>
+  <!-- ======= Header ======= --> 
+  <%@ include file="/menu/header.jsp" %>
+  <!-- End Header -->
 
   <main id="main">
+  
     <!-- Empty seccion for space-->
     <div id="empty" class="empty">
     </div>    
@@ -53,29 +58,97 @@
       
         <!-- Boton de edicion-->
         <div id="button-edicion" class="button-edicion">
-          <a href="edicionSeccion.html"><button> Editar secciones</button></a>
+          <a href="edicionSeccion.jsp"><button> Editar secciones</button></a>
         </div>
         <!-- Termina boton de edicion-->
 
         <div>
 
           <div class="row gx-0">
-
-            <div class="col-lg-6 d-flex flex-column justify-content-center" data-aos="fade-up" data-aos-delay="200">
-              <div class="content">
-
-                <div id="Content-vision" class="Content-vision">
-                  <img src="data:image/svg+xml;base64,PHN2ZyBpZD0iQ2FwYV8xIiBlbmFibGUtYmFja2dyb3VuZD0ibmV3IDAgMCA1MTIgNTEyIiBoZWlnaHQ9IjUxMiIgdmlld0JveD0iMCAwIDUxMiA1MTIiIHdpZHRoPSI1MTIiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGc+PHBhdGggZD0ibTI1NiAxMzQuMDEzYy02Ny4yNjQgMC0xMjEuOTg3IDU0LjcyNC0xMjEuOTg3IDEyMS45ODdzNTQuNzIzIDEyMS45ODcgMTIxLjk4NyAxMjEuOTg3IDEyMS45ODctNTQuNzIzIDEyMS45ODctMTIxLjk4Ny01NC43MjMtMTIxLjk4Ny0xMjEuOTg3LTEyMS45ODd6bTEwMS4wOTcgMTA4LjQ4NGMtMTIuMDA5IDMuMjItMzMuMjgzIDYuODE1LTQzLjczMS00LjE2OC0yLjU4LTIuNzE2LTQuNzk1LTUuNTMyLTYuOTM3LTguMjU2LTYuMDMxLTcuNjY4LTEyLjg2Ni0xNi4zNTktMjYuMTUxLTE4LjM1NC0xMS43NTYtMS43NjQtMjAuMzY2IDMuNTc2LTI2LjY1NSA3LjQ3My0yLjc2NyAxLjcxNi02LjIwNiAzLjg0LTcuNDYyIDMuNTI2LTI2LjU1OS02Ljg4NC0yNC42NC0yOC4yMDQtMTkuNzEyLTUzLjI4My45MDYtNC42MTMgMS42NDMtOC4zNjIgMS44ODMtMTEuNjA4IDguODAyLTIuNDg0IDE4LjA4Mi0zLjgxMyAyNy42NjgtMy44MTMgNTEuNjU5LS4wMDEgOTQuNDcgMzguNjA2IDEwMS4wOTcgODguNDgzem0tMTUwLjUxMy03NS42OTNjLTIuMTI1IDEwLjg1LTQuNzYxIDI1LjMwMy0xLjk0MiAzOS4xNjQgMy43NDQgMTguNDA0IDE2LjM2NSAzMC44OTEgMzYuNTA0IDM2LjExIDkuNTM0IDIuNDcgMTcuMDA2LTIuMTY1IDIzLjAxMi01Ljg4NiA1LjM3LTMuMzI5IDguODc4LTUuMzM5IDEzLjE1My00LjY5NCA1LjIxNi43ODIgNy44NzYgMy45MTkgMTMuMzk2IDEwLjkzOSAyLjMxMyAyLjk0IDQuOTM0IDYuMjczIDguMTYzIDkuNjcyIDkuODU2IDEwLjM1OSAyMy40MTcgMTMuNTY1IDM2LjQzMiAxMy41NjUgOC4wMjQtLjAwMSAxNS44NC0xLjIyIDIyLjQ1LTIuNzMzLS44NTQgMTIuNjQ1LTQuMDIzIDI0LjY2Ni05LjA4NiAzNS42NC02LjY2Ni01LjA0NC0xNC43NzgtMTEuMDQxLTE5LjA2NS0xMy42NzctMTQuMzgyLTguODQxLTI3Ljk2LTExLjM2LTQwLjM1Ny03LjQ4NC0xOS40MTggNi4wNjktMzAuMTc5IDI2LjE2Ni0zNi41ODUgNDAuNzU2LTcuMjE1IDE2LjQzNi0yMC41OCAyNS40MzQtMzMuOTQ4IDMyLjcwOS0uMDE2LjAwOC0uMDMxLjAxOC0uMDQ3LjAyNi03LjQ5Ni0yLjk1OS0xNC41Ni02Ljc4Mi0yMS4wNy0xMS4zNDUuNjQyLS4zNjYgMS4yODQtLjczMSAxLjkyMy0xLjA5NCAxMS44NTctNi43MjkgMjUuMjk3LTE0LjM1OCAyNS4xMDctMjkuMjktLjA5Ny03LjYxMi01LjAzOS0xMy42NDUtMTAuMjctMjAuMDMxLTQuNDQ3LTUuNDMtOS40ODgtMTEuNTgzLTExLjQ3Ny0xOC42OTYtMi4wOC03LjQzOS0zLjE5Ni0xNi4wNy0zLjMxNy0yNS42NTMtLjI0OC0xOS43MTQtOS45NzQtMzcuNjYyLTI1Ljk2NS00OC44MzIgOC43My0xMS45NDkgMTkuOTkyLTIxLjkzNyAzMi45ODktMjkuMTY2em0tNTIuNTcxIDg5LjE5NmMwLTE1LjI0NCAzLjM2Mi0yOS43MTggOS4zODQtNDIuNzE5IDkuOTggNy41NDkgMTYuMDA4IDE5LjEyNyAxNi4xNjggMzEuNzczLjE0MyAxMS4zMTggMS41MDcgMjEuNjc3IDQuMDU0IDMwLjc4NiAzLjExOCAxMS4xNTUgOS44NTQgMTkuMzc4IDE1LjI2NiAyNS45ODUgMi4xODIgMi42NjMgNS4xMzggNi4yNzEgNS43MjggNy44NjEtLjQxNyAzLjEzNi05LjE0MSA4LjA4Ny0xNC45NjYgMTEuMzkzLTIuNjQ5IDEuNTA0LTUuMzQ1IDMuMDM0LTcuOTgzIDQuNjc2LTE3LjE0LTE4LjI1My0yNy42NTEtNDIuOC0yNy42NTEtNjkuNzU1em0xMDEuOTg3IDEwMS45ODdjLTMuNDU0IDAtNi44NjgtLjE3My0xMC4yMzUtLjUxIDkuMTI3LTYuOTM4IDE4LjkwMi0xNi44OTkgMjUuMjA4LTMxLjI2MiA0LjgzNC0xMS4wMTIgMTIuNjA3LTI2LjA3MSAyNC4yMzktMjkuNzA3IDYuNjMyLTIuMDcyIDE0LjY3OS0uMjQ0IDIzLjkxNyA1LjQzNCAzLjcwOSAyLjI4MSAxMi4xNDQgOC41NCAxOS4zMzUgMTQuMDA1LTE4LjU2MiAyNS40NjMtNDguNjEzIDQyLjA0LTgyLjQ2NCA0Mi4wNHoiLz48cGF0aCBkPSJtNTEwLjE1OSAyNTAuMjE4Yy0xLjE1Mi0xLjYyNi0yOC43MzgtNDAuMjczLTczLjYzNS03OS40NTUtMjYuNDk1LTIzLjEyMy01My41MjMtNDEuNTc2LTgwLjMzMy01NC44NDgtMzMuOTM5LTE2LjgwMi02Ny42NDgtMjUuMzItMTAwLjE5LTI1LjMycy02Ni4yNTEgOC41MTktMTAwLjE5IDI1LjMyYy0yNi44MSAxMy4yNzItNTMuODM4IDMxLjcyNS04MC4zMzMgNTQuODQ4LTQ0Ljg5OCAzOS4xODItNzIuNDg0IDc3LjgyOS03My42MzcgNzkuNDU1LTIuNDU1IDMuNDY0LTIuNDU1IDguMTAxIDAgMTEuNTY0IDEuMTUyIDEuNjI2IDI4LjczOCA0MC4yNzIgNzMuNjM1IDc5LjQ1NSAyNi40OTUgMjMuMTIzIDUzLjUyMyA0MS41NzYgODAuMzMzIDU0Ljg0OCAzMy45MzkgMTYuODAyIDY3LjY0OCAyNS4zMiAxMDAuMTkgMjUuMzJzNjYuMjUxLTguNTE5IDEwMC4xOS0yNS4zMmMyNi44MS0xMy4yNzIgNTMuODM4LTMxLjcyNSA4MC4zMzMtNTQuODQ4IDQ0Ljg5Ny0zOS4xODMgNzIuNDgzLTc3LjgyOSA3My42MzUtNzkuNDU1IDIuNDU3LTMuNDY0IDIuNDU3LTguMS4wMDItMTEuNTY0em0tODYuNzg2IDc1Ljk1Yy0zOS4zMjkgMzQuMzIzLTEwMC4yOSA3NS4yMzctMTY3LjM3MyA3NS4yMzctNjYuOTQzIDAtMTI3Ljc4Ni00MC43NTUtMTY3LjAzOC03NC45NDQtMzMuMjg5LTI4Ljk5NS01Ny4xNTItNTguMzQ1LTY2LjQ3Ni03MC40NjQgOS4yNzctMTIuMDY4IDMyLjk1OS00MS4yMDcgNjYuMTQxLTcwLjE2NSAzOS4zMjktMzQuMzIzIDEwMC4yOS03NS4yMzcgMTY3LjM3My03NS4yMzcgNjYuOTQzIDAgMTI3Ljc4NiA0MC43NTUgMTY3LjAzOCA3NC45NDQgMzMuMjg5IDI4Ljk5NSA1Ny4xNTEgNTguMzQzIDY2LjQ3NiA3MC40NjQtOS4yNzggMTIuMDY4LTMyLjk2IDQxLjIwNy02Ni4xNDEgNzAuMTY1eiIvPjxwYXRoIGQ9Im0yNTYgNjkuMjA2YzUuNTIzIDAgMTAtNC40NzggMTAtMTB2LTE1LjMxNWMwLTUuNTIyLTQuNDc3LTEwLTEwLTEwcy0xMCA0LjQ3OC0xMCAxMHYxNS4zMTZjMCA1LjUyMiA0LjQ3NyA5Ljk5OSAxMCA5Ljk5OXoiLz48cGF0aCBkPSJtMTA4LjAzNiAxMTAuMzU0YzEuOTUzIDEuOTUyIDQuNTEyIDIuOTI5IDcuMDcxIDIuOTI5czUuMTE5LS45NzcgNy4wNzEtMi45MjljMy45MDUtMy45MDUgMy45MDUtMTAuMjM3IDAtMTQuMTQzbC0xMC44My0xMC44M2MtMy45MDUtMy45MDQtMTAuMjM3LTMuOTA0LTE0LjE0MyAwLTMuOTA1IDMuOTA1LTMuOTA1IDEwLjIzNyAwIDE0LjE0M3oiLz48cGF0aCBkPSJtMzk2Ljg5MyAxMTMuMjgyYzIuNTU5IDAgNS4xMTktLjk3NyA3LjA3MS0yLjkyOWwxMC44My0xMC44M2MzLjkwNS0zLjkwNSAzLjkwNS0xMC4yMzcgMC0xNC4xNDMtMy45MDUtMy45MDQtMTAuMjM3LTMuOTA0LTE0LjE0MiAwbC0xMC44MyAxMC44M2MtMy45MDUgMy45MDUtMy45MDUgMTAuMjM3IDAgMTQuMTQzIDEuOTUyIDEuOTUzIDQuNTEyIDIuOTI5IDcuMDcxIDIuOTI5eiIvPjxwYXRoIGQ9Im0yNTYgNDQyLjc5NGMtNS41MjMgMC0xMCA0LjQ3OC0xMCAxMHYxNS4zMTVjMCA1LjUyMiA0LjQ3NyAxMCAxMCAxMHMxMC00LjQ3OCAxMC0xMHYtMTUuMzE1YzAtNS41MjItNC40NzctMTAtMTAtMTB6Ii8+PHBhdGggZD0ibTQwMy45NjQgNDAxLjY0N2MtMy45MDUtMy45MDQtMTAuMjM3LTMuOTA0LTE0LjE0MyAwLTMuOTA1IDMuOTA1LTMuOTA1IDEwLjIzNyAwIDE0LjE0M2wxMC44MyAxMC44M2MxLjk1MyAxLjk1MiA0LjUxMiAyLjkyOSA3LjA3MSAyLjkyOXM1LjExOS0uOTc3IDcuMDcxLTIuOTI5YzMuOTA1LTMuOTA1IDMuOTA1LTEwLjIzNyAwLTE0LjE0MnoiLz48cGF0aCBkPSJtMTA4LjAzNiA0MDEuNjQ3LTEwLjgzIDEwLjgzYy0zLjkwNSAzLjkwNS0zLjkwNSAxMC4yMzcgMCAxNC4xNDIgMS45NTMgMS45NTIgNC41MTIgMi45MjkgNy4wNzEgMi45MjlzNS4xMTktLjk3NyA3LjA3MS0yLjkyOWwxMC44My0xMC44M2MzLjkwNS0zLjkwNSAzLjkwNS0xMC4yMzcgMC0xNC4xNDMtMy45MDUtMy45MDQtMTAuMjM3LTMuOTA0LTE0LjE0Mi4wMDF6Ii8+PC9nPjwvc3ZnPg==" />
-                  <h2>Visión</h2>
-                </div>
-
-                <p>
-                  Yaro Alejandro ipsum dolor sit amet consectetur adipisicing elit. Voluptatem unde illo 
-                  fugit dolor deserunt voluptas, repudiandae commodi quae perspiciatis, qui eaque 
-                  ad facere recusandae ipsum atque repellat tempora pariatur ut.
-                </p>
-              </div>
-            </div>
+          
+          	<%
+          	ArrayList<Home> listHome = new ArrayList<Home>();
+          	Dt_Home dth = new Dt_Home();
+          	listHome = dth.listaHome();
+            %>
+            
+                     <%--  <table>
+                      <%
+                      	ArrayList<Genero> listGenero = new ArrayList<Genero>();
+                      	Dt_Genero dtf = new Dt_Genero();
+                      	listGenero = dtf.listaGenerosActivos();
+                      	
+                      %>
+                          <thead>
+                              <tr>
+                                  <th>ID</th>
+                                  <th>Nombre</th>
+                                  <th>Descripción</th>
+                                  <th>Fecha creación</th>
+                                  <th>Opciones</th>
+                              </tr>
+                          </thead>
+                          <tfoot>
+                              <tr>
+                                  <th>ID</th>
+                                  <th>Nombre</th>
+                                  <th>Descripción</th>
+                                  <th>Fecha creación</th>
+                                  <th>Opciones</th>
+                              </tr>
+                          </tfoot>
+                          <tbody>
+                         		<%
+                             		for(Genero ge: listGenero){
+                             	%>
+                             <tr>
+                                 <td><%=ge.getGeneroID() %></td>
+                                 <td><%=ge.getNombre() %></td>
+                                 <td><%=ge.getDescripcion() %></td>
+                                 <td><%=ge.getFechaCreacion() %></td>
+                                 <td><a id="btn-edita-abrir" href="NuevoGenero.jsp"> <i class="fas fa-edit" >Editar</i></a> 
+                                 	<a href="#"> <i class="fas fa-trash-alt">Eliminar</i></a> 
+                                 	<a href="#"> <i class="fas fa-eye">Visualizar</i>
+										</a></td>
+                             </tr>
+                             		<%
+                             		}
+                                 %>
+                          </tbody>
+                      </table>
+            
+            <table>
+            <thead>
+                              <tr>
+                                  <th>ID</th>
+                                  <th>Mision</th>
+                                  <th>Vision</th>
+                                  <th>Historia</th>
+                              </tr>
+                          </thead>
+                          <tfoot>
+                              <tr>
+                                  <th>ID</th>
+                                  <th>Mision</th>
+                                  <th>Vision</th>
+                                  <th>Historia</th>
+                              </tr>
+                          </tfoot>
+                          <tbody>
+                         		<%
+                             		for(Home fa: listHome){
+                             	%>
+                             <tr>
+                                 <td><%=fa.getHomeID() %></td>
+                                 <td><%=fa.getMision() %></td>
+                                 <td><%=fa.getVision() %></td>
+                                 <td><%=fa.getHistoria() %></td>
+                             </tr>
+                             		<%
+                             		}
+                                 %>
+                          </tbody>
+                          </table> --%>
 
             <div class="col-lg-6 d-flex flex-column justify-content-center" data-aos="fade-up" data-aos-delay="200">
               <div class="content">
@@ -84,11 +157,30 @@
                   <h2>Misión</h2>
                 </div>
 
-                <p>
-                  Laura Gradiz Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem unde illo 
-                  fugit dolor deserunt voluptas, repudiandae commodi quae perspiciatis, qui eaque 
-                  ad facere recusandae ipsum atque repellat tempora pariatur ut.
-                </p>
+	            <%
+				for(Home ho: listHome){
+	            %>
+                <p><%=ho.getMision() %></p>
+                <%
+                             		}
+                                 %>
+              </div>
+            </div>
+            
+                <div class="col-lg-6 d-flex flex-column justify-content-center" data-aos="fade-up" data-aos-delay="200">
+              <div class="content">
+                <div id="Content-vision" class="Content-vision">
+                  <img src="data:image/svg+xml;base64,PHN2ZyBpZD0iQ2FwYV8xIiBlbmFibGUtYmFja2dyb3VuZD0ibmV3IDAgMCA1MTIgNTEyIiBoZWlnaHQ9IjUxMiIgdmlld0JveD0iMCAwIDUxMiA1MTIiIHdpZHRoPSI1MTIiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGc+PHBhdGggZD0ibTI1NiAxMzQuMDEzYy02Ny4yNjQgMC0xMjEuOTg3IDU0LjcyNC0xMjEuOTg3IDEyMS45ODdzNTQuNzIzIDEyMS45ODcgMTIxLjk4NyAxMjEuOTg3IDEyMS45ODctNTQuNzIzIDEyMS45ODctMTIxLjk4Ny01NC43MjMtMTIxLjk4Ny0xMjEuOTg3LTEyMS45ODd6bTEwMS4wOTcgMTA4LjQ4NGMtMTIuMDA5IDMuMjItMzMuMjgzIDYuODE1LTQzLjczMS00LjE2OC0yLjU4LTIuNzE2LTQuNzk1LTUuNTMyLTYuOTM3LTguMjU2LTYuMDMxLTcuNjY4LTEyLjg2Ni0xNi4zNTktMjYuMTUxLTE4LjM1NC0xMS43NTYtMS43NjQtMjAuMzY2IDMuNTc2LTI2LjY1NSA3LjQ3My0yLjc2NyAxLjcxNi02LjIwNiAzLjg0LTcuNDYyIDMuNTI2LTI2LjU1OS02Ljg4NC0yNC42NC0yOC4yMDQtMTkuNzEyLTUzLjI4My45MDYtNC42MTMgMS42NDMtOC4zNjIgMS44ODMtMTEuNjA4IDguODAyLTIuNDg0IDE4LjA4Mi0zLjgxMyAyNy42NjgtMy44MTMgNTEuNjU5LS4wMDEgOTQuNDcgMzguNjA2IDEwMS4wOTcgODguNDgzem0tMTUwLjUxMy03NS42OTNjLTIuMTI1IDEwLjg1LTQuNzYxIDI1LjMwMy0xLjk0MiAzOS4xNjQgMy43NDQgMTguNDA0IDE2LjM2NSAzMC44OTEgMzYuNTA0IDM2LjExIDkuNTM0IDIuNDcgMTcuMDA2LTIuMTY1IDIzLjAxMi01Ljg4NiA1LjM3LTMuMzI5IDguODc4LTUuMzM5IDEzLjE1My00LjY5NCA1LjIxNi43ODIgNy44NzYgMy45MTkgMTMuMzk2IDEwLjkzOSAyLjMxMyAyLjk0IDQuOTM0IDYuMjczIDguMTYzIDkuNjcyIDkuODU2IDEwLjM1OSAyMy40MTcgMTMuNTY1IDM2LjQzMiAxMy41NjUgOC4wMjQtLjAwMSAxNS44NC0xLjIyIDIyLjQ1LTIuNzMzLS44NTQgMTIuNjQ1LTQuMDIzIDI0LjY2Ni05LjA4NiAzNS42NC02LjY2Ni01LjA0NC0xNC43NzgtMTEuMDQxLTE5LjA2NS0xMy42NzctMTQuMzgyLTguODQxLTI3Ljk2LTExLjM2LTQwLjM1Ny03LjQ4NC0xOS40MTggNi4wNjktMzAuMTc5IDI2LjE2Ni0zNi41ODUgNDAuNzU2LTcuMjE1IDE2LjQzNi0yMC41OCAyNS40MzQtMzMuOTQ4IDMyLjcwOS0uMDE2LjAwOC0uMDMxLjAxOC0uMDQ3LjAyNi03LjQ5Ni0yLjk1OS0xNC41Ni02Ljc4Mi0yMS4wNy0xMS4zNDUuNjQyLS4zNjYgMS4yODQtLjczMSAxLjkyMy0xLjA5NCAxMS44NTctNi43MjkgMjUuMjk3LTE0LjM1OCAyNS4xMDctMjkuMjktLjA5Ny03LjYxMi01LjAzOS0xMy42NDUtMTAuMjctMjAuMDMxLTQuNDQ3LTUuNDMtOS40ODgtMTEuNTgzLTExLjQ3Ny0xOC42OTYtMi4wOC03LjQzOS0zLjE5Ni0xNi4wNy0zLjMxNy0yNS42NTMtLjI0OC0xOS43MTQtOS45NzQtMzcuNjYyLTI1Ljk2NS00OC44MzIgOC43My0xMS45NDkgMTkuOTkyLTIxLjkzNyAzMi45ODktMjkuMTY2em0tNTIuNTcxIDg5LjE5NmMwLTE1LjI0NCAzLjM2Mi0yOS43MTggOS4zODQtNDIuNzE5IDkuOTggNy41NDkgMTYuMDA4IDE5LjEyNyAxNi4xNjggMzEuNzczLjE0MyAxMS4zMTggMS41MDcgMjEuNjc3IDQuMDU0IDMwLjc4NiAzLjExOCAxMS4xNTUgOS44NTQgMTkuMzc4IDE1LjI2NiAyNS45ODUgMi4xODIgMi42NjMgNS4xMzggNi4yNzEgNS43MjggNy44NjEtLjQxNyAzLjEzNi05LjE0MSA4LjA4Ny0xNC45NjYgMTEuMzkzLTIuNjQ5IDEuNTA0LTUuMzQ1IDMuMDM0LTcuOTgzIDQuNjc2LTE3LjE0LTE4LjI1My0yNy42NTEtNDIuOC0yNy42NTEtNjkuNzU1em0xMDEuOTg3IDEwMS45ODdjLTMuNDU0IDAtNi44NjgtLjE3My0xMC4yMzUtLjUxIDkuMTI3LTYuOTM4IDE4LjkwMi0xNi44OTkgMjUuMjA4LTMxLjI2MiA0LjgzNC0xMS4wMTIgMTIuNjA3LTI2LjA3MSAyNC4yMzktMjkuNzA3IDYuNjMyLTIuMDcyIDE0LjY3OS0uMjQ0IDIzLjkxNyA1LjQzNCAzLjcwOSAyLjI4MSAxMi4xNDQgOC41NCAxOS4zMzUgMTQuMDA1LTE4LjU2MiAyNS40NjMtNDguNjEzIDQyLjA0LTgyLjQ2NCA0Mi4wNHoiLz48cGF0aCBkPSJtNTEwLjE1OSAyNTAuMjE4Yy0xLjE1Mi0xLjYyNi0yOC43MzgtNDAuMjczLTczLjYzNS03OS40NTUtMjYuNDk1LTIzLjEyMy01My41MjMtNDEuNTc2LTgwLjMzMy01NC44NDgtMzMuOTM5LTE2LjgwMi02Ny42NDgtMjUuMzItMTAwLjE5LTI1LjMycy02Ni4yNTEgOC41MTktMTAwLjE5IDI1LjMyYy0yNi44MSAxMy4yNzItNTMuODM4IDMxLjcyNS04MC4zMzMgNTQuODQ4LTQ0Ljg5OCAzOS4xODItNzIuNDg0IDc3LjgyOS03My42MzcgNzkuNDU1LTIuNDU1IDMuNDY0LTIuNDU1IDguMTAxIDAgMTEuNTY0IDEuMTUyIDEuNjI2IDI4LjczOCA0MC4yNzIgNzMuNjM1IDc5LjQ1NSAyNi40OTUgMjMuMTIzIDUzLjUyMyA0MS41NzYgODAuMzMzIDU0Ljg0OCAzMy45MzkgMTYuODAyIDY3LjY0OCAyNS4zMiAxMDAuMTkgMjUuMzJzNjYuMjUxLTguNTE5IDEwMC4xOS0yNS4zMmMyNi44MS0xMy4yNzIgNTMuODM4LTMxLjcyNSA4MC4zMzMtNTQuODQ4IDQ0Ljg5Ny0zOS4xODMgNzIuNDgzLTc3LjgyOSA3My42MzUtNzkuNDU1IDIuNDU3LTMuNDY0IDIuNDU3LTguMS4wMDItMTEuNTY0em0tODYuNzg2IDc1Ljk1Yy0zOS4zMjkgMzQuMzIzLTEwMC4yOSA3NS4yMzctMTY3LjM3MyA3NS4yMzctNjYuOTQzIDAtMTI3Ljc4Ni00MC43NTUtMTY3LjAzOC03NC45NDQtMzMuMjg5LTI4Ljk5NS01Ny4xNTItNTguMzQ1LTY2LjQ3Ni03MC40NjQgOS4yNzctMTIuMDY4IDMyLjk1OS00MS4yMDcgNjYuMTQxLTcwLjE2NSAzOS4zMjktMzQuMzIzIDEwMC4yOS03NS4yMzcgMTY3LjM3My03NS4yMzcgNjYuOTQzIDAgMTI3Ljc4NiA0MC43NTUgMTY3LjAzOCA3NC45NDQgMzMuMjg5IDI4Ljk5NSA1Ny4xNTEgNTguMzQzIDY2LjQ3NiA3MC40NjQtOS4yNzggMTIuMDY4LTMyLjk2IDQxLjIwNy02Ni4xNDEgNzAuMTY1eiIvPjxwYXRoIGQ9Im0yNTYgNjkuMjA2YzUuNTIzIDAgMTAtNC40NzggMTAtMTB2LTE1LjMxNWMwLTUuNTIyLTQuNDc3LTEwLTEwLTEwcy0xMCA0LjQ3OC0xMCAxMHYxNS4zMTZjMCA1LjUyMiA0LjQ3NyA5Ljk5OSAxMCA5Ljk5OXoiLz48cGF0aCBkPSJtMTA4LjAzNiAxMTAuMzU0YzEuOTUzIDEuOTUyIDQuNTEyIDIuOTI5IDcuMDcxIDIuOTI5czUuMTE5LS45NzcgNy4wNzEtMi45MjljMy45MDUtMy45MDUgMy45MDUtMTAuMjM3IDAtMTQuMTQzbC0xMC44My0xMC44M2MtMy45MDUtMy45MDQtMTAuMjM3LTMuOTA0LTE0LjE0MyAwLTMuOTA1IDMuOTA1LTMuOTA1IDEwLjIzNyAwIDE0LjE0M3oiLz48cGF0aCBkPSJtMzk2Ljg5MyAxMTMuMjgyYzIuNTU5IDAgNS4xMTktLjk3NyA3LjA3MS0yLjkyOWwxMC44My0xMC44M2MzLjkwNS0zLjkwNSAzLjkwNS0xMC4yMzcgMC0xNC4xNDMtMy45MDUtMy45MDQtMTAuMjM3LTMuOTA0LTE0LjE0MiAwbC0xMC44MyAxMC44M2MtMy45MDUgMy45MDUtMy45MDUgMTAuMjM3IDAgMTQuMTQzIDEuOTUyIDEuOTUzIDQuNTEyIDIuOTI5IDcuMDcxIDIuOTI5eiIvPjxwYXRoIGQ9Im0yNTYgNDQyLjc5NGMtNS41MjMgMC0xMCA0LjQ3OC0xMCAxMHYxNS4zMTVjMCA1LjUyMiA0LjQ3NyAxMCAxMCAxMHMxMC00LjQ3OCAxMC0xMHYtMTUuMzE1YzAtNS41MjItNC40NzctMTAtMTAtMTB6Ii8+PHBhdGggZD0ibTQwMy45NjQgNDAxLjY0N2MtMy45MDUtMy45MDQtMTAuMjM3LTMuOTA0LTE0LjE0MyAwLTMuOTA1IDMuOTA1LTMuOTA1IDEwLjIzNyAwIDE0LjE0M2wxMC44MyAxMC44M2MxLjk1MyAxLjk1MiA0LjUxMiAyLjkyOSA3LjA3MSAyLjkyOXM1LjExOS0uOTc3IDcuMDcxLTIuOTI5YzMuOTA1LTMuOTA1IDMuOTA1LTEwLjIzNyAwLTE0LjE0MnoiLz48cGF0aCBkPSJtMTA4LjAzNiA0MDEuNjQ3LTEwLjgzIDEwLjgzYy0zLjkwNSAzLjkwNS0zLjkwNSAxMC4yMzcgMCAxNC4xNDIgMS45NTMgMS45NTIgNC41MTIgMi45MjkgNy4wNzEgMi45MjlzNS4xMTktLjk3NyA3LjA3MS0yLjkyOWwxMC44My0xMC44M2MzLjkwNS0zLjkwNSAzLjkwNS0xMC4yMzcgMC0xNC4xNDMtMy45MDUtMy45MDQtMTAuMjM3LTMuOTA0LTE0LjE0Mi4wMDF6Ii8+PC9nPjwvc3ZnPg==" />
+                  <h2>Visión</h2>
+                </div>
+
+	            <%
+				for(Home ho: listHome){
+	            %>
+                <p><%=ho.getVision() %></p>
+                <%
+                             		}
+                                 %>
               </div>
             </div>
 
@@ -106,14 +198,13 @@
                 <h2>Historia</h2>
               </div>
 
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem unde illo 
-                fugit dolor deserunt voluptas, repudiandae commodi quae perspiciatis, qui eaque 
-                ad facere recusandae ipsum atque repellat tempora pariatur ut. 
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Suscipit 
-                magnam in aspernatur quia, quae natus! Autem nesciunt culpa cum ad? 
-                Quidem nisi dolorem consectetur soluta inventore, sed deleniti aperiam ea.
-              </p>
+	            <%
+				for(Home ho: listHome){
+	            %>
+                <p><%=ho.getHistoria() %></p>
+                <%
+                             		}
+                                 %>
             </div>
           </div>
 
@@ -126,26 +217,8 @@
   </main><!-- End #main -->
 
   <!-- ======= Footer ======= -->
-  <footer id="footer" class="footer">
-
-    <div class="container">
-
-      <h4><strong>Contacto</strong></h4>
-      <p>
-        Universidad Centroamericana (UCA) <br>
-        Managua, Nicaragua<br><br>
-        <strong>Teléfono:</strong> (+505) 2278 3923<br>
-        <strong>Ext:</strong> 1155<br>
-      </p>      
-
-      <br><center><hr></center>
-
-      <div class="credits">
-        Designed by Tiny Trees
-      </div>
-
-    </div>
-  </footer><!-- End Footer -->
+    <%@ include file="/menu/footer.jsp" %>
+  <!-- End Footer -->
 
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 

@@ -5,7 +5,7 @@ import java.sql.Timestamp;
 public class Home {
   
 	//Atributos
-	private String Descrip_pag;
+	private String descrip_pag;
 	private String historia;
 	private String mision;
 	private String vision;
@@ -15,12 +15,11 @@ public class Home {
 	
 	
 	//Metodos
-	
 	public String getDescrip_pag() {
-		return Descrip_pag;
+		return descrip_pag;
 	}
 	public void setDescrip_pag(String descrip_pag) {
-		Descrip_pag = descrip_pag;
+		this.descrip_pag = descrip_pag;
 	}
 	public String getHistoria() {
 		return historia;
@@ -58,7 +57,5 @@ public class Home {
 	public void setUsuarioID(int usuarioID) {
 		this.usuarioID = usuarioID;
 	}
-	
-	
 	
 }
