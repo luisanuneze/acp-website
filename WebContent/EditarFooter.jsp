@@ -55,27 +55,24 @@
         		<h2 class="form-header" style="color: black;">Editar Footer</h2>
         		<br>
 
-        		<form class="user">
-                                <div class="form-group row">
-                                    <div class="col-sm-6">
+        		<form class="user row">
+                                <div class="form-group col-sm-6">
+                                    <div class="col-sm-12">
                                         <input type="email" class="form-control form-control-user" name="txtEmail" id="txtEmail"
                                             placeholder="Email" required>
                                     </div>
-                                </div>
-                                <div class="form-group row">
-                                    <div class="col-sm-6 mb-3 mb-sm-0">
+                                    <div class="col-sm-12 mb-3 mb-sm-0">
                                         <input type="text" class="form-control form-control-user" name="txtTelefono" id="txtTelefono"
                                             placeholder="Telefono" required>
                                     </div>
-                                    <div class="col-sm-6">
+                                        <div class="col-sm-12">
                                         <input type="text" class="form-control form-control-user" name="txtExtension" id="txtExtension"
                                             placeholder="Extension" required>
                                     </div>
                                 </div>
-                                <div class="form-group row">
-                                    <div class="col-sm-6">
-                                    	<input type="text" class="form-control form-control-user" name="txtDescripcion" id="txtDescripcion"
-                                        	placeholder="Descripcion" required>
+                                <div class="form-group col-sm-6">
+                                    <div class="col-sm-12">
+                                    <textarea class="form-control" name="message" rows="6" placeholder="Descripción" required></textarea>
                                 	</div>
                                 </div>
                                 <!-- <a href="login.html" class="btn btn-primary btn-user btn-block">
