@@ -74,14 +74,14 @@
         <%
                              		for(VW_Arbol ar: listArbol){
                              	%>
-            <a href="edicionArboles.jsp"><div class="arboles d-flex flex-column">
+            <a href="EditarArboles.jsp"><div class="arboles d-flex flex-column">
                 <img src="https://image.flaticon.com/icons/png/512/2975/2975970.png" ><hr>
                 <p><%=ar.getNombreComun() %></p>
             </div></a>
             <%
                              		}
                                  %>
-            <a href="edicionArboles.jsp"><div class="arboles new-arbol d-flex flex-column">
+            <a href="EditarArboles.jsp"><div class="arboles new-arbol d-flex flex-column">
                 <center><img src="https://www.flaticon.es/premium-icon/icons/svg/2623/2623098.svg" ><hr></center>
                 <p>Agregar nuevo árbol</p>
             </div></a>

@@ -67,7 +67,7 @@
         <!-- Botones -->
         <div class="button-formulario">
           <button> Guardar </button>
-          <a href="edicionArboles.jsp"><button> Regresar </button></a>
+          <a href="javascript:history.go(-1)"><button> Regresar </button></a>
         </div>
 
       </div>
