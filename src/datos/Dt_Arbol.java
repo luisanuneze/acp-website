@@ -29,7 +29,7 @@ public class Dt_Arbol {
 		}
 	}
 	
-	//Metodo para listar los Paises con sus regiones
+	//Metodo para listar los arboles
 	public ArrayList<VW_Arbol> listaArbol(){
 		ArrayList<VW_Arbol> listArbol = new ArrayList<VW_Arbol>();
 		try{
