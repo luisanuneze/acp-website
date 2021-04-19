@@ -55,33 +55,31 @@
         		<h2 class="form-header" style="color: black;">Editar Usuario</h2>
         		<br>
 
-        		<form class="user">
-                                <div class="form-group row">
-                                    <div class="col-sm-6 mb-3 mb-sm-0">
+        		<form class="user row">
+                                <div class="form-group col-sm-6">
+                                    <div class="col-sm-12 mb-3 mb-sm-0">
                                         <input type="text" class="form-control form-control-user" name="txtUserName" id="txtUserName"
                                             placeholder="Nombre de Usuario" required>
                                     </div>
-                                    <div class="col-sm-6">
-                                        <input type="email" class="form-control form-control-user" name="txtEmail" id="txtEmail"
-                                            placeholder="Email" required>
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <div class="col-sm-6 mb-3 mb-sm-0">
+                                    <div class="col-sm-12 mb-3 mb-sm-0">
                                         <input type="text" class="form-control form-control-user" name="txtNombres" id="txtNombres"
                                             placeholder="Nombres" required>
                                     </div>
-                                    <div class="col-sm-6">
-                                        <input type="password" class="form-control form-control-user" name="txtPwd" id="txtPwd"
-                                            placeholder="Contraseña" required>
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <div class="col-sm-6">
+                                    <div class="col-sm-12">
                                     	<input type="text" class="form-control form-control-user" name="txtApellidos" id="txtApellidos"
                                         	placeholder="Apellidos" required>
                                 	</div>
-                                    <div class="col-sm-6">
+                                </div>
+                                <div class="form-group col-sm-6">
+                                    <div class="col-sm-12">
+                                        <input type="email" class="form-control form-control-user" name="txtEmail" id="txtEmail"
+                                            placeholder="Email" required>
+                                    </div>
+                                    <div class="col-sm-12">
+                                        <input type="password" class="form-control form-control-user" name="txtPwd" id="txtPwd"
+                                            placeholder="Contraseña" required>
+                                    </div>
+                                    <div class="col-sm-12">
                                         <input type="password" class="form-control form-control-user" name="txtPwd2"
                                             id="txtPwd2" placeholder="Repetir Contraseña">
                                     </div>
