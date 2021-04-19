@@ -15,7 +15,6 @@ public class Home {
 	
 	
 	//Metodos
-	
 	public String getDescrip_pag() {
 		return descrip_pag;
 	}
@@ -58,7 +57,5 @@ public class Home {
 	public void setUsuarioID(int usuarioID) {
 		this.usuarioID = usuarioID;
 	}
-	
-	
 	
 }

@@ -6,7 +6,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import entidades.Familia;
 import entidades.Home;
 
 public class Dt_Home {
@@ -20,7 +19,7 @@ public class Dt_Home {
 		// Metodo para llenar el ResultSet
 		public void llenaRsHome(Connection c){
 			try{
-				ps = c.prepareStatement("select * from public.home", ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE, ResultSet.HOLD_CURSORS_OVER_COMMIT);
+				ps = c.prepareStatement("SELECT * from home", ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE, ResultSet.HOLD_CURSORS_OVER_COMMIT);
 				rsHome = ps.executeQuery();
 			}
 			catch (Exception e){
@@ -35,12 +34,11 @@ public class Dt_Home {
 			ArrayList<Home> listHome = new ArrayList<Home>();
 			try{
 				c = PoolConexion.getConnection();
-				ps = c.prepareStatement("select * from public.\"Home\"", ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE, ResultSet.HOLD_CURSORS_OVER_COMMIT);
+				ps = c.prepareStatement("select * from public.\"home\"", ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE, ResultSet.HOLD_CURSORS_OVER_COMMIT);
 				rs = ps.executeQuery();
 				while(rs.next()){
 					Home hom = new Home();
 					hom.setHomeID(rs.getInt("homeID"));
-					hom.setUsuarioID(rs.getInt("usuarioID"));
 					hom.setMision(rs.getString("mision"));
 					hom.setVision(rs.getString("vision"));
 					hom.setHistoria(rs.getString("historia"));
@@ -72,6 +70,53 @@ public class Dt_Home {
 				
 			}
 			return listHome;
+		}
+		
+		// Metodo para modificar home
+		public boolean modificarHome(Home home)
+		{
+			boolean modificado=false;	
+			try
+			{
+				c = PoolConexion.getConnection();
+				this.llenaRsHome(c);
+				rsHome.beforeFirst();
+				while (rsHome.next())
+				{
+					if(rsHome.getInt(1)==home.getHomeID())
+					{
+						rsHome.updateString("vision", home.getVision());
+						rsHome.updateString("mision", home.getMision());
+						rsHome.updateString("historia", home.getHistoria());
+						rsHome.updateString("descrip_pag", home.getDescrip_pag());
+						rsHome.updateTimestamp("fechaModicacion", home.getFechaModificacion());
+						rsHome.updateRow();
+						modificado=true;
+						break;
+					}
+				}
+			}
+			catch (Exception e)
+			{
+				System.err.println("ERROR AL ACTUALIZAR HOME "+e.getMessage());
+				e.printStackTrace();
+			}
+			finally
+			{
+				try {
+					if(rsHome != null){
+						rsHome.close();
+					}
+					if(c != null){
+						PoolConexion.closeConnection(c);
+					}
+					
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+			return modificado;
 		}
 
 }
