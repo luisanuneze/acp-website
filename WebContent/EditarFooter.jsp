@@ -5,7 +5,7 @@
 <head>
 <meta charset="ISO-8859-1"><meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>PWACP - Portal Web Arboreto Carmelo Palmaa</title>
+  <title>PWACP - Portal Web Arboreto Carmelo Palma</title>
   <meta content="" name="description">
 
   <meta content="" name="keywords">
