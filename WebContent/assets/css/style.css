@@ -493,7 +493,7 @@ section {
 # Boton personalizado
 --------------------------------------------------------------*/
 
-button {
+button, .button {
     border-radius: 15px;
     margin: 10px;
     padding: 10px 30px 10px 30px;
@@ -502,6 +502,14 @@ button {
     -webkit-box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.15);
     -moz-box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.15);
     -box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.15), 0;
+}
+
+.button{
+	margin: 50px 10px;
+}
+
+.button:hover{
+    color: white;
 }
 
 button:hover {
@@ -541,7 +549,7 @@ button:hover {
     color: white;
 }
 
-.button-formulario button{
+.button-formulario button, .button{
     background: #081C44;
     color: white;
 }
