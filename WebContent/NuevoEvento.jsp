@@ -105,7 +105,7 @@
                               			 <br>
                               			 
                               			 <div class="col-md-6">
-							          		<a href="tblEventos.jsp"><button style="background-color:#0e203f; color:white"> Regresar </button></a>
+							          		<a class="button" href="tblEventos.jsp"> Regresar </a>
 							        	 </div>
                               			                              	                          			 
                         				
