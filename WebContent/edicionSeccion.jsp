@@ -69,11 +69,11 @@
                        </div>    
                    </div></a>
 
-                   <div class="content">
+                   <a href="EditarFooter.jsp"><div class="content">
                        <div id="Content-edicion" class="Content-edicion">
                            <h2>Editar información del footer</h2>
-                       </div>    
-                   </div>
+                         </div>
+                    </div></a>  
        
                </div>
    
