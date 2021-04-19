@@ -140,8 +140,8 @@
                              	%>
                              <tr>
                                  <td><%=fa.getHomeID() %></td>
-                                 <td><%=fa.getVision() %></td>
                                  <td><%=fa.getMision() %></td>
+                                 <td><%=fa.getVision() %></td>
                                  <td><%=fa.getHistoria() %></td>
                              </tr>
                              		<%
