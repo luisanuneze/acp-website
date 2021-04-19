@@ -104,6 +104,10 @@ SELECT * FROM VW_RolOpciones;
 --- SCRIPT JACQUELINE ---
 ---===================---
 
+-- Inserts Inicio --
+INSERT INTO public.home (mision, vision, historia, descrip_pag, usuarioid, fechamodificacion) 
+VALUES ('Esta es nuestra mision', 'Esta es nuestra vision', 'Esta es nuestra historia', 
+'Descripcion de la pagina' , 1, '2021-04-19');
 
 ---=============---
 --- SCRIPT YARÓ ---
