@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+    pageEncoding="ISO-8859-1"  import="entidades.*, datos.*, java.util.*;"%>
 <!DOCTYPE html>
 <html>
 
@@ -61,6 +61,27 @@
             </div>
             <!-- Fin cardview -->
             
+            
+             <%
+                 ArrayList<Genero> listGenero = new ArrayList<Genero>();
+                 Dt_Genero dtg = new Dt_Genero();
+                 listGenero = dtg.listaGenerosActivos();
+                 
+                 ArrayList<Familia> listFamilia = new ArrayList<Familia>();
+                 Dt_Familia dtf = new Dt_Familia();
+                 listFamilia = dtf.listaFamiliasActivas();
+                 
+                 ArrayList<Floracion> listFloracion = new ArrayList<Floracion>();
+                 Dt_Floracion dtfl = new Dt_Floracion();
+                 listFloracion = dtfl.listaFloracionsActivos();
+                      	
+                 ArrayList<VW_Distribucion> listDistribucion = new ArrayList<VW_Distribucion>();
+                 Dt_Distribucion dtd = new Dt_Distribucion();
+                 listDistribucion = dtd.listaDistribucion();
+                      	
+                      %>
+            
+            
             <!-- Formulario arboles -->
             <div class="contenido-arboles formulario col-sm-10">
                 <form action="arboles.jsp" class="row">
@@ -84,9 +105,15 @@
                             Género: 
                             <div class="col-sm-10">
                             	<select class="form-select" name="selecciona...">
-                                 <option value="value1">Valor 1</option>
-                                 <option value="value2">Valor 2</option>
-                                 <option value="value3">Valor 3</option>
+                                <option value="">Seleccione</option>
+                            	 <%
+                             		for( Genero ar: listGenero){
+                             	%>
+                                 <option value="<%= ar.getGeneroID() %>"><%= ar.getNombre() %></option>
+                                  <%
+                             		}
+                                 %>
+                               
                                 </select>
                             </div> <br>
                         </div>
@@ -97,9 +124,15 @@
                             Familia: 
                             <div class="col-sm-12">
                             	<select class="form-select" name="selecciona...">
-                                 <option value="value1">Valor 1</option>
-                                 <option value="value2">Valor 2</option>
-                                 <option value="value3">Valor 3</option>
+                            	 <option value="">Seleccione</option>
+                            	 <%
+                             		for( Familia fr: listFamilia){
+                             	%>
+                                 <option value="<%= fr.getFamiliaID() %>"><%= fr.getNombre() %></option>
+                                  <%
+                             		}
+                                 %>
+                                
                                 </select>
                             </div> <br>
                         </div>
@@ -107,9 +140,15 @@
                             Floración: 
                             <div class="col-sm-12">
                             	<select class="form-select" name="selecciona...">
-                                 <option value="value1">Valor 1</option>
-                                 <option value="value2">Valor 2</option>
-                                 <option value="value3">Valor 3</option>
+                            	 <option value="">Seleccione</option>
+                            	  <%
+                             		for( Floracion flr: listFloracion){
+                             	%>
+                                 <option value="<%= flr.getFloracionID() %>"><%= flr.getNombre() %></option>
+                                   <%
+                             		}
+                                 %>
+                                
                                 </select>
                             </div> <br>
                         </div>
@@ -117,9 +156,14 @@
                             Distribución: 
                             <div class="col-sm-12">
                             	<select class="form-select" name="selecciona...">
-                                 <option value="value1">Valor 1</option>
-                                 <option value="value2">Valor 2</option>
-                                 <option value="value3">Valor 3</option>
+                            	 <option value="">Seleccione</option>
+                            	  <%
+                             		for( VW_Distribucion fdr: listDistribucion){
+                             	%>
+                                 <option value="<%= fdr.getID() %>"><%= fdr.getDistribucion() %></option>
+                                <%
+                             		}
+                                 %>
                                 </select>
                             </div> <br>
                         </div>

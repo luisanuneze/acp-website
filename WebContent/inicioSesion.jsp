@@ -48,8 +48,8 @@
               <form action="index.jsp" class="col">
                   <h2>Inicio de sesión</h2>
                   <div class="form-group">
-                      <label for="email"> Correo:</label>
-                      <input  placeholder="Ingrese su correo electrónico" type="text" class="form-control w-100" id="email">
+                      <label for="username"> Usuario:</label>
+                      <input  placeholder="Ingrese su nombre de usuario" type="text" class="form-control w-100" id="username">
                   </div>
                   <div class="form-group">
                       <label for="pwd"> Contraseña:</label>
