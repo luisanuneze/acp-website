@@ -51,7 +51,7 @@
       
         <!-- Despliegue de filtros -->
         <div class="form-group row">
-        	<div class="col-sm-3">
+        	<div class="col-sm-4">
         	Filtrar árboles por: 
 	        	<select class="form-select col-sm-3" name="selecciona...">
 	                <option value="value1">Valor 1</option>
@@ -81,10 +81,14 @@
             <%
                              		}
                                  %>
-            <a href="EditarArboles.jsp"><div class="arboles new-arbol d-flex flex-column">
+                       
+                       
+        	<!-- Para nuevo arbol -->          
+            <a href="NuevoArbol.jsp"><div class="arboles new-arbol d-flex flex-column">
                 <center><img src="https://www.flaticon.es/premium-icon/icons/svg/2623/2623098.svg" ><hr></center>
                 <p>Agregar nuevo árbol</p>
             </div></a>
+			<!-- Fin nuevo arbol -->
             
         </div>
         <!-- Fin cardviews -->

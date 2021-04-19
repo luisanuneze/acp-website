@@ -84,9 +84,8 @@
             
             <!-- Formulario arboles -->
             <div class="contenido-arboles formulario col-sm-10">
-            	<h2 class="form-header" style="color: black;">Editar Árbol</h2>
-            
-            
+            	<h2 class="form-header" style="color: black;">Agregar Nuevo Árbol</h2>
+            	
                 <form action="arboles.jsp" class="row">
                   <div class="row">
                   
