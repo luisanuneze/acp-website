@@ -57,9 +57,7 @@
         		<h2 class="form-header" style="color: black;">Registrar Nuevo Evento</h2>
         		<br>
 
-        		<form class=" row" method="post" action="./Sl_GestionUsuario">
-        		<!-- El valor de este input es para el Servlet opcion guardar -->
-                            	<input name="opcion" type="hidden" value="1" />
+        		<form class=" row" method="post" >
                                 <div class="col-sm-4">
                                 	<div class="col-sm-12 mb-3 mb-sm-0">
                                 	
@@ -107,8 +105,8 @@
                               			 <br>
                               			 
                               			 <div class="col-md-6">
-							          <a href="tblEventos.jsp"><button style="background-color:#0e203f; color:white"> Regresar </button></a>
-							        </div>
+							          		<a href="tblEventos.jsp"><button style="background-color:#0e203f; color:white"> Regresar </button></a>
+							        	 </div>
                               			                              	                          			 
                         				
                         		</div>
@@ -121,7 +119,7 @@
 	                        				<select>
 	                        					<option value = "">Seleccione el tipo de evento</option>
 	                        					<option value = "Publica">Publico</option>
-	                        					<option value = "Privada">Privalo</option>
+	                        					<option value = "Privada">Privado</option>
 	                        				</select><br>
 	                        				
 	                       				<div class="root">
