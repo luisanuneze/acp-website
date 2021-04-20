@@ -55,20 +55,19 @@
 	            <div class="col-md-12">
 	              <input type="text" class="form-control" placeholder="Nombre" required>
 	            </div>
-	
+	            
 	            <div class="col-md-12">
 	              <textarea class="form-control" name="message" rows="6" placeholder="Descripción" required></textarea>
 	            </div>
 	          </div>
+        		<br>
+
+		        <!-- Botones -->
+		        <div class="button-formulario">
+		          <button> Guardar </button>
+		          <a href="javascript:history.go(-1)" class="button" >Regresar </a>
+		        </div>
         	</form>
-
-        <br>
-
-        <!-- Botones -->
-        <div class="button-formulario">
-          <button> Guardar </button>
-          <a href="javascript:history.go(-1)"><button> Regresar </button></a>
-        </div>
 
       </div>
 

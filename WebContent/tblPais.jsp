@@ -51,13 +51,28 @@
       <div class="container" data-aos="fade-up">
 
        <div>
-          <h1 class="h3 mb-2 text-gray-800">Gestión de País</h1><br>
        
           <!-- DataTables Pais -->
-          <div class="card shadow mb-4">
-              <div class="card-header py-3">
-                  <h4 class="m-0 font-weight-bold text-primary">Países registrados</h4>
+ 			<div class="card shadow mb-4">
+              <div class="card-header py-3 row">
+              	<div class="col">
+          			<h1 class="h3 mb-2 text-gray-800">Gestión de País</h1>
+	          	</div>
+	          	<div class="col" align="right">
+	          	
+					<!-- Button agregar e imprimir-->
+					<a href="NuevoPais.jsp" data-toggle="modal"
+						data-target="#modalNuevoUsuario"> <i
+						class="fas fa-file-medical fa-2x" title="Agregar nuevo país"></i>
+					</a>&nbsp;&nbsp;
+					<a href="#"> <i class="fas fa-print fa-2x"
+						title="Imprimir registro"></i>
+					</a> 
+					<!-- Fin Button agregar e imprimir -->
+					
+				</div>
               </div>
+              
               <div class="card-body">
               	<div align="right">
               	</div>
