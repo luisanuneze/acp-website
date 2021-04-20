@@ -230,14 +230,52 @@ SELECT * FROM VW_Arbol;
 	VALUES ('Juglans neotropica', 'Cedro negro', 1, 'Miden 40 cm de largo por 25 cm de ancho, con 12 pares folíolos de borde aserrado y asimétricos. Requiere de suelos profundos, fértiles y bien drenados.Su madera es moderadamente pesada, se emplea para elaborar enchapes, carpintería, ebanistería fina , pisos y en construcción.', 1, 1, 1, 5, '2021-04-17');
 	
 
-	
-		
-	
-		
 ---==============---
 --- SCRIPT LAURA ---
 ---==============---
 
+	
+-- Inserts Region --
+    INSERT INTO public.region(
+	nombre, estado, fechacreacion)
+	VALUES ('Asia Occidental ', 1, '2021-04-19');
+	
+-- Inserts Pais --
+	INSERT INTO public.pais(
+	nombre, estado, regionid, fechacreacion)
+	VALUES ('Arabia Saudita', 1, 4, '2021-04-19');
+	
+-- Inserts Distribucion --
+    INSERT INTO public.distribucion(
+	nombre, estado, descripcion, paisid, fechacreacion)
+	VALUES ('Oriente Medio', 1, 'Es la región aproximadamente equivalente al suroeste de Asia.' ,4, '2021-04-19');
+
+-- Inserts Familia --
+    INSERT INTO public.familia(
+	nombre, estado, descripcion, fechacreacion)
+	VALUES ('Rosaceae', 1, 'Las Rosaceaes son un gran número de plantas leñosas y herbáceas, muy estimada principalmente por sus árboles y arbustos frutales, así como por numerosas especies de valor ornamental. ', '2021-04-19');
+	
+-- Inserts Genero --
+	INSERT INTO public.genero(
+	nombre, estado, descripcion, fechacreacion)
+	VALUES ('Prunus', 1, 'Prunus es un género de árboles y arbustos de la familia Rosaceae, que incluye varias especies cultivadas por sus frutos.' , '2021-04-19');
+
+-- Inserts Arbol --
+	INSERT INTO public.arbol(
+	nombrecientifico, nombrecomun, estado, descripcion, distribucionid, familiaid, generoid, floracionid, usuarioid, fechacreacion)
+	VALUES ('Prunus dulcis', 'Almendro', 1, 'Puede alcanzar hasta 10 m. de altura, 
+			pero generalmente se le mantiene más bajo mediante poda. La corteza de 
+			sus ramitas jóvenes es verde, se vuelve violácea donde recibe la luz 
+			solar directa; a partir del segundo año se vuelve gris, y se va oscureciendo 
+			progresivamente.', 1, 2, 2, 4, 1, '2021-04-19');
+			
+	INSERT INTO public.arbol(
+	nombrecientifico, nombrecomun, estado, descripcion, distribucionid, familiaid, generoid, floracionid, usuarioid, fechacreacion)
+	VALUES ('Juglans regia', 'Nogal', 1, 'Es un árbol caducifolio que llega a los 25m 
+			de altura con un tronco que puede superar los 2 m de diámetro. De este tronco, 
+			que es corto y robusto y de color blanquecino o gris claro, salen gruesas y 
+			vigorosas ramas para formar una copa grande y redondeada.', 2 , 1, 1, 1, 1, '2021-04-19');
+	
 
 ---==============---
 --- SCRIPT LUISA ---
