@@ -82,7 +82,7 @@
 		<section id="about" class="about">
 
 			<!-- Begin Page Content -->
-			<div class="container-fluid">
+			<div class="container-fluid container" data-aos="fade-up">
 
 				<!-- Page Heading -->
 				<h1 class="h3 mb-2 text-gray-800">Gestión de Usuarios</h1>

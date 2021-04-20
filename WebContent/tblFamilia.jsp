@@ -31,6 +31,11 @@
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
   
+  <!-- DATATABLE -->
+<link href="DataTables/DataTables-1.10.21/css/jquery.dataTables.min.css" rel="stylesheet">
+<!-- DATATABLE buttons -->
+<link href="DataTables/Buttons-1.6.3/css/buttons.dataTables.min.css" rel="stylesheet">
+  
 </head>
 
 <body>
@@ -48,19 +53,32 @@
     <!-- ======= Inicio Section ======= -->
     <section id="about" class="about">
 
-      <div class="container" data-aos="fade-up">
+      <div class="container-fluid container" data-aos="fade-up">
 
        <div>
-          <h1 class="h3 mb-2 text-gray-800">Gestión de Familias</h1><br>
        
           <!-- DataTables Familia -->
           <div class="card shadow mb-4">
-              <div class="card-header py-3">
-                  <h4 class="m-0 font-weight-bold text-primary">Familias registradas</h4>
+              <div class="card-header py-3 row">
+              	<div class="col">
+          			<h1 class="h3 mb-2 text-gray-800">Gestión de Familias</h1>
+	          	</div>
+	          	<div class="col" align="right">
+	          	
+					<!-- Button agregar e imprimir-->
+					<a href="NuevaFamilia.jsp" data-toggle="modal"
+						data-target="#modalNuevoUsuario"> <i
+						class="fas fa-file-medical fa-2x" title="Agregar nueva familia"></i>
+					</a>&nbsp;&nbsp;
+					<a href="#"> <i class="fas fa-print fa-2x"
+						title="Imprimir registro"></i>
+					</a> 
+					<!-- Fin Button agregar e imprimir -->
+					
+				</div>
               </div>
+              
               <div class="card-body">
-              	<div align="right">
-              	</div>
               	
                   <div class="table-responsive">
                       <table class="table table-bordered" id="tblFamilia" width="100%" cellspacing="0">
@@ -142,6 +160,45 @@
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
+  
+  <!-- Bootstrap core JavaScript-->
+    <script src="assets/vendor/jquery/jquery.min.js"></script>
+    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
+    <!-- Core plugin JavaScript-->
+    <script src="assets/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+	<!-- DATATABLE -->
+	<script src="DataTables/DataTables-1.10.21/js/jquery.dataTables.js"></script>
+
+	<!-- DATATABLE buttons -->
+	<script src="DataTables/Buttons-1.6.3/js/dataTables.buttons.min.js"></script>
+
+	<!-- js Datatable buttons print -->
+	<script src="DataTables/Buttons-1.6.3/js/buttons.html5.min.js"></script>
+	<script src="DataTables/Buttons-1.6.3/js/buttons.print.min.js"></script>
+
+	<!-- js Datatable buttons pdf -->
+	<script src="DataTables/pdfmake-0.1.36/pdfmake.min.js"></script>
+	<script src="DataTables/pdfmake-0.1.36/vfs_fonts.js"></script>
+
+	<!-- js Datatable buttons excel -->
+	<script src="DataTables/JSZip-2.5.0/jszip.min.js"></script>
+
+<!-- 	<script>
+		$(document).ready(function() {
+			
+			////// APLICAMOS FORMATO Y BOTONES A LA TABLA //// INICIAMOS EL PLUGIN DATATABLE
+			$('#tblFamilia').DataTable({
+				dom : 'Bfrtip',
+				buttons : [
+				             'pdf',
+				'excel', 'print' ]
+
+			});
+			////////////////////////////////////////////////
+
+		});
+	</script> -->
 </body>
 </html>
