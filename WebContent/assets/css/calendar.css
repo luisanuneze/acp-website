@@ -10,13 +10,8 @@
     --color-cell-disabled: #424649;
 }
 
-.root {
-    min-height: 100vh;
-    padding: 0 15px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
+
+
 
 .calendar {
     padding: 20px 10px;
