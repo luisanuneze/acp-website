@@ -680,7 +680,7 @@ button:hover {
 --------------------------------------------------------------*/
 
 .about .content {
-    padding: 40px;
+    padding: 30px 50px;
     text-align: justify;
     margin-inline: 10px;
     margin-bottom: 25px;
@@ -766,8 +766,12 @@ button:hover {
     width: 80px;
 }
 
-.Content-edicion, .Content-publicacion {
+.Content-edicion{
     text-align: center;
+}
+
+.Content-publicacion{
+    text-align: left;
 }
 
 .Content-edicion h2, .Content-publicacion h2 {
@@ -779,20 +783,36 @@ button:hover {
     justify-items: center;
 }
 
+.Content-evento h2{
+	
+    font-weight: normal;
+    text-align: left;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    justify-items: center;
+}
+
 .publicaciones img {
     width: 80px;
     margin: 30px;
 }
 
-.div-publicaciones {
+.eventos img{
+	width: 120px;
+	height: 120px;
+	border-radius: 50%;
+	object-fit: cover;
+    margin: 30px;
+}
+
+.div-publicaciones, .div-eventos {
     display: flex;
     flex-wrap: nowrap;
     font-weight: normal;
-    text-align: center;
+    text-align: left;
     align-items: center;
-    align-content: center;
-    justify-content: center;
-    justify-items: center;
+    align-content: left;
 }
 
 .card-view{

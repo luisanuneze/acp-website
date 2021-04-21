@@ -22,7 +22,7 @@
       <nav id="navbar" class="navbar">
         <ul>
           <li><a class="nav-link scrollto" href="index.jsp">Página principal</a></li>
-          <li><a class="nav-link" href="tblEventos.jsp">Eventos</a></li>
+          <li><a class="nav-link" href="eventos.jsp">Eventos</a></li>
            <li class="dropdown"><a href="arboles.jsp"><span>Árboles</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
               <li><a class="nav-link" href="tblFamilia.jsp">Familia</a></li>
