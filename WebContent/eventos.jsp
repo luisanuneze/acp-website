@@ -85,10 +85,9 @@
                   </div>
                   
 				</div>
-				<div class="eventos col-sm-4">
+				<div class="eventos col-sm-4 col-center">
 					<div class="root">
-						<div class="calendar" id="calendar">
-	
+						<center><div class="calendar" id="calendar"></center>
 						</div>
 					</div>
 				</div>

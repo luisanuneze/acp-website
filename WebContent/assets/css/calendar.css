@@ -5,21 +5,21 @@
 }
 
 :root {
-    --color-bg-calendar: #1b1e22;
+    --color-bg-calendar: none;
     --color-cell: #e3e3e3;
     --color-cell-disabled: #424649;
 }
 
-
-
-
 .calendar {
-    padding: 20px 10px;
-    background-color: var(--color-bg-calendar);
-    border-radius: 5px;
+    background-color: #010A1D;
+    padding: 10px;
+    border-radius: 15px;
     width: 100%;
-    max-width: 300px;
+    max-width: 350px;
     font-family: sans-serif;
+    -webkit-box-shadow: 0 2px 2px 0 rgb(0 0 0 / 15%);
+    -moz-box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.15);
+    -box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.15), 0;
 }
 
 .calendar__header {
@@ -27,7 +27,17 @@
     display: flex;
     justify-content: space-between;
     text-transform: uppercase;
-    margin-bottom: 30px;
+    margin:0px;
+    padding: 10px;
+    align-items: center;
+    border: 1.2px solid rgba(0, 0, 0, 0.10);
+}
+
+.calendar__body {
+    background-color: #AED6F120;
+    border-radius: 15px;
+	padding: 10px;
+    border: 1.2px solid rgba(0, 0, 0, 0.10);
 }
 
 .calendar .control {
@@ -66,9 +76,9 @@
 
 .grid__cell--selected {
     color: var(--color-bg-calendar);
-    background-color: white;
+    background-color: #1A527660;
     border-radius: 50%;
-    border: 2px solid white;
+    border: 2px solid #ffffff20;
     box-shadow: 0 0 0 2px var(--color-bg-calendar) inset;
 }
 
