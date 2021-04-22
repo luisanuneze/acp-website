@@ -80,7 +80,7 @@
     <section id="about" class="about">
 
       <!-- Begin Page Content -->
-                <div class="container-fluid">
+                <div class="container-fluid container">
 
                     <!-- Page Heading -->
                     <h1 class="h3 mb-2 text-gray-800">Gestión de Eventos</h1>
