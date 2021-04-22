@@ -112,7 +112,7 @@
                                  <td><%=flo.getNombre() %></td>
                                  <td><%=flo.getDescripcion() %></td>
                                  <td><%=flo.getTemporada() %></td>
-                                 <td><a id="btn-edita-abrir" href="NuevaFloracion.jsp"> <i class="fas fa-edit" >Editar</i></a> 
+                                 <td><a id="btn-edita-abrir" href="EditarFloracion.jsp"> <i class="fas fa-edit" >Editar</i></a> 
                                  	<a href="#"> <i class="fas fa-trash-alt">Eliminar</i></a> 
                                  	<a href="#"> <i class="fas fa-eye">Visualizar</i>
 										</a></td>

@@ -25,9 +25,9 @@
           <li><a class="nav-link" href="eventos.jsp">Eventos</a></li>
            <li class="dropdown"><a href="arboles.jsp"><span>Árboles</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
+              <li><a class="nav-link" href="tblGenero.jsp">Género</a></li>
               <li><a class="nav-link" href="tblFamilia.jsp">Familia</a></li>
               <li><a class="nav-link" href="tblFloracion.jsp">Floración</a></li>
-              <li><a class="nav-link" href="tblGenero.jsp">Género</a></li>
                <li class="dropdown"><a href="tblDistribucion.jsp"><span>Distribución</span> <i class="bi bi-chevron-right"></i></a>
                 <ul>
                	  <li class="dropdown"><a href="tblPais.jsp"><span>País</span> <i class="bi bi-chevron-right"></i></a>

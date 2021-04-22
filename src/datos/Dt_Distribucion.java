@@ -6,7 +6,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import entidades.Pais;
 import entidades.Distribucion;
 import entidades.VW_Distribucion;
 
@@ -30,7 +29,7 @@ public class Dt_Distribucion {
 				}
 			}
 			
-			//Metodo para listar los Paises con sus regiones
+			//Metodo para listar los Distribuciones con sus paises
 			public ArrayList<VW_Distribucion> listaDistribucion(){
 				ArrayList<VW_Distribucion> listDistribucion = new ArrayList<VW_Distribucion>();
 				try{
@@ -71,7 +70,7 @@ public class Dt_Distribucion {
 				}
 				return listDistribucion;
 			}
-			//Metodo para guardar un pais
+			//Metodo para guardar una distribucion
 			public boolean guardarDistribucion(Distribucion d){
 				boolean guardado = false;
 				

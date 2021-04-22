@@ -109,7 +109,7 @@
                                  <td><%=pa.getID() %></td>
                                  <td><%=pa.getPais() %></td>
                                  <td><%=pa.getRegion() %></td>
-                                 <td><a id="btn-edita-abrir" href="NuevoPais.jsp"> <i class="fas fa-edit" >Editar</i></a> 
+                                 <td><a id="btn-edita-abrir" href="EditarPais.jsp"> <i class="fas fa-edit" >Editar</i></a> 
                                  	<a href="#"> <i class="fas fa-trash-alt">Eliminar</i></a> 
                                  	<a href="#"> <i class="fas fa-eye">Visualizar</i>
 										</a></td>

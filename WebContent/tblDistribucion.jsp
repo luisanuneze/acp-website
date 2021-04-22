@@ -112,7 +112,7 @@
                                  <td><%=dis.getDistribucion() %></td>
                                  <td><%=dis.getDescripcion() %></td>
                                  <td><%=dis.getPais() %></td>
-                                 <td><a id="btn-edita-abrir" href="NuevaDistribucion.jsp"> <i class="fas fa-edit" >Editar</i></a> 
+                                 <td><a id="btn-edita-abrir" href="EditarDistribucion.jsp"> <i class="fas fa-edit" >Editar</i></a> 
                                  	<a href="#"> <i class="fas fa-trash-alt">Eliminar</i></a> 
                                  	<a href="#"> <i class="fas fa-eye">Visualizar</i>
 										</a></td>

@@ -115,7 +115,7 @@
                                  <td><%=fa.getNombre() %></td>
                                  <td><%=fa.getDescripcion() %></td>
                                  <td><%=fa.getFechaCreacion() %></td>
-                                 <td><a id="btn-edita-abrir" href="NuevaFamilia.jsp"> <i class="fas fa-edit" >Editar</i></a> 
+                                 <td><a id="btn-edita-abrir" href="EditarFamilia.jsp"> <i class="fas fa-edit" >Editar</i></a> 
                                  	<a href="#"> <i class="fas fa-trash-alt">Eliminar</i></a> 
                                  	<a href="#"> <i class="fas fa-eye">Visualizar</i>
 										</a></td>

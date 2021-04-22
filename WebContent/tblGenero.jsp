@@ -112,7 +112,7 @@
                                  <td><%=ge.getNombre() %></td>
                                  <td><%=ge.getDescripcion() %></td>
                                  <td><%=ge.getFechaCreacion() %></td>
-                                 <td><a id="btn-edita-abrir" href="NuevoGenero.jsp"> <i class="fas fa-edit" >Editar</i></a> 
+                                 <td><a id="btn-edita-abrir" href="EditarGenero.jsp"> <i class="fas fa-edit" >Editar</i></a> 
                                  	<a href="#"> <i class="fas fa-trash-alt">Eliminar</i></a> 
                                  	<a href="#"> <i class="fas fa-eye">Visualizar</i>
 										</a></td>
