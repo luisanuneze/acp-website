@@ -59,6 +59,13 @@
 	                <option value="value3">Valor 3</option>
 	            </select>
         	</div>
+        	<div class="col" align="right">
+	        	<!-- Boton de edicion-->
+		        <div id="button-edicion" class="button-edicion">
+		          <a href="tblArbol.jsp"><button> Administrar árboles</button></a>
+		        </div>
+		        <!-- Termina boton de edicion-->
+        	</div>
             
         </div> 
         <!-- Termina despliegue de filtros-->
