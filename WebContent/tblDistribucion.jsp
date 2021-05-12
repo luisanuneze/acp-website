@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
          pageEncoding="ISO-8859-1"
-         import="entidades.Distribucion, entidades.VW_Distribucion, datos.Dt_Distribucion, java.util.*;" %>
+         import="entidades.Distribucion, vistas.VW_Distribucion, datos.Dt_Distribucion, java.util.*;" %>
 <!DOCTYPE html>
 <html>
 <head>

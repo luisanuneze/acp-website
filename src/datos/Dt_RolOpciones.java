@@ -7,7 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import entidades.RolOpciones;
-import entidades.VW_RolOpciones;
+import vistas.VW_RolOpciones;
 
 public class Dt_RolOpciones {
 

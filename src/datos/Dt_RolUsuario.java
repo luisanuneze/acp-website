@@ -7,7 +7,7 @@ import java.util.ArrayList;
 
 import entidades.RolUsuario;
 import entidades.Usuario;
-import entidades.VW_RolUsuario;
+import vistas.VW_RolUsuario;
 
 
 public class Dt_RolUsuario {

@@ -8,7 +8,7 @@ import java.util.ArrayList;
 
 import entidades.Pais;
 import entidades.Region;
-import entidades.VW_PaisRegion;
+import vistas.VW_PaisRegion;
 
 
 public class Dt_Pais {

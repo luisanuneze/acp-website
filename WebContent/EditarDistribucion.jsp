@@ -3,7 +3,7 @@
                                            datos.Dt_Distribucion,
                                            entidades.Pais,
                                            datos.Dt_Pais,
-                                           entidades.VW_PaisRegion,
+                                           vistas.VW_PaisRegion,
                                            java.util.*;" %>
 <!DOCTYPE html>
 <html>

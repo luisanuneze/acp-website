@@ -7,7 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import entidades.Distribucion;
-import entidades.VW_Distribucion;
+import vistas.VW_Distribucion;
 
 public class Dt_Distribucion {
 	//Atributos

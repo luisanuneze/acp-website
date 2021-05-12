@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-         pageEncoding="ISO-8859-1" import="entidades.Arbol, entidades.VW_Arbol, datos.Dt_Arbol, java.util.*;" %>
+         pageEncoding="ISO-8859-1" import="entidades.Arbol, vistas.VW_Arbol, datos.Dt_Arbol, java.util.*;" %>
 <!DOCTYPE html>
 <html>
 

@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"
-         import="entidades.VW_RolUsuario, entidades.RolUsuario, datos.Dt_RolUsuario, java.util.*;" %>
+         import="vistas.VW_RolUsuario, entidades.RolUsuario, datos.Dt_RolUsuario, java.util.*;" %>
 <!DOCTYPE html>
 <html>
 

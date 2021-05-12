@@ -7,7 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import entidades.Arbol;
-import entidades.VW_Arbol;
+import vistas.VW_Arbol;
 
 public class Dt_Arbol {
 	//Atributos

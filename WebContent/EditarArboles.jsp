@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-         pageEncoding="ISO-8859-1" import="entidades.*, datos.*, java.util.*;" %>
+         pageEncoding="ISO-8859-1" import="entidades.*, datos.*, vistas.VW_Distribucion, java.util.*;" %>
 <!DOCTYPE html>
 <html>
 
