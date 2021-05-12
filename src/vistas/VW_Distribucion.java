@@ -1,4 +1,4 @@
-package entidades;
+package vistas;
 
 public class VW_Distribucion {
 	
