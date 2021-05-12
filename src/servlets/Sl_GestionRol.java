@@ -52,10 +52,11 @@ public class Sl_GestionRol extends HttpServlet {
 		int opc = 0;
 		opc = Integer.parseInt(request.getParameter("opcion"));
 
-		// CONSTRUIR EL OBJETO USUARIO
+		// CONSTRUIR EL OBJETO ROL
 		Dt_Rol dtro = new Dt_Rol();
 		Rol rol = new Rol();
-		rol.setRolID(Integer.parseInt(request.getParameter("rolID")));
+		
+		//rol.setRolID(Integer.parseInt(request.getParameter("rolID")));
 		rol.setRol(request.getParameter("txtRol"));
 		rol.setRoldescripcion(request.getParameter("txtdesc"));
 

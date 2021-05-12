@@ -1,6 +1,7 @@
 package servlets;
 
 import java.io.IOException;
+import java.sql.Timestamp;
 import java.util.Date;
 
 import javax.servlet.ServletException;
@@ -53,10 +54,12 @@ private static final long serialVersionUID = 1L;
 			Eventos eve = new Eventos();
 			eve.setEventoid(Integer.parseInt(request.getParameter("eventoid")));
 			eve.setUsuarioid(Integer.parseInt(request.getParameter("usuarioid")));
-			eve.setNombre(request.getParameter("txtNombre"));
+			eve.setNombre(request.getParameter("txtEvento"));
 			eve.setDescripcion(request.getParameter("txtDescripcion"));
-			eve.setTipoevento(request.getParameter("txtTipoEve"));
 			eve.setUbicacion(request.getParameter("txtUbicacion"));
+			eve.setHipervinculo(request.getParameter("txtHipervinculo"));
+			//eve.setFechainicio(request.());
+			//eve.setUbicacion(request.getParameter("txtUbicacion"));
 		
 		
 		switch (opc){
@@ -67,13 +70,13 @@ private static final long serialVersionUID = 1L;
 		        	
 		        	Date fechaSistema = new Date();
 			        eve.setFechaCreacion(new java.sql.Timestamp(fechaSistema.getTime()));
-			        System.out.println("user.getFechaCreacion(): "+eve.getFechaCreacion());
+			        System.out.println("eve.getFechaCreacion(): "+eve.getFechaCreacion());
 		        	
 			        if(dte.guardarEvent(eve)) {
-			        	response.sendRedirect("tblUsuarios.jsp?msj=1");
+			        	response.sendRedirect("tblEventos.jsp?msj=1");
 			        }
 			        else {
-			        	response.sendRedirect("tblUsuarios.jsp?msj=2");
+			        	response.sendRedirect("tblEventos.jsp?msj=2");
 			        }
 			        	
 		        }
@@ -88,15 +91,19 @@ private static final long serialVersionUID = 1L;
 		case 2:{
 				
 			try {
-	        	/*
-		        if(dte.modificarEvento(eve)) {
-		        	response.sendRedirect("tblEventos.jsp?msj=3");
-		        }
-		        else {
-		        	response.sendRedirect("tblEventos.jsp?msj=4");
-		        }
-		        */	
 	        	
+	        	//PARA GUARDAR LA FECHA Y HORA DE MODIFICACION
+				
+				Date fechaSistema = new Date();
+				eve.setFechaModificacion(new java.sql.Timestamp(fechaSistema.getTime()));
+				System.out.println("eve.getFechaModificacion(): "+eve.getFechaModificacion());
+				if(dte.modificarEvento(eve)) {
+					response.sendRedirect("tblEventos.jsp?msj=3");
+				}
+				else {
+					response.sendRedirect("tblEventos.jsp?msj=4");
+				}
+				
 	        }
 	        catch(Exception e) {
 	        	System.out.println("Sl_GestionEventos, el error es: " + e.getMessage());

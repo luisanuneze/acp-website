@@ -2,6 +2,12 @@
          pageEncoding="ISO-8859-1"
          import="entidades.Usuario, datos.Dt_Usuario, java.util.*;" %>
 <!DOCTYPE html>
+<%
+	//Variable de control de mensajes
+	String varMsj = request.getParameter("msj")==null?"":request.getParameter("msj");
+
+
+%>
 <html>
 
 <head>
@@ -160,14 +166,17 @@
                                 </td>
                                 <td><%=us.getEstado() == 1 || us.getEstado() == 2 ? "ACTIVO" : "INACTIVO" %>
                                 </td>
-                                <td><a id="btn-edita-abrir"
-                                       href="EditarUsuario.jsp?usuarioID=<%=us.getUsuarioID()%>">
+                                <td>
+                                <a id="btn-edita-abrir" href="EditarUsuario.jsp?usuarioid=<%=us.getUsuarioID()%>">
                                     <i class="fas fa-edit" title="Modificar datos del Usuario"></i>
-                                </a> <a href="#"> <i class="fas fa-trash-alt"
-                                                     title="Eliminar Usuario"></i>
-                                </a> <a href="#"> <i class="fas fa-eye"
-                                                     title="Visualizar Usuario"></i>
-                                </a></td>
+                                </a> 
+                                <a href="Sl_GestionUsuario?nombres=<%=us.getUsuarioID()%>"> 
+                                	<i class="fas fa-trash-alt" title="Eliminar Usuario"></i>
+                                </a> 
+                                <a href="#"> 
+                                	<i class="fas fa-eye" title="Visualizar Usuario"></i>
+                                </a>
+                                </td>
                             </tr>
                             <%
                                 }
@@ -243,6 +252,18 @@
         });
 
         ////////////////////////////////////////////////
+        /////////// VARIABLE DE CONTROL MSJ ///////////
+        var mensaje = "";
+        mensaje = "<%=varMsj%>";
+
+        if(mensaje == "1")
+        {
+            successAlert('Éxito', 'Los datos han sido registrados exitosamente!');
+        }
+        if(mensaje == "2")
+        {
+            errorAlert('Error', 'Revise los datos e intente nuevamente!!!');
+        }
 
     });
 </script>

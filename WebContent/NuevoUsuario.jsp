@@ -89,29 +89,18 @@
                                id="txtPwd2" placeholder="Repetir Contraseña">
                     </div>
                 </div>
-                <!-- <a href="login.html" class="btn btn-primary btn-user btn-block">
-                    Register Account
-                </a>
-                <hr>
-                <a href="index.html" class="btn btn-google btn-user btn-block">
-                    <i class="fab fa-google fa-fw"></i> Register with Google
-                </a>
-                <a href="index.html" class="btn btn-facebook btn-user btn-block">
-                    <i class="fab fa-facebook-f fa-fw"></i> Register with Facebook
-                </a>-->
-
-            </form>
 
             <br>
 
             <!-- Botones -->
             <div class="col-md-6">
-                <button style="background-color:#0e203f; color:white"> Guardar</button>
+                <input class="btn btn-primary btn-user btn-block" type="submit" value="Guardar" />
                 <a href="tblUsuarios.jsp">
                     <button style="background-color:#0e203f; color:white"> Regresar</button>
                 </a>
             </div>
 
+            </form>
         </div>
 
     </section>

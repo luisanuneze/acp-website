@@ -5,6 +5,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Date;
+
 import entidades.Usuario;
 
 public class Dt_Usuario {
@@ -83,10 +85,14 @@ public class Dt_Usuario {
 			Usuario user = new Usuario();
 			try
 			{
+				
+				System.out.println("Hasta aca todo bien");
+				
 				c = PoolConexion.getConnection();
-				ps = c.prepareStatement("select * from public.\"usuario\" where estado <> 3 and \"usuarioID\"=?", ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE, ResultSet.HOLD_CURSORS_OVER_COMMIT);
+				ps = c.prepareStatement("select * from public.\"usuario\" where estado <> 3 and \"usuarioid\"=?", ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE, ResultSet.HOLD_CURSORS_OVER_COMMIT);
 				ps.setInt(1, usuarioID);
 				rs = ps.executeQuery();
+				System.out.println("Ya hizo el select");
 				if(rs.next())
 				{
 					user.setUsuarioID(usuarioID);
@@ -94,7 +100,9 @@ public class Dt_Usuario {
 					user.setContrasenia(rs.getString("contrasenia"));
 					user.setNombres(rs.getString("nombres"));
 					user.setApellidos(rs.getString("apellidos"));
+					user.setEmail(rs.getString("email"));
 					user.setEstado(rs.getInt("estado"));
+					System.out.println("Ya te deberia de aparecer wtf");
 				}
 			}
 			catch (Exception e)
@@ -137,6 +145,7 @@ public class Dt_Usuario {
 				rsUsuario.updateString("contrasenia", user.getContrasenia());
 				rsUsuario.updateString("nombres", user.getNombres());
 				rsUsuario.updateString("apellidos", user.getApellidos());
+				rsUsuario.updateString("email", user.getEmail());
 				rsUsuario.updateTimestamp("fechacreacion", user.getFechaCreacion());
 				rsUsuario.updateInt("Estado", 1);
 				rsUsuario.insertRow();
@@ -182,6 +191,7 @@ public class Dt_Usuario {
 						rsUsuario.updateString("contrasenia", user.getContrasenia());
 						rsUsuario.updateString("nombres", user.getNombres());
 						rsUsuario.updateString("apellidos", user.getApellidos());
+						rsUsuario.updateString("email", user.getEmail());
 						rsUsuario.updateTimestamp("fechaModicacion", user.getFechaModificacion());
 						rsUsuario.updateInt("estado", 2);
 						rsUsuario.updateRow();
@@ -211,6 +221,51 @@ public class Dt_Usuario {
 				}
 			}
 			return modificado;
+		}
+		
+		// Metodo para eliminar usuario
+		public boolean eliminarUser(int usuarioID)
+		{
+			boolean eliminado=false;	
+			try
+			{
+				c = PoolConexion.getConnection();
+				this.llenaRsUsuario(c);
+				rsUsuario.beforeFirst();
+				Date fechaSistema = new Date();
+				while (rsUsuario.next())
+				{
+					if(rsUsuario.getInt(1)==usuarioID)
+					{
+						rsUsuario.updateTimestamp("FechaEliminacion", new java.sql.Timestamp(fechaSistema.getTime()));
+						rsUsuario.updateInt("estado", 3);
+						rsUsuario.updateRow();
+						eliminado=true;
+						break;
+					}
+				}
+			}
+			catch (Exception e)
+			{
+				System.err.println("ERROR AL ACTUALIZAR USUARIO "+e.getMessage());
+				e.printStackTrace();
+			}
+			finally
+			{
+				try {
+					if(rsUsuario != null){
+						rsUsuario.close();
+					}
+					if(c != null){
+						PoolConexion.closeConnection(c);
+					}
+					
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+			return eliminado;
 		}
 
 }

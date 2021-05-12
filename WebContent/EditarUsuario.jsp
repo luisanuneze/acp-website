@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-         pageEncoding="ISO-8859-1" %>
+         pageEncoding="ISO-8859-1" import="entidades.Usuario, datos.Dt_Usuario, java.util.*;" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -56,8 +56,20 @@
 
             <h2 class="form-header" style="color: black;">Editar Usuario</h2>
             <br>
+            
+            <%
+                 String us = "";
+				 us = request.getParameter("UsuarioID")==null?"0":request.getParameter("UsuarioID");
+														
+				 Usuario user = new Usuario();
+				 Dt_Usuario dtu = new Dt_Usuario();
+				 user = dtu.getUsuario(Integer.parseInt(us));
+            %>
 
-            <form class="user row">
+            <form class="user row"method="post" action="./Sl_GestionUsuario" >
+				<!-- El valor de este input es para el Servlet opcion guardar -->
+                <input name="usuarioid" type="hidden" value="<%=user.getUsuarioID()%>" />
+                <input name="opcion" type="hidden" value="2" />
                 <div class="form-group col-sm-6">
                     <div class="col-sm-12 mb-3 mb-sm-0">
                         <input type="text" class="form-control form-control-user" name="txtUserName" id="txtUserName"
@@ -86,28 +98,18 @@
                                id="txtPwd2" placeholder="Repetir Contraseña">
                     </div>
                 </div>
-                <!-- <a href="login.html" class="btn btn-primary btn-user btn-block">
-                    Register Account
-                </a>
-                <hr>
-                <a href="index.html" class="btn btn-google btn-user btn-block">
-                    <i class="fab fa-google fa-fw"></i> Register with Google
-                </a>
-                <a href="index.html" class="btn btn-facebook btn-user btn-block">
-                    <i class="fab fa-facebook-f fa-fw"></i> Register with Facebook
-                </a>-->
-
-            </form>
+           
 
             <br>
 
             <!-- Botones -->
             <div class="col-md-6">
-                <button style="background-color:#0e203f; color:white"> Actualizar</button>
+                <input class="btn btn-primary btn-user btn-block" type="submit" value="Actualizar" />
                 <a href="tblUsuarios.jsp">
                     <button style="background-color:#0e203f; color:white"> Regresar</button>
                 </a>
             </div>
+           </form>
 
         </div>
 
@@ -134,6 +136,17 @@
 
 <!-- Template Main JS File -->
 <script src="assets/js/main.js"></script>
+
+<script>  
+   $(document).ready(function()
+	{
+
+		$("#txtUserName").val("<%=user.getUsuario()%>");
+		$("#txtNombres").val("<%=user.getNombres()%>");
+		$("#txtApellidos").val("<%=user.getApellidos()%>");
+		$("#txtEmail").val("<%=user.getEmail()%>");
+	});
+</script>
 
 </body>
 </html>

@@ -22,7 +22,7 @@ public class Dt_Opciones {
 	
 	public void llenaRsOpc(Connection c){
 		try{
-			ps = c.prepareStatement("SELECT * from Opciones", ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE, ResultSet.HOLD_CURSORS_OVER_COMMIT);
+			ps = c.prepareStatement("SELECT * from opciones", ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE, ResultSet.HOLD_CURSORS_OVER_COMMIT);
 			rsOpc = ps.executeQuery();
 		}
 		catch (Exception e){

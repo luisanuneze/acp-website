@@ -107,6 +107,7 @@
                             <tr>
                                 <th>ID</th>
                                 <th>Opciones</th>
+                                <th>Descripción</th>
                                 <th>Estado</th>
                                 <!--<th>Opciones</th>-->
                             </tr>
@@ -115,6 +116,7 @@
                             <tr>
                                 <th>ID</th>
                                 <th>Opciones</th>
+                                <th>Descripción</th>
                                 <th>Estado</th>
                                 <!--<th>Opciones</th>-->
                             </tr>
@@ -125,6 +127,8 @@
                             %>
                             <tr>
                                 <td><%=opc.getOpcionesID() %>
+                                </td>
+                                <td><%=opc.getOpcion() %>
                                 </td>
                                 <td><%=opc.getDescripcion() %>
                                 </td>
