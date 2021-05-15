@@ -139,7 +139,7 @@
                                 <td><%=us.getOpcion() %>
                                 </td>
                                 <td>
-                                    <a id="btn-edita-abrir" href="editRolOpc.jsp?ID=<%=us.getID()%>">
+                                    <a id="btn-edita-abrir" href="editRolOpc.jsp?rol_opcionesID=<%=us.getID()%>">
                                         <i class="fas fa-edit" title="Modificar datos asignados"></i>
                                     </a>
                                     <a href="#">

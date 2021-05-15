@@ -147,7 +147,7 @@
                                 <td><%=us.getRol() %>
                                 </td>
                                 <td>
-                                    <a id="btn-edita-abrir" href="editRolUsuario.jsp?ID=<%=us.getID()%>">
+                                    <a id="btn-edita-abrir" href="editRolUsuario.jsp?rol_usuarioID=<%=us.getID()%>">
                                         <i class="fas fa-edit" title="Modificar datos asignados"></i>
                                     </a>
                                     <a href="#">

@@ -64,10 +64,10 @@ public class Sl_GestionRolOpc extends HttpServlet {
 			        System.out.println("user.getFechaCreacion(): "+ro.getFechaCreacion());
 		        	
 			        if(dtro.guardarRolOpc(ro)) {
-			        	response.sendRedirect("rolOpc.jsp?msj=1");
+			        	response.sendRedirect("tblRolOpc.jsp?msj=1");
 			        }
 			        else {
-			        	response.sendRedirect("rolOpc.jsp?msj=2");
+			        	response.sendRedirect("tblRolOpc.jsp?msj=2");
 			        }
 			        	
 		        }

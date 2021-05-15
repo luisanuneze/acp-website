@@ -33,6 +33,16 @@ public class Sl_GestionRolUser extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		response.getWriter().append("Served at: ").append(request.getContextPath());
+		/*int idRolUser =0;
+		idRolUser = Integer.parseInt(request.getParameter("idRU"));
+		Dt_RolUsuario dtru = new Dt_RolUsuario(); 
+		
+		if(dtru.eliminaRU(idRolUser)) {
+        	response.sendRedirect("tblRolUser.jsp?msj=5");
+        }
+        else {
+        	response.sendRedirect("tblRolUser.jsp?msj=6");
+        }*/
 	}
 
 	/**
@@ -64,10 +74,10 @@ public class Sl_GestionRolUser extends HttpServlet {
 			        System.out.println("user.getFechaCreacion(): "+ru.getFechaCreacion());
 		        	
 			        if(dtru.guardarRolUser(ru)) {
-			        	response.sendRedirect("rolUser.jsp?msj=1");
+			        	response.sendRedirect("tblRolUser.jsp?msj=1");
 			        }
 			        else {
-			        	response.sendRedirect("rolUser.jsp?msj=2");
+			        	response.sendRedirect("tblRolUser.jsp?msj=2");
 			        }
 			        	
 		        }
