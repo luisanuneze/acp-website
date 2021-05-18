@@ -85,7 +85,7 @@ public class Dt_Familia {
 				try
 				{
 					c = PoolConexion.getConnection();
-					ps = c.prepareStatement("select * from public.\"familia\" where estado <> 3 and \"familiaID\"=?", ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE, ResultSet.HOLD_CURSORS_OVER_COMMIT);
+					ps = c.prepareStatement("select * from public.\"familia\" where estado <> 3 and \"familiaid\"=?", ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE, ResultSet.HOLD_CURSORS_OVER_COMMIT);
 					ps.setInt(1, familiaID);
 					rs = ps.executeQuery();
 					if(rs.next())
@@ -93,13 +93,12 @@ public class Dt_Familia {
 						fam.setFamiliaID(familiaID);
 						fam.setNombre(rs.getString("nombre"));
 						fam.setDescripcion(rs.getString("descripcion"));
-						fam.setEstado(rs.getInt("estado"));
 						
 					}
 				}
 				catch (Exception e)
 				{
-					System.out.println("DATOS ERROR getNIMA(): "+ e.getMessage());
+					System.out.println("DATOS ERROR getFamilia(): "+ e.getMessage());
 					e.printStackTrace();
 				}
 				finally
@@ -133,7 +132,6 @@ public class Dt_Familia {
 					c = PoolConexion.getConnection();
 					this.llenaRsFamilia(c);
 					rsFamilia.moveToInsertRow();
-//					rsUsuario.updateInt("UsuarioID", 2);
 					rsFamilia.updateString("nombre", fam.getNombre());
 					rsFamilia.updateString("descripcion", fam.getDescripcion());
 					rsFamilia.updateTimestamp("fechaCreacion", fam.getFechaCreacion());

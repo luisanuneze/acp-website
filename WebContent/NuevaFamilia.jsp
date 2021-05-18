@@ -52,14 +52,16 @@
 
             <h2 class="form-header" style="color: black;">Registrar Nueva Familia</h2>
             <br>
-            <form action="forms/contact.php" method="post" class="php-email-form">
+            
+            <form  method="post" class="user " action="./Sl_GestionFamilia">
                 <div class="row gy-4">
                     <div class="col-md-12">
-                        <input type="text" class="form-control" placeholder="Nombre" required>
+                    <input name="opcion" type="hidden" value="1"/>
+                        <input type="text" class="form-control" placeholder="Nombre de la Familia" name="txtNombre" id="txtNombre" required />
                     </div>
 
                     <div class="col-md-12">
-                        <textarea class="form-control" name="message" rows="6" placeholder="Descripción"
+                        <textarea class="form-control" name="txtDesc" id="txtDesc" rows="6" placeholder="Descripción de la Familia"
                                   required></textarea>
                     </div>
                 </div>
@@ -67,8 +69,11 @@
 
                 <!-- Botones -->
                 <div class="button-formulario">
-                    <button> Guardar</button>
-                    <a href="javascript:history.go(-1)" class="button">Regresar </a>
+                    <input  class="button" type="submit" value="Guardar" />
+                    <a href="tblUsuarios.jsp">
+                    <button style="background-color:#0e203f; color:white"> Regresar</button>
+                </a>
+                    <input class="button" type="reset" value="Cancelar" />
                 </div>
             </form>
 

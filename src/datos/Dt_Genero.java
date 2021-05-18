@@ -84,7 +84,7 @@ public class Dt_Genero {
 					try
 					{
 						c = PoolConexion.getConnection();
-						ps = c.prepareStatement("select * from public.\"genero\" where estado <> 3 and \"generoID\"=?", ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE, ResultSet.HOLD_CURSORS_OVER_COMMIT);
+						ps = c.prepareStatement("select * from public.\"genero\" where estado <> 3 and \"generoid\"=?", ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE, ResultSet.HOLD_CURSORS_OVER_COMMIT);
 						ps.setInt(1, generoID);
 						rs = ps.executeQuery();
 						if(rs.next())
@@ -92,7 +92,6 @@ public class Dt_Genero {
 							gen.setGeneroID(generoID);
 							gen.setNombre(rs.getString("nombre"));
 							gen.setDescripcion(rs.getString("descripcion"));
-							gen.setEstado(rs.getInt("estado"));
 							
 						}
 					}

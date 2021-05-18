@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-         pageEncoding="ISO-8859-1" %>
+         pageEncoding="ISO-8859-1" import = "entidades.*, datos.*, java.util.*;" %>
 <!DOCTYPE html>
 <html>
 
@@ -52,14 +52,26 @@
 
             <h2 class="form-header" style="color: black;">Editar Género</h2>
             <br>
-            <form action="forms/contact.php" method="post" class="php-email-form">
+             <%
+                            	String us = "";
+								us = request.getParameter("generoID")==null?"0":request.getParameter("generoID");
+														
+								Genero gen = new Genero();
+								Dt_Genero dtg = new Dt_Genero();
+								gen = dtg.getGenero(Integer.parseInt(us));
+							
+                            %>
+            
+            
+            <form action="./Sl_GestionGenero" method="post" class="user">
+            <input name="generoid" type="hidden" value="<%=gen.getGeneroID()%>" />
                 <div class="row gy-4">
                     <div class="col-md-12">
-                        <input type="text" class="form-control" placeholder="Nombre" required>
+                        <input type="text" class="form-control" placeholder="Nombre del Género" id="txtNombreG" name="txtNombreG" required>
                     </div>
 
                     <div class="col-md-12">
-                        <textarea class="form-control" name="message" rows="6" placeholder="Descripción"
+                        <textarea class="form-control" name="message" rows="6" placeholder="Descripción Género" id="txtDescripcionG" name="txtDescripcionG"
                                   required></textarea>
                     </div>
                 </div>
@@ -98,6 +110,19 @@
 
 <!-- Template Main JS File -->
 <script src="assets/js/main.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+
+<script>  
+   $(document).ready(function()
+	{
+	   $("#txtNombreG").val("<%=gen.getNombre()%>");
+	   $("#txtDescripcionG").val("<%=gen.getDescripcion()%>");
+	 
+		
+		
+	});
+</script>
 
 </body>
 </html>

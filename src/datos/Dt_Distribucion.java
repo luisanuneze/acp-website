@@ -70,6 +70,53 @@ public class Dt_Distribucion {
 				}
 				return listDistribucion;
 			}
+			
+			//Metodo para listar los Distribuciones con sus paises
+			public ArrayList<Distribucion> listarDistribucion(){
+				ArrayList<Distribucion> listDistribucion = new ArrayList<Distribucion>();
+				try{
+					c = PoolConexion.getConnection();
+					ps = c.prepareStatement("select * from public.distribucion", ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE, ResultSet.HOLD_CURSORS_OVER_COMMIT);
+					rs = ps.executeQuery();
+					while(rs.next()){
+						Distribucion ds = new Distribucion();
+						ds.setDistribucionID(rs.getInt("distribucionID"));
+						ds.setPaisID(rs.getInt("paisID"));
+						ds.setNombre(rs.getString("nombre"));
+						ds.setDescripcion(rs.getString("descripcion"));
+						ds.setFechaCreacion(rs.getTimestamp("fechaCreacion"));
+						ds.setFechaModificacion(rs.getTimestamp("fechaModificacion"));
+						ds.setFechaEliminacion(rs.getTimestamp("fechaEliminacion"));
+						ds.setEstado(rs.getInt("estado"));
+						listDistribucion.add(ds);
+					}
+				}
+				catch (Exception e){
+					System.out.println("DATOS: ERROR EN LISTAR Distribuciones "+ e.getMessage());
+					e.printStackTrace();
+				}
+				finally{
+					try {
+						if(rs != null){
+							rs.close();
+						}
+						if(ps != null){
+							ps.close();
+						}
+						if(c != null){
+							PoolConexion.closeConnection(c);
+						}
+						
+					} catch (SQLException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+					
+				}
+				return listDistribucion;
+			}
+			
+			
 			//Metodo para guardar una distribucion
 			public boolean guardarDistribucion(Distribucion d){
 				boolean guardado = false;

@@ -54,11 +54,7 @@
             <div class="form-group row">
                 <div class="col-sm-4">
                     Filtrar árboles por:
-                    <select class="form-select col-sm-3" name="selecciona...">
-                        <option value="value1">Valor 1</option>
-                        <option value="value2">Valor 2</option>
-                        <option value="value3">Valor 3</option>
-                    </select>
+                   
                 </div>
                 <div class="col" align="right">
                     <!-- Boton de edicion-->

@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import entidades.Arbol;
+import entidades.Genero;
 import vistas.VW_Arbol;
 
 public class Dt_Arbol {
@@ -74,6 +75,61 @@ public class Dt_Arbol {
 		}
 		return listArbol;
 	}
+	
+	
+	// Metodo para visualizar los datos de un árbol específico
+	public Arbol getArbol(int arbolID)
+	{
+		Arbol arb = new Arbol();
+		try
+		{
+			c = PoolConexion.getConnection();
+			ps = c.prepareStatement("select * from public.\"arbol\" where estado <> 3 and \"arbolid\"=?", ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE, ResultSet.HOLD_CURSORS_OVER_COMMIT);
+			ps.setInt(1, arbolID);
+			rs = ps.executeQuery();
+			if(rs.next())
+			{
+				arb.setArbolId(arbolID);
+				arb.setNombrecientifico(rs.getString("nombrecientifico"));
+				arb.setNombrecomun(rs.getString("nombrecomun"));
+				arb.setDescripcion(rs.getString("descripcion"));
+				arb.setDistribucionID(rs.getInt("distribucionID"));
+				arb.setFamiliaID(rs.getInt("familiaID"));
+				arb.setGeneroID(rs.getInt("generoID"));
+				arb.setFloracionID(rs.getInt("floracionID"));
+				
+				
+			}
+		}
+		catch (Exception e)
+		{
+			System.out.println("DATOS ERROR getNIMA(): "+ e.getMessage());
+			e.printStackTrace();
+		}
+		finally
+		{
+			try {
+				if(rs != null){
+					rs.close();
+				}
+				if(ps != null){
+					ps.close();
+				}
+				if(c != null){
+					PoolConexion.closeConnection(c);
+				}
+				
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		
+		return arb;
+	}
+	
+	
+	
 	//Metodo para guardar un arbol
 	public boolean guardarArbol(Arbol a){
 		boolean guardado = false;
@@ -83,7 +139,7 @@ public class Dt_Arbol {
 			this.llenaRsArbol(c);
 			rsArbol.moveToInsertRow();
 			rsArbol.updateString("nombrecientifico", a.getNombrecientifico());
-			rsArbol.updateString("nombrecientifico", a.getNombrecientifico());
+			rsArbol.updateString("nombrecomun", a.getNombrecomun());
 			rsArbol.updateString("descripcion", a.getDescripcion());
 			rsArbol.updateInt("distribucionID", a.getDistribucionID());
 			rsArbol.updateInt("generoID", a.getGeneroID());

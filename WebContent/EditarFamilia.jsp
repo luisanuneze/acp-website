@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-         pageEncoding="ISO-8859-1" %>
+         pageEncoding="ISO-8859-1" import = "entidades.*, datos.*, java.util.*;" %>
 <!DOCTYPE html>
 <html>
 
@@ -52,14 +52,27 @@
 
             <h2 class="form-header" style="color: black;">Editar Familia</h2>
             <br>
-            <form action="forms/contact.php" method="post" class="php-email-form">
+            
+                           <%
+                            	String us = "";
+								us = request.getParameter("familiaID")==null?"0":request.getParameter("familiaID");
+														
+								Familia fam = new Familia();
+								Dt_Familia dtf = new Dt_Familia();
+								fam = dtf.getFamilia(Integer.parseInt(us));
+							
+                            %>
+            
+            
+            <form action="./Sl_GestionFamilia" method="post" class="user">
+            <input name="familiaid" type="hidden" value="<%=fam.getFamiliaID()%>" />
                 <div class="row gy-4">
                     <div class="col-md-12">
-                        <input type="text" class="form-control" placeholder="Nombre" required>
+                        <input type="text" class="form-control form-control-user" placeholder="Nombre de la Familia" id="txtNombre" name="txtNombre" required>
                     </div>
 
                     <div class="col-md-12">
-                        <textarea class="form-control" name="message" rows="6" placeholder="Descripción"
+                        <textarea class="form-control form-control-user"  rows="6" placeholder="Descripción familia" id="txtDesc" name="txtDesc"
                                   required></textarea>
                     </div>
                 </div>
@@ -99,6 +112,20 @@
 
 <!-- Template Main JS File -->
 <script src="assets/js/main.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+
+<script>  
+   $(document).ready(function()
+	{
+	   $("#txtNombre").val("<%=fam.getNombre()%>");
+	   $("#txtDesc").val("<%=fam.getDescripcion()%>");
+	 
+		
+		
+	});
+</script>
+
 
 </body>
 </html>

@@ -77,9 +77,9 @@
                     Dt_Floracion dtfl = new Dt_Floracion();
                     listFloracion = dtfl.listaFloracionsActivos();
 
-                    ArrayList<VW_Distribucion> listDistribucion = new ArrayList<VW_Distribucion>();
+                    ArrayList<Distribucion> listarDistribucion = new ArrayList<Distribucion>();
                     Dt_Distribucion dtd = new Dt_Distribucion();
-                    listDistribucion = dtd.listaDistribucion();
+                    listarDistribucion = dtd.listarDistribucion();
 
                 %>
 
@@ -88,21 +88,22 @@
                 <div class="contenido-arboles formulario col-sm-10">
                     <h2 class="form-header" style="color: black;">Agregar Nuevo Árbol</h2>
 
-                    <form action="arboles.jsp" class="row">
+                    <form method="post" action="./Sl_GestionArbol" class="row">
                         <div class="row">
 
                             <div class="form-group col-sm-6">
                                 <div class="col-sm-12">
+                                 <input name="opcion" type="hidden" value="1"/>
                                     Nombre común:
                                     <div class="col-sm-12">
-                                        <input type="text" class="form-control" name="" id=""
+                                        <input type="text" class="form-control" name="txtNombreC" id="txtNombreC"
                                                placeholder="Nombre común" required>
                                     </div>
                                 </div>
                                 <div class="col-sm-12">
                                     Nombre científico:
                                     <div class="col-sm-12">
-                                        <input type="text" class="form-control" name="" id=""
+                                        <input type="text" class="form-control" name="txtNombreCi" id="txtNombreCi"
                                                placeholder="Nombre científico" required>
                                     </div>
                                 </div>
@@ -110,7 +111,7 @@
                                     Género:
                                     <div class="row">
                                         <div class="col-sm-8">
-                                            <select class="form-select" name="selecciona..." required>
+                                            <select class="form-select"  name="cbxGen" id="cbxGen" required>
                                                 <option value="">Seleccione</option>
                                                 <%
                                                     for (Genero ar : listGenero) {
@@ -137,7 +138,7 @@
                                     Familia:
                                     <div class="row">
                                         <div class="col-sm-8">
-                                            <select class="form-select" name="selecciona..." required>
+                                            <select class="form-select"  name="cbxFam" id="cbxFam" required>
                                                 <option value="">Seleccione</option>
                                                 <%
                                                     for (Familia fr : listFamilia) {
@@ -161,7 +162,7 @@
                                     Floración:
                                     <div class="row">
                                         <div class="col-sm-8">
-                                            <select class="form-select" name="selecciona..." required>
+                                            <select class="form-select" name="cbxFlor" id="cbxFlor" required>
                                                 <option value="">Seleccione</option>
                                                 <%
                                                     for (Floracion flr : listFloracion) {
@@ -185,12 +186,12 @@
                                     Distribución:
                                     <div class="row">
                                         <div class="col-sm-8">
-                                            <select class="form-select" name="selecciona..." required>
+                                            <select class="form-select" name="cbxDis" id="cbxDis" required>
                                                 <option value="">Seleccione</option>
                                                 <%
-                                                    for (VW_Distribucion fdr : listDistribucion) {
+                                                    for (Distribucion fdr : listarDistribucion) {
                                                 %>
-                                                <option value="<%= fdr.getID() %>"><%= fdr.getDistribucion() %>
+                                                <option value="<%= fdr.getDistribucionID() %>"><%= fdr.getNombre() %>
                                                 </option>
                                                 <%
                                                     }
@@ -207,7 +208,7 @@
                             <div class="form-group col-sm-11">
                                 Descripción:
                                 <div class="col-sm-12">
-                                    <textarea class="form-control" name="message" rows="6" placeholder="Descripción"
+                                    <textarea class="form-control" name="txtDesA" id="txtDesA" rows="6" placeholder="Descripción"
                                               required></textarea>
                                 </div>
                                 <br>
@@ -215,8 +216,9 @@
 
                             <!-- Botones -->
                             <div class="col-md-10 button-iniciar">
-                                <button> Guardar</button>
+                               <input  class="button" type="submit" value="Guardar" />
                                 <a href="javascript:history.go(-1)" class="button"> Regresar</a>
+                                <input class="button" type="reset" value="Cancelar" />
                             </div>
                         </div>
                     </form>
@@ -248,6 +250,7 @@
 
 <!-- Template Main JS File -->
 <script src="assets/js/main.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 
 </body>
 
