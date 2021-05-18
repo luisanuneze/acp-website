@@ -149,13 +149,16 @@
                                 </td>
                                 <td><%=r.getEstado() == 1 || r.getEstado() == 2 ? "ACTIVO" : "INACTIVO" %>
                                 </td>
-                                <td><a id="btn-edita-abrir"
-                                       href="EditarRol.jsp?rolID=<%=r.getRolID()%>"> <i
+                                <td>
+                                <a id="btn-edita-abrir" href="EditarRol.jsp?RolID=<%=r.getRolID()%>"> <i
                                         class="fas fa-edit" title="Modificar datos del Rol"></i>
-                                </a> <a href="#"> <i class="fas fa-trash-alt"
+                                </a> 
+                                <a href="#"> <i class="fas fa-trash-alt"
                                                      title="Eliminar Rol"></i>
-                                </a> <a href="#"> <i class="fas fa-eye" title="Visualizar Rol"></i>
-                                </a></td>
+                                </a> 
+                                <a href="#"> <i class="fas fa-eye" title="Visualizar Rol"></i>
+                                </a>
+                                </td>
                             </tr>
                             <%
                                 }

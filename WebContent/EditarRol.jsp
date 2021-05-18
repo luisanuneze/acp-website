@@ -62,7 +62,7 @@
             <br>
             <%
                 String rol = "";
-                rol = request.getParameter("rolID") == null ? "0" : request.getParameter("rolID");
+                rol = request.getParameter("RolID") == null ? "0" : request.getParameter("RolID");
 
                 Rol r = new Rol();
                 Dt_Rol dtr = new Dt_Rol();
@@ -70,8 +70,8 @@
             %>
             <form class="rol" method="post" action="./Sl_GestionRol">
                 <!-- El valor de este input es para el Servlet opcion guardar -->
-                <input name="rolID" type="hidden" value="<%=r.getRolID()%>"/> <input
-                    name="opcion" type="hidden" value="2"/>
+                <input name="RolID" type="hidden" value="<%=r.getRolID()%>"/> 
+                <input name="opcion" type="hidden" value="2"/>
                 <div class="form-group row">
                     <div class="col-sm-6 mb-3 mb-sm-0">
                         <input type="text" class="form-control form-control-user"
@@ -95,17 +95,19 @@
                                 <i class="fab fa-facebook-f fa-fw"></i> Register with Facebook
                             </a>-->
 
-            </form>
+            
 
             <br>
 
             <!-- Botones -->
             <div class="col-md-6">
-                <button style="background-color:#0e203f; color:white"> Actualizar</button>
+                <input class="btn btn-primary btn-user btn-block" type="submit" value="Actualizar" />
                 <a href="tblRol.jsp">
                     <button style="background-color:#0e203f; color:white"> Regresar</button>
                 </a>
             </div>
+            
+            </form>
 
         </div>
 
@@ -140,9 +142,10 @@
 
 <!-- Core plugin JavaScript-->
 <script src="assets/vendor/jquery-easing/jquery.easing.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 
 <script>
-    $(document).ready(function)()
+    $(document).ready(function()
     {
         $("#txtRol").val("<%=r.getRol()%>");
         $("#txtdesc").val("<%=r.getRoldescripcion()%>");

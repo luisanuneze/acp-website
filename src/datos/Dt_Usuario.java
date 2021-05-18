@@ -24,7 +24,7 @@ public class Dt_Usuario {
 		
 		public void llenaRsUsuario(Connection c){
 			try{
-				ps = c.prepareStatement("SELECT * from usuario", ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE, ResultSet.HOLD_CURSORS_OVER_COMMIT);
+				ps = c.prepareStatement("SELECT usuarioid,apellidos,nombres,usuario,email,contrasenia,fechacreacion,fechamodificacion,fechaeliminacion,estado from usuario;", ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE, ResultSet.HOLD_CURSORS_OVER_COMMIT);
 				rsUsuario = ps.executeQuery();
 			}
 			catch (Exception e){
@@ -136,6 +136,7 @@ public class Dt_Usuario {
 		public boolean guardarUser(Usuario user){
 			boolean guardado = false;
 			
+			
 			try{
 				c = PoolConexion.getConnection();
 				this.llenaRsUsuario(c);
@@ -177,6 +178,7 @@ public class Dt_Usuario {
 		// Metodo para modificar usuarios
 		public boolean modificarUser(Usuario user)
 		{
+			System.out.println("Ya entro al metodo");
 			boolean modificado=false;	
 			try
 			{
@@ -185,17 +187,20 @@ public class Dt_Usuario {
 				rsUsuario.beforeFirst();
 				while (rsUsuario.next())
 				{
+					System.out.println("Ya entro al while");
 					if(rsUsuario.getInt(1)==user.getUsuarioID())
 					{
+						System.out.println("Ya entro al if");
 						rsUsuario.updateString("usuario", user.getUsuario());
 						rsUsuario.updateString("contrasenia", user.getContrasenia());
 						rsUsuario.updateString("nombres", user.getNombres());
 						rsUsuario.updateString("apellidos", user.getApellidos());
 						rsUsuario.updateString("email", user.getEmail());
-						rsUsuario.updateTimestamp("fechaModicacion", user.getFechaModificacion());
+						rsUsuario.updateTimestamp("fechaModificacion", user.getFechaModificacion());
 						rsUsuario.updateInt("estado", 2);
 						rsUsuario.updateRow();
 						modificado=true;
+						System.out.println("Se supone que ya");
 						break;
 					}
 				}

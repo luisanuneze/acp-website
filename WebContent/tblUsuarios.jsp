@@ -51,6 +51,9 @@
 
     <!-- Template Main CSS File -->
     <link href="assets/css/style.css" rel="stylesheet">
+    
+    <!-- jAlert css  -->
+	<link rel="stylesheet" href="jAlert/dist/jAlert.css" />
 
     <!-- =======================================================
       * Template Name: FlexStart - v1.1.1
@@ -167,12 +170,31 @@
                                 <td><%=us.getEstado() == 1 || us.getEstado() == 2 ? "ACTIVO" : "INACTIVO" %>
                                 </td>
                                 <td>
-                                <a id="btn-edita-abrir" href="EditarUsuario.jsp?usuarioid=<%=us.getUsuarioID()%>">
+                                <a id="btn-edita-abrir" href="EditarUsuario.jsp?UsuarioID=<%=us.getUsuarioID()%>">
                                     <i class="fas fa-edit" title="Modificar datos del Usuario"></i>
                                 </a> 
-                                <a href="Sl_GestionUsuario?nombres=<%=us.getUsuarioID()%>"> 
-                                	<i class="fas fa-trash-alt" title="Eliminar Usuario"></i>
-                                </a> 
+                               
+                                           		<a class="ajax-link" href="javascript:void(0);" 
+                                           		onclick="$.jAlert({
+                                           		    'type': 'confirm',
+                                           		    'confirmQuestion': 'Realmente desea eliminar este registro?',
+                                           		    'onConfirm': function(e, btn){
+                                           		      e.preventDefault();
+                                           		      //do something here
+
+                                           		      window.location.href = 'Sl_GestionUsuario?usuarioID=<%=us.getUsuarioID()%>';
+                                           		      btn.parents('.jAlert').closeAlert();
+                                           		      return false;
+                                           		    },
+                                           		    'onDeny': function(e, btn){
+                                           		      e.preventDefault();
+                                           		      //do something here
+                                           		      btn.parents('.jAlert').closeAlert();
+                                           		      return false;
+                                           		    }
+                                           		  });">
+                        							<i class="fas fa-trash-alt" title="Eliminar Usuario"></i>
+                        						</a> 
                                 <a href="#"> 
                                 	<i class="fas fa-eye" title="Visualizar Usuario"></i>
                                 </a>
@@ -239,6 +261,11 @@
 
 <!-- js Datatable buttons excel -->
 <script src="DataTables/JSZip-2.5.0/jszip.min.js"></script>
+
+<!-- jAlert js -->
+<script src="jAlert/dist/jAlert.min.js"></script>
+<script src="jAlert/dist/jAlert-functions.min.js"> //optional!!</script>
+
 
 <script>
     $(document).ready(function () {

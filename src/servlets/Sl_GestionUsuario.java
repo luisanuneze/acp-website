@@ -102,8 +102,8 @@ public class Sl_GestionUsuario  extends HttpServlet{
 		case 2:{
 			
 				try {
-					user.setUsuarioID(Integer.parseInt(request.getParameter("usuarioID")));
-					//PARA GUARDAR LA FECHA Y ORA DE MODIFICACION
+					user.setUsuarioID(Integer.parseInt(request.getParameter("usuarioid")));
+					//PARA GUARDAR LA FECHA Y HORA DE MODIFICACION
 					Date fechaSistema = new Date();
 					user.setFechaModificacion(new java.sql.Timestamp(fechaSistema.getTime()));
 					System.out.println("user.getFechaModificacion(): "+user.getFechaModificacion());

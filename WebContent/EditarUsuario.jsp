@@ -136,6 +136,7 @@
 
 <!-- Template Main JS File -->
 <script src="assets/js/main.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 
 <script>  
    $(document).ready(function()
@@ -145,6 +146,8 @@
 		$("#txtNombres").val("<%=user.getNombres()%>");
 		$("#txtApellidos").val("<%=user.getApellidos()%>");
 		$("#txtEmail").val("<%=user.getEmail()%>");
+		$("#txtPwd").val("<%=user.getContrasenia()%>");
+		$("#txtPwd2").val("<%=user.getContrasenia()%>");
 	});
 </script>
 

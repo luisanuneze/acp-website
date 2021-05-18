@@ -77,24 +77,26 @@ public class Dt_Rol {
 			// Metodo para visualizar los datos de un rol específico
 			public Rol getRol(int RolID)
 			{
+				System.out.println("Esta acaaaaa");
 				Rol r = new Rol();
 				try
 				{
 					c = PoolConexion.getConnection();
-					ps = c.prepareStatement("select * from public.rol where estado <> 3 and RolID=?", ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE, ResultSet.HOLD_CURSORS_OVER_COMMIT);
+					ps = c.prepareStatement("select * from public.\"rol\" where estado <> 3 and \"rolid\"=?", ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE, ResultSet.HOLD_CURSORS_OVER_COMMIT);
 					ps.setInt(1, RolID);
 					rs = ps.executeQuery();
 					if(rs.next())
 					{
 						r.setRolID(RolID);
-						r.setRol(rs.getString("rol"));
-						r.setRoldescripcion(rs.getString("roldescripcion"));
-						r.setEstado(rs.getInt("estado"));
+						r.setRol(rs.getString("Rol"));
+						r.setRoldescripcion(rs.getString("Roldescripcion"));
+						r.setEstado(rs.getInt("Estado"));
+						System.out.println("Entroooooo");
 					}
 				}
 				catch (Exception e)
 				{
-					System.out.println("DATOS ERROR getRol(): "+ e.getMessage());
+					System.out.println("DATOS ERROR getNIMA(): "+ e.getMessage());
 					e.printStackTrace();
 				}
 				finally
@@ -128,9 +130,9 @@ public class Dt_Rol {
 					this.llenaRsRol(c);
 					rsRol.moveToInsertRow();
 //					rsUsuario.updateInt("UsuarioID", 2);
-					rsRol.updateString("rol", rol.getRol());
-					rsRol.updateString("roldescripcion", rol.getRoldescripcion());
-					rsRol.updateTimestamp("fechacreacion", rol.getFechaCreacion());
+					rsRol.updateString("Rol", rol.getRol());
+					rsRol.updateString("Roldescripcion", rol.getRoldescripcion());
+					rsRol.updateTimestamp("Fechacreacion", rol.getFechaCreacion());
 					rsRol.updateInt("Estado", 1);
 					rsRol.insertRow();
 					rsRol.moveToCurrentRow();
@@ -161,6 +163,7 @@ public class Dt_Rol {
 			// Metodo para modificar rol
 			public boolean modificarRol(Rol rol)
 			{
+				System.out.println("Esta en el modificar");
 				boolean modificado=false;	
 				try
 				{
@@ -169,17 +172,21 @@ public class Dt_Rol {
 					rsRol.beforeFirst();
 					while (rsRol.next())
 					{
+						System.out.println("Esta en el while del modificar");
 						if(rsRol.getInt(1)==rol.getRolID())
+							System.out.println("casi por entrar al if");
 						{
-							rsRol.updateString("rol", rol.getRol());
-							rsRol.updateString("roldescripcion", rol.getRoldescripcion());
-							rsRol.updateTimestamp("fechaModificacion", rol.getFechaModificacion());
-							rsRol.updateInt("estado", 2);
+							System.out.println("Entro al if");
+							rsRol.updateString("Rol", rol.getRol());
+							rsRol.updateString("Roldescripcion", rol.getRoldescripcion());
+							rsRol.updateTimestamp("FechaModificacion", rol.getFechaModificacion());
+							rsRol.updateInt("Estado", 2);
 							rsRol.updateRow();
 							modificado=true;
+							System.out.println("Yastaaa");
 							break;
 						}
-					}
+					} 
 				}
 				catch (Exception e)
 				{
