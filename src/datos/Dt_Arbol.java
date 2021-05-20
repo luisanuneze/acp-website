@@ -48,6 +48,7 @@ public class Dt_Arbol {
 				ds.setGenero(rs.getString("genero"));
 				ds.setEpocaFloracion(rs.getString("epocaFloracion"));
 				ds.setDistribucion(rs.getString("Distribucion"));
+				ds.setImagen(rs.getString("foto"));
 				listArbol.add(ds);
 			}
 		}
@@ -97,6 +98,7 @@ public class Dt_Arbol {
 				arb.setFamiliaID(rs.getInt("familiaID"));
 				arb.setGeneroID(rs.getInt("generoID"));
 				arb.setFloracionID(rs.getInt("floracionID"));
+				arb.setImagen(rs.getString("imagen"));
 				
 				
 			}
@@ -172,4 +174,54 @@ public class Dt_Arbol {
 		
 		return guardado;
 	}
+	
+	
+	// Metodo para guardar la foto del Arbol
+		public boolean guardarFotoArbol(int idArbol, String urlFoto)
+		{
+			boolean actualizado = false;
+			
+			try
+			{
+				c = PoolConexion.getConnection();
+				this.llenaRsArbol(c);	
+				rsArbol.beforeFirst();
+				while(rsArbol.next())
+				{
+					if(rsArbol.getInt("arbolid")==idArbol)
+					{
+						
+						rsArbol.updateString("imagen", urlFoto);
+						rsArbol.updateInt("estado", 2);
+						rsArbol.updateRow();
+						actualizado = true;
+						break;
+					}
+				}
+			}
+			catch (Exception e) 
+			{
+				System.err.println("ERROR AL GUARDAR FOTO "+e.getMessage());
+				e.printStackTrace();
+			}
+			finally
+			{
+				try {
+					if(rsArbol != null){
+						rsArbol.close();
+					}
+					if(c != null){
+						PoolConexion.closeConnection(c);
+					}
+					
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+			
+			return actualizado;
+		}
+	
+	
 }

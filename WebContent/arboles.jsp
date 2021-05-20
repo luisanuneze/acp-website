@@ -82,7 +82,7 @@
                 %>
                 <a href="EditarArboles.jsp">
                     <div class="arboles d-flex flex-column">
-                        <img src="https://image.flaticon.com/icons/png/512/2975/2975970.png">
+                        <img src="<%=ar.getImagen()==null?"#":ar.getImagen()%>">
                         <hr>
                         <p><%=ar.getNombreComun() %>
                         </p>

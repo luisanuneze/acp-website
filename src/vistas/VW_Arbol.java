@@ -12,6 +12,7 @@ public class VW_Arbol {
 	private String Genero;
 	private String EpocaFloracion;
 	private String Distribucion;
+	private String Imagen;
 	
 	//Metodos
 	public int getID() {
@@ -67,6 +68,13 @@ public class VW_Arbol {
 	}
 	public void setDistribucion(String distribucion) {
 		Distribucion = distribucion;
+	}
+	
+	public String getImagen() {
+		return Imagen;
+	}
+	public void setImagen(String imagen) {
+		Imagen = imagen;
 	}
 	
 	

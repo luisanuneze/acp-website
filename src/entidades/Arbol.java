@@ -14,6 +14,7 @@ public class Arbol {
     private Timestamp fechaCreacion;
 	private Timestamp fechaModificacion;
 	private Timestamp fechaEliminacion;
+	private String imagen;
 	private int arbolId;
 	private int distribucionID;
 	private int familiaID;
@@ -71,6 +72,14 @@ public class Arbol {
 	public void setFechaEliminacion(Timestamp fechaEliminacion) {
 		this.fechaEliminacion = fechaEliminacion;
 	}
+	
+	public String getImagen() {
+		return imagen;
+	}
+	public void setImagen(String imagen) {
+		this.imagen = imagen;
+	}
+	
 	public int getArbolId() {
 		return arbolId;
 	}

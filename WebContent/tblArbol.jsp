@@ -100,6 +100,7 @@
                                     <th>Familia</th>
                                     <th>Epoca de floración</th>
                                     <th>Distribución</th>
+                                    <th>Foto</th>
                                     <th>Opciones</th>
                                 </tr>
                                 </thead>
@@ -113,6 +114,7 @@
                                     <th>Familia</th>
                                     <th>Epoca de floración</th>
                                     <th>Distribución</th>
+                                    <th>Foto</th>
                                     <th>Opciones</th>
                                 </tr>
                                 </tfoot>
@@ -137,11 +139,21 @@
                                     </td>
                                     <td><%=ar.getDistribucion() %>
                                     </td>
+                                    <td>
+                                	<a href="<%= ar.getImagen() %>">
+                                		<img src="<%= ar.getImagen() %>" style="max-height:100px; max-width:100px;" alt="...">
+	                               	</a>
+                               	</td>
                                     <td><a id="btn-edita-abrir" href="EditarArboles.jsp"> <i
                                             class="fas fa-edit">Editar</i></a>
                                         <a href="#"> <i class="fas fa-trash-alt">Eliminar</i></a>
                                         <a href="#"> <i class="fas fa-eye">Visualizar</i>
-                                        </a></td>
+                                        </a>
+                                        <a href="fotoArbol.jsp?idArbol=<%=ar.getID()%>">
+                        							<i class="fas fa-camera" title="Registrar Foto del Arbol">Foto Arbol</i>
+                        						</a>
+                                        
+                                        </td>
                                 </tr>
                                 <%
                                     }
