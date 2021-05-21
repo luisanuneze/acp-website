@@ -57,7 +57,13 @@
               <li><a class="nav-link" href="tblOpciones.jsp">Opciones</a></li>
             </ul>
           </li>
-          <li><a href="inicioSesion.jsp"><img src="assets/img/usuario.png"></a></li>
+          <li class="dropdown"><a href="#"><img src="assets/img/usuario.png"><i class="bi bi-chevron-down"></i></a>
+            <ul>
+              <li><a class="nav-link" href="#">Nombre</a></li>
+              <li><a class="nav-link" href="#">Editar datos</a></li>
+              <li><a class="nav-link" href="inicioSesion.jsp">Salir</a></li>  
+            </ul>
+          </li>  
           
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
