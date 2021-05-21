@@ -84,12 +84,13 @@ SELECT * FROM rol_opciones;
 
 -- VW_RolUsuario --
 CREATE OR REPLACE VIEW VW_RolUsuario AS 
-SELECT rol_usuario.rol_usuarioid AS "ID", usuario.usuario AS "Usuario", 
-usuario.nombres AS "Nombres", usuario.apellidos AS "Apellidos", rol.rol AS "Rol"
+SELECT rol_usuario.rol_usuarioid AS "ID", usuario.usuarioid, usuario.usuario AS "Usuario", 
+usuario.nombres AS "Nombres", usuario.apellidos AS "Apellidos", usuario.contrasenia, 
+rol.rolid, rol.rol AS "Rol"
 FROM rol_usuario, usuario, rol
 WHERE rol_usuario.usuarioid = usuario.usuarioid AND rol_usuario.rolid = rol.rolid;
 
-SELECT * FROM VW_RolUsuario;
+SELECT * FROM vw_rolusuario;
 
 -- VW_RolOpciones --
 CREATE OR REPLACE VIEW VW_RolOpciones AS 
