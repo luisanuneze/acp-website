@@ -291,6 +291,22 @@
         {
             errorAlert('Error', 'Revise los datos e intente nuevamente!!!');
         }
+        if(mensaje == "3")
+        {
+            successAlert('Éxito', 'Los datos han sido actualizados exitosamente!');
+        }
+        if(mensaje == "4")
+        {
+            errorAlert('Error', 'Revise los datos e intente nuevamente!!!');
+        }
+        if(mensaje == "5")
+        {
+            successAlert('Éxito', 'El usuario ha sido dado de baja exitosamente!');
+        }
+        if(mensaje == "6")
+        {
+            errorAlert('Error', 'Revise los datos e intente nuevamente!!!');
+        }
 
     });
 </script>

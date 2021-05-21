@@ -5,6 +5,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Date;
+
 import entidades.Rol;
 import entidades.Usuario;
 
@@ -174,7 +176,6 @@ public class Dt_Rol {
 					{
 						System.out.println("Esta en el while del modificar");
 						if(rsRol.getInt(1)==rol.getRolID())
-							System.out.println("casi por entrar al if");
 						{
 							System.out.println("Entro al if");
 							rsRol.updateString("Rol", rol.getRol());
@@ -210,5 +211,51 @@ public class Dt_Rol {
 				}
 				return modificado;
 			}
+			
+			// Metodo para eliminar rol
+			public boolean eliminarRol(int RolID)
+			{
+				boolean eliminado=false;	
+				try
+				{
+					c = PoolConexion.getConnection();
+					this.llenaRsRol(c);
+					rsRol.beforeFirst();
+					Date fechaSistema = new Date();
+					while (rsRol.next())
+					{
+						if(rsRol.getInt(1)==RolID)
+						{
+							rsRol.updateTimestamp("FechaEliminacion", new java.sql.Timestamp(fechaSistema.getTime()));
+							rsRol.updateInt("Estado", 3);
+							rsRol.updateRow();
+							eliminado=true;
+							break;
+						}
+					}
+				}
+				catch (Exception e)
+				{
+					System.err.println("ERROR AL ACTUALIZAR ROL "+e.getMessage());
+					e.printStackTrace();
+				}
+				finally
+				{
+					try {
+						if(rsRol != null){
+							rsRol.close();
+						}
+						if(c != null){
+							PoolConexion.closeConnection(c);
+						}
+						
+					} catch (SQLException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				}
+				return eliminado;
+			}
+
 
 }

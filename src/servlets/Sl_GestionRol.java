@@ -36,7 +36,18 @@ public class Sl_GestionRol extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		//response.getWriter().append("Served at: ").append(request.getContextPath());
+	
+		int RolID =0;
+		RolID = Integer.parseInt(request.getParameter("RolID"));
+		Dt_Rol dtro = new Dt_Rol();
+		
+		if(dtro.eliminarRol(RolID)) {
+        	response.sendRedirect("tblRol.jsp?msj=5");
+        }
+        else {
+        	response.sendRedirect("tblRol.jsp?msj=6");
+        }
 	}
 
 	/**
@@ -46,7 +57,7 @@ public class Sl_GestionRol extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		doGet(request, response);
+		//doGet(request, response);
 
 		// obtenemos el valor de opcion
 		int opc = 0;
