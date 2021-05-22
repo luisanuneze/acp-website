@@ -140,6 +140,7 @@
                                 <th>Usuario</th>
                                 <th>Nombre</th>
                                 <th>Apellido</th>
+                                <th>Correo</th>
                                 <th>Estado</th>
                                 <th>Opciones</th>
                             </tr>
@@ -150,6 +151,7 @@
                                 <th>Usuario</th>
                                 <th>Nombre</th>
                                 <th>Apellido</th>
+                                <th>Correo</th>
                                 <th>Estado</th>
                                 <th>Opciones</th>
                             </tr>
@@ -167,7 +169,9 @@
                                 </td>
                                 <td><%=us.getApellidos() %>
                                 </td>
-                                <td><%=us.getEstado() == 1 || us.getEstado() == 2 ? "ACTIVO" : "INACTIVO" %>
+                                <td><%=us.getEmail() %>
+                                </td>
+                                <td><%=us.getEstado() != 3 ? "ACTIVO" : "INACTIVO" %>
                                 </td>
                                 <td>
                                 <a id="btn-edita-abrir" href="EditarUsuario.jsp?UsuarioID=<%=us.getUsuarioID()%>">
@@ -273,8 +277,8 @@
         $('#tblUsers').DataTable({
             dom: 'Bfrtip',
             buttons: [
-                'pdf',
-                'excel', 'print']
+                //'pdf',
+                'excel']
 
         });
 

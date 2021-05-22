@@ -96,13 +96,15 @@ public class Sl_GestionRol extends HttpServlet {
 		case 2: {
 
 			try {
+				rol.setRolID(Integer.parseInt(request.getParameter("RolID")));
 				// PARA GUARDAR LA FECHA Y HORA DE MODIFICACION
 				Date fechaSistema = new Date();
 				rol.setFechaModificacion(new java.sql.Timestamp(fechaSistema.getTime()));
 				System.out.println("rol.getFechaModificacion(): " + rol.getFechaModificacion());
 				if (dtro.modificarRol(rol)) {
 					response.sendRedirect("tblRol.jsp?msj=3");
-				} else {
+				} 
+				else {
 					response.sendRedirect("tblRol.jsp?msj=4");
 				}
 

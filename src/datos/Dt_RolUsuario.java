@@ -197,5 +197,82 @@ public class Dt_RolUsuario {
 
 		return ru;
 	}
+	
+	// Metodo para modificar rol a usuarios
+	public boolean modificarRolUser(RolUsuario rous) {
+		System.out.println("Ya entro al metodo");
+		boolean modificado = false;
+		try {
+			c = PoolConexion.getConnection();
+			this.llenaRsRolUser(c);
+			rsRolUser.beforeFirst();
+			while (rsRolUser.next()) {
+				System.out.println("Ya entro al while");
+				// System.out.println("este es el valor del while " + rsUsuario.getInt(1) + " y
+				// este es el valor del rol a editar " + user.getUsuarioID()) ;
+				if (rsRolUser.getInt(1) == rous.getRol_usuarioID()) {
+					System.out.println("Ya entro al if");
+					rsRolUser.updateInt("usuarioID", rous.getUsuarioID());
+					rsRolUser.updateInt("rolId", rous.getRolId());
+					rsRolUser.updateTimestamp("fechaModificacion", rous.getFechaModificacion());
+					rsRolUser.updateRow();
+					modificado = true;
+					System.out.println("Se supone que ya");
+					break;
+				}
+			}
+		} catch (Exception e) {
+			System.err.println("ERROR AL ACTUALIZAR EL ROL AL USUARIO " + e.getMessage());
+			e.printStackTrace();
+		} finally {
+			try {
+				if (rsRolUser != null) {
+					rsRolUser.close();
+				}
+				if (c != null) {
+					PoolConexion.closeConnection(c);
+				}
+
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		return modificado;
+	}
+	
+	// Metodo para eliminar RolUsuario
+	public boolean eliminaRolUser(int rol_usuarioID) {
+		boolean eliminado = false;
+		try {
+			c = PoolConexion.getConnection();
+			this.llenaRsRolUser(c);
+			rsRolUser.beforeFirst();
+			while (rsRolUser.next()) {
+				if (rsRolUser.getInt(1) == rol_usuarioID) {
+					rsRolUser.deleteRow();
+					eliminado = true;
+					break;
+				}
+			}
+		} catch (Exception e) {
+			System.err.println("ERROR AL ELIMINAR ROL_USER " + e.getMessage());
+			e.printStackTrace();
+		} finally {
+			try {
+				if (rsRolUser != null) {
+					rsRolUser.close();
+				}
+				if (c != null) {
+					PoolConexion.closeConnection(c);
+				}
+
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		return eliminado;
+	}
 
 }

@@ -108,11 +108,22 @@
 								Dt_RolOpciones dtro = new Dt_RolOpciones();
 								ro = dtro.getRolOpciones(Integer.parseInt(us));
                             %>
+                            
+                     <%
+                            	String ropc = "";
+								ropc = request.getParameter("rol_opcionesID")==null?"0":request.getParameter("rol_opcionesID");
+														
+								VW_RolOpciones vwro = new VW_RolOpciones();
+								Dt_RolOpciones dtvwro = new Dt_RolOpciones();
+								vwro = dtvwro.getRolOpciones2(Integer.parseInt(ropc));
+                            %>       
                     
                     <div class="table-responsive">
                         <form class="user" method="post" action="./Sl_GestionRolOpc">
                             <!-- El valor de este input es para el Servlet opcion guardar -->
-                            <input name="idUsuario" type="hidden" value="<%=ro.getRol_opcionesID()%>" /> 
+                            <input name="idRolOpc" type="hidden" value="<%=ro.getRol_opcionesID()%>" /> 
+							<input name="opcion" type="hidden" value="2" />
+							<input name="ID" type="hidden" value="<%=vwro.getID()%>" /> 
 							<input name="opcion" type="hidden" value="2" />
                             <div class="text-center">
                                 <div class="col-sm-12 mb-3">
@@ -231,11 +242,11 @@ $(document).ready(function()
 <script>
     $(document).ready(function () {
         ////// APLICAMOS FORMATO Y BOTONES A LA TABLA //// INICIAMOS EL PLUGIN DATATABLE
-        $('#tblRolUser').DataTable({
+        $('#tblRolOpc').DataTable({
             dom: 'Bfrtip',
             buttons: [
                 //             'pdf',
-                'excel', 'print']
+                'excel']
 
         });
 

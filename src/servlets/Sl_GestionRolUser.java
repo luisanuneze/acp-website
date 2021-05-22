@@ -33,16 +33,16 @@ public class Sl_GestionRolUser extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		response.getWriter().append("Served at: ").append(request.getContextPath());
-		/*int idRolUser =0;
-		idRolUser = Integer.parseInt(request.getParameter("idRU"));
+		int rol_usuarioID =0;
+		rol_usuarioID = Integer.parseInt(request.getParameter("rol_usuarioID"));
 		Dt_RolUsuario dtru = new Dt_RolUsuario(); 
 		
-		if(dtru.eliminaRU(idRolUser)) {
+		if(dtru.eliminaRolUser(rol_usuarioID)) {
         	response.sendRedirect("tblRolUser.jsp?msj=5");
         }
         else {
         	response.sendRedirect("tblRolUser.jsp?msj=6");
-        }*/
+        }
 	}
 
 	/**
@@ -92,14 +92,20 @@ public class Sl_GestionRolUser extends HttpServlet {
 		case 2:{
 				
 			try {
-	        	/*
-		        if(dtu.modificarUser(user)) {
-		        	response.sendRedirect("tblUsuarios.jsp?msj=3");
+				ru.setRol_usuarioID(Integer.parseInt(request.getParameter("ID")));
+				//PARA GUARDAR LA FECHA Y HORA DE MODIFICACION
+				Date fechaSistema = new Date();
+				ru.setFechaModificacion(new java.sql.Timestamp(fechaSistema.getTime()));
+				System.out.println("user.getFechaModificacion(): "+ru.getFechaModificacion());
+
+	        	
+		        if(dtru.modificarRolUser(ru)) {
+		        	response.sendRedirect("tblRolUser.jsp?msj=3");
 		        }
 		        else {
-		        	response.sendRedirect("tblUsuarios.jsp?msj=4");
+		        	response.sendRedirect("tblRolUser.jsp?msj=4");
 		        }
-		        */	
+		        	
 	        	
 	        }
 	        catch(Exception e) {
@@ -111,7 +117,7 @@ public class Sl_GestionRolUser extends HttpServlet {
 			}
 		
 		default:
-			response.sendRedirect("tblUsuarios.jsp?msj=5");	
+			response.sendRedirect("tblRolUser.jsp?msj=5");	
 			break;
 	}
 		

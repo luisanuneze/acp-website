@@ -110,9 +110,12 @@ public class Sl_GestionUsuario  extends HttpServlet{
 							        	
 		        if(dtu.modificarUser(user)) {
 		        	response.sendRedirect("tblUsuarios.jsp?msj=3");
+		        	//response.sendRedirect("tblUsuarios.jsp");
+		        	
 		        }
 		        else {
 		        	response.sendRedirect("tblUsuarios.jsp?msj=4");
+		        	//response.sendRedirect("tblUsuarios.jsp");
 		        }
 		        
 	        	

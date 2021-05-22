@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import entidades.RolOpciones;
 import entidades.RolUsuario;
 import vistas.VW_RolOpciones;
+import vistas.VW_RolUsuario;
 
 public class Dt_RolOpciones {
 
@@ -115,6 +116,50 @@ public class Dt_RolOpciones {
 
 			return ro;
 		}
+		
+		// Metodo para visualizar los datos de un usuario específico
+		public VW_RolOpciones getRolOpciones2(int iD) {
+			VW_RolOpciones vwro = new VW_RolOpciones();
+			try {
+
+				System.out.println("Hasta aca todo bien");
+
+				c = PoolConexion.getConnection();
+				ps = c.prepareStatement("select * from public.vw_rolopciones where \"ID\"=?",
+						ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE, ResultSet.HOLD_CURSORS_OVER_COMMIT);
+				ps.setInt(1, iD);
+				rs = ps.executeQuery();
+				System.out.println("Ya hizo el select");
+				if (rs.next()) {
+					vwro.setID(iD);
+					vwro.setRol(rs.getString("rol"));
+					vwro.setOpcion(rs.getString("opcion"));
+					System.out.println("Ya te deberia de aparecer wtf");
+				}
+			} catch (Exception e) {
+				System.out.println("DATOS ERROR getNIMA(): " + e.getMessage());
+				e.printStackTrace();
+			} finally {
+				try {
+					if (rs != null) {
+						rs.close();
+					}
+					if (ps != null) {
+						ps.close();
+					}
+					if (c != null) {
+						PoolConexion.closeConnection(c);
+					}
+
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+
+			return vwro;
+		}
+		
 
 	// Metodo para asignar opciones a rol
 	public boolean guardarRolOpc(RolOpciones ro) {
@@ -150,5 +195,83 @@ public class Dt_RolOpciones {
 
 		return guardado;
 	}
+	
+	// Metodo para modificar rol a usuarios
+		public boolean modificarRolOpc(RolOpciones ropc) {
+			System.out.println("Ya entro al metodo");
+			boolean modificado = false;
+			try {
+				c = PoolConexion.getConnection();
+				this.llenaRsRolOpc(c);
+				rsRolOpc.beforeFirst();
+				while (rsRolOpc.next()) {
+					System.out.println("Ya entro al while");
+					// System.out.println("este es el valor del while " + rsUsuario.getInt(1) + " y
+					// este es el valor del rol a editar " + user.getUsuarioID()) ;
+					if (rsRolOpc.getInt(1) == ropc.getRol_opcionesID()) {
+						System.out.println("Ya entro al if");
+						rsRolOpc.updateInt("rolId", ropc.getRolId());
+						rsRolOpc.updateInt("opcionesID", ropc.getOpcionesID());
+						rsRolOpc.updateTimestamp("fechaModificacion", ropc.getFechaModificacion());
+						rsRolOpc.updateRow();
+						modificado = true;
+						System.out.println("Se supone que ya");
+						break;
+					}
+				}
+			} catch (Exception e) {
+				System.err.println("ERROR AL ACTUALIZAR LA OPCION AL ROL " + e.getMessage());
+				e.printStackTrace();
+			} finally {
+				try {
+					if (rsRolOpc != null) {
+						rsRolOpc.close();
+					}
+					if (c != null) {
+						PoolConexion.closeConnection(c);
+					}
+
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+			return modificado;
+		}
+		
+		// Metodo para eliminar RolUsuario
+		public boolean eliminaRolOpc(int rol_opcionesID) {
+			boolean eliminado = false;
+			try {
+				c = PoolConexion.getConnection();
+				this.llenaRsRolOpc(c);
+				rsRolOpc.beforeFirst();
+				while (rsRolOpc.next()) {
+					if (rsRolOpc.getInt(1) == rol_opcionesID) {
+						rsRolOpc.deleteRow();
+						eliminado = true;
+						break;
+					}
+				}
+			} catch (Exception e) {
+				System.err.println("ERROR AL ELIMINAR ROL_OPCIONES " + e.getMessage());
+				e.printStackTrace();
+			} finally {
+				try {
+					if (rsRolOpc != null) {
+						rsRolOpc.close();
+					}
+					if (c != null) {
+						PoolConexion.closeConnection(c);
+					}
+
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+			return eliminado;
+		}
+
 
 }

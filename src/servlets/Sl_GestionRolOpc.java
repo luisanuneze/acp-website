@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import datos.Dt_RolOpciones;
+import datos.Dt_RolUsuario;
 import entidades.RolOpciones;
 
 /**
@@ -33,6 +34,16 @@ public class Sl_GestionRolOpc extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		response.getWriter().append("Served at: ").append(request.getContextPath());
+		int rol_opcionesID =0;
+		rol_opcionesID = Integer.parseInt(request.getParameter("rol_opcionesID"));
+		Dt_RolOpciones dtro = new Dt_RolOpciones(); 
+		
+		if(dtro.eliminaRolOpc(rol_opcionesID)) {
+        	response.sendRedirect("tblRolOpc.jsp?msj=5");
+        }
+        else {
+        	response.sendRedirect("tblRolOpc.jsp?msj=6");
+        }
 	}
 
 	/**
@@ -46,7 +57,7 @@ public class Sl_GestionRolOpc extends HttpServlet {
 		int opc = 0;
 		opc = Integer.parseInt(request.getParameter("opcion"));
 				
-		//CONSTRUIR EL OBJETO ROL-USER
+		//CONSTRUIR EL OBJETO ROL-OPC
 		RolOpciones ro = new RolOpciones();		
 		ro.setOpcionesID(Integer.parseInt(request.getParameter("cbxOpc")));
 		ro.setRolId(Integer.parseInt(request.getParameter("cbxRol")));
@@ -61,7 +72,7 @@ public class Sl_GestionRolOpc extends HttpServlet {
 		        	
 		        	Date fechaSistema = new Date();
 			        ro.setFechaCreacion(new java.sql.Timestamp(fechaSistema.getTime()));
-			        System.out.println("user.getFechaCreacion(): "+ro.getFechaCreacion());
+			        System.out.println("ro.getFechaCreacion(): "+ro.getFechaCreacion());
 		        	
 			        if(dtro.guardarRolOpc(ro)) {
 			        	response.sendRedirect("tblRolOpc.jsp?msj=1");
@@ -82,14 +93,20 @@ public class Sl_GestionRolOpc extends HttpServlet {
 		case 2:{
 				
 			try {
-	        	/*
-		        if(dtu.modificarUser(user)) {
-		        	response.sendRedirect("tblUsuarios.jsp?msj=3");
+				ro.setRol_opcionesID(Integer.parseInt(request.getParameter("ID")));
+				//PARA GUARDAR LA FECHA Y HORA DE MODIFICACION
+				Date fechaSistema = new Date();
+				ro.setFechaModificacion(new java.sql.Timestamp(fechaSistema.getTime()));
+				System.out.println("user.getFechaModificacion(): "+ro.getFechaModificacion());
+
+	        	
+		        if(dtro.modificarRolOpc(ro)) {
+		        	response.sendRedirect("tblRolOpc.jsp?msj=3");
 		        }
 		        else {
-		        	response.sendRedirect("tblUsuarios.jsp?msj=4");
+		        	response.sendRedirect("tblRolOpc.jsp?msj=4");
 		        }
-		        */	
+
 	        	
 	        }
 	        catch(Exception e) {
@@ -101,7 +118,7 @@ public class Sl_GestionRolOpc extends HttpServlet {
 			}
 		
 		default:
-			response.sendRedirect("tblRoles.jsp?msj=5");	
+			response.sendRedirect("tblRolOpc.jsp?msj=5");	
 			break;
 	}
 		

@@ -40,7 +40,7 @@ public class Dt_Usuario {
 			ArrayList<Usuario> listUser = new ArrayList<Usuario>();
 			try{
 				c = PoolConexion.getConnection();
-				ps = c.prepareStatement("select * from public.\"usuario\"", ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE, ResultSet.HOLD_CURSORS_OVER_COMMIT);
+				ps = c.prepareStatement("select * from public.\"usuario\" where estado <> 3", ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE, ResultSet.HOLD_CURSORS_OVER_COMMIT);
 				rs = ps.executeQuery();
 				while(rs.next()){
 					Usuario user = new Usuario();
@@ -189,6 +189,7 @@ public class Dt_Usuario {
 				while (rsUsuario.next())
 				{
 					System.out.println("Ya entro al while");
+					//System.out.println("este es el valor del while " + rsUsuario.getInt(1) + " y este es el valor del rol a editar " + user.getUsuarioID()) ;
 					if(rsUsuario.getInt(1)==user.getUsuarioID())
 					{
 						System.out.println("Ya entro al if");

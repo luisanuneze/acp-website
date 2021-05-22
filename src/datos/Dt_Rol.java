@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.Date;
 
 import entidades.Rol;
-import entidades.Usuario;
+//import entidades.Usuario;
 
 public class Dt_Rol {
 	
@@ -39,7 +39,7 @@ public class Dt_Rol {
 				ArrayList<Rol> listRol = new ArrayList<Rol>();
 				try{
 					c = PoolConexion.getConnection();
-					ps = c.prepareStatement("select * from public.\"rol\"", ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE, ResultSet.HOLD_CURSORS_OVER_COMMIT);
+					ps = c.prepareStatement("select * from public.\"rol\" where estado <> 3", ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE, ResultSet.HOLD_CURSORS_OVER_COMMIT);
 					rs = ps.executeQuery();
 					while(rs.next()){
 						Rol r = new Rol();
@@ -175,12 +175,13 @@ public class Dt_Rol {
 					while (rsRol.next())
 					{
 						System.out.println("Esta en el while del modificar");
-						if(rsRol.getInt(1)==rol.getRolID())
+						System.out.println("este es el valor del while " + rsRol.getInt(1) + " y este es el valor del rol a editar " + rol.getRolID()) ;
+						if(rsRol.getInt(6)==rol.getRolID())
 						{
 							System.out.println("Entro al if");
 							rsRol.updateString("Rol", rol.getRol());
 							rsRol.updateString("Roldescripcion", rol.getRoldescripcion());
-							rsRol.updateTimestamp("FechaModificacion", rol.getFechaModificacion());
+							rsRol.updateTimestamp("Fechamodificacion", rol.getFechaModificacion());
 							rsRol.updateInt("Estado", 2);
 							rsRol.updateRow();
 							modificado=true;
@@ -224,10 +225,10 @@ public class Dt_Rol {
 					Date fechaSistema = new Date();
 					while (rsRol.next())
 					{
-						if(rsRol.getInt(1)==RolID)
+						if(rsRol.getInt(6)==RolID)
 						{
-							rsRol.updateTimestamp("FechaEliminacion", new java.sql.Timestamp(fechaSistema.getTime()));
-							rsRol.updateInt("Estado", 3);
+							rsRol.updateTimestamp("fechaEliminacion", new java.sql.Timestamp(fechaSistema.getTime()));
+							rsRol.updateInt("estado", 3);
 							rsRol.updateRow();
 							eliminado=true;
 							break;
@@ -236,7 +237,7 @@ public class Dt_Rol {
 				}
 				catch (Exception e)
 				{
-					System.err.println("ERROR AL ACTUALIZAR ROL "+e.getMessage());
+					System.err.println("ERROR AL ELIMINAR ROL "+e.getMessage());
 					e.printStackTrace();
 				}
 				finally

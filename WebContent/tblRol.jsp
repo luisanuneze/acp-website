@@ -133,6 +133,7 @@
                             %>
                             <thead>
                             <tr>
+                                <th>ID</th>
                                 <th>Rol</th>
                                 <th>Descripcion</th>
                                 <th>Estado</th>
@@ -141,6 +142,7 @@
                             </thead>
                             <tfoot>
                             <tr>
+                                <th>ID</th>
                                 <th>Rol</th>
                                 <th>Descripcion</th>
                                 <th>Estado</th>
@@ -152,11 +154,13 @@
                                 for (Rol r : listRol) {
                             %>
                             <tr>
+                                <td><%=r.getRolID() %>
+                                </td>
                                 <td><%=r.getRol() %>
                                 </td>
                                 <td><%=r.getRoldescripcion() %>
                                 </td>
-                                <td><%=r.getEstado() == 1 || r.getEstado() == 2 ? "ACTIVO" : "INACTIVO" %>
+                                <td><%=r.getEstado() !=3 ? "ACTIVO" : "INACTIVO" %>
                                 </td>
                                 <td>
                                 <a id="btn-edita-abrir" href="EditarRol.jsp?RolID=<%=r.getRolID()%>"> <i
@@ -261,8 +265,8 @@
         $('#tblRol').DataTable({
             dom: 'Bfrtip',
             buttons: [
-                'pdf',
-                'excel', 'print']
+                //'pdf',
+                'excel']
 
         });
 

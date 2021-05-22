@@ -1,6 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"
          import="vistas.VW_RolOpciones, entidades.RolOpciones, datos.Dt_RolOpciones, java.util.*;" %>
 <!DOCTYPE html>
+<%
+	//Variable de control de mensajes
+	String varMsj = request.getParameter("msj")==null?"":request.getParameter("msj");
+
+
+%>
 <html>
 
 <head>
@@ -39,6 +45,9 @@
 
     <!-- Template Main CSS File -->
     <link href="assets/css/style.css" rel="stylesheet">
+    
+    <!-- jAlert css  -->
+	<link rel="stylesheet" href="jAlert/dist/jAlert.css" />
 
     <!-- =======================================================
     * Template Name: FlexStart - v1.1.1
@@ -142,9 +151,29 @@
                                     <a id="btn-edita-abrir" href="editRolOpc.jsp?rol_opcionesID=<%=us.getID()%>">
                                         <i class="fas fa-edit" title="Modificar datos asignados"></i>
                                     </a>
-                                    <a href="#">
-                                        <i class="fas fa-trash-alt" title="Eliminar esta Opcion a Rol"></i>
-                                    </a>
+                                    
+                                    <a class="ajax-link" href="javascript:void(0);" 
+                                           		onclick="$.jAlert({
+                                           		    'type': 'confirm',
+                                           		    'confirmQuestion': 'Realmente desea eliminar este registro?',
+                                           		    'onConfirm': function(e, btn){
+                                           		      e.preventDefault();
+                                           		      //do something here
+
+                                           		      window.location.href = 'Sl_GestionRolOpc?rol_opcionesID=<%=us.getID()%>';
+                                           		      btn.parents('.jAlert').closeAlert();
+                                           		      return false;
+                                           		    },
+                                           		    'onDeny': function(e, btn){
+                                           		      e.preventDefault();
+                                           		      //do something here
+                                           		      btn.parents('.jAlert').closeAlert();
+                                           		      return false;
+                                           		    }
+                                           		  });">
+                        							<i class="fas fa-trash-alt" title="Eliminar esta Opcion a Rol"></i>
+                        						</a> 
+                        						
                                     <a href="#">
                                         <i class="fas fa-eye" title="Visualizar las Opciones de este Rol"></i>
                                     </a>
@@ -211,21 +240,51 @@
 <!-- js Datatable buttons excel -->
 <script src="DataTables/JSZip-2.5.0/jszip.min.js"></script>
 
+<!-- jAlert js -->
+<script src="jAlert/dist/jAlert.min.js"></script>
+<script src="jAlert/dist/jAlert-functions.min.js"> //optional!!</script>
+
 <script>
     $(document).ready(function () {
         ////// APLICAMOS FORMATO Y BOTONES A LA TABLA //// INICIAMOS EL PLUGIN DATATABLE
         $('#tblRolOpc').DataTable({
             dom: 'Bfrtip',
             buttons: [
-                'pdf',
-                'excel',
-                'print'
+                'excel'
             ]
 
         });
-
+        
         ////////////////////////////////////////////////
+        /////////// VARIABLE DE CONTROL MSJ ///////////
+        var mensaje = "";
+        mensaje = "<%=varMsj%>";
 
+        if(mensaje == "1")
+        {
+            successAlert('Éxito', 'Los datos han sido registrados exitosamente!');
+        }
+        if(mensaje == "2")
+        {
+            errorAlert('Error', 'Revise los datos e intente nuevamente!!!');
+        }
+        if(mensaje == "3")
+        {
+            successAlert('Éxito', 'Los datos han sido actualizados exitosamente!');
+        }
+        if(mensaje == "4")
+        {
+            errorAlert('Error', 'Revise los datos e intente nuevamente!!!');
+        }
+        if(mensaje == "5")
+        {
+            successAlert('Éxito', 'El la opcion del rol ha sido dada de baja exitosamente!');
+        }
+        if(mensaje == "6")
+        {
+            errorAlert('Error', 'Revise los datos e intente nuevamente!!!');
+        }
+        
     });
 </script>
 

@@ -96,7 +96,7 @@
                     </div>
 
                     <div class="table-responsive">
-                        <table class="table table-bordered" id="tblUsers" width="100%" cellspacing="0">
+                        <table class="table table-bordered" id="tblOpciones" width="100%" cellspacing="0">
                             <%
                                 ArrayList<Opciones> listOpc = new ArrayList<Opciones>();
                                 Dt_Opciones dto = new Dt_Opciones();
@@ -132,7 +132,7 @@
                                 </td>
                                 <td><%=opc.getDescripcion() %>
                                 </td>
-                                <td><%=opc.getEstado() == 1 || opc.getEstado() == 2 ? "ACTIVO" : "INACTIVO" %>
+                                <td><%=opc.getEstado() != 3 ? "ACTIVO" : "INACTIVO" %>
                                 </td>
                                 <!--<td>
                                            		<a id="btn-edita-abrir" href="editRol.jsp?OpcionesID=<%=opc.getOpcionesID()%>">
@@ -210,12 +210,11 @@
 <script>
     $(document).ready(function () {
         ////// APLICAMOS FORMATO Y BOTONES A LA TABLA //// INICIAMOS EL PLUGIN DATATABLE
-        $('#tblUsers').DataTable({
+        $('#tblOpciones').DataTable({
             dom: 'Bfrtip',
             buttons: [
-                'pdf',
-                'excel',
-                'print'
+                //'pdf',
+                'excel'
             ]
 
         });
