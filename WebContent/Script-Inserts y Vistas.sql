@@ -142,6 +142,7 @@ arbol.nombrecomun AS "NombreComun",
 arbol.descripcion AS "Descripcion",
 arbol.estado AS "Estado",
 familia.nombre AS "Familia",
+arbol.imagen AS "Foto",
 genero.nombre AS "Genero",
 floracion.nombre AS "EpocaFloracion",
 distribucion.nombre AS "Distribucion"

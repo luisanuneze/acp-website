@@ -5,7 +5,10 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Date;
+
 import entidades.Genero;
+
 
 public class Dt_Genero {
 
@@ -38,7 +41,7 @@ public class Dt_Genero {
 					ArrayList<Genero> listGenero = new ArrayList<Genero>();
 					try{
 						c = PoolConexion.getConnection();
-						ps = c.prepareStatement("select * from public.\"genero\"", ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE, ResultSet.HOLD_CURSORS_OVER_COMMIT);
+						ps = c.prepareStatement("select * from public.\"genero\" where estado <> 3", ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE, ResultSet.HOLD_CURSORS_OVER_COMMIT);
 						rs = ps.executeQuery();
 						while(rs.next()){
 							Genero gen = new Genero();
@@ -160,6 +163,97 @@ public class Dt_Genero {
 					}
 					
 					return guardado;
+				}
+				
+				// Metodo para modificar genero
+				public boolean modificarGenero(Genero gen)
+				{
+					boolean modificado=false;	
+					try
+					{
+						c= PoolConexion.getConnection();
+						this.llenaRsGenero(c);
+						rsGenero.beforeFirst();
+						while (rsGenero.next())
+						{
+							if(rsGenero.getInt(7)==gen.getGeneroID())
+							{
+								rsGenero.updateString("nombre", gen.getNombre());
+								rsGenero.updateString("descripcion", gen.getDescripcion());
+								rsGenero.updateTimestamp("fechaModificacion", gen.getFechaModificacion());
+								rsGenero.updateInt("estado", 2);
+								rsGenero.updateRow();
+								modificado=true;
+								break;
+							}
+						}
+					}
+					catch (Exception e)
+					{
+						System.err.println("ERROR AL ACTUALIZAR GENERO "+e.getMessage());
+						e.printStackTrace();
+					}
+					finally
+					{
+						try {
+							if(rsGenero != null){
+								rsGenero.close();
+							}
+							if(c != null){
+								PoolConexion.closeConnection(c);
+								
+							}
+							
+						} catch (SQLException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
+					}
+					return modificado;
+				}
+				// Metodo para eliminar Genero
+				public boolean eliminarGenero(int GeneroID)
+				{
+					boolean eliminado=false;	
+					try
+					{
+						c = PoolConexion.getConnection();
+						this.llenaRsGenero(c);
+						rsGenero.beforeFirst();
+						Date fechaSistema = new Date();
+						while (rsGenero.next())
+						{
+							if(rsGenero.getInt(7)==GeneroID)
+							{
+								rsGenero.updateTimestamp("FechaEliminacion", new java.sql.Timestamp(fechaSistema.getTime()));
+								rsGenero.updateInt("estado", 3);
+								rsGenero.updateRow();
+								eliminado=true;
+								break;
+							}
+						}
+					}
+					catch (Exception e)
+					{
+						System.err.println("ERROR AL ELIMINAR Genero "+e.getMessage());
+						e.printStackTrace();
+					}
+					finally
+					{
+						try {
+							if(rsGenero != null){
+								rsGenero.close();
+							}
+							if(c != null){
+								PoolConexion.closeConnection(c);
+							}
+							
+						} catch (SQLException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
+					}
+					return eliminado;
 				}
 	
 	

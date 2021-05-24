@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import datos.Dt_Familia;
+import datos.Dt_Usuario;
 import entidades.Familia;
 
 /**
@@ -32,15 +33,27 @@ public class Sl_GestionFamilia extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		//response.getWriter().append("Served at: ").append(request.getContextPath());
+		int familiaID =0;
+		familiaID = Integer.parseInt(request.getParameter("familiaID"));
+		Dt_Familia dtf = new Dt_Familia();
+		
+		if(dtf.eliminarFamilia(familiaID)) {
+        	response.sendRedirect("tblFamilia.jsp?msj=5");
+        }
+        else {
+        	response.sendRedirect("tblFamilia.jsp?msj=6");
+        }
+		
 	}
+
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		doGet(request, response);
+		//doGet(request, response);
 		
 		//obtenemos el valor de opcion
 		int opc = 0;
@@ -84,21 +97,31 @@ public class Sl_GestionFamilia extends HttpServlet {
 		case 2:{
 				
 			try {
-	        	/*
-		        if(dtu.modificarUser(user)) {
-		        	response.sendRedirect("tblUsuarios.jsp?msj=3");
+		    	fam.setFamiliaID(Integer.parseInt(request.getParameter("familiaID")));
+		    	
+	        	//PARA GUARDAR LA FECHA Y HORA DE MODIFICACION
+		        Date fechaSistema = new Date();
+		        fam.setFechaModificacion(new java.sql.Timestamp(fechaSistema.getTime()));
+		        System.out.println("fam.getFechaModificacion(): "+ fam.getFechaModificacion());
+		   
+		        if(dtf.modificarFamilia(fam)) {
+		        	response.sendRedirect("tblFamilia.jsp?msj=3");
 		        }
-		        else {
-		        	response.sendRedirect("tblUsuarios.jsp?msj=4");
-		        }
-		        */	
-	        	
-	        }
-	        catch(Exception e) {
-	        	System.out.println("Sl_GestionFamilia, el error es: " + e.getMessage());
+		    	
+		    	
+		    else {
+		    	   
+		    	    response.sendRedirect("tblFamilia.jsp?msj=4");
+		    	
+		         }
+		    
+		    }
+		    catch(Exception e) {
+		    	System.out.println("Sl_GestionFamilia, el error es: " + e.getMessage());
 				e.printStackTrace();
-	        }
-				break;
+		    	
+		    }
+		      break;
 				
 			}
 		

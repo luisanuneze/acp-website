@@ -65,7 +65,10 @@
             
             
             <form action="./Sl_GestionFamilia" method="post" class="user">
-            <input name="familiaid" type="hidden" value="<%=fam.getFamiliaID()%>" />
+            <!--El valor de este input es para el servlet opcion modificar!! -->
+                      
+            <input name="familiaID" type="hidden" value="<%=fam.getFamiliaID()%>" />
+            <input name="opcion" type="hidden" value="2" />
                 <div class="row gy-4">
                     <div class="col-md-12">
                         <input type="text" class="form-control form-control-user" placeholder="Nombre de la Familia" id="txtNombre" name="txtNombre" required>

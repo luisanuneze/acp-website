@@ -64,14 +64,15 @@
             
             
             <form action="./Sl_GestionGenero" method="post" class="user">
-            <input name="generoid" type="hidden" value="<%=gen.getGeneroID()%>" />
+            <input name="generoID" type="hidden" value="<%=gen.getGeneroID()%>" />
+             <input name="opcion" type="hidden" value="2" />
                 <div class="row gy-4">
                     <div class="col-md-12">
                         <input type="text" class="form-control" placeholder="Nombre del Género" id="txtNombreG" name="txtNombreG" required>
                     </div>
 
                     <div class="col-md-12">
-                        <textarea class="form-control" name="message" rows="6" placeholder="Descripción Género" id="txtDescripcionG" name="txtDescripcionG"
+                        <textarea class="form-control"  rows="6" placeholder="Descripción Género" id="txtDescripcionG" name="txtDescripcionG"
                                   required></textarea>
                     </div>
                 </div>

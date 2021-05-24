@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import datos.Dt_Familia;
 import datos.Dt_Genero;
 import entidades.Genero;
 
@@ -32,15 +33,29 @@ public class Sl_GestionGenero extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		//response.getWriter().append("Served at: ").append(request.getContextPath());
+		
+		int generoID =0;
+		generoID = Integer.parseInt(request.getParameter("generoID"));
+		Dt_Genero dtg = new Dt_Genero();
+		
+		if(dtg.eliminarGenero(generoID)) {
+        	response.sendRedirect("tblGenero.jsp?msj=5");
+        }
+        else {
+        	response.sendRedirect("tblGenero.jsp?msj=6");
+        }
+		
 	}
+
+	
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		doGet(request, response);
+		//doGet(request, response);
 		
 		//obtenemos el valor de opcion
 				int opc = 0;
@@ -82,28 +97,38 @@ public class Sl_GestionGenero extends HttpServlet {
 					}
 				
 				case 2:{
-						
+					
 					try {
-			        	/*
-				        if(dtu.modificarUser(user)) {
-				        	response.sendRedirect("tblUsuarios.jsp?msj=3");
+				    	gen.setGeneroID(Integer.parseInt(request.getParameter("generoID")));
+				    	
+			        	//PARA GUARDAR LA FECHA Y HORA DE MODIFICACION
+				        Date fechaSistema = new Date();
+				        gen.setFechaModificacion(new java.sql.Timestamp(fechaSistema.getTime()));
+				        System.out.println("fam.getFechaModificacion(): "+ gen.getFechaModificacion());
+				   
+				        if(dtg.modificarGenero(gen)) {
+				        	response.sendRedirect("tblGenero.jsp?msj=3");
 				        }
-				        else {
-				        	response.sendRedirect("tblUsuarios.jsp?msj=4");
-				        }
-				        */	
-			        	
-			        }
-			        catch(Exception e) {
-			        	System.out.println("Sl_GestionFamilia, el error es: " + e.getMessage());
+				    	
+				    	
+				    else {
+				    	   
+				    	    response.sendRedirect("tblGenero.jsp?msj=4");
+				    	
+				         }
+				    
+				    }
+				    catch(Exception e) {
+				    	System.out.println("Sl_GestionGenero, el error es: " + e.getMessage());
 						e.printStackTrace();
-			        }
-						break;
+				    	
+				    }
+				      break;
 						
 					}
 				
 				default:
-					response.sendRedirect("tblFamilia.jsp?msj=5");	
+					response.sendRedirect("tblGenero.jsp?msj=5");	
 					break;
 			}
 				
