@@ -132,7 +132,7 @@
                                         Dt_Rol dtr = new Dt_Rol();
                                         listRol = dtr.listaRolActivos();
                                     %>
-                                    <select class="form-control" name="cbxRol" id="cbxRol"
+                                    <select class="form-control" name="cbxRol" id="cbxRol" disabled="disabled"
                                             required>
                                         <option value="">Seleccione...</option>
                                         <%

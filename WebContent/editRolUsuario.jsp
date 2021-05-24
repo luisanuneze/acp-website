@@ -131,8 +131,9 @@
                                         Dt_Usuario dtu = new Dt_Usuario();
                                         listUser = dtu.listaUserActivos();
                                     %>
+                           
 										<select class="form-control" name="cbxUser" id="cbxUser"
-											required>
+											>
 											<option value="">Seleccione...</option>
 											<%
                                             for (Usuario u : listUser) {
@@ -143,8 +144,10 @@
                                             }
                                         %>
 
-										</select>
+										</select>	
+										
 									</div>
+									
 									<div class="col-sm-12 mb-3">
 										<%
                                         ArrayList<Rol> listRol = new ArrayList<Rol>();

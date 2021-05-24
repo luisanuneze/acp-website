@@ -93,11 +93,14 @@
             <br>
 
             <!-- Botones -->
-            <div class="col-md-6">
-                <input class="btn btn-primary btn-user btn-block" type="submit" value="Guardar" />
+            <div class="text-center">
+                <input style="background-color:#0e203f; color:white"
+                                       class="btn btn-primary btn-user btn-block" type="submit"
+                                       value="Actualizar"/>
                 <a href="tblUsuarios.jsp">
-                    <button style="background-color:#0e203f; color:white"> Regresar</button>
-                </a>
+                <input style="background-color:#0e203f; color:white"
+                                       class="btn btn-google btn-user btn-block"
+                                       value="Regresar"/></a>
             </div>
 
             </form>
