@@ -11,7 +11,7 @@ public class VW_Arbol {
 	private String Familia;
 	private String Genero;
 	private String EpocaFloracion;
-	private String Distribucion;
+	//private String Distribucion;
 	private String Imagen;
 	
 	//Metodos
@@ -63,12 +63,7 @@ public class VW_Arbol {
 	public void setEpocaFloracion(String epocaFloracion) {
 		EpocaFloracion = epocaFloracion;
 	}
-	public String getDistribucion() {
-		return Distribucion;
-	}
-	public void setDistribucion(String distribucion) {
-		Distribucion = distribucion;
-	}
+
 	
 	public String getImagen() {
 		return Imagen;

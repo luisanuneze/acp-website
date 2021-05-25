@@ -56,7 +56,7 @@
                 <!-- Cardview -->
                 <div class="col-sm-2 arboles card-view">
                     <div class="">
-                        <img src="https://image.flaticon.com/icons/png/512/2975/2975970.png">
+                        <img name="" src="https://image.flaticon.com/icons/png/512/2975/2975970.png">
                         <hr>
                         <p>Nombre común</p>
                     </div>
@@ -77,9 +77,7 @@
                     Dt_Floracion dtfl = new Dt_Floracion();
                     listFloracion = dtfl.listaFloracionsActivos();
 
-                    ArrayList<VW_Distribucion> listDistribucion = new ArrayList<VW_Distribucion>();
-                    Dt_Distribucion dtd = new Dt_Distribucion();
-                    listDistribucion = dtd.listaDistribucion();
+                   
 
                 %>
 
@@ -182,28 +180,7 @@
                                     </div>
                                     <br>
                                 </div>
-                                <div class="col-sm-12">
-                                    Distribución:
-                                    <div class="row">
-                                        <div class="col-sm-8">
-                                            <select class="form-select" name="selecciona..." required>
-                                                <option value="">Seleccione</option>
-                                                <%
-                                                    for (VW_Distribucion fdr : listDistribucion) {
-                                                %>
-                                                <option value="<%= fdr.getID() %>"><%= fdr.getDistribucion() %>
-                                                </option>
-                                                <%
-                                                    }
-                                                %>
-                                            </select>
-                                        </div>
-                                        <div class="col-sm-2">
-                                            <a title="Agregar nueva distribución" href="NuevaDistribucion.jsp">
-                                                <i class="add fa-2x fas fa-plus-circle"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
+                               
                             </div>
                             <div class="form-group col-sm-11">
                                 Descripción:

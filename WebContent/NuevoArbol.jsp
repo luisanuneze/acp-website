@@ -77,9 +77,7 @@
                     Dt_Floracion dtfl = new Dt_Floracion();
                     listFloracion = dtfl.listaFloracionsActivos();
 
-                    ArrayList<Distribucion> listarDistribucion = new ArrayList<Distribucion>();
-                    Dt_Distribucion dtd = new Dt_Distribucion();
-                    listarDistribucion = dtd.listarDistribucion();
+                   
 
                 %>
 
@@ -182,29 +180,7 @@
                                     </div>
                                     <br>
                                 </div>
-                                <div class="col-sm-12">
-                                    Distribución:
-                                    <div class="row">
-                                        <div class="col-sm-8">
-                                            <select class="form-select" name="cbxDis" id="cbxDis" required>
-                                                <option value="">Seleccione</option>
-                                                <%
-                                                    for (Distribucion fdr : listarDistribucion) {
-                                                %>
-                                                <option value="<%= fdr.getDistribucionID() %>"><%= fdr.getNombre() %>
-                                                </option>
-                                                <%
-                                                    }
-                                                %>
-                                            </select>
-                                        </div>
-                                        <div class="col-sm-2">
-                                            <a title="Agregar nueva distribución" href="NuevaDistribucion.jsp">
-                                                <i class="add fa-2x fas fa-plus-circle"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                              
                             <div class="form-group col-sm-11">
                                 Descripción:
                                 <div class="col-sm-12">

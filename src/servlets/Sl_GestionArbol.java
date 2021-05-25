@@ -53,7 +53,7 @@ public class Sl_GestionArbol extends HttpServlet {
 			arb.setNombrecientifico(request.getParameter("txtNombreC"));
 			arb.setNombrecomun(request.getParameter("txtNombreCi"));
 			arb.setDescripcion(request.getParameter("txtDesA"));
-			arb.setDistribucionID(Integer.parseInt(request.getParameter("cbxDis")));
+			//arb.setDistribucionID(Integer.parseInt(request.getParameter("cbxDis")));
 			arb.setFamiliaID(Integer.parseInt(request.getParameter("cbxFam")));
 			arb.setGeneroID(Integer.parseInt(request.getParameter("cbxGen")));
 			arb.setFloracionID(Integer.parseInt(request.getParameter("cbxFlor")));

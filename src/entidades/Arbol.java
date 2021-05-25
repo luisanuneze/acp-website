@@ -16,7 +16,7 @@ public class Arbol {
 	private Timestamp fechaEliminacion;
 	private String imagen;
 	private int arbolId;
-	private int distribucionID;
+	//private int distribucionID;
 	private int familiaID;
 	private int generoID;
 	private int floracionID;
@@ -86,12 +86,7 @@ public class Arbol {
 	public void setArbolId(int arbolId) {
 		this.arbolId = arbolId;
 	}
-	public int getDistribucionID() {
-		return distribucionID;
-	}
-	public void setDistribucionID(int distribucionID) {
-		this.distribucionID = distribucionID;
-	}
+	
 	public int getFamiliaID() {
 		return familiaID;
 	}

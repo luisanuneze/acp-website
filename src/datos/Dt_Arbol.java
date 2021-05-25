@@ -47,7 +47,7 @@ public class Dt_Arbol {
 				ds.setFamilia(rs.getString("familia"));
 				ds.setGenero(rs.getString("genero"));
 				ds.setEpocaFloracion(rs.getString("epocaFloracion"));
-				ds.setDistribucion(rs.getString("Distribucion"));
+				//ds.setDistribucion(rs.getString("Distribucion"));
 				ds.setImagen(rs.getString("foto"));
 				listArbol.add(ds);
 			}
@@ -94,7 +94,7 @@ public class Dt_Arbol {
 				arb.setNombrecientifico(rs.getString("nombrecientifico"));
 				arb.setNombrecomun(rs.getString("nombrecomun"));
 				arb.setDescripcion(rs.getString("descripcion"));
-				arb.setDistribucionID(rs.getInt("distribucionID"));
+				//arb.setDistribucionID(rs.getInt("distribucionID"));
 				arb.setFamiliaID(rs.getInt("familiaID"));
 				arb.setGeneroID(rs.getInt("generoID"));
 				arb.setFloracionID(rs.getInt("floracionID"));
@@ -143,7 +143,7 @@ public class Dt_Arbol {
 			rsArbol.updateString("nombrecientifico", a.getNombrecientifico());
 			rsArbol.updateString("nombrecomun", a.getNombrecomun());
 			rsArbol.updateString("descripcion", a.getDescripcion());
-			rsArbol.updateInt("distribucionID", a.getDistribucionID());
+			//rsArbol.updateInt("distribucionID", a.getDistribucionID());
 			rsArbol.updateInt("generoID", a.getGeneroID());
 			rsArbol.updateInt("familiaID", a.getFamiliaID());
 			rsArbol.updateInt("floracionID", a.getFloracionID());

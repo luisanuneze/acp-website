@@ -94,7 +94,6 @@ CREATE TABLE  Arbol
 	 FechaModificacion  date NULL,
 	 FechaEliminacion  date NULL,
 	 ArbolID  integer NOT NULL,
-	 DistribucionID  integer NOT NULL,
 	 FamiliaID  integer NOT NULL,
 	 GeneroID  integer NOT NULL,
 	 FloracionID  integer NOT NULL,
@@ -143,6 +142,16 @@ CREATE TABLE  Distribucion
 	 PaisID  integer NOT NULL
 )
 ;
+
+
+CREATE TABLE  Arbol_distribucion
+(
+	Arbol_distribucionID integer NOT NULL,
+	ArbolID  integer NOT NULL,
+	DistribucionID  integer NOT NULL
+)
+;
+
 
 CREATE TABLE  Evento 
 (
@@ -375,6 +384,10 @@ ALTER TABLE  Arbol  ADD CONSTRAINT  PK_Arbol
 	PRIMARY KEY ( ArbolID )
 ;
 
+ALTER TABLE  Arbol_distribucion  ADD CONSTRAINT  PK_Arbol_distribucion
+	PRIMARY KEY ( Arbol_distribucionID )
+;
+
 ALTER TABLE  Banner  ADD CONSTRAINT  PK_Banner 
 	PRIMARY KEY ( BannerID )
 ;
@@ -465,9 +478,6 @@ ALTER TABLE  Usuario  ADD CONSTRAINT  PK_Usuario
 
 /* Create Foreign Key Constraints */
 
-ALTER TABLE  Arbol  ADD CONSTRAINT  FK_Arbol_Distribucion 
-	FOREIGN KEY ( DistribucionID ) REFERENCES  Distribucion  ( DistribucionID ) ON DELETE No Action ON UPDATE No Action
-;
 
 ALTER TABLE  Arbol  ADD CONSTRAINT  FK_Arbol_Familia 
 	FOREIGN KEY ( FamiliaID ) REFERENCES  Familia  ( FamiliaID ) ON DELETE No Action ON UPDATE No Action
@@ -483,6 +493,14 @@ ALTER TABLE  Arbol  ADD CONSTRAINT  FK_Arbol_Floracion
 
 ALTER TABLE  Arbol  ADD CONSTRAINT  FK_Arbol_Usuario 
 	FOREIGN KEY ( UsuarioID ) REFERENCES  Usuario  ( UsuarioID ) ON DELETE No Action ON UPDATE No Action
+;
+
+ALTER TABLE  Arbol_distribucion  ADD CONSTRAINT  fk_Arbol_distribucion_distribucion 
+	FOREIGN KEY ( distribucionid ) REFERENCES distribucion  ( distribucionid ) ON DELETE No Action ON UPDATE No Action
+;
+
+ALTER TABLE  Arbol_distribucion  ADD CONSTRAINT  fk_Arbol_distribucion_arbol 
+	FOREIGN KEY ( arbolid ) REFERENCES arbol  ( arbolid ) ON DELETE No Action ON UPDATE No Action
 ;
 
 ALTER TABLE  Banner  ADD CONSTRAINT  FK_Banner_Usuario 

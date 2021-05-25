@@ -144,13 +144,11 @@ arbol.estado AS "Estado",
 familia.nombre AS "Familia",
 arbol.imagen AS "Foto",
 genero.nombre AS "Genero",
-floracion.nombre AS "EpocaFloracion",
-distribucion.nombre AS "Distribucion"
-FROM arbol, distribucion, familia, genero, floracion
+floracion.nombre AS "EpocaFloracion"
+FROM arbol, familia, genero, floracion
 WHERE arbol.familiaid = familia.familiaid 
 AND arbol.generoid = genero.generoid
-AND arbol.floracionid = floracion.floracionid
-AND arbol.distribucionid = distribucion.distribucionid;
+AND arbol.floracionid = floracion.floracionid;
 
 SELECT * FROM VW_Arbol;
 
@@ -227,8 +225,8 @@ SELECT * FROM VW_Arbol;
 	
 	-- Inserts Arbol --
     INSERT INTO public.arbol(
-	nombrecientifico, nombrecomun, estado, descripcion, distribucionid, familiaid, generoid, floracionid, fechacreacion)
-	VALUES ('Juglans neotropica', 'Cedro negro', 1, 'Miden 40 cm de largo por 25 cm de ancho, con 12 pares folíolos de borde aserrado y asimétricos. Requiere de suelos profundos, fértiles y bien drenados.Su madera es moderadamente pesada, se emplea para elaborar enchapes, carpintería, ebanistería fina , pisos y en construcción.', 1, 1, 1, 5, '2021-04-17');
+	nombrecientifico, nombrecomun, estado, descripcion, familiaid, generoid, floracionid, fechacreacion)
+	VALUES ('Juglans neotropica', 'Cedro negro', 1, 'Miden 40 cm de largo por 25 cm de ancho, con 12 pares folíolos de borde aserrado y asimétricos. Requiere de suelos profundos, fértiles y bien drenados.Su madera es moderadamente pesada, se emplea para elaborar enchapes, carpintería, ebanistería fina , pisos y en construcción.', 1, 1, 5, '2021-04-17');
 	
 
 ---==============---
@@ -263,19 +261,19 @@ SELECT * FROM VW_Arbol;
 
 -- Inserts Arbol --
 	INSERT INTO public.arbol(
-	nombrecientifico, nombrecomun, estado, descripcion, distribucionid, familiaid, generoid, floracionid, usuarioid, fechacreacion)
+	nombrecientifico, nombrecomun, estado, descripcion, familiaid, generoid, floracionid, usuarioid, fechacreacion)
 	VALUES ('Prunus dulcis', 'Almendro', 1, 'Puede alcanzar hasta 10 m. de altura, 
 			pero generalmente se le mantiene más bajo mediante poda. La corteza de 
 			sus ramitas jóvenes es verde, se vuelve violácea donde recibe la luz 
 			solar directa; a partir del segundo año se vuelve gris, y se va oscureciendo 
-			progresivamente.', 1, 2, 2, 4, 1, '2021-04-19');
+			progresivamente.', 2, 2, 4, 1, '2021-04-19');
 			
 	INSERT INTO public.arbol(
-	nombrecientifico, nombrecomun, estado, descripcion, distribucionid, familiaid, generoid, floracionid, usuarioid, fechacreacion)
+	nombrecientifico, nombrecomun, estado, descripcion, familiaid, generoid, floracionid, usuarioid, fechacreacion)
 	VALUES ('Juglans regia', 'Nogal', 1, 'Es un árbol caducifolio que llega a los 25m 
 			de altura con un tronco que puede superar los 2 m de diámetro. De este tronco, 
 			que es corto y robusto y de color blanquecino o gris claro, salen gruesas y 
-			vigorosas ramas para formar una copa grande y redondeada.', 2 , 1, 1, 1, 1, '2021-04-19');
+			vigorosas ramas para formar una copa grande y redondeada.', 1, 1, 1, 1, '2021-04-19');
 	
 
 ---==============---

@@ -98,8 +98,7 @@
                                     <th>Descripción</th>
                                     <th>Genero</th>
                                     <th>Familia</th>
-                                    <th>Epoca de floración</th>
-                                    <th>Distribución</th>
+                                    <th>Epoca de floración</th>                                   
                                     <th>Foto</th>
                                     <th>Opciones</th>
                                 </tr>
@@ -113,7 +112,7 @@
                                     <th>Genero</th>
                                     <th>Familia</th>
                                     <th>Epoca de floración</th>
-                                    <th>Distribución</th>
+                                   
                                     <th>Foto</th>
                                     <th>Opciones</th>
                                 </tr>
@@ -137,8 +136,7 @@
                                     </td>
                                     <td><%=ar.getEpocaFloracion() %>
                                     </td>
-                                    <td><%=ar.getDistribucion() %>
-                                    </td>
+                                
                                     <td>
                                 	<a href="<%= ar.getImagen() %>">
                                 		<img src="<%= ar.getImagen() %>" style="max-height:100px; max-width:100px;" alt="...">
