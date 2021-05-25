@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import entidades.Arbol;
 import entidades.Genero;
 import vistas.VW_Arbol;
+import vistas.VW_RolUsuario;
 
 public class Dt_Arbol {
 	//Atributos
@@ -76,6 +77,62 @@ public class Dt_Arbol {
 		}
 		return listArbol;
 	}
+	
+	
+	// Metodo para visualizar los datos de un usuario específico
+	public VW_Arbol getArbol2(int iD) {
+		VW_Arbol vwru = new VW_Arbol();
+		try {
+
+			System.out.println("Hasta aca todo bien");
+
+			c = PoolConexion.getConnection();
+			ps = c.prepareStatement("select * from public.vw_arbol where \"ID\"=?",
+					ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE, ResultSet.HOLD_CURSORS_OVER_COMMIT);
+			ps.setInt(1, iD);
+			rs = ps.executeQuery();
+			System.out.println("Ya hizo el select");
+			if (rs.next()) {
+				vwru.setID(iD);
+				vwru.setNombreCientifico(rs.getString("nombreCientifico"));
+				vwru.setNombreComun(rs.getString("nombreComun"));
+				vwru.setDescripcion(rs.getString("descripcion"));
+				vwru.setEstado(rs.getInt("estado"));
+				vwru.setFamilia(rs.getString("familia"));
+				vwru.setGenero(rs.getString("genero"));
+				vwru.setEpocaFloracion(rs.getString("epocaFloracion"));
+				//ds.setDistribucion(rs.getString("Distribucion"));
+				vwru.setImagen(rs.getString("foto"));
+				System.out.println("Ya te deberia de aparecer wtf");
+			}
+		} catch (Exception e) {
+			System.out.println("DATOS ERROR getNIMA(): " + e.getMessage());
+			e.printStackTrace();
+		} finally {
+			try {
+				if (rs != null) {
+					rs.close();
+				}
+				if (ps != null) {
+					ps.close();
+				}
+				if (c != null) {
+					PoolConexion.closeConnection(c);
+				}
+
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+
+		return vwru;
+	}
+	
+	
+	
+	
+	
 	
 	
 	// Metodo para visualizar los datos de un árbol específico

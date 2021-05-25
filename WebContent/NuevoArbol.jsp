@@ -184,8 +184,7 @@
                             <div class="form-group col-sm-11">
                                 Descripción:
                                 <div class="col-sm-12">
-                                    <textarea class="form-control" name="txtDesA" id="txtDesA" rows="6" placeholder="Descripción"
-                                              required></textarea>
+                                    <textarea class="form-control" name="txtDesA" id="txtDesA" rows="3" cols="50" placeholder="Descripción" required></textarea>
                                 </div>
                                 <br>
                             </div>

@@ -52,9 +52,7 @@
 
             <!-- Despliegue de filtros -->
             <div class="form-group row">
-                <div class="col-sm-4">
-                    Filtrar árboles por:
-                   
+                <div class="col-sm-4">  
                 </div>
                 <div class="col" align="right">
                     <!-- Boton de edicion-->
@@ -80,7 +78,7 @@
                 <%
                     for (VW_Arbol ar : listArbol) {
                 %>
-                <a href="EditarArboles.jsp">
+                <a href="EditarArboles.jsp?arbolID=<%=ar.getID() %>">
                     <div class="arboles d-flex flex-column">
                         <img src="<%=ar.getImagen()==null?"#":ar.getImagen()%>">
                         <hr>

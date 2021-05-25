@@ -2,13 +2,26 @@
          pageEncoding="ISO-8859-1"
          import="entidades.Arbol, datos.Dt_Arbol, vistas.VW_Arbol, java.util.*;" %>
 <!DOCTYPE html>
+<%
+	//Variable de control de mensajes
+	String varMsj = request.getParameter("msj")==null?"":request.getParameter("msj");
+
+
+%>
 <html>
 <head>
-    <meta charset="ISO-8859-1">
+     <meta charset="ISO-8859-1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
     <title>PWACP - Portal Web Arboreto Carmelo Palma</title>
 
     <meta content="" name="description">
+
     <meta content="" name="keywords">
 
     <!-- Favicons -->
@@ -32,6 +45,20 @@
 
     <!-- Template Main CSS File -->
     <link href="assets/css/style.css" rel="stylesheet">
+    
+    <!-- jAlert css  -->
+	<link rel="stylesheet" href="jAlert/dist/jAlert.css" />
+
+    <!-- =======================================================
+    * Template Name: FlexStart - v1.1.1
+    * Template URL: https://bootstrapmade.com/flexstart-bootstrap-startup-template/
+    * Author: BootstrapMade.com
+    * License: https://bootstrapmade.com/license/
+    ======================================================== -->
+
+
+    <!-- Custom styles for this page -->
+    <!-- <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet"> -->
 
     <!-- DATATABLE -->
     <link href="DataTables/DataTables-1.10.21/css/jquery.dataTables.min.css" rel="stylesheet">
@@ -63,7 +90,7 @@
                 <div class="card shadow mb-4">
                     <div class="card-header py-3 row">
                         <div class="col">
-                            <h1 class="h3 mb-2 text-gray-800">Gestión de Familia</h1>
+                            <h1 class="h3 mb-2 text-gray-800">Gestión de Arboles</h1>
                         </div>
                         <div class="col" align="right">
 
@@ -83,7 +110,7 @@
                     <div class="card-body">
 
                         <div class="table-responsive">
-                            <table class="table table-bordered" id="tblFamilia" width="100%" cellspacing="0">
+                            <table class="table table-bordered" id="tblArbol" width="100%" cellspacing="0">
                                 <%
                                     ArrayList<VW_Arbol> listArbol = new ArrayList<VW_Arbol>();
                                     Dt_Arbol dta = new Dt_Arbol();
@@ -142,7 +169,7 @@
                                 		<img src="<%= ar.getImagen() %>" style="max-height:100px; max-width:100px;" alt="...">
 	                               	</a>
                                	</td>
-                                    <td><a id="btn-edita-abrir" href="EditarArboles.jsp"> <i
+                                    <td><a id="btn-edita-abrir" href="EditarArboles.jsp?arbolID=<%=ar.getID() %>"> <i
                                             class="fas fa-edit">Editar</i></a>
                                         <a href="#"> <i class="fas fa-trash-alt">Eliminar</i></a>
                                         <a href="#"> <i class="fas fa-eye">Visualizar</i>
@@ -219,20 +246,54 @@
 <!-- js Datatable buttons excel -->
 <script src="DataTables/JSZip-2.5.0/jszip.min.js"></script>
 
-<!-- 	<script>
-		$(document).ready(function() {
-			
-			////// APLICAMOS FORMATO Y BOTONES A LA TABLA //// INICIAMOS EL PLUGIN DATATABLE
-			$('#tblFamilia').DataTable({
-				dom : 'Bfrtip',
-				buttons : [
-				             'pdf',
-				'excel', 'print' ]
+<!-- jAlert js -->
+<script src="jAlert/dist/jAlert.min.js"></script>
+<script src="jAlert/dist/jAlert-functions.min.js"> //optional!!</script>
 
-			});
-			////////////////////////////////////////////////
+<script>
+    $(document).ready(function () {
+        ////// APLICAMOS FORMATO Y BOTONES A LA TABLA //// INICIAMOS EL PLUGIN DATATABLE
+        $('#tblArbol').DataTable({
+            dom: 'Bfrtip',
+            buttons: [
+                //'pdf',
+                'excel'
+            ]
 
-		});
-	</script> -->
+        });
+
+        ////////////////////////////////////////////////
+        /////////// VARIABLE DE CONTROL MSJ ///////////
+        var mensaje = "";
+        mensaje = "<%=varMsj%>";
+
+        if(mensaje == "1")
+        {
+            successAlert('Éxito', 'Los datos han sido registrados exitosamente!');
+        }
+        if(mensaje == "2")
+        {
+            errorAlert('Error', 'Revise los datos e intente nuevamente!!!');
+        }
+        if(mensaje == "3")
+        {
+            successAlert('Éxito', 'Los datos han sido actualizados exitosamente!');
+        }
+        if(mensaje == "4")
+        {
+            errorAlert('Error', 'Revise los datos e intente nuevamente!!!');
+        }
+        if(mensaje == "5")
+        {
+            successAlert('Éxito', 'El usuario ha sido dado de baja exitosamente!');
+        }
+        if(mensaje == "6")
+        {
+            errorAlert('Error', 'Revise los datos e intente nuevamente!!!');
+        }
+
+    });
+</script>
+
 </body>
 </html>
