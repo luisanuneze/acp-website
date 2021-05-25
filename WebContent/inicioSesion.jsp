@@ -100,6 +100,7 @@
 					<div class="button-iniciar">
 						<button>Iniciar sesión</button>
 						</br> <a href="recuperacionCuenta.jsp">¿Olvidaste tu contraseña?</a>
+						</br> </br><a href="v_index.jsp">Entrar como visitante</a>
 					</div>
 
 					<!-- <br><br><br><h4><strong>Seguimos trabajando, <br> para mejorar su servicio</strong></h4>
