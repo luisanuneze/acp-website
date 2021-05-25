@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
          pageEncoding="ISO-8859-1"
-         import="entidades.Arbol, datos.Dt_Arbol, vistas.VW_Arbol, java.util.*;" %>
+         import="entidades.ArbolDistribucion, datos.Dt_ArbolDistribucion, vistas.VW_DistribucionArbol, java.util.*;" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -59,16 +59,16 @@
 
             <div>
 
-                <!-- DataTables Arbol -->
+                <!-- DataTables Distribucion Arbol -->
                 <div class="card shadow mb-4">
                     <div class="card-header py-3 row">
                         <div class="col">
-                            <h1 class="h3 mb-2 text-gray-800">Gestión de Árbol</h1>
+                            <h1 class="h3 mb-2 text-gray-800">Gestión de Distribución Árbol</h1>
                         </div>
                         <div class="col" align="right">
 
                             <!-- Button agregar e imprimir-->
-                            <a href="NuevoArbol.jsp" data-toggle="modal"
+                            <a href="NuevoArbolDistribucion.jsp" data-toggle="modal"
                                data-target="#modalNuevoUsuario"> <i
                                     class="fas fa-file-medical fa-2x" title="Agregar nuevo árbol"></i>
                             </a>&nbsp;&nbsp;
@@ -77,12 +77,6 @@
                             </a>
                             
                             <!-- Fin Button agregar e imprimir -->
-	                            
-	                        <a href="tblArbolDistribucion.jsp">
-	                            <button style="background-color: #0e203f; color: white">
-	                                Árbol a Distribución
-	                            </button>
-	                        </a>
 
                         </div>
                     </div>
@@ -90,73 +84,47 @@
                     <div class="card-body">
 
                         <div class="table-responsive">
-                            <table class="table table-bordered" id="tblFamilia" width="100%" cellspacing="0">
+                            <table class="table table-bordered" id="tblArbolDistribucion" width="100%" cellspacing="0">
                                 <%
-                                    ArrayList<VW_Arbol> listArbol = new ArrayList<VW_Arbol>();
-                                    Dt_Arbol dta = new Dt_Arbol();
-                                    listArbol = dta.listaArbol();
+                                    ArrayList<VW_DistribucionArbol> listArbol = new ArrayList<VW_DistribucionArbol>();
+                                    Dt_ArbolDistribucion dta = new Dt_ArbolDistribucion();
+                                    listArbol = dta.listaArbolDistribucion();
 
                                 %>
                                 <thead>
                                 <tr>
                                     <th>ID</th>
-                                    <th>Nombre común</th>
-                                    <th>Nombre científico</th>
-                                    <th>Descripción</th>
-                                    <th>Genero</th>
-                                    <th>Familia</th>
-                                    <th>Epoca de floración</th>                                   
-                                    <th>Foto</th>
+                                    <th>Nombre árbol</th>
+                                    <th>Nombre distribución</th>
                                     <th>Opciones</th>
                                 </tr>
                                 </thead>
                                 <tfoot>
                                 <tr>
                                     <th>ID</th>
-                                    <th>Nombre común</th>
-                                    <th>Nombre científico</th>
-                                    <th>Descripción</th>
-                                    <th>Genero</th>
-                                    <th>Familia</th>
-                                    <th>Epoca de floración</th>
-                                   
-                                    <th>Foto</th>
+                                    <th>Nombre árbol</th>
+                                    <th>Nombre distribución</th>
                                     <th>Opciones</th>
                                 </tr>
                                 </tfoot>
                                 <tbody>
                                 <%
-                                    for (VW_Arbol ar : listArbol) {
+                                    for (VW_DistribucionArbol ar : listArbol) {
                                 %>
                                 <tr>
                                     <td><%=ar.getID() %>
                                     </td>
-                                    <td><%=ar.getNombreComun() %>
+                                    <td><%=ar.getNombreArbol() %>
                                     </td>
-                                    <td><%=ar.getNombreCientifico() %>
-                                    </td>
-                                    <td><%=ar.getDescripcion() %>
-                                    </td>
-                                    <td><%=ar.getGenero() %>
-                                    </td>
-                                    <td><%=ar.getFamilia() %>
-                                    </td>
-                                    <td><%=ar.getEpocaFloracion() %>
+                                    <td><%=ar.getNombreDistribucion() %>
                                     </td>
                                 
-                                    <td>
-                                	<a href="<%= ar.getImagen() %>">
-                                		<img src="<%= ar.getImagen() %>" style="max-height:100px; max-width:100px;" alt="...">
-	                               	</a>
-                               	</td>
-                                    <td><a id="btn-edita-abrir" href="EditarArboles.jsp"> <i
+                                    <td><a id="btn-edita-abrir" href="EditarArbolDistribucion.jsp?Arbol_DistribucionId=<%=ar.getID()%>"> 
+                                    <i
                                             class="fas fa-edit">Editar</i></a>
                                         <a href="#"> <i class="fas fa-trash-alt">Eliminar</i></a>
                                         <a href="#"> <i class="fas fa-eye">Visualizar</i>
                                         </a>
-                                        <a href="fotoArbol.jsp?idArbol=<%=ar.getID()%>">
-                        							<i class="fas fa-camera" title="Registrar Foto del Arbol">Foto Arbol</i>
-                        						</a>
                                         
                                         </td>
                                 </tr>

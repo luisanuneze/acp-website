@@ -275,6 +275,20 @@ SELECT * FROM VW_Arbol;
 			que es corto y robusto y de color blanquecino o gris claro, salen gruesas y 
 			vigorosas ramas para formar una copa grande y redondeada.', 1, 1, 1, 1, '2021-04-19');
 	
+			
+--- Inserts arbol_distribucion ---
+	insert into arbol_distribucion (arbolid, distribucionid) values (7, 1);
+	insert into arbol_distribucion (arbolid, distribucionid) values (8, 1);
+	
+--- VW_Distribucion DistribucionArbol ---
+	CREATE OR REPLACE VIEW VW_DistribucionArbol AS
+	SELECT arbol.arbolid, arbol.nombrecomun AS "NombreArbol",
+	distribucion.distribucionid , distribucion.nombre AS "NombreDistribucion",
+	arbol_distribucion.arbol_distribucionid AS "ID"
+	FROM arbol, distribucion, arbol_distribucion
+	WHERE arbol_distribucion.arbolid = arbol.arbolid;
+	
+	SELECT * FROM VW_DistribucionArbol;
 
 ---==============---
 --- SCRIPT LUISA ---
