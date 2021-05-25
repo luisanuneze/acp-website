@@ -92,27 +92,26 @@
 
                 <div class="card-body">
                     <div align="right">
-                        <a href="tblRolUser.jsp">
-                            <h7 class="fas fa-arrow-left fa-2x"
-                                title="Retornar a la pagina anterior"></h7>
-                        </a>
+                        <br></br>
 
                     </div>
 
-                    <div class="table-responsive">
+                    <div class="container" data-aos="fade-up">
                         <form class="user" method="post" action="./Sl_GestionRolUser">
                             <!-- El valor de este input es para el Servlet opcion guardar -->
                             <input name="opcion" type="hidden" value="1"/>
-                            <div class="form-group row">
-                                <div class="col-sm-12 mb-3">
+                            <div class="row gy-4">
+                            <div class="row col-md-6">
+                                <div class="row col-md-12">
                                     <%
                                         ArrayList<Usuario> listUser = new ArrayList<Usuario>();
                                         Dt_Usuario dtu = new Dt_Usuario();
                                         listUser = dtu.listaUserActivos();
                                     %>
+                                    <div class="col-sm-11">
                                     <select class="form-control" name="cbxUser" id="cbxUser"
                                             required>
-                                        <option value="">Seleccione...</option>
+                                        <option value="">Usuario...</option>
                                         <%
                                             for (Usuario u : listUser) {
                                         %>
@@ -122,17 +121,24 @@
                                             }
                                         %>
 
-                                    </select>
+                                    </select>                                    
+                                    </div>
+			                        <div class="col-sm-1">
+			                            <a title="Agregar nuevo Usuario" href="NuevoUsuario.jsp">
+			                                <i class="add fa-2x fas fa-plus-circle"></i></a>
+			                        </div>
                                 </div>
-                                <div class="col-sm-12 mb-3">
+                                <br></br>
+                                <div class="row col-md-12">
                                     <%
                                         ArrayList<Rol> listRol = new ArrayList<Rol>();
                                         Dt_Rol dtr = new Dt_Rol();
                                         listRol = dtr.listaRolActivos();
                                     %>
+                                    <div class="col-sm-11">
                                     <select class="form-control" name="cbxRol" id="cbxRol"
                                             required>
-                                        <option value="">Seleccione...</option>
+                                        <option value="">Rol...</option>
                                         <%
                                             for (Rol r : listRol) {
                                         %>
@@ -143,7 +149,12 @@
                                         %>
 
                                     </select>
+                                    </div><div class="col-sm-1">
+			                            <a title="Agregar nuevo Rol" href="NuevoRol.jsp">
+			                                <i class="add fa-2x fas fa-plus-circle"></i></a>
+			                        </div>
                                 </div>
+                            </div>
                             </div>
                             <hr>
                             <!-- Botones -->

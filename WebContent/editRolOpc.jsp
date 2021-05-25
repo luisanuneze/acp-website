@@ -93,10 +93,7 @@
                 <div class="card-body">
                     <div align="right">
 
-                        <a href="tblRolOpc.jsp">
-                            <h7 class="fas fa-arrow-left fa-2x"
-                                title="Retornar a la pagina anterior"></h7>
-                        </a>
+                        <br></br>
 
                     </div>
                     
@@ -118,21 +115,24 @@
 								vwro = dtvwro.getRolOpciones2(Integer.parseInt(ropc));
                             %>       
                     
-                    <div class="table-responsive">
+                    <div class="container" data-aos="fade-up">
                         <form class="user" method="post" action="./Sl_GestionRolOpc">
                             <!-- El valor de este input es para el Servlet opcion guardar -->
                             <input name="idRolOpc" type="hidden" value="<%=ro.getRol_opcionesID()%>" /> 
 							<input name="opcion" type="hidden" value="2" />
 							<input name="ID" type="hidden" value="<%=vwro.getID()%>" /> 
 							<input name="opcion" type="hidden" value="2" />
-                            <div class="text-center">
-                                <div class="col-sm-12 mb-3">
+							
+							<div class="row gy-4">
+                            <div class="row col-md-6">
+                                <div class="row col-md-12">
                                     <%
                                         ArrayList<Rol> listRol = new ArrayList<Rol>();
                                         Dt_Rol dtr = new Dt_Rol();
                                         listRol = dtr.listaRolActivos();
                                     %>
-                                    <select class="form-control" name="cbxRol" id="cbxRol" disabled="disabled"
+                                    <div class="col-sm-11">
+                                    <select class="form-control" name="cbxRol" id="cbxRol"
                                             required>
                                         <option value="">Seleccione...</option>
                                         <%
@@ -145,13 +145,16 @@
                                         %>
 
                                     </select>
+                                    </div>
                                 </div>
-                                <div class="col-sm-12 mb-3">
+                                <br></br>
+                                <div class="row col-md-12">
                                     <%
                                         ArrayList<Opciones> listOpc = new ArrayList<Opciones>();
                                         Dt_Opciones dto = new Dt_Opciones();
                                         listOpc = dto.listaOpcActivos();
                                     %>
+                                    <div class="col-sm-11">
                                     <select class="form-control" name="cbxOpc" id="cbxOpc"
                                             required>
                                         <option value="">Seleccione...</option>
@@ -165,7 +168,9 @@
                                         %>
 
                                     </select>
+                                    </div>
                                 </div>
+                            </div>
                             </div>
                             <hr>
                             <!-- Botones -->
