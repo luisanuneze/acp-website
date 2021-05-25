@@ -81,7 +81,7 @@
                     for (VW_Arbol ar : listArbol) {
                 %>
                 <a href="EditarArboles.jsp">
-                    <div class="arboles d-flex flex-column">
+                    <div class="arboles d-flex flex-column" style="height:280px; width:240px">
                         <img src="<%=ar.getImagen()==null?"#":ar.getImagen()%>">
                         <hr>
                         <p><%=ar.getNombreComun() %>
@@ -95,7 +95,7 @@
 
                 <!-- Para nuevo arbol -->
                 <a href="NuevoArbol.jsp">
-                    <div class="arboles new-arbol d-flex flex-column">
+                    <div class="arboles new-arbol d-flex flex-column" style="height:280px; width:240px">
                         <center><img src="https://www.flaticon.es/premium-icon/icons/svg/2623/2623098.svg">
                             <hr>
                         </center>
