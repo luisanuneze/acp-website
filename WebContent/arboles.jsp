@@ -63,6 +63,8 @@
                     </div>
                     <!-- Termina boton de edicion-->
                 </div>
+                
+                <h1 class="h3 mb-2 text-gray-800">Cátologo de árboles</h1>
 
             </div>
             <!-- Termina despliegue de filtros-->
@@ -78,15 +80,12 @@
                 <%
                     for (VW_Arbol ar : listArbol) {
                 %>
-<<<<<<< HEAD
+
                 <a href="EditarArboles.jsp?arbolID=<%=ar.getID() %>">
-                    <div class="arboles d-flex flex-column">
-=======
-                <a href="EditarArboles.jsp">
                     <div class="arboles d-flex flex-column" style="height:280px; width:240px">
->>>>>>> branch 'main' of https://github.com/luisanuneze/acp-website.git
+
                         <img src="<%=ar.getImagen()==null?"#":ar.getImagen()%>">
-                        <hr>
+                       <hr></hr>
                         <p><%=ar.getNombreComun() %>
                         </p>
                     </div>
@@ -100,7 +99,7 @@
                 <a href="NuevoArbol.jsp">
                     <div class="arboles new-arbol d-flex flex-column" style="height:280px; width:240px">
                         <center><img src="https://www.flaticon.es/premium-icon/icons/svg/2623/2623098.svg">
-                            <hr>
+                            <hr></hr>
                         </center>
                         <p>Agregar nuevo árbol</p>
                     </div>

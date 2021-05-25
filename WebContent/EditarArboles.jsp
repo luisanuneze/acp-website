@@ -75,8 +75,8 @@
                 <div class="col-sm-2 arboles card-view">
                     <div class="">
                         <img name="imgArbol" id="imgArbol" src="<%=arb.getImagen()==null?"#":arb.getImagen()%>">
-                        <hr>
-                        <p></p>
+                           <hr></hr>
+                        <p name="txtNombreCo" id="txtNombreCo"><%=arb.getNombrecomun()%></p>
                     </div>
                 </div>
                 <!-- Fin cardview -->
@@ -259,6 +259,7 @@
    $(document).ready(function()
 	{
 	   $("#imgArbol").val("<%=arb.getImagen()%>");
+	   $("#txtNombreo").val("<%=arb.getNombrecomun()%>");
 	   $("#txtNombreC").val("<%=arb.getNombrecomun()%>");
 	   $("#txtNombreCi").val("<%=arb.getNombrecientifico()%>");
 	   $("#cbxGenero").val("<%=arb.getGeneroID()%>");

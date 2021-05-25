@@ -90,11 +90,8 @@
                 <div class="card shadow mb-4">
                     <div class="card-header py-3 row">
                         <div class="col">
-<<<<<<< HEAD
+
                             <h1 class="h3 mb-2 text-gray-800">Gestión de Arboles</h1>
-=======
-                            <h1 class="h3 mb-2 text-gray-800">Gestión de Árbol</h1>
->>>>>>> branch 'main' of https://github.com/luisanuneze/acp-website.git
                         </div>
                         <div class="col" align="right">
 
