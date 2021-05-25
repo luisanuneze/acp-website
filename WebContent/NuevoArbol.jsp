@@ -181,6 +181,8 @@
                                     <br>
                                 </div>
                               
+                        </div>
+                        
                             <div class="form-group col-sm-11">
                                 Descripción:
                                 <div class="col-sm-12">
@@ -195,7 +197,6 @@
                                 <a href="javascript:history.go(-1)" class="button"> Regresar</a>
                                 <input class="button" type="reset" value="Cancelar" />
                             </div>
-                        </div>
                     </form>
                 </div>
             </div>

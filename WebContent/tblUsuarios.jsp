@@ -119,7 +119,7 @@
                     </a>
                         <a href="tblRolUser.jsp">
                             <button style="background-color: #0e203f; color: white">
-                                Rol a Usuario
+                                Asignar Rol
                             </button>
                         </a>
 

@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-         pageEncoding="ISO-8859-1" %>
+         pageEncoding="ISO-8859-1" import="datos.Dt_Usuario, entidades.Usuario, datos.PoolConexion,java.util.*" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -55,6 +55,12 @@
     <section id="about" class="about">
 
         <div class="container" data-aos="fade-up">
+        
+        <%
+          ArrayList<Usuario> listUser = new ArrayList<Usuario>();
+          Dt_Usuario dtu = new Dt_Usuario();
+          listUser = dtu.listaUserActivos();
+        %>
 
             <h2 class="form-header" style="color: black;">Registrar Nuevo Evento</h2>
             <br>
@@ -87,10 +93,6 @@
                     <br>
 
 
-                    <!-- Botones -->
-                    <div class="col-md-6">
-                		<input class="btn btn-primary btn-user btn-block" type="submit" value="Guardar" />
-                    </div>
 
                 </div>
                 <div class="col-sm-4">
@@ -124,11 +126,24 @@
                     <div class="centrado">
 
 
-                        <select>
+                        <select class="form-control" name="TipoEvento" id="TipoEvento" required>
                             <option value="">Seleccione el tipo de evento</option>
                             <option value="Publica">Publico</option>
                             <option value="Privada">Privado</option>
                         </select><br><br>
+                        
+                        <div>
+                        <select class="form-control" name="cbxuser" id="cbxuser" required>
+                        	<option value="">Seleccione el usuario encargado...</option>
+                        <%
+                        	for(Usuario u: listUser){
+                        %>
+                        	<option value="<%= u.getUsuarioID() %>"><%= u.getUsuario() %></option>
+                        <%
+                        		}
+                        %>
+                        </select>
+                        </div><br><br>
 
                         <div class="root">
                             <div class="calendar" id="calendar">
@@ -141,6 +156,10 @@
 
 
                 </div>
+                <!-- Botones -->
+                    <div class="col-md-6">
+                		<input class="btn btn-primary btn-user btn-block" type="submit" value="Guardar" />
+                    </div>
             </form>
 
             <br>

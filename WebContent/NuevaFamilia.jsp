@@ -71,8 +71,8 @@
                 <div class="button-formulario">
                     <input  class="button" type="submit" value="Guardar" />
                     <a href="tblUsuarios.jsp">
-                    <button style="background-color:#0e203f; color:white"> Regresar</button>
-                </a>
+                    <button class="button"> Regresar</button>
+                	</a>
                     <input class="button" type="reset" value="Cancelar" />
                 </div>
             </form>

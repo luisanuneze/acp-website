@@ -93,27 +93,26 @@
                 <div class="card-body">
                     <div align="right">
 
-                        <a href="tblRolOpc.jsp">
-                            <h7 class="fas fa-arrow-left fa-2x"
-                                title="Retornar a la pagina anterior"></h7>
-                        </a>
+                    <br></br>
 
                     </div>
 
-                    <div class="table-responsive">
+                    <div class="container" data-aos="fade-up">
                         <form class="user" method="post" action="./Sl_GestionRolOpc">
                             <!-- El valor de este input es para el Servlet opcion guardar -->
                             <input name="opcion" type="hidden" value="1"/>
-                            <div class="text-center">
-                                <div class="col-sm-12 mb-3">
+                            <div class="row gy-4">
+                            <div class="row col-md-6">
+                                <div class="row col-md-12">
                                     <%
                                         ArrayList<Rol> listRol = new ArrayList<Rol>();
                                         Dt_Rol dtr = new Dt_Rol();
                                         listRol = dtr.listaRolActivos();
                                     %>
+                                    <div class="col-sm-11">
                                     <select class="form-control" name="cbxRol" id="cbxRol"
                                             required>
-                                        <option value="">Seleccione...</option>
+                                        <option value="">Rol...</option>
                                         <%
                                             for (Rol r : listRol) {
                                         %>
@@ -124,16 +123,23 @@
                                         %>
 
                                     </select>
+                                    </div>
+                                    <div class="col-sm-1">
+			                            <a title="Agregar nuevo Rol" href="NuevoRol.jsp">
+			                                <i class="add fa-2x fas fa-plus-circle"></i></a>
+			                        </div>
                                 </div>
-                                <div class="col-sm-12 mb-3">
+                                <br></br>
+                                <div class="row col-md-12">
                                     <%
                                         ArrayList<Opciones> listOpc = new ArrayList<Opciones>();
                                         Dt_Opciones dtro = new Dt_Opciones();
                                         listOpc = dtro.listaOpcActivos();
                                     %>
+                                    <div class="col-sm-11">
                                     <select class="form-control" name="cbxOpc" id="cbxUser"
                                             required>
-                                        <option value="">Seleccione...</option>
+                                        <option value="">Opcion...</option>
                                         <%
                                             for (Opciones u : listOpc) {
                                         %>
@@ -144,19 +150,18 @@
                                         %>
 
                                     </select>
+                                    </div>
+                                    
                                 </div>
                             </div>
-                            <hr>
-                            <div class="text-center">
-                                <input style="background-color:#0e203f; color:white"
-                                       class="btn btn-primary btn-user btn-block" type="submit"
-                                       value="Guardar"/>
-
-
-                                <input style="background-color:#0e203f; color:white"
-                                       class="btn btn-google btn-user btn-block" type="reset"
-                                       value="Cancelar"/>
                             </div>
+                            <hr>
+                            <!-- Botones -->
+				            <div class="button-formulario">
+				                <input class="btn-user button button-formulario" type="submit"
+				                                       value="Guardar"/>
+				                <a href="tblUsuarios.jsp" style="padding: 13px 35px" class="btn-user button button-formulario ">Regresar</a>
+				            </div>
                         </form>
                     </div>
                 </div>

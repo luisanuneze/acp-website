@@ -2,18 +2,20 @@
          pageEncoding="ISO-8859-1" %>
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="ISO-8859-1">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
     <title>PWACP - Portal Web Arboreto Carmelo Palma</title>
-    <meta content="" name="description">
 
+    <meta content="" name="description">
     <meta content="" name="keywords">
 
     <!-- Favicons -->
     <link href="assets/img/logo.png" rel="icon">
     <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+    <link href="assets/fontawesome-free-5.14.0-web/css/fontawesome.min.css" rel="stylesheet">
 
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
@@ -29,18 +31,14 @@
 
     <!-- Template Main CSS File -->
     <link href="assets/css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/calendar.css">
 
-    <!-- =======================================================
-    * Template Name: FlexStart - v1.1.1
-    * Template URL: https://bootstrapmade.com/flexstart-bootstrap-startup-template/
-    * Author: BootstrapMade.com
-    * License: https://bootstrapmade.com/license/
-    ======================================================== -->
 </head>
+
 <body>
 
 <!-- ======= Header ======= -->
-<%@ include file="/menu/header.jsp" %>
+<%@ include file="/menu/v_header.jsp" %>
 <!-- End Header -->
 
 <main id="main">
@@ -54,42 +52,51 @@
 
         <div class="container" data-aos="fade-up">
 
-            <h2 class="form-header" style="color: black;">Registrar Nuevo Rol</h2>
-            <br>
+            <div class="eventos row">
+                <div class="eventos col-sm-8">
 
-            <form class="rol" method="post" action="./Sl_GestionRol">
-                <!-- El valor de este input es para el Servlet opcion guardar -->
-                <input name="opcion" type="hidden" value="1"/>
-                <div class="form-group row">
-                    <div class="col-sm-6 mb-3 mb-sm-0">
-                        <input type="text" class="form-control form-control-user" name="txtRol" id="txtRol"
-                               placeholder="Rol" required>
+                    <div class="content div-eventos">
+                        <img src="https://img.ecologiahoy.com/2014/01/Movimiento-ecologista.jpg">
+                        <div id="Content-evento" class="Content-evento">
+                            <h2>XVII Reunión de ecologistas</h2>
+                            <p><strong>Ubicación:</strong> Universidad Centroamericana (UCA)
+                                <br><strong>Fecha: </strong>25/04/2000</p>
+
+                        </div>
+                    </div>
+                    <div class="content div-eventos">
+                        <img src="https://img.ecologiahoy.com/2014/01/Movimiento-ecologista.jpg">
+                        <div id="Content-evento" class="Content-evento">
+                            <h2>Conferencia regional en relación a los efectos del clima en Arboretos</h2>
+                            <p><strong>Ubicación:</strong> Universidad Centroamericana (UCA)
+                                <br><strong>Fecha: </strong>12/05/2000</p>
+
+                        </div>
+                    </div>
+
+                    
+
+                </div>
+                <div class="eventos col-sm-4 col-center">
+                    <div class="root">
+                        <center>
+                            <div class="calendar" id="calendar">
+                        </center>
                     </div>
                 </div>
-                <div class="form-group row">
-                    <div class="col-sm-6 mb-3 mb-sm-0">
-                        <input type="text" class="form-control form-control-user" name="txtdesc" id="txtdesc"
-                               placeholder="Descripción" required>
-                    </div>
-                </div>
-
-            <br>
-
-            <!-- Botones -->
-            <div class="button-formulario">
-                <input class="btn-user button button-formulario" type="submit"
-                                       value="Guardar"/>
-                <a href="tblUsuarios.jsp" style="padding: 13px 35px" class="btn-user button button-formulario ">Regresar</a>
             </div>
-
-            </form>
+        </div>
 
         </div>
 
+        <!-- <div class="col-lg-6 d-flex align-items-center" data-aos="zoom-out" data-aos-delay="200">
+            <img src="assets/img/about.jpg" class="img-fluid" alt="">
+        </div> -->
     </section>
     <!-- End Inicio Section -->
 
-</main><!-- End #main -->
+</main>
+<!-- End #main -->
 
 <!-- ======= Footer ======= -->
 <%@ include file="/menu/footer.jsp" %>
@@ -107,8 +114,21 @@
 <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
 <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
 
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/locale/es.js"></script>
+<script type="text/javascript" src="assets/js/calendar.js"></script>
+
 <!-- Template Main JS File -->
 <script src="assets/js/main.js"></script>
 
+
+<script type="text/javascript">
+    let calendar = new Calendar('calendar');
+    calendar.getElement().addEventListener('change', e => {
+        console.log(calendar.value().format('LLL'));
+    });
+</script>
+
 </body>
+
 </html>

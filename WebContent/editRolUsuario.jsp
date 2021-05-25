@@ -92,10 +92,7 @@
 				<div class="card shadow mb-4">
 
 					<div class="card-body">
-						<div align="right">
-							<a href="tblRolUser.jsp"> <h7 class="fas fa-arrow-left fa-2x"
-									title="Retornar a la pagina anterior"></h7>
-							</a>
+						<br></br>
 
 						</div>
 						<%
@@ -116,7 +113,7 @@
 								vwru = dtrous.getRolUsuario2(Integer.parseInt(rous));
                             %>
 
-						<div class="table-responsive">
+						<div class="container" data-aos="fade-up">
 							<form class="user" method="post" action="./Sl_GestionRolUser">
 								<!-- El valor de este input es para el Servlet opcion guardar -->
 								<input name="idUsuario" type="hidden" value="<%=ru.getRol_usuarioID()%>" /> 
@@ -124,14 +121,15 @@
 								<input name="ID" type="hidden" value="<%=vwru.getID()%>" /> 
 								<input name="opcion" type="hidden" value="2" />
 								
-								<div class="form-group row">
-									<div class="col-sm-12 mb-3">
+								<div class="row gy-4">
+								<div class="row col-md-6">
+									<div class="row col-md-12">
 										<%
                                         ArrayList<Usuario> listUser = new ArrayList<Usuario>();
                                         Dt_Usuario dtu = new Dt_Usuario();
                                         listUser = dtu.listaUserActivos();
                                     %>
-                           
+                                        <div class="col-sm-11">
 										<select class="form-control" name="cbxUser" id="cbxUser"
 											>
 											<option value="">Seleccione...</option>
@@ -144,16 +142,18 @@
                                             }
                                         %>
 
-										</select>	
+										</select>
+										</div>	
 										
 									</div>
-									
-									<div class="col-sm-12 mb-3">
+									<br></br>
+									<div class="row col-md-12">
 										<%
                                         ArrayList<Rol> listRol = new ArrayList<Rol>();
                                         Dt_Rol dtr = new Dt_Rol();
                                         listRol = dtr.listaRolActivos();
                                     %>
+                                        <div class="col-sm-11">
 										<select class="form-control" name="cbxRol" id="cbxRol"
 											required>
 											<option value="">Seleccione...</option>
@@ -167,17 +167,17 @@
                                         %>
 
 										</select>
+										</div>
 									</div>
 								</div>
-								<hr>
-								<div class="text-center">
-									<input style="background-color: #0e203f; color: white"
-										class="btn btn-primary btn-user btn-block" type="submit"
-										value="Actualizar" /> <input
-										style="background-color: #0e203f; color: white"
-										class="btn btn-google btn-user btn-block" type="reset"
-										value="Cancelar" />
 								</div>
+								<hr>
+								<!-- Botones -->
+					            <div class="button-formulario">
+					                <input class="btn-user button button-formulario" type="submit"
+					                                       value="Actualizar"/>
+					                <a href="tblUsuarios.jsp" style="padding: 13px 35px" class="btn-user button button-formulario ">Regresar</a>
+					            </div>
 							</form>
 						</div>
 					</div>

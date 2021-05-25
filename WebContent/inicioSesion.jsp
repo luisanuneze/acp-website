@@ -12,6 +12,9 @@
 	HttpSession hts = request.getSession(false);
 	hts.removeAttribute("acceso");
 	hts.invalidate();
+	
+	//Variable de control de mensajes
+		String varMsj = request.getParameter("msj")==null?"":request.getParameter("msj");
 %>
 <!DOCTYPE html>
 <html>
@@ -45,8 +48,16 @@
 <link href="assets/vendor/glightbox/css/glightbox.min.css"
 	rel="stylesheet">
 
+<!-- jAlert css  -->
+<link rel="stylesheet" href="jAlert/dist/jAlert.css" />
+
 <!-- Template Main CSS File -->
 <link href="assets/css/style.css" rel="stylesheet">
+
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 
 </head>
 
@@ -70,11 +81,20 @@
 							placeholder="Ingrese su nombre de usuario" type="text"
 							class="form-control w-100" id="usuario" name="usuario">
 					</div>
-					<div class="form-group">
-						<label for="contrasenia"> Contraseña:</label> <input
+					<label for="contrasenia"> Contraseña:</label>
+					<div class="input-group">
+						 <input
 							placeholder="Ingrese su contraseña" type="password"
-							class="form-control w-100" id="contrasenia" name="contrasenia">
+							class="form-control" id="contrasenia" name="contrasenia">
+						<div class="input-group-append">
+							<button id="show_password" class="btn btn-primary" type="button"
+								onclick="mostrarPassword()">
+								<span class="fa fa-eye-slash icon"></span>
+							</button>
+						</div>
 					</div>
+					</br>
+					<label for="cbxRol">Rol:</label>
 					<div class="form-group">
 						<%
 			                                	ArrayList<Rol> listRol = new ArrayList<Rol>();
@@ -94,12 +114,12 @@
 					</div>
 					<div class="checkbox">
 						<label><input type="checkbox" id="check"> Mantener
-							sesión iniciada </label> </br>
-						</br>
+							sesión iniciada </label> </br> </br>
 					</div>
 					<div class="button-iniciar">
 						<button>Iniciar sesión</button>
-						</br> <a href="recuperacionCuenta.jsp">¿Olvidaste tu contraseña?</a>
+						</br> <a href="recuperacionCuenta.jsp">¿Olvidaste tu contraseña?</a> </br> </br>
+						<a href="v_index.jsp">Entrar como visitante</a>
 					</div>
 
 					<!-- <br><br><br><h4><strong>Seguimos trabajando, <br> para mejorar su servicio</strong></h4>
@@ -127,6 +147,58 @@
 
 	<!-- Template Main JS File -->
 	<script src="assets/js/main.js"></script>
+
+	<!-- Bootstrap core JavaScript-->
+	<script src="assets/vendor/jquery/jquery.min.js"></script>
+	<script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+	<!-- Core plugin JavaScript-->
+	<script src="assets/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+	<!-- DATATABLE -->
+	<script src="DataTables/DataTables-1.10.21/js/jquery.dataTables.js"></script>
+
+	<!-- DATATABLE buttons -->
+	<script src="DataTables/Buttons-1.6.3/js/dataTables.buttons.min.js"></script>
+
+	<!-- js Datatable buttons print -->
+	<script src="DataTables/Buttons-1.6.3/js/buttons.html5.min.js"></script>
+	<script src="DataTables/Buttons-1.6.3/js/buttons.print.min.js"></script>
+
+	<!-- js Datatable buttons pdf -->
+	<script src="DataTables/pdfmake-0.1.36/pdfmake.min.js"></script>
+	<script src="DataTables/pdfmake-0.1.36/vfs_fonts.js"></script>
+
+	<!-- js Datatable buttons excel -->
+	<script src="DataTables/JSZip-2.5.0/jszip.min.js"></script>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+	<!-- jAlert js -->
+	<script src="jAlert/dist/jAlert.min.js"></script>
+	<script src="jAlert/dist/jAlert-functions.min.js">
+		//optional!!
+	</script>
+
+	<script type="text/javascript">
+		function mostrarPassword() {
+			var cambio = document.getElementById("contrasenia");
+			if (cambio.type == "password") {
+				cambio.type = "text";
+				$('.icon').removeClass('fa fa-eye-slash').addClass('fa fa-eye');
+			} else {
+				cambio.type = "password";
+				$('.icon').removeClass('fa fa-eye').addClass('fa fa-eye-slash');
+			}
+		}
+		
+		var mensaje = "";
+        mensaje = "<%=varMsj%>";
+
+        if(mensaje == "403"){
+        	errorAlert('Error', 'Los datos de Usuario son incorrectos, vuelva a intentarlo!');
+        }
+	</script>
 
 </body>
 

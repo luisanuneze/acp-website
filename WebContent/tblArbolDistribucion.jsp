@@ -1,27 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
          pageEncoding="ISO-8859-1"
-         import="entidades.Arbol, datos.Dt_Arbol, vistas.VW_Arbol, java.util.*;" %>
+         import="entidades.ArbolDistribucion, datos.Dt_ArbolDistribucion, vistas.VW_DistribucionArbol, java.util.*;" %>
 <!DOCTYPE html>
-<%
-	//Variable de control de mensajes
-	String varMsj = request.getParameter("msj")==null?"":request.getParameter("msj");
-
-
-%>
 <html>
 <head>
-     <meta charset="ISO-8859-1">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta charset="ISO-8859-1">
 
     <title>PWACP - Portal Web Arboreto Carmelo Palma</title>
 
     <meta content="" name="description">
-
     <meta content="" name="keywords">
 
     <!-- Favicons -->
@@ -45,20 +32,6 @@
 
     <!-- Template Main CSS File -->
     <link href="assets/css/style.css" rel="stylesheet">
-    
-    <!-- jAlert css  -->
-	<link rel="stylesheet" href="jAlert/dist/jAlert.css" />
-
-    <!-- =======================================================
-    * Template Name: FlexStart - v1.1.1
-    * Template URL: https://bootstrapmade.com/flexstart-bootstrap-startup-template/
-    * Author: BootstrapMade.com
-    * License: https://bootstrapmade.com/license/
-    ======================================================== -->
-
-
-    <!-- Custom styles for this page -->
-    <!-- <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet"> -->
 
     <!-- DATATABLE -->
     <link href="DataTables/DataTables-1.10.21/css/jquery.dataTables.min.css" rel="stylesheet">
@@ -86,20 +59,16 @@
 
             <div>
 
-                <!-- DataTables Arbol -->
+                <!-- DataTables Distribucion Arbol -->
                 <div class="card shadow mb-4">
                     <div class="card-header py-3 row">
                         <div class="col">
-<<<<<<< HEAD
-                            <h1 class="h3 mb-2 text-gray-800">Gestión de Arboles</h1>
-=======
-                            <h1 class="h3 mb-2 text-gray-800">Gestión de Árbol</h1>
->>>>>>> branch 'main' of https://github.com/luisanuneze/acp-website.git
+                            <h1 class="h3 mb-2 text-gray-800">Gestión de Distribución Árbol</h1>
                         </div>
                         <div class="col" align="right">
 
                             <!-- Button agregar e imprimir-->
-                            <a href="NuevoArbol.jsp" data-toggle="modal"
+                            <a href="NuevoArbolDistribucion.jsp" data-toggle="modal"
                                data-target="#modalNuevoUsuario"> <i
                                     class="fas fa-file-medical fa-2x" title="Agregar nuevo árbol"></i>
                             </a>&nbsp;&nbsp;
@@ -108,12 +77,6 @@
                             </a>
                             
                             <!-- Fin Button agregar e imprimir -->
-	                            
-	                        <a href="tblArbolDistribucion.jsp">
-	                            <button style="background-color: #0e203f; color: white">
-	                                Árbol a Distribución
-	                            </button>
-	                        </a>
 
                         </div>
                     </div>
@@ -121,73 +84,47 @@
                     <div class="card-body">
 
                         <div class="table-responsive">
-                            <table class="table table-bordered" id="tblArbol" width="100%" cellspacing="0">
+                            <table class="table table-bordered" id="tblArbolDistribucion" width="100%" cellspacing="0">
                                 <%
-                                    ArrayList<VW_Arbol> listArbol = new ArrayList<VW_Arbol>();
-                                    Dt_Arbol dta = new Dt_Arbol();
-                                    listArbol = dta.listaArbol();
+                                    ArrayList<VW_DistribucionArbol> listArbol = new ArrayList<VW_DistribucionArbol>();
+                                    Dt_ArbolDistribucion dta = new Dt_ArbolDistribucion();
+                                    listArbol = dta.listaArbolDistribucion();
 
                                 %>
                                 <thead>
                                 <tr>
                                     <th>ID</th>
-                                    <th>Nombre común</th>
-                                    <th>Nombre científico</th>
-                                    <th>Descripción</th>
-                                    <th>Genero</th>
-                                    <th>Familia</th>
-                                    <th>Epoca de floración</th>                                   
-                                    <th>Foto</th>
+                                    <th>Nombre árbol</th>
+                                    <th>Nombre distribución</th>
                                     <th>Opciones</th>
                                 </tr>
                                 </thead>
                                 <tfoot>
                                 <tr>
                                     <th>ID</th>
-                                    <th>Nombre común</th>
-                                    <th>Nombre científico</th>
-                                    <th>Descripción</th>
-                                    <th>Genero</th>
-                                    <th>Familia</th>
-                                    <th>Epoca de floración</th>
-                                   
-                                    <th>Foto</th>
+                                    <th>Nombre árbol</th>
+                                    <th>Nombre distribución</th>
                                     <th>Opciones</th>
                                 </tr>
                                 </tfoot>
                                 <tbody>
                                 <%
-                                    for (VW_Arbol ar : listArbol) {
+                                    for (VW_DistribucionArbol ar : listArbol) {
                                 %>
                                 <tr>
                                     <td><%=ar.getID() %>
                                     </td>
-                                    <td><%=ar.getNombreComun() %>
+                                    <td><%=ar.getNombreArbol() %>
                                     </td>
-                                    <td><%=ar.getNombreCientifico() %>
-                                    </td>
-                                    <td><%=ar.getDescripcion() %>
-                                    </td>
-                                    <td><%=ar.getGenero() %>
-                                    </td>
-                                    <td><%=ar.getFamilia() %>
-                                    </td>
-                                    <td><%=ar.getEpocaFloracion() %>
+                                    <td><%=ar.getNombreDistribucion() %>
                                     </td>
                                 
-                                    <td>
-                                	<a href="<%= ar.getImagen() %>">
-                                		<img src="<%= ar.getImagen() %>" style="max-height:100px; max-width:100px;" alt="...">
-	                               	</a>
-                               	</td>
-                                    <td><a id="btn-edita-abrir" href="EditarArboles.jsp?arbolID=<%=ar.getID() %>"> <i
+                                    <td><a id="btn-edita-abrir" href="EditarArbolDistribucion.jsp?Arbol_DistribucionId=<%=ar.getID()%>"> 
+                                    <i
                                             class="fas fa-edit">Editar</i></a>
                                         <a href="#"> <i class="fas fa-trash-alt">Eliminar</i></a>
                                         <a href="#"> <i class="fas fa-eye">Visualizar</i>
                                         </a>
-                                        <a href="fotoArbol.jsp?idArbol=<%=ar.getID()%>">
-                        							<i class="fas fa-camera" title="Registrar Foto del Arbol">Foto Arbol</i>
-                        						</a>
                                         
                                         </td>
                                 </tr>
@@ -257,54 +194,20 @@
 <!-- js Datatable buttons excel -->
 <script src="DataTables/JSZip-2.5.0/jszip.min.js"></script>
 
-<!-- jAlert js -->
-<script src="jAlert/dist/jAlert.min.js"></script>
-<script src="jAlert/dist/jAlert-functions.min.js"> //optional!!</script>
+<!-- 	<script>
+		$(document).ready(function() {
+			
+			////// APLICAMOS FORMATO Y BOTONES A LA TABLA //// INICIAMOS EL PLUGIN DATATABLE
+			$('#tblFamilia').DataTable({
+				dom : 'Bfrtip',
+				buttons : [
+				             'pdf',
+				'excel', 'print' ]
 
-<script>
-    $(document).ready(function () {
-        ////// APLICAMOS FORMATO Y BOTONES A LA TABLA //// INICIAMOS EL PLUGIN DATATABLE
-        $('#tblArbol').DataTable({
-            dom: 'Bfrtip',
-            buttons: [
-                //'pdf',
-                'excel'
-            ]
+			});
+			////////////////////////////////////////////////
 
-        });
-
-        ////////////////////////////////////////////////
-        /////////// VARIABLE DE CONTROL MSJ ///////////
-        var mensaje = "";
-        mensaje = "<%=varMsj%>";
-
-        if(mensaje == "1")
-        {
-            successAlert('Éxito', 'Los datos han sido registrados exitosamente!');
-        }
-        if(mensaje == "2")
-        {
-            errorAlert('Error', 'Revise los datos e intente nuevamente!!!');
-        }
-        if(mensaje == "3")
-        {
-            successAlert('Éxito', 'Los datos han sido actualizados exitosamente!');
-        }
-        if(mensaje == "4")
-        {
-            errorAlert('Error', 'Revise los datos e intente nuevamente!!!');
-        }
-        if(mensaje == "5")
-        {
-            successAlert('Éxito', 'El usuario ha sido dado de baja exitosamente!');
-        }
-        if(mensaje == "6")
-        {
-            errorAlert('Error', 'Revise los datos e intente nuevamente!!!');
-        }
-
-    });
-</script>
-
+		});
+	</script> -->
 </body>
 </html>
