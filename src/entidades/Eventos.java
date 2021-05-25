@@ -1,6 +1,6 @@
 package entidades;
 
-import java.sql.Timestamp;
+import java.sql.Date;
 
 public class Eventos {
 
@@ -11,11 +11,8 @@ public class Eventos {
 	private String tipoevento;
 	private String ubicacion;
 	private String hipervinculo; // ??, revisar
-	private Timestamp fechainicio;
-	private Timestamp fechafin;
-	private Timestamp fechaCreacion;
-	private Timestamp fechaModificacion;
-	private Timestamp fechaEliminacion;
+	private Date fechainicio;
+	private Date fechafin;
 	private int estado;
 	
 	//Metodos
@@ -61,41 +58,24 @@ public class Eventos {
 	public void setHipervinculo(String hipervinculo) {
 		this.hipervinculo = hipervinculo;
 	}
-	public Timestamp getFechainicio() {
-		return fechainicio;
-	}
-	public void setFechainicio(Timestamp fechainicio) {
-		this.fechainicio = fechainicio;
-	}
-	public Timestamp getFechafin() {
-		return fechafin;
-	}
-	public void setFechafin(Timestamp fechafin) {
-		this.fechafin = fechafin;
-	}
-	public Timestamp getFechaCreacion() {
-		return fechaCreacion;
-	}
-	public void setFechaCreacion(Timestamp fechaCreacion) {
-		this.fechaCreacion = fechaCreacion;
-	}
-	public Timestamp getFechaModificacion() {
-		return fechaModificacion;
-	}
-	public void setFechaModificacion(Timestamp fechaModificacion) {
-		this.fechaModificacion = fechaModificacion;
-	}
-	public Timestamp getFechaEliminacion() {
-		return fechaEliminacion;
-	}
-	public void setFechaEliminacion(Timestamp fechaEliminacion) {
-		this.fechaEliminacion = fechaEliminacion;
-	}
 	public int getEstado() {
 		return estado;
 	}
 	public void setEstado(int estado) {
 		this.estado = estado;
 	}
+	public Date getFechainicio() {
+		return fechainicio;
+	}
+	public void setFechainicio(Date fechainicio) {
+		this.fechainicio = fechainicio;
+	}
+	public Date getFechafin() {
+		return fechafin;
+	}
+	public void setFechafin(Date fechafin) {
+		this.fechafin = fechafin;
+	}
+	
 	
 }

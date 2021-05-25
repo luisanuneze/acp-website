@@ -159,7 +159,7 @@
                                 <td><%=eve.getEstado() == 1 || eve.getEstado() == 2 ? "ACTIVO" : "INACTIVO" %>
                                 </td>
                                 <td>
-                                    <a id="btn-edita-abrir" href="EditarUsuario.jsp?eventoid=<%=eve.getEventoid()%>">
+                                    <a id="btn-edita-abrir" href="EditarEventos.jsp?Eventoid=<%=eve.getEventoid()%>">
                                         <i class="fas fa-edit" title="Modificar datos del Evento"></i>
                                     </a>
                                     <a href="#">

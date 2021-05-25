@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.sql.Date;
 import entidades.Eventos;
 import entidades.Usuario;
 
@@ -48,9 +49,8 @@ public class Dt_Eventos {
 						eve.setTipoevento(rs.getString("tipoevento"));
 						eve.setUbicacion(rs.getString("ubicacion"));
 						eve.setHipervinculo(rs.getString("hipervinculo"));
-						eve.setFechainicio(rs.getTimestamp("fechainicio"));
-						eve.setFechafin(rs.getTimestamp("fechafin"));
-						eve.setFechaCreacion(rs.getTimestamp("fechacreacion"));
+						eve.setFechainicio(rs.getDate("fechainicio"));
+						eve.setFechafin(rs.getDate("fechafin"));
 						eve.setEstado(rs.getInt("estado"));
 						listEvent.add(eve);
 					}
@@ -97,8 +97,9 @@ public class Dt_Eventos {
 						eve.setDescripcion(rs.getString("descripcion"));
 						eve.setTipoevento(rs.getString("tipoevento"));
 						eve.setUbicacion(rs.getString("ubicacion"));
-						eve.setFechainicio(rs.getTimestamp("fechainicio"));
-						eve.setFechafin(rs.getTimestamp("fechafin"));
+						eve.setHipervinculo(rs.getString("hipervinculo"));
+						eve.setFechainicio(rs.getDate("fechainicio"));
+						eve.setFechafin(rs.getDate("fechafin"));
 						eve.setEstado(rs.getInt("estado"));
 					}
 				}
@@ -137,16 +138,18 @@ public class Dt_Eventos {
 					c = PoolConexion.getConnection();
 					this.llenaRsEventos(c);
 					rsEventos.moveToInsertRow();
-//					rsEventos.updateInt("eventoid", 2);
 					rsEventos.updateInt("usuarioid", eve.getUsuarioid());
 					rsEventos.updateString("nombre", eve.getNombre());
 					rsEventos.updateString("descripcion", eve.getDescripcion());
 					rsEventos.updateString("tipoevento", eve.getTipoevento());
 					rsEventos.updateString("ubicacion", eve.getUbicacion());
 					rsEventos.updateString("hipervinculo", eve.getHipervinculo());
-					rsEventos.updateTimestamp("fechainicio", eve.getFechainicio());
-					rsEventos.updateTimestamp("fechafin", eve.getFechafin());
-					rsEventos.updateTimestamp("fechacreacion", eve.getFechaCreacion());
+					Date fini = eve.getFechainicio();
+					Date ffin = eve.getFechafin();
+					java.sql.Timestamp sqlfini = new java.sql.Timestamp(fini.getTime());
+					java.sql.Timestamp sqlffin = new java.sql.Timestamp(ffin.getTime());
+					rsEventos.updateTimestamp("fechainicio", sqlfini);
+					rsEventos.updateTimestamp("fechafin", sqlffin);
 					rsEventos.updateInt("Estado", 1);
 					rsEventos.insertRow();
 					rsEventos.moveToCurrentRow();
@@ -187,14 +190,19 @@ public class Dt_Eventos {
 					{
 						if(rsEventos.getInt(1)==eve.getEventoid())
 						{
+
+							rsEventos.updateInt("usuarioid", eve.getUsuarioid());
 							rsEventos.updateString("nombre", eve.getNombre());
 							rsEventos.updateString("descripcion", eve.getDescripcion());
 							rsEventos.updateString("tipoevento", eve.getTipoevento());
 							rsEventos.updateString("ubicacion", eve.getUbicacion());
 							rsEventos.updateString("hipervinculo", eve.getHipervinculo());
-							rsEventos.updateTimestamp("fechainicio", eve.getFechainicio());
-							rsEventos.updateTimestamp("fechafin", eve.getFechafin());
-							rsEventos.updateTimestamp("fechacreacion", eve.getFechaCreacion());
+							Date fini = eve.getFechainicio();
+							Date ffin = eve.getFechafin();
+							java.sql.Timestamp sqlfini = new java.sql.Timestamp(fini.getTime());
+							java.sql.Timestamp sqlffin = new java.sql.Timestamp(ffin.getTime());
+							rsEventos.updateTimestamp("fechainicio", sqlfini);
+							rsEventos.updateTimestamp("fechafin", sqlffin);
 							rsEventos.updateInt("Estado", 2);
 							rsEventos.updateRow();
 							modificado=true;

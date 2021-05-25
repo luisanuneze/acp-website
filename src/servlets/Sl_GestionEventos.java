@@ -2,7 +2,7 @@ package servlets;
 
 import java.io.IOException;
 import java.sql.Timestamp;
-import java.util.Date;
+import java.sql.Date;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -48,18 +48,24 @@ private static final long serialVersionUID = 1L;
 		//obtenemos el valor de opcion
 		int opc = 0;
 		opc = Integer.parseInt(request.getParameter("opcion"));
+		String fini = request.getParameter("txtFechainicio");
+		System.out.print(fini);
+		String ffin = request.getParameter("txtFechafin");
+		System.out.print(ffin);
 				
 		//CONSTRUIR EL OBJETO USUARIO
 			Dt_Eventos dte = new Dt_Eventos();
 			Eventos eve = new Eventos();
-			eve.setEventoid(Integer.parseInt(request.getParameter("eventoid")));
-			eve.setUsuarioid(Integer.parseInt(request.getParameter("usuarioid")));
+			//eve.setEventoid(Integer.parseInt(request.getParameter("eventoid")));
 			eve.setNombre(request.getParameter("txtEvento"));
 			eve.setDescripcion(request.getParameter("txtDescripcion"));
 			eve.setUbicacion(request.getParameter("txtUbicacion"));
 			eve.setHipervinculo(request.getParameter("txtHipervinculo"));
-			//eve.setFechainicio(request.());
-			//eve.setUbicacion(request.getParameter("txtUbicacion"));
+			eve.setFechainicio(Date.valueOf("fini"));
+			eve.setFechafin(Date.valueOf("ffin"));
+			eve.setUsuarioid(Integer.parseInt(request.getParameter("cbxuser")));
+			eve.setTipoevento(request.getParameter("TipoEvento"));
+			
 		
 		
 		switch (opc){
@@ -68,9 +74,6 @@ private static final long serialVersionUID = 1L;
 		        try {
 		        	// Para Guardar la Fecha y Hora de creación.
 		        	
-		        	Date fechaSistema = new Date();
-			        eve.setFechaCreacion(new java.sql.Timestamp(fechaSistema.getTime()));
-			        System.out.println("eve.getFechaCreacion(): "+eve.getFechaCreacion());
 		        	
 			        if(dte.guardarEvent(eve)) {
 			        	response.sendRedirect("tblEventos.jsp?msj=1");
@@ -93,10 +96,7 @@ private static final long serialVersionUID = 1L;
 			try {
 	        	
 	        	//PARA GUARDAR LA FECHA Y HORA DE MODIFICACION
-				
-				Date fechaSistema = new Date();
-				eve.setFechaModificacion(new java.sql.Timestamp(fechaSistema.getTime()));
-				System.out.println("eve.getFechaModificacion(): "+eve.getFechaModificacion());
+			
 				if(dte.modificarEvento(eve)) {
 					response.sendRedirect("tblEventos.jsp?msj=3");
 				}
