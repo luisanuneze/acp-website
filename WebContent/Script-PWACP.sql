@@ -93,6 +93,7 @@ CREATE TABLE  Arbol
 	 FechaCreacion  date NOT NULL,
 	 FechaModificacion  date NULL,
 	 FechaEliminacion  date NULL,
+	 Imagen varchar NULL;
 	 ArbolID  integer NOT NULL,
 	 FamiliaID  integer NOT NULL,
 	 GeneroID  integer NOT NULL,
