@@ -117,7 +117,7 @@
                     </a>
 
                         <a href="tblRolOpc.jsp">
-                            <button style="background-color:#0e203f; color:white"> Opcion a Rol</button>
+                            <button style="background-color:#0e203f; color:white">Asignar Opción</button>
                         </a>
 
                     </div>

@@ -76,14 +76,10 @@
             <br>
 
             <!-- Botones -->
-            <div class="text-center">
-                <input style="background-color:#0e203f; color:white"
-                                       class="btn btn-primary btn-user btn-block" type="submit"
-                                       value="Actualizar"/>
-                <a href="tblRol.jsp">
-                <input style="background-color:#0e203f; color:white"
-                                       class="btn btn-google btn-user btn-block"
-                                       value="Regresar"/></a>
+            <div class="button-formulario">
+                <input class="btn-user button button-formulario" type="submit"
+                                       value="Guardar"/>
+                <a href="tblUsuarios.jsp" style="padding: 13px 35px" class="btn-user button button-formulario ">Regresar</a>
             </div>
 
             </form>

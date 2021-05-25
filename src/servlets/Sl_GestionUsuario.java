@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import datos.Dt_Usuario;
 import entidades.Usuario;
+import negocio.Ng_Usuario;
 
 /**
  * Servlet implementation class Sl_GestionUsuario
@@ -64,6 +65,7 @@ public class Sl_GestionUsuario  extends HttpServlet{
 		//CONSTRUIR EL OBJETO USUARIO
 			Dt_Usuario dtu = new Dt_Usuario();
 			Usuario user = new Usuario();
+			Ng_Usuario ngu = new Ng_Usuario();
 			
 			//user.setUsuarioID(Integer.parseInt(request.getParameter("usuarioID")));
 			user.setNombres(request.getParameter("txtNombres"));
@@ -83,11 +85,16 @@ public class Sl_GestionUsuario  extends HttpServlet{
 			        user.setFechaCreacion(new java.sql.Timestamp(fechaSistema.getTime()));
 			        System.out.println("user.getFechaCreacion(): "+user.getFechaCreacion());
 		        	
-			        if(dtu.guardarUser(user)) {
-			        	response.sendRedirect("tblUsuarios.jsp?msj=1");
+			        if(ngu.existeUser(user.getUsuario())) {
+			        	response.sendRedirect("NuevoUsuario.jsp?msj=existe");
 			        }
 			        else {
-			        	response.sendRedirect("tblUsuarios.jsp?msj=2");
+			        	if(dtu.guardarUser(user)) {
+				        	response.sendRedirect("tblUsuarios.jsp?msj=1");
+				        }
+				        else {
+				        	response.sendRedirect("tblUsuarios.jsp?msj=2");
+				        }
 			        }
 			        	
 		        }
@@ -129,7 +136,7 @@ public class Sl_GestionUsuario  extends HttpServlet{
 			}
 		
 		default:
-			response.sendRedirect("tblUsuarios.jsp?msj=5");	
+			response.sendRedirect("tblUsuarios.jsp?msj=7");	
 			break;
 	}
 		
