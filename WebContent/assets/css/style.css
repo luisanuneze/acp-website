@@ -825,7 +825,8 @@ button:hover {
     max-height: 100vh;
 }
 
-.arboles{   
+.arboles{
+	height: 200px;
     margin-top: 40px;
     padding: 15px 30px;
     border: 1px solid rgba(0, 0, 0, 0.10);
