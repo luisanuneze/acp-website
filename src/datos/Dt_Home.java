@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import entidades.Familia;
 import entidades.Home;
 
 public class Dt_Home {
@@ -70,6 +71,52 @@ public class Dt_Home {
 				
 			}
 			return listHome;
+		}
+		
+		// Metodo para visualizar los datos de home específico
+		public Home getHome(int homeID)
+		{
+			Home hom = new Home();
+			try
+			{
+				c = PoolConexion.getConnection();
+				ps = c.prepareStatement("select * from public.\"home\" where \"homeid\"=?", ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE, ResultSet.HOLD_CURSORS_OVER_COMMIT);
+				ps.setInt(1, homeID);
+				rs = ps.executeQuery();
+				if(rs.next())
+				{
+					hom.setHomeID(homeID);
+					hom.setMision(rs.getString("mision"));
+					hom.setVision(rs.getString("vision"));
+					hom.setHistoria(rs.getString("historia"));
+					
+				}
+			}
+			catch (Exception e)
+			{
+				System.out.println("DATOS ERROR getHome(): "+ e.getMessage());
+				e.printStackTrace();
+			}
+			finally
+			{
+				try {
+					if(rs != null){
+						rs.close();
+					}
+					if(ps != null){
+						ps.close();
+					}
+					if(c != null){
+						PoolConexion.closeConnection(c);
+					}
+					
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+			
+			return hom;
 		}
 		
 		// Metodo para modificar home

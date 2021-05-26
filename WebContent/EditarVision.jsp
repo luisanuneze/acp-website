@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-         pageEncoding="ISO-8859-1" %>
+         pageEncoding="ISO-8859-1" import = "entidades.*, datos.*, java.util.*;" %>
 <!DOCTYPE html>
 <html>
 
@@ -52,6 +52,17 @@
 
             <h2 class="form-header" style="color: black;">Edición de Visión</h2>
             <br>
+            
+            <%
+                String ho = "";
+				ho = request.getParameter("homeID")==null?"0":request.getParameter("homeID");
+										
+				Home hom = new Home();
+				Dt_Home dth = new Dt_Home();
+				hom = dth.getHome(Integer.parseInt(ho));
+
+            %>
+            
             <form action="forms/contact.php" method="post" class="php-email-form">
                 <div class="row gy-4">
                     <div class="col-md-12">
@@ -97,6 +108,16 @@
 
 <!-- Template Main JS File -->
 <script src="assets/js/main.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+
+<script>  
+   $(document).ready(function()
+	{
+	   $("#txtVision").val("<%=hom.getVision()%>");
+		
+	});
+</script>
 
 </body>
 

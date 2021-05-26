@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-         pageEncoding="ISO-8859-1" %>
+         pageEncoding="ISO-8859-1"
+         import="entidades.Home, datos.Dt_Home, vistas.*, java.util.*;" %>
 <!DOCTYPE html>
 <html>
 
@@ -51,8 +52,19 @@
         <div class="container" data-aos="fade-up">
 
             <div class="edicion-section ">
+            
+            <%
+                 ArrayList<Home> listHome = new ArrayList<Home>();
+                 Dt_Home dth = new Dt_Home();
+                 listHome = dth.listaHome();
 
-                <a href="EditarVision.jsp">
+             %>
+             
+             <%
+                 for (Home ho : listHome) {
+             %>
+
+                <a href="EditarVision.jsp?homeID=<%=ho.getHomeID()%>">
                     <div class="content">
                         <div id="Content-edicion" class="Content-edicion">
                             <h2>Editar sección de visión</h2>
@@ -60,7 +72,7 @@
                     </div>
                 </a>
 
-                <a href="EditarMision.jsp">
+                <a href="EditarMision.jsp?HomeID=<%=ho.getHomeID()%>">
                     <div class="content">
                         <div id="Content-edicion" class="Content-edicion">
                             <h2>Editar sección de misión</h2>
@@ -68,7 +80,7 @@
                     </div>
                 </a>
 
-                <a href="EditarHistoria.jsp">
+                <a href="EditarHistoria.jsp?homeID=<%=ho.getHomeID()%>">
                     <div class="content">
                         <div id="Content-edicion" class="Content-edicion">
                             <h2>Editar sección de historia</h2>
@@ -84,6 +96,10 @@
                     </div>
                 </a>
 
+               <%
+                   }
+               %>
+                
             </div>
 
             <!-- <div class="col-lg-6 d-flex align-items-center" data-aos="zoom-out" data-aos-delay="200">

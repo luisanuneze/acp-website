@@ -96,7 +96,7 @@
             <!-- Botones -->
             <div class="col-md-6">
                 <button style="background-color:#0e203f; color:white"> Actualizar</button>
-                <a href="tblUsuarios.jsp">
+                <a href="edicionSeccion.jsp">
                     <button style="background-color:#0e203f; color:white"> Regresar</button>
                 </a>
             </div>

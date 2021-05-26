@@ -109,6 +109,20 @@ INSERT INTO public.home (mision, vision, historia, descrip_pag, usuarioid, fecha
 VALUES ('Esta es nuestra mision', 'Esta es nuestra vision', 'Esta es nuestra historia', 
 'Descripcion de la pagina' , 1, '2021-04-19');
 
+-- Update Inicio --
+UPDATE home SET mision='Aumentar y divulgar el conocimiento 
+sobre las plantas de Nicaragua para contribuir al desarrollo sostenible del país mediante
+la investigación botánica - básica e interdisciplinaria - y el resguardo de la mayor colección
+de especímenes botánicos de Nicaragua.', 
+vision='Consolidarse como el Herbario nacional de referencia por excelencia a nivel nacional e internacional 
+logrando que el conocimiento de las especies de flora esté al servicio de la sociedad nicaragüense y en especial
+de los grupos más vulnerables, mediante la investigación y la innovación.', 
+historia='El Herbario Nacional es un patrimonio científico de Nicaragua. Desde sus inicios en 1977, 
+la idea de constituir un Herbario Nacional recibió apoyo tanto nacional como internacional. 
+Gracias al liderazgo de la Universidad Centroamericana, apoyo de las autoridades nacionales y 
+del Missouri Botanical Garden se llevó a cabo el proyecto de Flora de Nicaragua, cuyos resultados 
+se publicaron en 2001 y 2009.' WHERE homeid=1;
+
 ---=============---
 --- SCRIPT YARÓ ---
 ---=============---
