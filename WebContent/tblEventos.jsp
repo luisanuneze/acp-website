@@ -98,7 +98,7 @@
                         <!-- Button trigger modal -->
                         <a href="NuevoEvento.jsp" data-toggle="modal"
                            data-target="#modalNuevoUsuario"> <i
-                                class="fas fa-user-plus fa-2x" title="Registrar Nuevo Evento"></i>
+                                class="fas fa-file-medical fa-2x" title="Registrar Nuevo Evento"></i>
                         </a>
                         <!-- FIN Button trigger modal -->
                         &nbsp;&nbsp; <a href="#"> <i class="fas fa-print fa-2x"
