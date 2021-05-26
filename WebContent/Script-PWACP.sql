@@ -166,7 +166,7 @@ CREATE TABLE  Evento
 	 Ubicacion  varchar NULL,
 	 Hora	varchar NULL,
 	 EventoID  integer NOT NULL,
-	 UsuarioID  integer NOT NULL
+	 UsuarioID  integer NULL
 )
 ;
 
