@@ -117,7 +117,7 @@
 						</div>
 						<div class="col-sm-12">
 							<input type="password" class="form-control form-control-user"
-								name="txtPwd2" id="txtPwd2" placeholder="Repetir Contraseña">
+								name="txtPwd2" id="txtPwd2" placeholder="Repetir Contraseña" required>
 						</div>
 					</div>
 
@@ -194,23 +194,6 @@
 	<script src="jAlert/dist/jAlert.min.js"></script>
 	<script src="jAlert/dist/jAlert-functions.min.js"> //optional!!</script>
 	
-<script type="text/javascript">
-$("#txtPwd2")
-.change(
-		function() {
-			var clave = "";
-			var clave2 = "";
-			clave = $("#txtPwd").val();
-			clave2 = $("#txtPwd2").val();
-			if (clave != clave2) {
-				errorAlert('Error',
-						'Las contraseñas no coinciden');
-				$("#txtPwd").val("");
-				$("#txtPwd2").val("");
-			}
-		});
-});
-</script>
 
 	<script>  
    $(document).ready(function()
@@ -225,6 +208,23 @@ $("#txtPwd2")
 	});
    
 	   
+</script>
+
+<script type="text/javascript">
+$("#txtPwd2").change(
+		function() {
+			var clave = "";
+			var clave2 = "";
+			clave = $("#txtPwd").val();
+			clave2 = $("#txtPwd2").val();
+			if (clave != clave2) {
+				errorAlert('Error',
+						'Las contraseñas no coinciden');
+				$("#txtPwd").val("");
+				$("#txtPwd2").val("");
+			}
+		});
+});
 </script>
 
 

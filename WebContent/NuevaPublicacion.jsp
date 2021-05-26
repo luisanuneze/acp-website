@@ -10,6 +10,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
+
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
 <title>PWACP - Portal Web Arboreto Carmelo Palma</title>
@@ -26,7 +27,6 @@
 	href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
 	rel="stylesheet">
 
-
 <!-- Vendor CSS Files -->
 <link href="assets/vendor/bootstrap/css/bootstrap.min.css"
 	rel="stylesheet">
@@ -38,11 +38,11 @@
 <link href="assets/vendor/glightbox/css/glightbox.min.css"
 	rel="stylesheet">
 
-<!-- Template Main CSS File -->
-<link href="assets/css/style.css" rel="stylesheet">
-
 <!-- jAlert css  -->
 <link rel="stylesheet" href="jAlert/dist/jAlert.css" />
+
+<!-- Template Main CSS File -->
+<link href="assets/css/style.css" rel="stylesheet">
 
 <!-- DATATABLE -->
 <link href="DataTables/DataTables-1.10.21/css/jquery.dataTables.min.css"
@@ -55,6 +55,7 @@
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
 
 <!-- =======================================================
     * Template Name: FlexStart - v1.1.1
@@ -79,24 +80,24 @@
 
 			<div class="container" data-aos="fade-up">
 
-				<h2 class="form-header" style="color: black;">Registrar Nuevo
-					Rol</h2>
+				<h2 class="form-header" style="color: black;">Registrar Nueva
+					Publicacion</h2>
 				<br>
 
-				<form class="rol" method="post" action="./Sl_GestionRol">
+				<form class="user row" method="post" action="./Sl_GestionPublicaciones">
 					<!-- El valor de este input es para el Servlet opcion guardar -->
 					<input name="opcion" type="hidden" value="1" />
-					<div class="form-group row">
-						<div class="col-sm-6 mb-3 mb-sm-0">
+					<div class="form-group col-sm-6">
+						<div class="col-sm-12 mb-3 mb-sm-0">
 							<input type="text" class="form-control form-control-user"
-								name="txtRol" id="txtRol" placeholder="Rol" required>
+								name="txtTitulo" id="txtTitulo"
+								placeholder="Título de publicación" required>
 						</div>
-					</div>
-					<div class="form-group row">
-						<div class="col-sm-6 mb-3 mb-sm-0">
-							<input type="text" class="form-control form-control-user"
-								name="txtdesc" id="txtdesc" placeholder="Descripción" required>
+						<div class="col-sm-12 mb-3 mb-sm-0">
+							<textarea class="form-control form-control-user"
+								name="txtDescrip" id="txtDescrip" placeholder="Descripción" required></textarea>
 						</div>
+						
 					</div>
 
 					<br>
@@ -104,13 +105,12 @@
 					<!-- Botones -->
 					<div class="button-formulario">
 						<input class="btn-user button button-formulario" type="submit"
-							value="Guardar" /> <a href="tblRol.jsp"
+							value="Guardar" /> <a href="tblPublicaciones.jsp"
 							style="padding: 13px 35px"
 							class="btn-user button button-formulario ">Regresar</a>
 					</div>
 
 				</form>
-
 			</div>
 
 		</section>
@@ -183,10 +183,9 @@
 							if (mensaje == "existe") {
 								errorAlert(
 										'Error',
-										'El rol que esta intentando registrar ya existe en la base de datos!');
+										'El título que esta intentando registrar ya existe en la base de datos!');
 							}
 
-							
 						});
 	</script>
 

@@ -10,23 +10,23 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import datos.Dt_Usuario;
-import entidades.Usuario;
-import negocio.Ng_Usuario;
+import datos.Dt_Publicaciones;
+import entidades.Publicaciones;
+import negocio.Ng_Publicaciones;
 
 /**
  * Servlet implementation class Sl_GestionUsuario
  */
-@WebServlet("/Sl_GestionUsuario")
+@WebServlet("/Sl_GestionPublicaciones")
 
-public class Sl_GestionUsuario  extends HttpServlet{
+public class Sl_GestionPublicaciones  extends HttpServlet{
 
 	private static final long serialVersionUID = 1L;
     
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public Sl_GestionUsuario() {
+    public Sl_GestionPublicaciones() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -37,15 +37,15 @@ public class Sl_GestionUsuario  extends HttpServlet{
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		//response.getWriter().append("Served at: ").append(request.getContextPath());
-		int usuarioID =0;
-		usuarioID = Integer.parseInt(request.getParameter("usuarioID"));
-		Dt_Usuario dtu = new Dt_Usuario();
+		int PublicacionesID =0;
+		PublicacionesID = Integer.parseInt(request.getParameter("PublicacionesID"));
+		Dt_Publicaciones dtpu = new Dt_Publicaciones();
 		
-		if(dtu.eliminarUser(usuarioID)) {
-        	response.sendRedirect("tblUsuarios.jsp?msj=5");
+		if(dtpu.eliminaPubli(PublicacionesID)) {
+        	response.sendRedirect("tblPublicaciones.jsp?msj=5");
         }
         else {
-        	response.sendRedirect("tblUsuarios.jsp?msj=6");
+        	response.sendRedirect("tblPublicaciones.jsp?msj=6");
         }
 		
 	}
@@ -63,16 +63,13 @@ public class Sl_GestionUsuario  extends HttpServlet{
 		opc = Integer.parseInt(request.getParameter("opcion"));
 				
 		//CONSTRUIR EL OBJETO USUARIO
-			Dt_Usuario dtu = new Dt_Usuario();
-			Usuario user = new Usuario();
-			Ng_Usuario ngu = new Ng_Usuario();
+			Dt_Publicaciones dtpu = new Dt_Publicaciones();
+			Publicaciones pub = new Publicaciones();
+			Ng_Publicaciones ngpu = new Ng_Publicaciones();
 			
 			//user.setUsuarioID(Integer.parseInt(request.getParameter("usuarioID")));
-			user.setNombres(request.getParameter("txtNombres"));
-			user.setApellidos(request.getParameter("txtApellidos"));
-			user.setUsuario(request.getParameter("txtUserName"));
-			user.setEmail(request.getParameter("txtEmail"));
-			user.setContrasenia(request.getParameter("txtPwd"));
+			pub.setTitulo(request.getParameter("txtTitulo"));
+			pub.setDescripcion(request.getParameter("txtDescrip"));
 		
 		
 		switch (opc){
@@ -82,24 +79,24 @@ public class Sl_GestionUsuario  extends HttpServlet{
 		        	// Para Guardar la Fecha y Hora de creación.
 		        	
 		        	Date fechaSistema = new Date();
-			        user.setFechaCreacion(new java.sql.Timestamp(fechaSistema.getTime()));
-			        System.out.println("user.getFechaCreacion(): "+user.getFechaCreacion());
+			        pub.setFechaCreacion(new java.sql.Timestamp(fechaSistema.getTime()));
+			        System.out.println("pub.getFechaCreacion(): "+pub.getFechaCreacion());
 		        	
-			        if(ngu.existeUser(user.getUsuario())) {
-			        	response.sendRedirect("NuevoUsuario.jsp?msj=existe");
+			        if(ngpu.existePubli(pub.getTitulo())) {
+			        	response.sendRedirect("NuevaPublicacion.jsp?msj=existe");
 			        }
 			        else {
-			        	if(dtu.guardarUser(user)) {
-				        	response.sendRedirect("tblUsuarios.jsp?msj=1");
+			        	if(dtpu.guardarPubli(pub)) {
+				        	response.sendRedirect("tblPublicaciones.jsp?msj=1");
 				        }
 				        else {
-				        	response.sendRedirect("tblUsuarios.jsp?msj=2");
+				        	response.sendRedirect("tblPublicaciones.jsp?msj=2");
 				        }
 			        }
 			        	
 		        }
 		        catch(Exception e) {
-		        	System.out.println("Sl_GestionUsuario, el error es: " + e.getMessage());
+		        	System.out.println("Sl_GestionPublicaciones, el error es: " + e.getMessage());
 					e.printStackTrace();
 		        }
 		        
@@ -109,24 +106,24 @@ public class Sl_GestionUsuario  extends HttpServlet{
 		case 2:{
 			
 				try {
-					user.setUsuarioID(Integer.parseInt(request.getParameter("usuarioid")));
+					pub.setPublicacionesid(Integer.parseInt(request.getParameter("PublicacionesID")));
 					//PARA GUARDAR LA FECHA Y HORA DE MODIFICACION
 					Date fechaSistema = new Date();
-					user.setFechaModificacion(new java.sql.Timestamp(fechaSistema.getTime()));
-					System.out.println("user.getFechaModificacion(): "+user.getFechaModificacion());
+					pub.setFechaModificacion(new java.sql.Timestamp(fechaSistema.getTime()));
+					System.out.println("pub.getFechaModificacion(): "+pub.getFechaModificacion());
 							        	
-		        if(dtu.modificarUser(user)) {
-		        	response.sendRedirect("tblUsuarios.jsp?msj=3");
+		        if(dtpu.modificarPubli(pub)) {
+		        	response.sendRedirect("tblPublicaciones.jsp?msj=3");
 		        	
 		        }
 		        else {
-		        	response.sendRedirect("tblUsuarios.jsp?msj=4");
+		        	response.sendRedirect("tblPublicaciones.jsp?msj=4");
 		        }
 		        
 	        	
 	        }
 	        catch(Exception e) {
-	        	System.out.println("Sl_GestionUsuario, el error es: " + e.getMessage());
+	        	System.out.println("Sl_GestionPublicaciones, el error es: " + e.getMessage());
 				e.printStackTrace();
 	        }
 				break;
@@ -134,7 +131,7 @@ public class Sl_GestionUsuario  extends HttpServlet{
 			}
 		
 		default:
-			response.sendRedirect("tblUsuarios.jsp?msj=7");	
+			response.sendRedirect("tblPublicaciones.jsp?msj=7");	
 			break;
 	}
 		

@@ -349,3 +349,19 @@ WHERE catalogodeproductos.tipoproductoid = tipoproducto.tipoproductoid;
 
 SELECT * FROM VW_Productos;
 
+--INSERTS PUBLICACIONES--
+
+INSERT INTO public.publicaciones(
+	descripcion, estado, fechacreacion, titulo)
+	VALUES ('Investigación de especímenes descubiertos en zonas secas de la zona central de Nicaragua', 
+			1, '2021-05-26 00:00:00', 'Investigación de especímenes');
+			
+INSERT INTO public.publicaciones(
+	descripcion, estado, fechacreacion, titulo)
+	VALUES ('Recopilación de ejecución de brigadas enfocadas en salvaguardar la flora del Atlántico Norte', 
+			1, '2021-05-26 00:00:00', 'Recopilación flora y fauna del Atlántico');
+
+SELECT * FROM public.publicaciones;
+
+
+

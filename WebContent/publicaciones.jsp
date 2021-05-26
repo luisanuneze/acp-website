@@ -50,6 +50,15 @@
     <section id="about" class="about">
 
         <div class="container" data-aos="fade-up">
+               <div class="col" align="right">
+                    <!-- Boton de edicion-->
+                    <div id="button-edicion" class="button-edicion">
+                        <a href="tblPublicaciones.jsp">
+                            <button> Administrar árboles</button>
+                        </a>
+                    </div>
+                    <!-- Termina boton de edicion-->
+                </div>
 
             <div class="publicaciones">
 
@@ -73,7 +82,7 @@
 
             <!-- Boton anadir publicacion-->
             <div id="button-anadirpub" class="button-anadirpub">
-                <a href="#">
+                <a href="NuevaPublicacion.jsp">
                     <button> Añadir nueva publicación</button>
                 </a>
             </div>

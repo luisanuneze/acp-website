@@ -11,6 +11,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import entidades.Rol;
 import datos.Dt_Rol;
+import negocio.Ng_Rol;
+import negocio.Ng_Usuario;
 
 /**
  * Servlet implementation class Sl_GestionRol
@@ -66,6 +68,7 @@ public class Sl_GestionRol extends HttpServlet {
 		// CONSTRUIR EL OBJETO ROL
 		Dt_Rol dtro = new Dt_Rol();
 		Rol rol = new Rol();
+		Ng_Rol ngr = new Ng_Rol();
 		
 		//rol.setRolID(Integer.parseInt(request.getParameter("rolID")));
 		rol.setRol(request.getParameter("txtRol"));
@@ -79,10 +82,15 @@ public class Sl_GestionRol extends HttpServlet {
 				Date fechaSistema = new Date();
 				rol.setFechaCreacion(new java.sql.Timestamp(fechaSistema.getTime()));
 				System.out.println("rol.getFechaCreacion(): " + rol.getFechaCreacion());
-				if (dtro.guardarRol(rol)) {
-					response.sendRedirect("tblRol.jsp?msj=1");
+				if (ngr.existeRol(rol.getRol())) {
+					response.sendRedirect("NuevoRol.jsp?msj=existe");
 				} else {
-					response.sendRedirect("tblRol.jsp?msj=2");
+					if(dtro.guardarRol(rol)) {
+			        	response.sendRedirect("tblRol.jsp?msj=1");
+			        }
+			        else {
+			        	response.sendRedirect("tblRol.jsp?msj=2");
+			        }
 				}
 
 			} catch (Exception e) {
