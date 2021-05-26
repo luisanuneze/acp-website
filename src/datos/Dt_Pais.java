@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import entidades.Familia;
 import entidades.Pais;
 import entidades.Region;
 import vistas.VW_PaisRegion;
@@ -72,6 +73,53 @@ public class Dt_Pais {
 			}
 			return listPaisReg;
 		}
+		
+		// Metodo para visualizar los datos de un pais específica
+		public Pais getPais(int ID)
+		{
+			Pais pai = new Pais();
+			try
+			{
+				c = PoolConexion.getConnection();
+				ps = c.prepareStatement("select * from public.\"pais\" where estado <> 3 and \"paisid\"=?", ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE, ResultSet.HOLD_CURSORS_OVER_COMMIT);
+				ps.setInt(1, ID);
+				rs = ps.executeQuery();
+				if(rs.next())
+				{
+					pai.setPaisID(ID);
+					pai.setNombre(rs.getString("nombre"));
+					pai.setRegionID(rs.getInt("regionid"));
+					
+				}
+			}
+			catch (Exception e)
+			{
+				System.out.println("DATOS ERROR getPais(): "+ e.getMessage());
+				e.printStackTrace();
+			}
+			finally
+			{
+				try {
+					if(rs != null){
+						rs.close();
+					}
+					if(ps != null){
+						ps.close();
+					}
+					if(c != null){
+						PoolConexion.closeConnection(c);
+					}
+					
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+			
+			return pai;
+		}
+		
+		
 		//Metodo para guardar un pais
 		public boolean guardarPaisReg(Pais p){
 			boolean guardado = false;

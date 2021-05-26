@@ -118,9 +118,9 @@
                                     </td>
                                     <td><%=dis.getPais() %>
                                     </td>
-                                    <td><a id="btn-edita-abrir" href="EditarDistribucion.jsp"> <i class="fas fa-edit">Editar</i></a>
-                                        <a href="#"> <i class="fas fa-trash-alt">Eliminar</i></a>
-                                        <a href="#"> <i class="fas fa-eye">Visualizar</i>
+                                    <td><a id="btn-edita-abrir" href="EditarDistribucion.jsp?DistribucionID=<%=dis.getID()%>"> <i class="fas fa-edit" title="Editar Distribución"></i></a>
+                                        <a href="#"> <i class="fas fa-trash-alt" title="Eliminar Distribución"></i></a>
+                                        <a href="#"> <i class="fas fa-eye" title="Visualizar Distribución"></i>
                                         </a></td>
                                 </tr>
                                 <%

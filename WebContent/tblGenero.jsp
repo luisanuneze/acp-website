@@ -155,7 +155,7 @@
                                           <td><%=ge.getEstado() != 3 ? "ACTIVO" : "INACTIVO" %>
                                 </td>
                                    <td><a id="btn-edita-abrir" href="EditarGenero.jsp?generoID=<%=ge.getGeneroID() %>"> <i
-                                            class="fas fa-edit" title="Modificar Genero"></i></a>
+                                            class="fas fa-edit" title="Modificar Género"></i></a>
                                             
                                         	<a class="ajax-link" href="javascript:void(0);" 
                                            		onclick="$.jAlert({
@@ -176,9 +176,9 @@
                                            		      return false;
                                            		    }
                                            		  });">
-                        							<i class="fas fa-trash-alt" title="Eliminar Genero"></i>
+                        							<i class="fas fa-trash-alt" title="Eliminar Género"></i>
                         						</a> 
-                                        <a href="#"> <i class="fas fa-eye" title="Visualizar Genero"></i>
+                                        <a href="#"> <i class="fas fa-eye" title="Visualizar Género"></i>
                                         </a></td>
                                 </tr>
                                 <%

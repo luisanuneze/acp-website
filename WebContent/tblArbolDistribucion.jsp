@@ -121,9 +121,9 @@
                                 
                                     <td><a id="btn-edita-abrir" href="EditarArbolDistribucion.jsp?Arbol_DistribucionId=<%=ar.getID()%>"> 
                                     <i
-                                            class="fas fa-edit">Editar</i></a>
-                                        <a href="#"> <i class="fas fa-trash-alt">Eliminar</i></a>
-                                        <a href="#"> <i class="fas fa-eye">Visualizar</i>
+                                            class="fas fa-edit" title="Editar Distribución Árbol"></i></a>
+                                        <a href="#"> <i class="fas fa-trash-alt" title="Eliminar Distribución Árbol"></i></a>
+                                        <a href="#"> <i class="fas fa-eye" title="Visualizar Distribución Árbol"></i>
                                         </a>
                                         
                                         </td>

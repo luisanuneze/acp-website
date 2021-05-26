@@ -53,6 +53,17 @@
 
             <h2 class="form-header" style="color: black;">Editar País</h2>
             <br>
+             <%
+                    String pa = "";
+					pa = request.getParameter("ID")==null?"0":request.getParameter("ID");
+											
+					Pais pai = new Pais();
+					Dt_Pais dtp = new Dt_Pais();
+					pai = dtp.getPais(Integer.parseInt(pa));
+
+             %>
+            
+            
             <form action="forms/contact.php" method="post" class="php-email-form">
                 <div class="row gy-4">
 
@@ -64,12 +75,12 @@
                     %>
 
                     <div class="col-md-12">
-                        <input type="text" class="form-control" placeholder="Nombre" required>
+                        <input type="text" class="form-control" placeholder="Nombre" id="txtNombre" name="txtNombre"required >
                         <br>
                     </div>
                     <div class="row col-md-12">
                         <div class="col-sm-11">
-                            <select class="form-select" name="" required>
+                            <select class="form-select" name="" id="cbxRegion" name="cbxRegion" required>
                                 <option value="">Region...</option>
                                 <%
                                     for (Region re : listRegion) {
@@ -88,11 +99,6 @@
                         </div>
                     </div>
                     <br>
-
-                    <div class="col-md-12">
-                        <textarea class="form-control" name="message" rows="6" placeholder="Descripción"
-                                  required></textarea>
-                    </div>
                 </div>
                 <br>
 
@@ -130,6 +136,19 @@
 
 <!-- Template Main JS File -->
 <script src="assets/js/main.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+
+<script>  
+   $(document).ready(function()
+	{
+	   $("#txtNombre").val("<%=pai.getNombre()%>");
+	   $("#cbxRegion").val("<%=pai.getRegionID()%>");
+	 
+		
+		
+	});
+</script>
 
 </body>
 </html>
