@@ -51,6 +51,7 @@ public class Dt_Eventos {
 						eve.setHipervinculo(rs.getString("hipervinculo"));
 						eve.setFechainicio(rs.getDate("fechainicio"));
 						eve.setFechafin(rs.getDate("fechafin"));
+						eve.setHora(rs.getString("hora"));
 						eve.setEstado(rs.getInt("estado"));
 						listEvent.add(eve);
 					}
@@ -101,6 +102,7 @@ public class Dt_Eventos {
 						eve.setHipervinculo(rs.getString("hipervinculo"));
 						eve.setFechainicio(rs.getDate("fechainicio"));
 						eve.setFechafin(rs.getDate("fechafin"));
+						eve.setHora(rs.getString("hora"));
 						eve.setEstado(rs.getInt("estado"));
 					}
 				}
@@ -150,6 +152,7 @@ public class Dt_Eventos {
 					java.sql.Timestamp sqlffin = new java.sql.Timestamp(ffin.getTime());
 					rsEventos.updateTimestamp("fechainicio", sqlfini);
 					rsEventos.updateTimestamp("fechafin", sqlffin);
+					rsEventos.updateString("hora", eve.getHora());
 					rsEventos.updateInt("Estado", 1);
 					rsEventos.insertRow();
 					rsEventos.moveToCurrentRow();
@@ -205,6 +208,7 @@ public class Dt_Eventos {
 							java.sql.Timestamp sqlffin = new java.sql.Timestamp(ffin.getTime());
 							rsEventos.updateTimestamp("fechainicio", sqlfini);
 							rsEventos.updateTimestamp("fechafin", sqlffin);
+							rsEventos.updateString("hora", eve.getHora());
 							rsEventos.updateInt("Estado", 2);
 							rsEventos.updateRow();
 							modificado=true;

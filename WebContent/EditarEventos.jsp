@@ -144,6 +144,12 @@
                 <div class="col-sm-4">
                     <div class="centrado">
 
+	                    <div class="col-sm-12 mb-3 mb-sm-0">
+	
+	                        <input type="text" class="form-control form-control-user" name="txtHora" id="txtHora"
+	                               placeholder="Hora" required>
+	
+	                    </div><br><br>
                         
                         <div>
                         <select class="form-select" name="cbxuser" id="cbxuser">
@@ -221,6 +227,7 @@
 		$("#txtUbicacion").val("<%=eve.getUbicacion()%>");
 		$("#txtFechainicio").val("<%=eve.getFechainicio()%>");
 		$("#txtFechafin").val("<%=eve.getFechafin()%>");
+		$("#txtHora").val("<%=eve.getHora()%>");
 		$("#cbxuser").val("<%=eve.getUsuarioid()%>");
 		$("#TipoEvento").val("<%=eve.getTipoevento()%>");
 	});

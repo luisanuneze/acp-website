@@ -132,6 +132,7 @@
                                 <th>Ubicación</th>
                                 <th>Fecha de Inicio</th>
                                 <th>Fecha de Fin</th>
+                                <th>Hora</th>
                                 <th>Estado</th>
                                 <th>Opciones</th>
                             </tr>
@@ -144,6 +145,7 @@
                                 <th>Ubicación</th>
                                 <th>Fecha de Inicio</th>
                                 <th>Fecha de Fin</th>
+                                <th>Hora</th>
                                 <th>Estado</th>
                                 <th>Opciones</th>
                             </tr>
@@ -164,6 +166,8 @@
                                 <td><%=eve.getFechainicio() %>
                                 </td>
                                 <td><%=eve.getFechafin() %>
+                                </td>
+                                <td><%=eve.getHora() %>
                                 </td>
                                 <td><%=eve.getEstado() != 3 ? "ACTIVO" : "INACTIVO" %>
                                 </td>

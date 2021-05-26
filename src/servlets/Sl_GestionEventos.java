@@ -75,6 +75,7 @@ private static final long serialVersionUID = 1L;
 			eve.setUbicacion(request.getParameter("txtUbicacion"));
 			eve.setFechainicio(Date.valueOf(fini));
 			eve.setFechafin(Date.valueOf(ffin));
+			eve.setHora(request.getParameter("txtHora"));
 			eve.setUsuarioid(Integer.parseInt(request.getParameter("cbxuser")));
 			eve.setTipoevento(request.getParameter("TipoEvento"));
 			

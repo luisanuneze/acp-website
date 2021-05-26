@@ -101,7 +101,7 @@
 
                 </div>
                 <div class="col-sm-4">
-                
+		                
                		    <select class="form-select" name="TipoEvento" id="TipoEvento" required>
                             <option value="">Seleccione el tipo de evento</option>
                             <option value="Publica">Publico</option>
@@ -132,24 +132,31 @@
 
                 <div class="col-sm-4">
                     <div class="centrado">
-
+						<div class="col-sm-12 mb-3 mb-sm-0">
+	
+	                        <input type="text" class="form-control form-control-user" name="txtHora" id="txtHora"
+	                               placeholder="Hora" required>
+	
+	                    </div><br>
                         
-                        <div>
-                        <select class="form-select" name="cbxuser" id="cbxuser" required>
-                        	<option value="">Seleccione el usuario encargado...</option>
-                        <%
-                        	for(Usuario u: listUser){
-                        %>
-                        	<option value="<%= u.getUsuarioID() %>"><%= u.getUsuario() %></option>
-                        <%
-                        		}
-                        %>
-                        </select>
-                        </div>
-                        <div class="col-sm-1">
-                            <a title="Agregar nuevo usuario" href="NuevoUsuario.jsp">
-                                <i class="add fa-2x fas fa-plus-circle"></i></a>
-                        </div><br><br>
+                        <div class="col-sm-12 mb-3 mb-sm-0 row">
+	                        <div class="col-sm-10">
+	                        <select class="form-select" name="cbxuser" id="cbxuser" required>
+	                        	<option value="">Seleccione el usuario encargado...</option>
+	                        <%
+	                        	for(Usuario u: listUser){
+	                        %>
+	                        	<option value="<%= u.getUsuarioID() %>"><%= u.getUsuario() %></option>
+	                        <%
+	                        		}
+	                        %>
+	                        </select>
+	                        </div>
+	                        <div class="col-sm-1">
+	                            <a title="Agregar nuevo usuario" href="NuevoUsuario.jsp">
+	                                <i class="add fa-2x fas fa-plus-circle"></i></a>
+	                        </div><br><br><br>
+	                    </div>
 
                         <div class="root">
                             <div class="calendar" id="calendar">

@@ -13,6 +13,7 @@ public class Eventos {
 	private String hipervinculo; // ??, revisar
 	private Date fechainicio;
 	private Date fechafin;
+	private String hora;
 	private int estado;
 	
 	//Metodos
@@ -76,6 +77,11 @@ public class Eventos {
 	public void setFechafin(Date fechafin) {
 		this.fechafin = fechafin;
 	}
-	
+	public String getHora() {
+		return hora;
+	}
+	public void setHora(String hora) {
+		this.hora = hora;
+	}
 	
 }
