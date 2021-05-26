@@ -1,6 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
          pageEncoding="ISO-8859-1" import="entidades.Eventos, datos.Dt_Eventos, java.util.*;" %>
 <!DOCTYPE html>
+<%
+	//Variable de control de mensajes
+	String varMsj = request.getParameter("msj")==null?"":request.getParameter("msj");
+
+
+%>
 <html>
 <head>
     <meta charset="ISO-8859-1">
@@ -42,6 +48,9 @@
 
     <!-- Template Main CSS File -->
     <link href="assets/css/style.css" rel="stylesheet">
+    
+        <!-- jAlert css  -->
+	<link rel="stylesheet" href="jAlert/dist/jAlert.css" />
 
     <!-- =======================================================
     * Template Name: FlexStart - v1.1.1
@@ -162,9 +171,27 @@
                                     <a id="btn-edita-abrir" href="EditarEventos.jsp?Eventoid=<%=eve.getEventoid()%>">
                                         <i class="fas fa-edit" title="Modificar datos del Evento"></i>
                                     </a>
-                                    <a id="btn-eliminar-abrir" href="Sl_GestionEventos?eventoid=<%=eve.getEventoid()%>">
-                                        <i class="fas fa-trash-alt" title="Eliminar Evento"></i>
-                                    </a>
+                                    <a class="ajax-link" href="javascript:void(0);" 
+                                           		onclick="$.jAlert({
+                                           		    'type': 'confirm',
+                                           		    'confirmQuestion': 'Realmente desea eliminar este registro?',
+                                           		    'onConfirm': function(e, btn){
+                                           		      e.preventDefault();
+                                           		      //do something here
+
+                                           		      window.location.href = 'Sl_GestionEventos?eventoid=<%=eve.getEventoid()%>';
+                                           		      btn.parents('.jAlert').closeAlert();
+                                           		      return false;
+                                           		    },
+                                           		    'onDeny': function(e, btn){
+                                           		      e.preventDefault();
+                                           		      //do something here
+                                           		      btn.parents('.jAlert').closeAlert();
+                                           		      return false;
+                                           		    }
+                                           		  });">
+                        							<i class="fas fa-trash-alt" title="Eliminar Evento"></i>
+                        						</a> 
                                     <a href="#">
                                         <i class="fas fa-eye" title="Visualizar Evento"></i>
                                     </a>
@@ -231,6 +258,10 @@
 <!-- js Datatable buttons excel -->
 <script src="DataTables/JSZip-2.5.0/jszip.min.js"></script>
 
+<!-- jAlert js -->
+<script src="jAlert/dist/jAlert.min.js"></script>
+<script src="jAlert/dist/jAlert-functions.min.js"> //optional!!</script>
+
 <script>
     $(document).ready(function () {
         ////// APLICAMOS FORMATO Y BOTONES A LA TABLA //// INICIAMOS EL PLUGIN DATATABLE
@@ -243,6 +274,35 @@
         });
 
         ////////////////////////////////////////////////
+        /////////// VARIABLE DE CONTROL MSJ ///////////
+        var mensaje = "";
+        mensaje = "<%=varMsj%>";
+
+        if(mensaje == "1")
+        {
+            successAlert('Éxito', 'Los datos han sido registrados exitosamente!');
+        }
+        if(mensaje == "2")
+        {
+            errorAlert('Error', 'Revise los datos e intente nuevamente!!!');
+        }
+        if(mensaje == "3")
+        {
+            successAlert('Éxito', 'Los datos han sido actualizados exitosamente!');
+        }
+        if(mensaje == "4")
+        {
+            errorAlert('Error', 'Revise los datos e intente nuevamente!!!');
+        }
+        if(mensaje == "5")
+        {
+            successAlert('Éxito', 'El evento ha sido dado de baja exitosamente!');
+        }
+        if(mensaje == "6")
+        {
+            errorAlert('Error', 'Revise los datos e intente nuevamente!!!');
+        }
+
 
     });
 </script>
