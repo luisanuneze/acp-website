@@ -164,9 +164,7 @@ CREATE TABLE  Evento
 	 Nombre  varchar NULL,
 	 Tipoevento  varchar NULL,
 	 Ubicacion  varchar NULL,
-	 FechaCreacion  date NOT NULL,
-	 FechaModificacion  date NULL,
-	 FechaEliminacion  date NULL,
+	 Hora	varchar NULL,
 	 EventoID  integer NOT NULL,
 	 UsuarioID  integer NOT NULL
 )
