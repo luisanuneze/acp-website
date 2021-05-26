@@ -113,7 +113,7 @@
                 </div>
                 <div class="col-sm-4">
                 
-               		    <select class="form-control" name="TipoEvento" id="TipoEvento" required>
+               		    <select class="form-select" name="TipoEvento" id="TipoEvento" required>
                             <option value="">Seleccione el tipo de evento</option>
                             <option value="Publica">Publico</option>
                             <option value="Privada">Privado</option>
@@ -146,7 +146,7 @@
 
                         
                         <div>
-                        <select class="form-control" name="cbxuser" id="cbxuser">
+                        <select class="form-select" name="cbxuser" id="cbxuser">
                         	<option value="">Seleccione el usuario encargado...</option>
                         <%
                         	for(Usuario u: listUser){

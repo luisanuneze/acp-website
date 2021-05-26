@@ -102,7 +102,7 @@
                 </div>
                 <div class="col-sm-4">
                 
-               		    <select class="form-control" name="TipoEvento" id="TipoEvento" required>
+               		    <select class="form-select" name="TipoEvento" id="TipoEvento" required>
                             <option value="">Seleccione el tipo de evento</option>
                             <option value="Publica">Publico</option>
                             <option value="Privada">Privado</option>
@@ -135,7 +135,7 @@
 
                         
                         <div>
-                        <select class="form-control" name="cbxuser" id="cbxuser" required>
+                        <select class="form-select" name="cbxuser" id="cbxuser" required>
                         	<option value="">Seleccione el usuario encargado...</option>
                         <%
                         	for(Usuario u: listUser){
@@ -145,6 +145,10 @@
                         		}
                         %>
                         </select>
+                        </div>
+                        <div class="col-sm-1">
+                            <a title="Agregar nuevo usuario" href="NuevoUsuario.jsp">
+                                <i class="add fa-2x fas fa-plus-circle"></i></a>
                         </div><br><br>
 
                         <div class="root">
