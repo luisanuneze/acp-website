@@ -36,7 +36,7 @@
 <body>
 
 <!-- ======= Header ======= -->
-<%@ include file="/menu/header.jsp" %>
+<%@ include file="/menu/v_header.jsp" %>
 <!-- End Header -->
 
 <main id="main">
@@ -57,7 +57,7 @@
                 <div class="col" align="right">
                     
                 </div>
-
+ <h1 class="h3 mb-2 text-gray-800">Cátologo de árboles</h1>
             </div>
             <!-- Termina despliegue de filtros-->
 

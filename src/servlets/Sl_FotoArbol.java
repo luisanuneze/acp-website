@@ -111,17 +111,17 @@ public class Sl_FotoArbol extends HttpServlet {
 						
 						if(dtu.guardarFotoArbol(Integer.parseInt(idarbol),url))
 						{
-							response.sendRedirect("tblArbol.jsp?msj="+idarbol+"&guardado=1");
+							response.sendRedirect("tblArbol.jsp?msj=1"+idarbol+"&guardado=1");
 						}
 						else
 						{
-							response.sendRedirect("tblArbol.jsp?msj="+idarbol+"&guardado=2");
+							response.sendRedirect("tblArbol.jsp?msj=1"+idarbol+"&guardado=2");
 						}
 					}
 					else
 					{
 						System.out.println("SERVIDOR: VERIFIQUE QUE EL ARCHIVO CUMPLA CON LAS ESPECIFICACIONES REQUERIDAS!!!");
-						response.sendRedirect("tblArbol.jsp?msj="+idarbol+"&guardado=3");						
+						response.sendRedirect("tblArbol.jsp?msj=2"+idarbol+"&guardado=3");						
 					}
 				}
 				

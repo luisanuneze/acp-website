@@ -12,6 +12,8 @@ import javax.servlet.http.HttpServletResponse;
 import datos.Dt_Familia;
 import datos.Dt_Usuario;
 import entidades.Familia;
+import negocio.Ng_Familia;
+import negocio.Ng_Genero;
 
 /**
  * Servlet implementation class Sl_GestionFamilia
@@ -62,6 +64,8 @@ public class Sl_GestionFamilia extends HttpServlet {
 		//CONSTRUIR EL OBJETO USUARIO
 			Dt_Familia dtf = new Dt_Familia();
 			Familia fam = new Familia();
+			Ng_Familia ngf = new Ng_Familia();
+			
 			//fam.setFamiliaID(Integer.parseInt(request.getParameter("familiaID")));
 			fam.setNombre(request.getParameter("txtNombre"));
 			fam.setDescripcion(request.getParameter("txtDesc"));
@@ -78,11 +82,16 @@ public class Sl_GestionFamilia extends HttpServlet {
 			        fam.setFechaCreacion(new java.sql.Timestamp(fechaSistema.getTime()));
 			        System.out.println("fam.getFechaCreacion(): "+fam.getFechaCreacion());
 		        	
-			        if(dtf.guardarFam(fam)) {
-			        	response.sendRedirect("tblFamilia.jsp?msj=1");
+			        if(ngf.existeFamilia(fam.getNombre())) {
+			        	response.sendRedirect("NuevaFamilia.jsp?msj=9");
 			        }
 			        else {
-			        	response.sendRedirect("tblFamilia.jsp?msj=2");
+			        	if(dtf.guardarFam(fam)) {
+				        	response.sendRedirect("tblFamilia.jsp?msj=1");
+				        }
+				        else {
+				        	response.sendRedirect("tblFamilia.jsp?msj=2");
+				        }
 			        }
 			        	
 		        }
@@ -114,6 +123,7 @@ public class Sl_GestionFamilia extends HttpServlet {
 		    	    response.sendRedirect("tblFamilia.jsp?msj=4");
 		    	
 		         }
+		        
 		    
 		    }
 		    catch(Exception e) {

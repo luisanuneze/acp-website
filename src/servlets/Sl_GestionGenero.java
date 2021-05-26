@@ -12,6 +12,8 @@ import javax.servlet.http.HttpServletResponse;
 import datos.Dt_Familia;
 import datos.Dt_Genero;
 import entidades.Genero;
+import negocio.Ng_Genero;
+import negocio.Ng_Usuario;
 
 /**
  * Servlet implementation class Sl_GestionGenero
@@ -64,6 +66,9 @@ public class Sl_GestionGenero extends HttpServlet {
 				//CONSTRUIR EL OBJETO USUARIO
 					Dt_Genero dtg = new Dt_Genero();
 					Genero gen = new Genero();
+					Ng_Genero ngg = new Ng_Genero();
+					
+					
 					//fam.setFamiliaID(Integer.parseInt(request.getParameter("familiaID")));
 					gen.setNombre(request.getParameter("txtNombreG"));
 					gen.setDescripcion(request.getParameter("txtDescripcionG"));
@@ -80,12 +85,21 @@ public class Sl_GestionGenero extends HttpServlet {
 					        gen.setFechaCreacion(new java.sql.Timestamp(fechaSistema.getTime()));
 					        System.out.println("gen.getFechaCreacion(): "+gen.getFechaCreacion());
 				        	
-					        if(dtg.guardarGen(gen)) {
-					        	response.sendRedirect("tblGenero.jsp?msj=1");
+					        
+					        if(ngg.existeGenero(gen.getNombre())) {
+					        	response.sendRedirect("NuevoGenero.jsp?msj=9");
 					        }
 					        else {
-					        	response.sendRedirect("tblGenero.jsp?msj=2");
+					        	if(dtg.guardarGen(gen)) {
+						        	response.sendRedirect("tblGenero.jsp?msj=1");
+						        }
+						        else {
+						        	response.sendRedirect("tblGenero.jsp?msj=2");
+						        }
 					        }
+					        
+					        
+					        
 					        	
 				        }
 				        catch(Exception e) {

@@ -5,11 +5,11 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Date;
 
 import entidades.Arbol;
-import entidades.Genero;
 import vistas.VW_Arbol;
-import vistas.VW_RolUsuario;
+
 
 public class Dt_Arbol {
 	//Atributos
@@ -36,7 +36,7 @@ public class Dt_Arbol {
 		ArrayList<VW_Arbol> listArbol = new ArrayList<VW_Arbol>();
 		try{
 			c = PoolConexion.getConnection();
-			ps = c.prepareStatement("select * from public.vw_arbol", ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE, ResultSet.HOLD_CURSORS_OVER_COMMIT);
+			ps = c.prepareStatement("select * from public.vw_arbol where \"Estado\" <> 3", ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE, ResultSet.HOLD_CURSORS_OVER_COMMIT);
 			rs = ps.executeQuery();
 			while(rs.next()){
 				VW_Arbol ds = new VW_Arbol();
@@ -79,7 +79,7 @@ public class Dt_Arbol {
 	}
 	
 	
-	// Metodo para visualizar los datos de un usuario específico
+	// Metodo para visualizar los datos de un arbol específico
 	public VW_Arbol getArbol2(int iD) {
 		VW_Arbol vwru = new VW_Arbol();
 		try {
@@ -280,5 +280,104 @@ public class Dt_Arbol {
 			return actualizado;
 		}
 	
+		// Metodo para modificar Arbol
+					public boolean modificarArbol(Arbol arb)
+					{
+						boolean modificado=false;	
+						try
+						{
+							c= PoolConexion.getConnection();
+							this.llenaRsArbol(c);
+							rsArbol.beforeFirst();
+							while (rsArbol.next())
+							{
+								if(rsArbol.getInt(9)==arb.getArbolId())
+								{
+									rsArbol.updateString("nombrecientifico", arb.getNombrecientifico());
+									rsArbol.updateString("nombrecomun", arb.getNombrecomun());
+									rsArbol.updateString("descripcion", arb.getDescripcion());
+									//rsArbol.updateInt("distribucionID", a.getDistribucionID());
+									rsArbol.updateInt("generoID", arb.getGeneroID());
+									rsArbol.updateInt("familiaID", arb.getFamiliaID());
+									rsArbol.updateInt("floracionID", arb.getFloracionID());
+									rsArbol.updateInt("estado", 2);
+									rsArbol.updateTimestamp("fechaModificacion", arb.getFechaModificacion());
+									rsArbol.updateRow();
+									modificado=true;
+									break;
+								}
+							}
+						}
+						catch (Exception e)
+						{
+							System.err.println("ERROR AL ACTUALIZAR ARBOL "+e.getMessage());
+							e.printStackTrace();
+						}
+						finally
+						{
+							try {
+								if(rsArbol != null){
+									rsArbol.close();
+								}
+								if(c != null){
+									PoolConexion.closeConnection(c);
+									
+								}
+								
+							} catch (SQLException e) {
+								// TODO Auto-generated catch block
+								e.printStackTrace();
+							}
+						}
+						return modificado;
+					}
+					
+					// Metodo para eliminar Arbol
+					public boolean eliminarArbol(int arbolID)
+					{
+						boolean eliminado=false;	
+						try
+						{
+							c = PoolConexion.getConnection();
+							this.llenaRsArbol(c);
+							rsArbol.beforeFirst();
+							Date fechaSistema = new Date();
+							while (rsArbol.next())
+							{
+								if(rsArbol.getInt(9)==arbolID)
+								{
+									rsArbol.updateTimestamp("FechaEliminacion", new java.sql.Timestamp(fechaSistema.getTime()));
+									rsArbol.updateInt("estado", 3);
+									rsArbol.updateRow();
+									eliminado=true;
+									break;
+								}
+							}
+						}
+						catch (Exception e)
+						{
+							System.err.println("ERROR AL ACTUALIZAR Arbol "+e.getMessage());
+							e.printStackTrace();
+						}
+						finally
+						{
+							try {
+								if(rsArbol != null){
+									rsArbol.close();
+								}
+								if(c != null){
+									PoolConexion.closeConnection(c);
+								}
+								
+							} catch (SQLException e) {
+								// TODO Auto-generated catch block
+								e.printStackTrace();
+							}
+						}
+						return eliminado;
+					}
+					
+		
+		
 	
 }

@@ -177,7 +177,7 @@
                                 		<img src="<%= ar.getImagen() %>" style="max-height:100px; max-width:100px;" alt="...">
 	                               	</a>
                                	</td>
-                                    <td><a id="btn-edita-abrir" href="EditarArboles.jsp?arbolID=<%=ar.getID() %>"> <i
+                                    <!--  <td><a id="btn-edita-abrir" href="EditarArboles.jsp?arbolID=<%=ar.getID() %>"> <i
                                             class="fas fa-edit">Editar</i></a>
                                         <a href="#"> <i class="fas fa-trash-alt">Eliminar</i></a>
                                         <a href="#"> <i class="fas fa-eye">Visualizar</i>
@@ -186,7 +186,36 @@
                         							<i class="fas fa-camera" title="Registrar Foto del Arbol">Foto Arbol</i>
                         						</a>
                                         
-                                        </td>
+                                        </td> -->
+                                        <td><a id="btn-edita-abrir" href="EditarArboles.jsp?arbolID=<%=ar.getID() %>"> <i
+                                            class="fas fa-edit" title="Modificar Arbol"></i></a>
+                                            
+                                        	<a class="ajax-link" href="javascript:void(0);" 
+                                           		onclick="$.jAlert({
+                                           		    'type': 'confirm',
+                                           		    'confirmQuestion': 'Realmente desea eliminar este registro?',
+                                           		    'onConfirm': function(e, btn){
+                                           		      e.preventDefault();
+                                           		      //do something here
+
+                                           		      window.location.href = 'Sl_GestionArbol?arbolID=<%=ar.getID()%>';
+                                           		      btn.parents('.jAlert').closeAlert();
+                                           		      return false;
+                                           		    },
+                                           		    'onDeny': function(e, btn){
+                                           		      e.preventDefault();
+                                           		      //do something here
+                                           		      btn.parents('.jAlert').closeAlert();
+                                           		      return false;
+                                           		    }
+                                           		  });">
+                        							<i class="fas fa-trash-alt" title="Eliminar Arbol"></i>
+                        						</a> 
+                        						
+                                        <a href="#"> <i class="fas fa-eye" title="Visualizar Arbol"></i>
+                                        </a>
+                                        <a href="fotoArbol.jsp?idArbol=<%=ar.getID()%>">
+                                        <i class="fas fa-camera" title="Registrar Foto del Arbol"></i></a></td>
                                 </tr>
                                 <%
                                     }
@@ -293,7 +322,7 @@
         }
         if(mensaje == "5")
         {
-            successAlert('Éxito', 'El usuario ha sido dado de baja exitosamente!');
+            successAlert('Éxito', 'El arbol ha sido dado de baja exitosamente!');
         }
         if(mensaje == "6")
         {

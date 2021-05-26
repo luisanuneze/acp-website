@@ -109,7 +109,7 @@
                                     Género:
                                     <div class="row">
                                         <div class="col-sm-8">
-                                            <select class="form-select"  name="cbxGen" id="cbxGen" required>
+                                            <select class="form-select"  name="cbxGenero" id="cbxGenero" required>
                                                 <option value="">Seleccione</option>
                                                 <%
                                                     for (Genero ar : listGenero) {
@@ -136,7 +136,7 @@
                                     Familia:
                                     <div class="row">
                                         <div class="col-sm-8">
-                                            <select class="form-select"  name="cbxFam" id="cbxFam" required>
+                                            <select class="form-select"  name="cbxFamilia" id="cbxFamilia" required>
                                                 <option value="">Seleccione</option>
                                                 <%
                                                     for (Familia fr : listFamilia) {
@@ -160,7 +160,7 @@
                                     Floración:
                                     <div class="row">
                                         <div class="col-sm-8">
-                                            <select class="form-select" name="cbxFlor" id="cbxFlor" required>
+                                            <select class="form-select" name="cbxFlora" id="cbxFlora" required>
                                                 <option value="">Seleccione</option>
                                                 <%
                                                     for (Floracion flr : listFloracion) {
@@ -173,10 +173,10 @@
 
                                             </select>
                                         </div>
-                                        <div class="col-sm-2">
+                                        <!--<div class="col-sm-2">
                                             <a title="Agregar nueva floración" href="NuevaFloracion.jsp">
                                                 <i class="add fa-2x fas fa-plus-circle"></i></a>
-                                        </div>
+                                        </div>-->
                                     </div>
                                     <br>
                                 </div>
@@ -186,7 +186,7 @@
                             <div class="form-group col-sm-11">
                                 Descripción:
                                 <div class="col-sm-12">
-                                    <textarea class="form-control" name="txtDesA" id="txtDesA" rows="3" cols="50" placeholder="Descripción" required></textarea>
+                                    <textarea class="form-control" name="txaDescrip" id="txaDescrip" rows="3" cols="50" placeholder="Descripción" required></textarea>
                                 </div>
                                 <br>
                             </div>
