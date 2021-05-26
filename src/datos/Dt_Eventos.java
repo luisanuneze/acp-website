@@ -38,7 +38,7 @@ public class Dt_Eventos {
 				ArrayList<Eventos> listEvent = new ArrayList<Eventos>();
 				try{
 					c = PoolConexion.getConnection();
-					ps = c.prepareStatement("select * from public.\"evento\"", ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE, ResultSet.HOLD_CURSORS_OVER_COMMIT);
+					ps = c.prepareStatement("select * from public.\"evento\" where estado <> 3", ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE, ResultSet.HOLD_CURSORS_OVER_COMMIT);
 					rs = ps.executeQuery();
 					while(rs.next()){
 						Eventos eve = new Eventos();
@@ -93,6 +93,7 @@ public class Dt_Eventos {
 					if(rs.next())
 					{
 						eve.setEventoid(eventoid);
+						eve.setUsuarioid(rs.getInt("usuarioid"));
 						eve.setNombre(rs.getString("nombre"));
 						eve.setDescripcion(rs.getString("descripcion"));
 						eve.setTipoevento(rs.getString("tipoevento"));
@@ -143,7 +144,6 @@ public class Dt_Eventos {
 					rsEventos.updateString("descripcion", eve.getDescripcion());
 					rsEventos.updateString("tipoevento", eve.getTipoevento());
 					rsEventos.updateString("ubicacion", eve.getUbicacion());
-					rsEventos.updateString("hipervinculo", eve.getHipervinculo());
 					Date fini = eve.getFechainicio();
 					Date ffin = eve.getFechafin();
 					java.sql.Timestamp sqlfini = new java.sql.Timestamp(fini.getTime());
@@ -180,6 +180,7 @@ public class Dt_Eventos {
 			// Metodo para modificar eventos
 			public boolean modificarEvento(Eventos eve)
 			{
+				System.out.println("Ya entro 1");
 				boolean modificado=false;	
 				try
 				{
@@ -188,15 +189,16 @@ public class Dt_Eventos {
 					rsEventos.beforeFirst();
 					while (rsEventos.next())
 					{
-						if(rsEventos.getInt(1)==eve.getEventoid())
+						System.out.println("Ya entro 2");
+						if(rsEventos.getInt("eventoid")==eve.getEventoid())
 						{
+							System.out.println("Ya entro 3");
 
 							rsEventos.updateInt("usuarioid", eve.getUsuarioid());
 							rsEventos.updateString("nombre", eve.getNombre());
 							rsEventos.updateString("descripcion", eve.getDescripcion());
 							rsEventos.updateString("tipoevento", eve.getTipoevento());
 							rsEventos.updateString("ubicacion", eve.getUbicacion());
-							rsEventos.updateString("hipervinculo", eve.getHipervinculo());
 							Date fini = eve.getFechainicio();
 							Date ffin = eve.getFechafin();
 							java.sql.Timestamp sqlfini = new java.sql.Timestamp(fini.getTime());
@@ -231,6 +233,49 @@ public class Dt_Eventos {
 					}
 				}
 				return modificado;
+			}
+			
+			// Metodo para eliminar usuario
+			public boolean eliminarevento(int eventoid)
+			{
+				boolean eliminado=false;	
+				try
+				{
+					c = PoolConexion.getConnection();
+					this.llenaRsEventos(c);
+					rsEventos.beforeFirst();
+					while (rsEventos.next())
+					{
+						if(rsEventos.getInt("eventoid")==eventoid)
+						{
+							rsEventos.updateInt("estado", 3);
+							rsEventos.updateRow();
+							eliminado=true;
+							break;
+						}
+					}
+				}
+				catch (Exception e)
+				{
+					System.err.println("ERROR AL ELIMINAR EVENTO "+e.getMessage());
+					e.printStackTrace();
+				}
+				finally
+				{
+					try {
+						if(rsEventos != null){
+							rsEventos.close();
+						}
+						if(c != null){
+							PoolConexion.closeConnection(c);
+						}
+						
+					} catch (SQLException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				}
+				return eliminado;
 			}
 			
 			

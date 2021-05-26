@@ -91,16 +91,23 @@
 
                     </div>
                     <br>
+                    
+                    <!-- Botones -->
+                    <div class="col-md-6">
+                		<input class="btn btn-primary btn-user btn-block" type="submit" value="Guardar" />
+                    </div>
 
 
 
                 </div>
                 <div class="col-sm-4">
-
-                    <input type="url" class="form-control form-control-user" name="txtHipervinculo" id="txtHipervinculo"
-                           placeholder="Hipervinculo" required>
-
-                    <br>
+                
+               		    <select class="form-control" name="TipoEvento" id="TipoEvento" required>
+                            <option value="">Seleccione el tipo de evento</option>
+                            <option value="Publica">Publico</option>
+                            <option value="Privada">Privado</option>
+                        </select>
+                        <br>
 
                     <h8>Fecha de Inicio de Evento</h8>
                     <input type="date" class="form-control form-control-user" name="txtFechainicio" id="txtFechainicio"
@@ -111,8 +118,9 @@
                     <h8>Fecha de Fin de Evento</h8>
                     <input type="date" class="form-control form-control-user" name="txtFechafin"
                            id="txtFechafin" placeholder="Fecha fin">
+                           
 
-                    <br>
+                    <br><br>
 
                     <div class="col-md-6">
                         <a class="button" href="tblEventos.jsp"> Regresar </a>
@@ -125,12 +133,6 @@
                 <div class="col-sm-4">
                     <div class="centrado">
 
-
-                        <select class="form-control" name="TipoEvento" id="TipoEvento" required>
-                            <option value="">Seleccione el tipo de evento</option>
-                            <option value="Publica">Publico</option>
-                            <option value="Privada">Privado</option>
-                        </select><br><br>
                         
                         <div>
                         <select class="form-control" name="cbxuser" id="cbxuser" required>
@@ -156,10 +158,6 @@
 
 
                 </div>
-                <!-- Botones -->
-                    <div class="col-md-6">
-                		<input class="btn btn-primary btn-user btn-block" type="submit" value="Guardar" />
-                    </div>
             </form>
 
             <br>
