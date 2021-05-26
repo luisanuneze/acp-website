@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1" import="entidades.Eventos, datos.Dt_Eventos, java.util.*;" %>
+    pageEncoding="ISO-8859-1" import="entidades.Eventos, datos.Dt_Eventos, datos.Dt_Usuario, entidades.Usuario, datos.PoolConexion,java.util.*;" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -67,10 +67,18 @@
 				 Dt_Eventos dte = new Dt_Eventos();
 				 eve = dte.getEventos(Integer.parseInt(ev));
             %>
+            
+            <%
+          		ArrayList<Usuario> listUser = new ArrayList<Usuario>();
+          		Dt_Usuario dtu = new Dt_Usuario();
+          		listUser = dtu.listaUserActivos();
+        	%>
 
             <form class=" row" method="post" action="./Sl_GestionEventos">
                 <!-- El valor de este input es para el Servlet opcion guardar -->
-                <input name="opcion" type="hidden" value="1"/>
+					<input name="eventoid" type="hidden"
+						value="<%=eve.getEventoid()%>" /> 
+						<input name="opcion" type="hidden" value="2" />
                 <div class="col-sm-4">
                     <div class="col-sm-12 mb-3 mb-sm-0">
 
@@ -94,20 +102,23 @@
 
                     </div>
                     <br>
-
-
+                    
                     <!-- Botones -->
                     <div class="col-md-6">
-                		<input class="btn btn-primary btn-user btn-block" type="submit" value="Guardar" />
+                		<input class="btn btn-primary btn-user btn-block" type="submit" value="Actualizar" />
                     </div>
+
+
 
                 </div>
                 <div class="col-sm-4">
-
-                    <input type="url" class="form-control form-control-user" name="txtHipervinculo" id="txtHipervinculo"
-                           placeholder="Hipervinculo" required>
-
-                    <br>
+                
+               		    <select class="form-control" name="TipoEvento" id="TipoEvento" required>
+                            <option value="">Seleccione el tipo de evento</option>
+                            <option value="Publica">Publico</option>
+                            <option value="Privada">Privado</option>
+                        </select>
+                        <br>
 
                     <h8>Fecha de Inicio de Evento</h8>
                     <input type="date" class="form-control form-control-user" name="txtFechainicio" id="txtFechainicio"
@@ -118,8 +129,9 @@
                     <h8>Fecha de Fin de Evento</h8>
                     <input type="date" class="form-control form-control-user" name="txtFechafin"
                            id="txtFechafin" placeholder="Fecha fin">
+                           
 
-                    <br>
+                    <br><br>
 
                     <div class="col-md-6">
                         <a class="button" href="tblEventos.jsp"> Regresar </a>
@@ -132,12 +144,19 @@
                 <div class="col-sm-4">
                     <div class="centrado">
 
-
-                        <select>
-                            <option value="">Seleccione el tipo de evento</option>
-                            <option value="Publica">Publico</option>
-                            <option value="Privada">Privado</option>
-                        </select><br><br>
+                        
+                        <div>
+                        <select class="form-control" name="cbxuser" id="cbxuser">
+                        	<option value="">Seleccione el usuario encargado...</option>
+                        <%
+                        	for(Usuario u: listUser){
+                        %>
+                        	<option value="<%= u.getUsuarioID() %>"><%= u.getUsuario() %></option>
+                        <%
+                        		}
+                        %>
+                        </select>
+                        </div><br><br>
 
                         <div class="root">
                             <div class="calendar" id="calendar">
@@ -200,9 +219,10 @@
 		$("#txtEvento").val("<%=eve.getNombre()%>");
 		$("#txtDescripcion").val("<%=eve.getDescripcion()%>");
 		$("#txtUbicacion").val("<%=eve.getUbicacion()%>");
-		$("#txtHipervinculo").val("<%=eve.getHipervinculo()%>");
 		$("#txtFechainicio").val("<%=eve.getFechainicio()%>");
 		$("#txtFechafin").val("<%=eve.getFechafin()%>");
+		$("#cbxuser").val("<%=eve.getUsuarioid()%>");
+		$("#TipoEvento").val("<%=eve.getTipoevento()%>");
 	});
 </script>
 

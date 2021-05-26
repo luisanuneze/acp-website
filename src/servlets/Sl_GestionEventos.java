@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import datos.Dt_Eventos;
+import datos.Dt_Usuario;
 import entidades.Eventos;
 
 /**
@@ -35,7 +36,19 @@ private static final long serialVersionUID = 1L;
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		//response.getWriter().append("Served at: ").append(request.getContextPath());
+		
+		int eventoid =0;
+		eventoid = Integer.parseInt(request.getParameter("eventoid"));
+		Dt_Eventos dte = new Dt_Eventos();
+		
+		if(dte.eliminarevento(eventoid)) {
+        	response.sendRedirect("tblEventos.jsp?msj=5");
+        }
+        else {
+        	response.sendRedirect("tblEventos.jsp?msj=6");
+        }
+		
 	}
 
 	/**
@@ -60,9 +73,8 @@ private static final long serialVersionUID = 1L;
 			eve.setNombre(request.getParameter("txtEvento"));
 			eve.setDescripcion(request.getParameter("txtDescripcion"));
 			eve.setUbicacion(request.getParameter("txtUbicacion"));
-			eve.setHipervinculo(request.getParameter("txtHipervinculo"));
-			eve.setFechainicio(Date.valueOf("fini"));
-			eve.setFechafin(Date.valueOf("ffin"));
+			eve.setFechainicio(Date.valueOf(fini));
+			eve.setFechafin(Date.valueOf(ffin));
 			eve.setUsuarioid(Integer.parseInt(request.getParameter("cbxuser")));
 			eve.setTipoevento(request.getParameter("TipoEvento"));
 			
@@ -92,6 +104,9 @@ private static final long serialVersionUID = 1L;
 			}
 		
 		case 2:{
+			
+			eve.setEventoid(Integer.parseInt(request.getParameter("eventoid")));
+			eve.setEstado(2);
 				
 			try {
 	        	
