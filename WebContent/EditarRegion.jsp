@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-         pageEncoding="ISO-8859-1" %>
+         pageEncoding="ISO-8859-1" import = "entidades.*, datos.*, java.util.*;" %>
 <!DOCTYPE html>
 <html>
 
@@ -52,15 +52,19 @@
 
             <h2 class="form-header" style="color: black;">Editar Región</h2>
             <br>
+             <%
+                String re = "";
+				re = request.getParameter("RegionID")==null?"0":request.getParameter("RegionID");
+										
+				Region reg = new Region();
+				Dt_Region dtr = new Dt_Region();
+				reg = dtr.getRegion(Integer.parseInt(re));
+		
+            %>
             <form action="forms/contact.php" method="post" class="php-email-form">
                 <div class="row gy-4">
                     <div class="col-md-12">
-                        <input type="text" class="form-control" placeholder="Nombre" required>
-                    </div>
-
-                    <div class="col-md-12">
-                        <textarea class="form-control" name="message" rows="6" placeholder="Descripción"
-                                  required></textarea>
+                        <input type="text" class="form-control" placeholder="Nombre" id="txtNombre" name="txtNombre"required>
                     </div>
                 </div>
                 <br>
@@ -99,6 +103,16 @@
 
 <!-- Template Main JS File -->
 <script src="assets/js/main.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+
+<script>  
+   $(document).ready(function()
+	{
+	   $("#txtNombre").val("<%=reg.getNombre()%>");
+	 
+	});
+</script>
 
 </body>
 </html>

@@ -113,10 +113,10 @@
                                     </td>
                                     <td><%=re.getFechaCreacion() %>
                                     </td>
-                                    <td><a id="btn-edita-abrir" href="EditarRegion.jsp"> <i
-                                            class="fas fa-edit">Editar</i></a>
-                                        <a href="#"> <i class="fas fa-trash-alt">Eliminar</i></a>
-                                        <a href="#"> <i class="fas fa-eye">Visualizar</i>
+                                    <td><a id="btn-edita-abrir" href="EditarRegion.jsp?RegionID=<%=re.getRegionID() %>"> <i
+                                            class="fas fa-edit" title="Editar Región"></i></a>
+                                        <a href="#"> <i class="fas fa-trash-alt" title="Eliminar Región"></i></a>
+                                        <a href="#"> <i class="fas fa-eye" title="Visualizar Región"></i>
                                         </a></td>
                                 </tr>
                                 <%

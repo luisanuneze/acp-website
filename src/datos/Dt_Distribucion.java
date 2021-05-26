@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import entidades.Distribucion;
+import entidades.Familia;
 import vistas.VW_Distribucion;
 
 public class Dt_Distribucion {
@@ -115,6 +116,104 @@ public class Dt_Distribucion {
 				}
 				return listDistribucion;
 			}
+			
+			
+			// Metodo para visualizar los datos de una distribución específica
+			public Distribucion getDistribucion(int DistribucionID)
+			{
+				Distribucion dis = new Distribucion();
+				try
+				{
+					c = PoolConexion.getConnection();
+					ps = c.prepareStatement("select * from public.\"distribucion\" where estado <> 3 and \"distribucionid\"=?", ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE, ResultSet.HOLD_CURSORS_OVER_COMMIT);
+					ps.setInt(1, DistribucionID);
+					rs = ps.executeQuery();
+					if(rs.next())
+					{
+						dis.setDistribucionID(DistribucionID);
+						dis.setNombre(rs.getString("nombre"));
+						dis.setDescripcion(rs.getString("descripcion"));
+						dis.setEstado(rs.getInt("estado"));
+						dis.setPaisID(rs.getInt("paisid"));
+						
+					}
+				}
+				catch (Exception e)
+				{
+					System.out.println("DATOS ERROR getDistribucion(): "+ e.getMessage());
+					e.printStackTrace();
+				}
+				finally
+				{
+					try {
+						if(rs != null){
+							rs.close();
+						}
+						if(ps != null){
+							ps.close();
+						}
+						if(c != null){
+							PoolConexion.closeConnection(c);
+						}
+						
+					} catch (SQLException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				}
+				
+				return dis;
+			}
+			
+			// Metodo para modificar distribucion
+						public boolean modificarDistribucion(Distribucion dis)
+						{
+							boolean modificado=false;	
+							try
+							{
+								c= PoolConexion.getConnection();
+								this.llenaRsDistribucion(c);
+								rsDistribucion.beforeFirst();
+								while (rsDistribucion.next())
+								{
+									if(rsDistribucion.getInt(7)==dis.getDistribucionID())
+									{
+										rsDistribucion.updateString("nombre", dis.getNombre());
+										rsDistribucion.updateString("descripcion", dis.getDescripcion());
+										rsDistribucion.updateInt("paisid", dis.getPaisID());
+										rsDistribucion.updateTimestamp("fechaModificacion", dis.getFechaModificacion());
+										rsDistribucion.updateInt("estado", 2);
+										rsDistribucion.updateRow();
+										modificado=true;
+										break;
+									}
+								}
+							}
+							catch (Exception e)
+							{
+								System.err.println("ERROR AL ACTUALIZAR "+e.getMessage());
+								e.printStackTrace();
+							}
+							finally
+							{
+								try {
+									if(rsDistribucion != null){
+										rsDistribucion.close();
+									}
+									if(c != null){
+										PoolConexion.closeConnection(c);
+										
+									}
+									
+								} catch (SQLException e) {
+									// TODO Auto-generated catch block
+									e.printStackTrace();
+								}
+							}
+							return modificado;
+						}
+			
+	
 			
 			
 			//Metodo para guardar una distribucion

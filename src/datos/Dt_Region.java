@@ -31,7 +31,6 @@ public class Dt_Region {
 		}
 	
 			//Metodo para visualizar regiones registradas y activas
-			
 			public ArrayList<Region> listaRegionActivas(){
 				ArrayList<Region> listRegion= new ArrayList<Region>();
 				try{
@@ -76,91 +75,91 @@ public class Dt_Region {
 			
 			
 			// Metodo para visualizar los datos de una region específica
-						public Region getRegion(int regionID)
-						{
-							Region reg = new Region();
-							try
-							{
-								c = PoolConexion.getConnection();
-								ps = c.prepareStatement("select * from public.\"region\" where estado <> 3 and \"familiaID\"=?", ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE, ResultSet.HOLD_CURSORS_OVER_COMMIT);
-								ps.setInt(1, regionID);
-								rs = ps.executeQuery();
-								if(rs.next())
-								{
-									reg.setRegionID(regionID);
-									reg.setNombre(rs.getString("nombre"));
-									reg.setEstado(rs.getInt("estado"));
-									
-								}
-							}
-							catch (Exception e)
-							{
-								System.out.println("DATOS ERROR getNIMA(): "+ e.getMessage());
-								e.printStackTrace();
-							}
-							finally
-							{
-								try {
-									if(rs != null){
-										rs.close();
-									}
-									if(ps != null){
-										ps.close();
-									}
-									if(c != null){
-										PoolConexion.closeConnection(c);
-									}
-									
-								} catch (SQLException e) {
-									// TODO Auto-generated catch block
-									e.printStackTrace();
-								}
-							}
-							
-							return reg;
+			public Region getRegion(int regionID)
+			{
+				Region reg = new Region();
+				try
+				{
+					c = PoolConexion.getConnection();
+					ps = c.prepareStatement("select * from public.\"region\" where estado <> 3 and \"regionid\"=?", ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE, ResultSet.HOLD_CURSORS_OVER_COMMIT);
+					ps.setInt(1, regionID);
+					rs = ps.executeQuery();
+					if(rs.next())
+					{
+						reg.setRegionID(regionID);
+						reg.setNombre(rs.getString("nombre"));
+						reg.setEstado(rs.getInt("estado"));
+						
+					}
+				}
+				catch (Exception e)
+				{
+					System.out.println("DATOS ERROR getRegion(): "+ e.getMessage());
+					e.printStackTrace();
+				}
+				finally
+				{
+					try {
+						if(rs != null){
+							rs.close();
 						}
+						if(ps != null){
+							ps.close();
+						}
+						if(c != null){
+							PoolConexion.closeConnection(c);
+						}
+						
+					} catch (SQLException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				}
 				
-						
-						//Metodo para almacenar nueva region
-						public boolean guardarReg(Region reg){
-							boolean guardado = false;
-							
-							try{
-								c = PoolConexion.getConnection();
-								this.llenaRsRegion(c);
-								rsRegion.moveToInsertRow();
+				return reg;
+			}
+	
+			
+			//Metodo para almacenar nueva region
+			public boolean guardarReg(Region reg){
+				boolean guardado = false;
+				
+				try{
+					c = PoolConexion.getConnection();
+					this.llenaRsRegion(c);
+					rsRegion.moveToInsertRow();
 //								rsUsuario.updateInt("UsuarioID", 2);
-								rsRegion.updateString("nombre", reg.getNombre());
-								rsRegion.updateTimestamp("fechaCreacion", reg.getFechaCreacion());
-								rsRegion.updateInt("estado", 1);
-								rsRegion.insertRow();
-								rsRegion.moveToCurrentRow();
-								guardado = true;
-							}
-							catch (Exception e) {
-								System.err.println("ERROR AL GUARDAR REGION "+e.getMessage());
-								e.printStackTrace();
-							}
-							finally{
-								try {
-									if(rsRegion != null){
-										rsRegion.close();
-									}
-									if(c != null){
-										PoolConexion.closeConnection(c);
-									}
-									
-								} catch (SQLException e) {
-									// TODO Auto-generated catch block
-									e.printStackTrace();
-								}
-							}
-							
-							return guardado;
+					rsRegion.updateString("nombre", reg.getNombre());
+					rsRegion.updateTimestamp("fechaCreacion", reg.getFechaCreacion());
+					rsRegion.updateInt("estado", 1);
+					rsRegion.insertRow();
+					rsRegion.moveToCurrentRow();
+					guardado = true;
+				}
+				catch (Exception e) {
+					System.err.println("ERROR AL GUARDAR REGION "+e.getMessage());
+					e.printStackTrace();
+				}
+				finally{
+					try {
+						if(rsRegion != null){
+							rsRegion.close();
+						}
+						if(c != null){
+							PoolConexion.closeConnection(c);
 						}
 						
-						
-						
-						
+					} catch (SQLException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				}
+				
+				return guardado;
+			}
+			
+			
+			
+			
 			
 }//end public void

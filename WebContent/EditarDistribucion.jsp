@@ -54,6 +54,16 @@
     <section id="about" class="about">
 
         <div class="container" data-aos="fade-up">
+        
+	         <%
+		        String dis = "";
+				dis = request.getParameter("DistribucionID")==null?"0":request.getParameter("DistribucionID");
+										
+				Distribucion di = new Distribucion();
+				Dt_Distribucion dtdi = new Dt_Distribucion();
+				di = dtdi.getDistribucion(Integer.parseInt(dis));
+				
+			 %>
 
             <h2 class="form-header" style="color: black;">Editar Distribución</h2>
             <br>
@@ -68,12 +78,12 @@
                     %>
 
                     <div class="col-md-12">
-                        <input type="text" class="form-control" placeholder="Nombre" required>
+                        <input name="txtNombre" id="txtNombre" type="text" class="form-control" placeholder="Nombre" required>
                         <br>
                     </div>
                     <div class="row col-md-12">
                         <div class="col-sm-11">
-                            <select class="form-select" name="" required>
+                            <select class="form-select" name="cbxPais" id="cbxPais" required>
                                 <option value="">País...</option>
                                 <%
                                     for (VW_PaisRegion pa : listPais) {
@@ -94,7 +104,7 @@
                     <br>
 
                     <div class="col-md-12">
-                        <textarea class="form-control" name="message" rows="6" placeholder="Descripción"
+                        <textarea class="form-control" name="txtDesc" id="txtDesc" rows="6" placeholder="Descripción"
                                   required></textarea>
                     </div>
                 </div>
@@ -134,6 +144,16 @@
 
 <!-- Template Main JS File -->
 <script src="assets/js/main.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+<script>  
+   $(document).ready(function()
+	{
+	   $("#txtNombre").val("<%=di.getNombre()%>");
+	   $("#cbxPais").val("<%= di.getPaisID()%>");
+	   $("#txtDesc").val("<%=di.getDescripcion()%>");
+	});
+</script>
 
 </body>
 </html>

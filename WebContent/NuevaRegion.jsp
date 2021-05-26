@@ -57,11 +57,6 @@
                     <div class="col-md-12">
                         <input type="text" class="form-control" placeholder="Nombre" required>
                     </div>
-
-                    <div class="col-md-12">
-                        <textarea class="form-control" name="message" rows="6" placeholder="Descripción"
-                                  required></textarea>
-                    </div>
                 </div>
                 <br>
 
