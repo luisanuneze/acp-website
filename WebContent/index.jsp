@@ -79,17 +79,15 @@
 </head>
 
 <body>
-
-<!-- ======= Header ======= -->
-<%@ include file="/menu/header.jsp" %>
-<!-- End Header -->
+<div class="banner"
+	style=" height:350px; background-image:url(https://p4.wallpaperbetter.com/wallpaper/266/812/63/mountains-the-game-forest-view-wallpaper-preview.jpg)">
+	
+	<!-- ======= Header ======= -->
+	<%@ include file="/menu/header.jsp" %>
+	<!-- End Header -->
+</div>
 
 <main id="main">
-
-    <!-- Empty seccion for space-->
-    <div id="empty" class="empty">
-    </div>
-    <!-- End Empty Section -->
 
     <!-- ======= Inicio Section ======= -->
     <section id="about" class="about">

@@ -234,7 +234,7 @@ section {
 # Header
 --------------------------------------------------------------*/
 .header {
-    background: #F3F3F3;
+    background: #F3F3F370;
     transition: all 0.5s;
     z-index: 997;
     padding: 20px 0;

@@ -331,6 +331,53 @@ public class Dt_Eventos {
 				return eliminado;
 			}
 			
+			// Metodo para guardar la foto del Evento
+			public boolean guardarFotoEvento(int idEvento, String urlFoto)
+			{
+				boolean actualizado = false;
+				
+				try
+				{
+					c = PoolConexion.getConnection();
+					this.llenaRsEventos(c);	
+					rsEventos.beforeFirst();
+					while(rsEventos.next())
+					{
+						if(rsEventos.getInt("eventoid")==idEvento)
+						{
+							
+							rsEventos.updateString("hipervinculo", urlFoto);
+							rsEventos.updateInt("estado", 2);
+							rsEventos.updateRow();
+							actualizado = true;
+							break;
+						}
+					}
+				}
+				catch (Exception e) 
+				{
+					System.err.println("ERROR AL GUARDAR FOTO "+e.getMessage());
+					e.printStackTrace();
+				}
+				finally
+				{
+					try {
+						if(rsEventos != null){
+							rsEventos.close();
+						}
+						if(c != null){
+							PoolConexion.closeConnection(c);
+						}
+						
+					} catch (SQLException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				}
+				
+				return actualizado;
+			}
+			
 			
 
 }
