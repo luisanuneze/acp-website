@@ -26,7 +26,8 @@
           <li><a class="nav-link" href="v_arboles.jsp">Árboles</a></li>
           <li><a class="nav-link" href="v_mapa.jsp">Mapa</a></li>
           <li><a class="nav-link" href="v_servicios.jsp">Servicios</a></li>
-          <li><a class="nav-link" href="v_publicaciones.jsp">Publicaciones</a></li>          
+          <li><a class="nav-link" href="v_publicaciones.jsp">Publicaciones</a></li>   
+          <li><a class="nav-link" href="inicioSesion.jsp"><img src="assets/img/usuario.png"></a></li>       
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav>
