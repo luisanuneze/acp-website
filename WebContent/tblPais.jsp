@@ -113,8 +113,8 @@
                                     </td>
                                     <td><%=pa.getRegion() %>
                                     </td>
-                                    <td><a id="btn-edita-abrir" href="EditarPais.jsp?ID=<%=pa.getID()%>"> <i class="fas fa-edit" title="Editar País"></i></a>
-                                        <a href="#"> <i class="fas fa-trash-alt" title="Eliminar País"></i></a>
+                                    <td><a id="btn-edita-abrir" href="EditarPais.jsp?PaisID=<%=pa.getID()%>"> <i class="fas fa-edit" title="Editar País"></i></a>
+                                        <a href="Sl_GestionPais?PaisID=<%=pa.getID()%>"> <i class="fas fa-trash-alt" title="Eliminar País"></i></a>
                                         <a href="#"> <i class="fas fa-eye" title="Visualizar País"></i>
                                         </a></td>
                                 </tr>

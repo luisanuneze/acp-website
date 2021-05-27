@@ -55,7 +55,7 @@
             <br>
              <%
                     String pa = "";
-					pa = request.getParameter("ID")==null?"0":request.getParameter("ID");
+					pa = request.getParameter("PaisID")==null?"0":request.getParameter("PaisID");
 											
 					Pais pai = new Pais();
 					Dt_Pais dtp = new Dt_Pais();
@@ -64,7 +64,10 @@
              %>
             
             
-            <form action="forms/contact.php" method="post" class="php-email-form">
+            <form action="./Sl_GestionPais" method="post" class="pais">
+             <!-- El valor de este input es para el Servlet opcion guardar -->
+					<input name="PaisID" type="hidden" value="<%=pai.getPaisID()%>" /> 
+					<input name="opcion" type="hidden" value="2" />
                 <div class="row gy-4">
 
                     <%
@@ -80,7 +83,7 @@
                     </div>
                     <div class="row col-md-12">
                         <div class="col-sm-11">
-                            <select class="form-select" name="" id="cbxRegion" name="cbxRegion" required>
+                            <select class="form-select" name="cbxRegion" id="cbxRegion" required>
                                 <option value="">Region...</option>
                                 <%
                                     for (Region re : listRegion) {

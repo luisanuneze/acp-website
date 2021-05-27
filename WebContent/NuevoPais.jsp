@@ -53,7 +53,9 @@
 
             <h2 class="form-header" style="color: black;">Registrar Nuevo País</h2>
             <br>
-            <form action="forms/contact.php" method="post" class="php-email-form">
+            <form action="./Sl_GestionPais" method="post" class="pais">
+             <!-- El valor de este input es para el Servlet opcion guardar -->
+                <input name="opcion" type="hidden" value="1"/>
                 <div class="row gy-4">
 
                     <%
@@ -64,12 +66,12 @@
                     %>
 
                     <div class="col-md-12">
-                        <input type="text" class="form-control" placeholder="Nombre" required>
+                        <input type="text" class="form-control" placeholder="Nombre" name="txtNombre" id="txtNombre" required>
                         <br>
                     </div>
                     <div class="row col-md-12">
                         <div class="col-sm-11">
-                            <select class="form-select" name="" required>
+                            <select class="form-select" name="cbxRegion" id="cbxRegion" required>
                                 <option value="">Region...</option>
                                 <%
                                     for (Region re : listRegion) {
