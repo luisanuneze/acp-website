@@ -139,7 +139,7 @@
 	
 	                    </div><br>
                         
-                        <div class="col-sm-12 mb-3 mb-sm-0 row">
+                         <!-- <div class="col-sm-12 mb-3 mb-sm-0 row">
 	                        <div class="col-sm-10">
 	                        <select class="form-select" name="cbxuser" id="cbxuser" required>
 	                        	<option value="">Seleccione el usuario encargado...</option>
@@ -155,8 +155,8 @@
 	                        <div class="col-sm-1">
 	                            <a title="Agregar nuevo usuario" href="NuevoUsuario.jsp">
 	                                <i class="add fa-2x fas fa-plus-circle"></i></a>
-	                        </div><br><br><br>
-	                    </div>
+	                        </div>
+	                    </div>--><br><br><br>
 
                         <div class="root">
                             <div class="calendar" id="calendar">

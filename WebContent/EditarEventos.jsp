@@ -151,7 +151,7 @@
 	
 	                    </div><br><br>
                         
-                        <div>
+                        <!--<div>
                         <select class="form-select" name="cbxuser" id="cbxuser">
                         	<option value="">Seleccione el usuario encargado...</option>
                         <%
@@ -162,7 +162,7 @@
                         		}
                         %>
                         </select>
-                        </div><br><br>
+                        </div>--><br><br>
 
                         <div class="root">
                             <div class="calendar" id="calendar">

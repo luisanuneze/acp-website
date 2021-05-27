@@ -141,7 +141,7 @@ public class Dt_Eventos {
 					c = PoolConexion.getConnection();
 					this.llenaRsEventos(c);
 					rsEventos.moveToInsertRow();
-					rsEventos.updateInt("usuarioid", eve.getUsuarioid());
+					//rsEventos.updateInt("usuarioid", eve.getUsuarioid());
 					rsEventos.updateString("nombre", eve.getNombre());
 					rsEventos.updateString("descripcion", eve.getDescripcion());
 					rsEventos.updateString("tipoevento", eve.getTipoevento());
@@ -197,7 +197,7 @@ public class Dt_Eventos {
 						{
 							System.out.println("Ya entro 3");
 
-							rsEventos.updateInt("usuarioid", eve.getUsuarioid());
+							//rsEventos.updateInt("usuarioid", eve.getUsuarioid());
 							rsEventos.updateString("nombre", eve.getNombre());
 							rsEventos.updateString("descripcion", eve.getDescripcion());
 							rsEventos.updateString("tipoevento", eve.getTipoevento());
