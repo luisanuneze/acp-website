@@ -233,8 +233,18 @@ section {
 /*--------------------------------------------------------------
 # Header
 --------------------------------------------------------------*/
+
+.banner{
+	height:350px; 
+	background-image:url(https://p4.wallpaperbetter.com/wallpaper/266/812/63/mountains-the-game-forest-view-wallpaper-preview.jpg);
+}
+
+.banner .header{
+    background: #F3F3F300;
+}
+
 .header {
-    background: #F3F3F370;
+    background: #F3F3F3;
     transition: all 0.5s;
     z-index: 997;
     padding: 20px 0;

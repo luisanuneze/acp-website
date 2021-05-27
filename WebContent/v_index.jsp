@@ -43,9 +43,7 @@
 
 <body>
 
-	<div class="banner"
-		style=" height:350px; background-image:url(https://p4.wallpaperbetter.com/wallpaper/266/812/63/mountains-the-game-forest-view-wallpaper-preview.jpg)">
-	
+	<div class="banner">
 	<!-- ======= Header ======= -->
 	<%@ include file="/menu/v_header.jsp" %>
 	<!-- End Header -->
