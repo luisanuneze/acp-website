@@ -99,16 +99,6 @@
                         </div>
                         <div class="col" align="right">
 
-                            <!-- Button agregar e imprimir-->
-                            <a href="NuevaFloracion.jsp" data-toggle="modal"
-                               data-target="#modalNuevoUsuario"> <i
-                                    class="fas fa-file-medical fa-2x" title="Agregar nueva floración"></i>
-                            </a>&nbsp;&nbsp;
-                            <a href="#"> <i class="fas fa-print fa-2x"
-                                            title="Imprimir registro"></i>
-                            </a>
-                            <!-- Fin Button agregar e imprimir -->
-
                         </div>
                     </div>
 
@@ -130,7 +120,7 @@
                                     <th>Nombre</th>
                                     <th>Descripción</th>
                                     <th>Temporada</th>
-                                    <th>Opciones</th>
+                                 
                                 </tr>
                                 </thead>
                                 <tfoot>
@@ -139,7 +129,7 @@
                                     <th>Nombre</th>
                                     <th>Descripción</th>
                                     <th>Temporada</th>
-                                    <th>Opciones</th>
+                                 
                                 </tr>
                                 </tfoot>
                                 <tbody>
@@ -155,10 +145,6 @@
                                     </td>
                                     <td><%=flo.getTemporada() %>
                                     </td>
-                                    <td><a id="btn-edita-abrir" href="EditarFloracion.jsp"> <i class="fas fa-edit">Editar</i></a>
-                                        <a href="#"> <i class="fas fa-trash-alt">Eliminar</i></a>
-                                        <a href="#"> <i class="fas fa-eye">Visualizar</i>
-                                        </a></td>
                                 </tr>
                                 <%
                                     }
