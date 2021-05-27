@@ -1,6 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
          pageEncoding="ISO-8859-1" import="entidades.*, datos.*, vistas.VW_Distribucion, java.util.*;" %>
 <!DOCTYPE html>
+
+<%
+	//Variable de control de mensajes
+	String varMsj = request.getParameter("msj") == null ? "" : request.getParameter("msj");
+%>
 <html>
 
 <head>
@@ -54,13 +59,13 @@
 
             <div class="row ">
                 <!-- Cardview -->
-                <div class="col-sm-2 arboles card-view">
+               <!--  <div class="col-sm-2 arboles card-view">
                     <div class="">
                         <img src="https://image.flaticon.com/icons/png/512/2975/2975970.png">
                         <hr>
                         <p>Nombre común</p>
                     </div>
-                </div>
+                </div>-->
                 <!-- Fin cardview -->
 
 
@@ -227,6 +232,24 @@
 <!-- Template Main JS File -->
 <script src="assets/js/main.js"></script>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+
+	<script type="text/javascript">
+	
+	    $(document).ready(function ()
+	    {
+			/////////// VARIABLE DE CONTROL MSJ ///////////
+	        var mensaje = "";
+	        mensaje = "<%=varMsj%> ";
+
+			if (mensaje == "9") {
+				errorAlert('Error', 'El nombre de género que esta intentando registrar ya existe en la base de datos!');
+			}
+
+							
+		});
+	</script>
+
 
 </body>
 

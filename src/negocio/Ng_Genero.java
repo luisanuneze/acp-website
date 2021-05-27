@@ -15,7 +15,7 @@ public class Ng_Genero {
 		private ResultSet rs = null;
 		private PreparedStatement ps = null;
 		
-		// Metodo para validar el username
+		// Metodo para validar el Genero
 		public boolean existeGenero(String nombre){
 			boolean existe = false;
 			try{

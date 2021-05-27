@@ -12,6 +12,8 @@ import javax.servlet.http.HttpServletResponse;
 import datos.Dt_Arbol;
 import datos.Dt_Familia;
 import entidades.Arbol;
+import negocio.Ng_Arbol;
+import negocio.Ng_Genero;
 
 /**
  * Servlet implementation class Sl_GestionArbol
@@ -60,9 +62,13 @@ public class Sl_GestionArbol extends HttpServlet {
 		//CONSTRUIR EL OBJETO USUARIO
 			Dt_Arbol dta = new Dt_Arbol();
 			Arbol arb = new Arbol();
+			Ng_Arbol nga = new Ng_Arbol();
+			
+			
+			
 			//fam.setArbolID(Integer.parseInt(request.getParameter("ArbolID")));
-			arb.setNombrecientifico(request.getParameter("txtNombreC"));
-			arb.setNombrecomun(request.getParameter("txtNombreCi"));
+			arb.setNombrecientifico(request.getParameter("txtNombreCi"));
+			arb.setNombrecomun(request.getParameter("txtNombreC"));
 			arb.setDescripcion(request.getParameter("txaDescrip"));
 			//arb.setDistribucionID(Integer.parseInt(request.getParameter("cbxDis")));
 			arb.setFamiliaID(Integer.parseInt(request.getParameter("cbxFamilia")));
@@ -81,12 +87,22 @@ public class Sl_GestionArbol extends HttpServlet {
 			        arb.setFechaCreacion(new java.sql.Timestamp(fechaSistema.getTime()));
 			        System.out.println("fam.getFechaCreacion(): "+arb.getFechaCreacion());
 		        	
-			        if(dta.guardarArbol(arb)) {
-			        	response.sendRedirect("tblArbol.jsp?msj=1");
+			       
+			        if(nga.existeNombreC(arb.getNombrecomun()) || (nga.existeNombreCi(arb.getNombrecientifico())) ) {
+			        	response.sendRedirect("NuevoArbol.jsp?msj=9");
 			        }
 			        else {
-			        	response.sendRedirect("tblArbol.jsp?msj=2");
+			        	if(dta.guardarArbol(arb)) {
+				        	response.sendRedirect("tblArbol.jsp?msj=1");
+				        }
+				        else {
+				        	response.sendRedirect("tblArbol.jsp?msj=2");
+				        }
 			        }
+			        
+			        
+			        
+			        
 			        	
 		        }
 		        catch(Exception e) {

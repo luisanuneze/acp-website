@@ -31,6 +31,7 @@
     <!-- Template Main CSS File -->
     <link href="assets/css/style.css" rel="stylesheet">
 
+
 </head>
 
 <body>
@@ -52,6 +53,7 @@
 
         <div class="container" data-aos="fade-up">
 
+
             <div class="row ">
                 <!-- Cardview -->
                   <%
@@ -72,7 +74,8 @@
 								Dt_Arbol dtrous = new Dt_Arbol();
 								vwru = dtrous.getArbol2(Integer.parseInt(rous));
                             %>
-                <div class="col-sm-2 arboles card-view">
+                            
+                <div  class="col-sm-2 arboles card-view ">
                     <div class="">
                         <img name="imgArbol" id="imgArbol" src="<%=arb.getImagen()==null?"#":arb.getImagen()%>">
                            <hr></hr>
@@ -209,7 +212,7 @@
                             <div class="form-group col-sm-11">
                                 Descripción:
                                 <div class="col-sm-12">
-                                    <textarea class="form-control" name="txaDescrip" id="txaDescrip" maxlength="200" cols="50" rows="6" placeholder="Descripción"
+                                    <textarea class="form-control form-control-user" name="txaDescrip" id="txaDescrip" maxlength="200" cols="50" rows="3" placeholder="Descripción"
                                               required></textarea>
                                 </div>
                                 <br>
