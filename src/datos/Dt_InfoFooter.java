@@ -14,6 +14,7 @@ public class Dt_InfoFooter {
 	PoolConexion pc = PoolConexion.getInstance(); 
 	Connection c = null;
 	private ResultSet rsHome = null;
+	private ResultSet rsInfo_Footer = null;
 	private ResultSet rs = null;
 	private PreparedStatement ps = null;
 	
@@ -30,7 +31,7 @@ public class Dt_InfoFooter {
 		}
 		
 		
-		//Metodo para visualizar opciones de home
+		//Metodo para visualizar opciones de footer
 		public ArrayList<Info_Footer> listaFooter(){
 			ArrayList<Info_Footer> listFooter = new ArrayList<Info_Footer>();
 			try{
@@ -73,28 +74,30 @@ public class Dt_InfoFooter {
 			return listFooter;
 		}
 		
-		// Metodo para visualizar los datos de home específico
-		public Home getHome(int homeID)
+		// Metodo para visualizar los datos de footer específico
+		public Info_Footer getInfo_Footer(int info_FooterID)
 		{
-			Home hom = new Home();
+			Info_Footer foo = new Info_Footer();
 			try
 			{
 				c = PoolConexion.getConnection();
-				ps = c.prepareStatement("select * from public.\"home\" where \"homeid\"=?", ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE, ResultSet.HOLD_CURSORS_OVER_COMMIT);
-				ps.setInt(1, homeID);
+				ps = c.prepareStatement("select * from public.\"info_footer\" where \"info_footerID\"=?", ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE, ResultSet.HOLD_CURSORS_OVER_COMMIT);
+				ps.setInt(1, info_FooterID);
 				rs = ps.executeQuery();
 				if(rs.next())
 				{
-					hom.setHomeID(homeID);
-					hom.setMision(rs.getString("mision"));
-					hom.setVision(rs.getString("vision"));
-					hom.setHistoria(rs.getString("historia"));
+					foo.setInfo_footerID(info_FooterID);
+					foo.setTelefono(rs.getString("telefono"));
+					foo.setExtension(rs.getString("extension"));
+					foo.setDireccion(rs.getString("direccion"));
+					foo.setCorreo(rs.getString("correo"));
+					foo.setDescripcion(rs.getString("descripcion"));
 					
 				} 
 			}
 			catch (Exception e)
 			{
-				System.out.println("DATOS ERROR getHome(): "+ e.getMessage());
+				System.out.println("DATOS ERROR getInfo_FooterID(): "+ e.getMessage());
 				e.printStackTrace();
 			}
 			finally
@@ -116,28 +119,29 @@ public class Dt_InfoFooter {
 				}
 			}
 			
-			return hom;
+			return foo;
 		}
 		
-		// Metodo para modificar home
-		public boolean modificarHome(Home home)
+		// Metodo para modificar footer
+		public boolean modificarFooter(Info_Footer foo)
 		{
 			boolean modificado=false;	
 			try
 			{
 				c = PoolConexion.getConnection();
 				this.llenaRsInfo_Footer(c);
-				rsHome.beforeFirst();
-				while (rsHome.next())
+				rsInfo_Footer.beforeFirst();
+				while (rsInfo_Footer.next())
 				{
-					if(rsHome.getInt(1)==home.getHomeID())
+					if(rsInfo_Footer.getInt(1)==foo.getInfo_footerID())
 					{
-						rsHome.updateString("vision", home.getVision());
-						rsHome.updateString("mision", home.getMision());
-						rsHome.updateString("historia", home.getHistoria());
-						rsHome.updateString("descrip_pag", home.getDescrip_pag());
-						rsHome.updateTimestamp("fechaModicacion", home.getFechaModificacion());
-						rsHome.updateRow();
+						rsInfo_Footer.updateString("telefono", foo.getTelefono());
+						rsInfo_Footer.updateString("extension", foo.getExtension());
+						rsInfo_Footer.updateString("direccion", foo.getDireccion());
+						rsInfo_Footer.updateString("correo", foo.getCorreo());
+						rsInfo_Footer.updateString("descripcion", foo.getDescripcion());
+						rsInfo_Footer.updateTimestamp("fechaModicacion", foo.getFechaModificacion());
+						rsInfo_Footer.updateRow();
 						modificado=true;
 						break;
 					}
@@ -145,14 +149,14 @@ public class Dt_InfoFooter {
 			}
 			catch (Exception e)
 			{
-				System.err.println("ERROR AL ACTUALIZAR HOME "+e.getMessage());
+				System.err.println("ERROR AL ACTUALIZAR FOOTER "+e.getMessage());
 				e.printStackTrace();
 			}
 			finally
 			{
 				try {
-					if(rsHome != null){
-						rsHome.close();
+					if(rsInfo_Footer != null){
+						rsInfo_Footer.close();
 					}
 					if(c != null){
 						PoolConexion.closeConnection(c);

@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
          pageEncoding="ISO-8859-1"
-         import="entidades.Home, datos.Dt_Home, vistas.*, datos.Dt_RolOpciones, java.util.*;" %>
+         import="entidades.Home, datos.Dt_Home, vistas.*, datos.Dt_RolOpciones, entidades.Info_Footer, datos.Dt_InfoFooter, java.util.*;" %>
 <%
 	response.setHeader( "Pragma", "no-cache" );
 	response.setHeader( "Cache-Control", "no-store" );
@@ -95,7 +95,11 @@
                  ArrayList<Home> listHome = new ArrayList<Home>();
                  Dt_Home dth = new Dt_Home();
                  listHome = dth.listaHome();
-
+                 
+                 
+                 ArrayList<Info_Footer> listFooter = new ArrayList<Info_Footer>();
+                 Dt_InfoFooter dtfoo = new Dt_InfoFooter();
+                 listFooter = dtfoo.listFooter();
              %>
              
              <%
@@ -126,7 +130,11 @@
                     </div>
                 </a>
 
-                <a href="EditarFooter.jsp?homeID=<%=ho.getHomeID()%>">
+             <%
+                 for (Info_Footer foo : listFooter) {
+             %>
+
+                <a href="EditarFooter.jsp?info_footerID=<%=foo.getInfo_footerID()%>">
                     <div class="content">
                         <div id="Content-edicion" class="Content-edicion">
                             <h2>Editar información del footer</h2>

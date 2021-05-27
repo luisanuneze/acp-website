@@ -47,7 +47,6 @@
 
     <title>PWACP - Portal Web Arboreto Carmelo Palma</title>
     <meta content="" name="description">
-
     <meta content="" name="keywords">
 
     <!-- Favicons -->
@@ -95,8 +94,20 @@
 
             <h2 class="form-header" style="color: black;">Editar Footer</h2>
             <br>
+            
+            <%
+                String footer = "";
+				footer = request.getParameter("info_footerID")==null?"0":request.getParameter("info_footerID");
+										
+				Info_Footer foo = new Info_Footer();
+				Dt_InfoFooter dtfoo = new Dt_InfoFooter();
+				foo = dtfoo.getInfo_Footer(Integer.parseInt(footer));
 
-            <form class="user row">
+            %>
+
+            <form action="./Sl_GestionInfo_Footer" method="post" class="user row">
+             <input name="info_footerID" type="hidden" value="<%=foo.getInfo_footerID()%>" />
+             <input name="opcion" type="hidden" value="1" /> 
                 <div class="form-group col-sm-6">
                     <div class="col-sm-12 mb-3 mb-sm-0">
                     Teléfono:
@@ -122,7 +133,7 @@
                     </div>
                     <div class="col-sm-12">
                     Descripción:
-                        <textarea class="form-control" name="message" rows="6" placeholder="Descripción"
+                        <textarea class="form-control" name="message" rows="6" placeholder="Descripción" name="txtDescripcion" id="txtDescripcion"
                                   required></textarea>
                     </div>
                 </div>
@@ -136,18 +147,13 @@
                 <a href="index.html" class="btn btn-facebook btn-user btn-block">
                     <i class="fab fa-facebook-f fa-fw"></i> Register with Facebook
                 </a>-->
-
+                <div class="button-formulario">
+                    <button> Guardar</button>
+                    <a href="javascript:history.go(-1)" class="button">Regresar </a>
+                </div>
             </form>
 
             <br>
-
-            <!-- Botones -->
-            <div class="col-md-6">
-                <button style="background-color:#0e203f; color:white"> Actualizar</button>
-                <a href="edicionSeccion.jsp">
-                    <button style="background-color:#0e203f; color:white"> Regresar</button>
-                </a>
-            </div>
 
         </div>
 
@@ -174,6 +180,19 @@
 
 <!-- Template Main JS File -->
 <script src="assets/js/main.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+
+<script>  
+   $(document).ready(function()
+	{
+	   $("#txtTelefono").val("<%=foo.getTelefono()%>");
+	   $("#txtExtension").val("<%=foo.getExtension()%>");
+	   $("#txtDireccion").val("<%=foo.getDireccion()%>");
+	   $("#txtCorreo").val("<%=foo.getCorreo()%>");
+	   $("#txtDescripcion").val("<%=foo.getDescripcion()%>");
+	});
+</script>
 
 </body>
 </html>
