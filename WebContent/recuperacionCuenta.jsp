@@ -44,7 +44,7 @@
         <!-- Finaliza seccion del banner -->
 
         <!-- Formulario de inicio de sesion -->
-        <div id="formulario" class="formulario col">
+        <div id="formulario" class="formulario col user">
             <form action="index.jsp" class="col">
                 <h2>Recuperación de contraseña</h2>
                 <div class="form-group">
@@ -54,7 +54,7 @@
                 </div>
 
                 <div class="button-iniciar">
-                    <button>Confirmar</button>
+                    <button>&nbsp;&nbsp;&nbsp;&nbsp;Confirmar&nbsp;&nbsp;&nbsp;&nbsp;</button>
                 </div>
 
                 <!-- <br><br><br><h4><strong>Seguimos trabajando, <br> para mejorar su servicio</strong></h4>

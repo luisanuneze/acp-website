@@ -73,8 +73,8 @@
 			<!-- Finaliza seccion del banner -->
 
 			<!-- Formulario de inicio de sesion -->
-			<div id="formulario" class="formulario col">
-				<form class="user" method="post" action="./Sl_Login">
+			<div id="formulario" class="formulario col user">
+				<form class="user col" method="post" action="./Sl_Login">
 					<h2>Inicio de sesión</h2>
 					<div class="form-group">
 						<label for="usuario"> Usuario:</label> <input
@@ -114,11 +114,11 @@
 					</div>
 					<div class="checkbox">
 						<label><input type="checkbox" id="check"> Mantener
-							sesión iniciada </label> </br> </br>
+							sesión iniciada </label>
 					</div>
 					<div class="button-iniciar">
-						<button>Iniciar sesión</button>
-						</br> <a href="recuperacionCuenta.jsp">¿Olvidaste tu contraseña?</a> </br> </br>
+						<button class="button">&nbsp;&nbsp;&nbsp;&nbsp;Iniciar sesión&nbsp;&nbsp;&nbsp;&nbsp;</button><br>
+						<a href="recuperacionCuenta.jsp">¿Olvidaste tu contraseña?</a> <br>
 						<a href="v_index.jsp">Entrar como visitante</a>
 					</div>
 
