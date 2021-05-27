@@ -81,6 +81,55 @@ public class Dt_Eventos {
 				return listEvent;
 			}
 			
+			//Metodo para visualizar eventos registrados y activos
+			
+			public ArrayList<Eventos> listaEventosPublicos(){
+				ArrayList<Eventos> listEventP = new ArrayList<Eventos>();
+				try{
+					c = PoolConexion.getConnection();
+					ps = c.prepareStatement("select * from public.\"evento\" where tipoevento = 'Publica'", ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE, ResultSet.HOLD_CURSORS_OVER_COMMIT);
+					rs = ps.executeQuery();
+					while(rs.next()){
+						Eventos eve = new Eventos();
+						eve.setEventoid(rs.getInt("eventoid"));
+						eve.setUsuarioid(rs.getInt("usuarioid"));
+						eve.setNombre(rs.getString("nombre"));
+						eve.setDescripcion(rs.getString("descripcion"));
+						eve.setTipoevento(rs.getString("tipoevento"));
+						eve.setUbicacion(rs.getString("ubicacion"));
+						eve.setHipervinculo(rs.getString("hipervinculo"));
+						eve.setFechainicio(rs.getDate("fechainicio"));
+						eve.setFechafin(rs.getDate("fechafin"));
+						eve.setHora(rs.getString("hora"));
+						eve.setEstado(rs.getInt("estado"));
+						listEventP.add(eve);
+					}
+				}
+				catch (Exception e){
+					System.out.println("DATOS: ERROR EN LISTAR EVENTOS PUBLICOS "+ e.getMessage());
+					e.printStackTrace();
+				}
+				finally{
+					try {
+						if(rs != null){
+							rs.close();
+						}
+						if(ps != null){
+							ps.close();
+						}
+						if(c != null){
+							PoolConexion.closeConnection(c);
+						}
+						
+					} catch (SQLException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+					
+				}
+				return listEventP;
+			}
+			
 			// Metodo para visualizar los datos de un evento en específico
 			public Eventos getEventos(int eventoid)
 			{

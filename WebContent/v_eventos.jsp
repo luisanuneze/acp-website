@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-         pageEncoding="ISO-8859-1" %>
+         pageEncoding="ISO-8859-1" import="entidades.Eventos, datos.Dt_Eventos, java.util.*;" %>
 <!DOCTYPE html>
 <html>
 
@@ -52,28 +52,36 @@
 
         <div class="container" data-aos="fade-up">
 
+
+                   <%
+                		ArrayList<Eventos> listEventP = new ArrayList<Eventos>();
+                		Dt_Eventos dte = new Dt_Eventos();
+                		listEventP = dte.listaEventosPublicos();
+
+           			%>
+
             <div class="eventos row">
                 <div class="eventos col-sm-8">
+                
+                <%
+                    for (Eventos ev : listEventP) {
+                %>
 
                     <div class="content div-eventos">
                         <img src="https://img.ecologiahoy.com/2014/01/Movimiento-ecologista.jpg">
                         <div id="Content-evento" class="Content-evento">
-                            <h2>XVII Reunión de ecologistas</h2>
-                            <p><strong>Ubicación:</strong> Universidad Centroamericana (UCA)
-                                <br><strong>Fecha: </strong>25/04/2000</p>
+                            <h2><%=ev.getNombre() %></h2>
+                            <p><strong>Descripción: </strong><%=ev.getDescripcion() %><br>
+                            <strong>Ubicación:</strong> <%=ev.getUbicacion() %>
+                                <br><strong>Fecha: </strong><%=ev.getFechainicio() %>
+                                <br><strong>Hora: </strong><%=ev.getHora() %></p>
 
                         </div>
                     </div>
-                    <div class="content div-eventos">
-                        <img src="https://img.ecologiahoy.com/2014/01/Movimiento-ecologista.jpg">
-                        <div id="Content-evento" class="Content-evento">
-                            <h2>Conferencia regional en relación a los efectos del clima en Arboretos</h2>
-                            <p><strong>Ubicación:</strong> Universidad Centroamericana (UCA)
-                                <br><strong>Fecha: </strong>12/05/2000</p>
-
-                        </div>
-                    </div>
-
+                    
+                    <%
+	                    }
+	                %>
                     
 
                 </div>
