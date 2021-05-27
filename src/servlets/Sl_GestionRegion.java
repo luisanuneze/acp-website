@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import entidades.Region;
+import negocio.Ng_Region;
 import datos.Dt_Region;
 
 /**
@@ -66,6 +67,7 @@ public class Sl_GestionRegion extends HttpServlet {
 		// CONSTRUIR EL OBJETO ROL
 		Dt_Region dtre = new Dt_Region();
 		Region reg = new Region();
+		Ng_Region ngre = new Ng_Region();
 		
 		reg.setNombre(request.getParameter("txtname"));
 		
@@ -82,12 +84,23 @@ public class Sl_GestionRegion extends HttpServlet {
 				reg.setFechaCreacion(new java.sql.Timestamp(fechaSistema.getTime()));
 				System.out.println("reg.getFechaCreacion(): " + reg.getFechaCreacion());
 				
-					if(dtre.guardarReg(reg)) {
-			        	response.sendRedirect("tblRegion.jsp?msj=1");
-			        }
-			        else {
-			        	response.sendRedirect("tblRegion.jsp?msj=2");
-			        }
+					
+					  if(ngre.existeRegion(reg.getNombre())) {
+				        	response.sendRedirect("NuevaRegion.jsp?msj=existe");
+				        }
+				        else {
+				        	if(dtre.guardarReg(reg)) {
+					        	response.sendRedirect("tblRegion.jsp?msj=1");
+					        }
+					        else {
+					        	response.sendRedirect("tblRegion.jsp?msj=2");
+					        }
+				        }
+					
+					
+					
+					
+					
 
 			} catch (Exception e) {
 				System.out.println("Sl_GestionRegion, el error es: " + e.getMessage());

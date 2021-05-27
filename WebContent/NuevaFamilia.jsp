@@ -174,10 +174,10 @@
 	    $(document).ready(function ()
 	    {
 			/////////// VARIABLE DE CONTROL MSJ ///////////
-	        var mensaje = "";
-	        mensaje = "<%=varMsj%> ";
+	        var mensaje = "" ;
+	        mensaje = "<%=varMsj%> " ;
 
-			if (mensaje == "9") {
+			if (mensaje == "existe") {
 				errorAlert('Error', 'El nombre de género que esta intentando registrar ya existe en la base de datos!');
 			}
 

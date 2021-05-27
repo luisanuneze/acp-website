@@ -89,7 +89,7 @@ public class Sl_GestionArbol extends HttpServlet {
 		        	
 			       
 			        if(nga.existeNombreC(arb.getNombrecomun()) || (nga.existeNombreCi(arb.getNombrecientifico())) ) {
-			        	response.sendRedirect("NuevoArbol.jsp?msj=9");
+			        	response.sendRedirect("NuevoArbol.jsp?msj=existe");
 			        }
 			        else {
 			        	if(dta.guardarArbol(arb)) {
