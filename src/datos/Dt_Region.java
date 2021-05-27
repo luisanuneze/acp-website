@@ -8,7 +8,6 @@ import java.util.ArrayList;
 import java.util.Date;
 
 import entidades.Region;
-import entidades.Rol;
 
 
 public class Dt_Region {
@@ -223,7 +222,7 @@ public class Dt_Region {
 						Date fechaSistema = new Date();
 						while (rsRegion.next())
 							{
-							if(rsRegion.getInt(1)==RegionID)
+							if(rsRegion.getInt("RegionID")==RegionID)
 								{
 									rsRegion.updateTimestamp("FechaEliminacion", new java.sql.Timestamp(fechaSistema.getTime()));
 									rsRegion.updateInt("Estado", 3);

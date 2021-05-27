@@ -1,6 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
          pageEncoding="ISO-8859-1" import="entidades.Pais, vistas.VW_PaisRegion, datos.Dt_Pais, java.util.*;" %>
 <!DOCTYPE html>
+<%
+	//Variable de control de mensajes
+	String varMsj = request.getParameter("msj")==null?"":request.getParameter("msj");
+
+
+%>
 <html>
 <head>
     <meta charset="ISO-8859-1">
@@ -31,6 +37,9 @@
 
     <!-- Template Main CSS File -->
     <link href="assets/css/style.css" rel="stylesheet">
+    
+            <!-- jAlert css  -->
+	<link rel="stylesheet" href="jAlert/dist/jAlert.css" />
 
 </head>
 
@@ -79,7 +88,7 @@
                         </div>
 
                         <div class="table-responsive">
-                            <table class="table table-bordered" id="tblPais" width="100%" cellspacing="0">
+                            <table class="table table-bordered" id="tblUsers" width="100%" cellspacing="0">
                                 <%
                                     ArrayList<VW_PaisRegion> listPais = new ArrayList<VW_PaisRegion>();
                                     Dt_Pais dtd = new Dt_Pais();
@@ -114,7 +123,27 @@
                                     <td><%=pa.getRegion() %>
                                     </td>
                                     <td><a id="btn-edita-abrir" href="EditarPais.jsp?PaisID=<%=pa.getID()%>"> <i class="fas fa-edit" title="Editar País"></i></a>
-                                        <a href="Sl_GestionPais?PaisID=<%=pa.getID()%>"> <i class="fas fa-trash-alt" title="Eliminar País"></i></a>
+                                        <a class="ajax-link" href="javascript:void(0);" 
+                                           		onclick="$.jAlert({
+                                           		    'type': 'confirm',
+                                           		    'confirmQuestion': 'Realmente desea eliminar este registro?',
+                                           		    'onConfirm': function(e, btn){
+                                           		      e.preventDefault();
+                                           		      //do something here
+
+                                           		      window.location.href = 'Sl_GestionPais?PaisID=<%=pa.getID()%>';
+                                           		      btn.parents('.jAlert').closeAlert();
+                                           		      return false;
+                                           		    },
+                                           		    'onDeny': function(e, btn){
+                                           		      e.preventDefault();
+                                           		      //do something here
+                                           		      btn.parents('.jAlert').closeAlert();
+                                           		      return false;
+                                           		    }
+                                           		  });">
+                        							<i class="fas fa-trash-alt" title="Eliminar Pais"></i>
+                        						</a> 
                                         <a href="#"> <i class="fas fa-eye" title="Visualizar País"></i>
                                         </a></td>
                                 </tr>
@@ -159,6 +188,80 @@
 
 <!-- Template Main JS File -->
 <script src="assets/js/main.js"></script>
+
+<!-- Bootstrap core JavaScript-->
+<script src="assets/vendor/jquery/jquery.min.js"></script>
+<script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+<!-- Core plugin JavaScript-->
+<script src="assets/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+<!-- DATATABLE -->
+<script src="DataTables/DataTables-1.10.21/js/jquery.dataTables.js"></script>
+
+<!-- DATATABLE buttons -->
+<script src="DataTables/Buttons-1.6.3/js/dataTables.buttons.min.js"></script>
+
+<!-- js Datatable buttons print -->
+<script src="DataTables/Buttons-1.6.3/js/buttons.html5.min.js"></script>
+<script src="DataTables/Buttons-1.6.3/js/buttons.print.min.js"></script>
+
+<!-- js Datatable buttons pdf -->
+<script src="DataTables/pdfmake-0.1.36/pdfmake.min.js"></script>
+<script src="DataTables/pdfmake-0.1.36/vfs_fonts.js"></script>
+
+<!-- js Datatable buttons excel -->
+<script src="DataTables/JSZip-2.5.0/jszip.min.js"></script>
+
+<!-- jAlert js -->
+<script src="jAlert/dist/jAlert.min.js"></script>
+<script src="jAlert/dist/jAlert-functions.min.js"> //optional!!</script>
+
+<script>
+    $(document).ready(function () {
+        ////// APLICAMOS FORMATO Y BOTONES A LA TABLA //// INICIAMOS EL PLUGIN DATATABLE
+        $('#tblUsers').DataTable({
+            dom: '',
+            buttons: [
+                //'pdf',
+                //'excel', 'print'
+                ]
+
+        });
+
+        ////////////////////////////////////////////////
+        /////////// VARIABLE DE CONTROL MSJ ///////////
+        var mensaje = "";
+        mensaje = "<%=varMsj%>";
+
+        if(mensaje == "1")
+        {
+            successAlert('Éxito', 'Los datos han sido registrados exitosamente!');
+        }
+        if(mensaje == "2")
+        {
+            errorAlert('Error', 'Revise los datos e intente nuevamente!!!');
+        }
+        if(mensaje == "3")
+        {
+            successAlert('Éxito', 'Los datos han sido actualizados exitosamente!');
+        }
+        if(mensaje == "4")
+        {
+            errorAlert('Error', 'Revise los datos e intente nuevamente!!!');
+        }
+        if(mensaje == "5")
+        {
+            successAlert('Éxito', 'El Pais ha sido dado de baja exitosamente!');
+        }
+        if(mensaje == "6")
+        {
+            errorAlert('Error', 'Revise los datos e intente nuevamente!!!');
+        }
+
+
+    });
+</script>
 
 </body>
 </html>
