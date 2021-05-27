@@ -177,7 +177,7 @@
 				            <div class="button-formulario">
 				                <input class="btn-user button button-formulario" type="submit"
 				                                       value="Actualizar"/>
-				                <a href="tblRolOpc.jsp" style="padding: 13px 35px" class="btn-user button button-formulario ">Regresar</a>
+				                <a href="javascript:history.go(-1)" style="padding: 13px 35px" class="btn-user button button-formulario ">Regresar</a>
 				            </div>
                         </form>
                     </div>

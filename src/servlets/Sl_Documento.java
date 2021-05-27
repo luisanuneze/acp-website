@@ -87,7 +87,7 @@ public class Sl_Documento extends HttpServlet {
 					System.out.println("size: "+size);
 					
 					/////// GUARDAMOS EN UN ARREGLO LOS FORMATOS QUE SE DESEAN PERMITIR
-					List<String> formatos = Arrays.asList("document/pdf");
+					List<String> formatos = Arrays.asList("application/pdf");
 					
 					////// COMPROBAR SI EL TAMA�O Y FORMATO SON PERMITIDOS //////////
 //					if(formatos.contains(uploaded.getContentType()) && size <= 102400)

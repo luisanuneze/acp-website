@@ -73,6 +73,8 @@ public class Sl_GestionUsuario  extends HttpServlet{
 			user.setUsuario(request.getParameter("txtUserName"));
 			user.setEmail(request.getParameter("txtEmail"));
 			user.setContrasenia(request.getParameter("txtPwd"));
+			user.setTelefono(Integer.parseInt(request.getParameter("txttel")));
+			
 		
 		
 		switch (opc){

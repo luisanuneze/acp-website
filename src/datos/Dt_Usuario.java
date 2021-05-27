@@ -25,7 +25,7 @@ public class Dt_Usuario {
 		
 		public void llenaRsUsuario(Connection c){
 			try{
-				ps = c.prepareStatement("SELECT usuarioid,apellidos,nombres,usuario,email,contrasenia,fechacreacion,fechamodificacion,fechaeliminacion,estado from usuario;", ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE, ResultSet.HOLD_CURSORS_OVER_COMMIT);
+				ps = c.prepareStatement("SELECT usuarioid,apellidos,nombres,usuario,email,telefono,contrasenia,fechacreacion,fechamodificacion,fechaeliminacion,estado from usuario;", ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE, ResultSet.HOLD_CURSORS_OVER_COMMIT);
 				rsUsuario = ps.executeQuery();
 			}
 			catch (Exception e){
@@ -50,6 +50,7 @@ public class Dt_Usuario {
 					user.setUsuario(rs.getString("usuario"));
 					user.setContrasenia(rs.getString("contrasenia"));
 					user.setEmail(rs.getString("email"));
+					user.setTelefono(rs.getInt("telefono"));
 					user.setEstado(rs.getInt("estado"));
 					user.setFechaCreacion(rs.getTimestamp("fechacreacion"));
 					listUser.add(user);
@@ -102,6 +103,7 @@ public class Dt_Usuario {
 					user.setNombres(rs.getString("nombres"));
 					user.setApellidos(rs.getString("apellidos"));
 					user.setEmail(rs.getString("email"));
+					user.setTelefono(rs.getInt("telefono"));
 					user.setEstado(rs.getInt("estado"));
 					System.out.println("Ya te deberia de aparecer wtf");
 				}
@@ -149,6 +151,7 @@ public class Dt_Usuario {
 				rsUsuario.updateString("apellidos", user.getApellidos());
 				rsUsuario.updateString("email", user.getEmail());
 				rsUsuario.updateTimestamp("fechacreacion", user.getFechaCreacion());
+				rsUsuario.updateInt("telefono", user.getTelefono());
 				rsUsuario.updateInt("Estado", 1);
 				rsUsuario.insertRow();
 				rsUsuario.moveToCurrentRow();
@@ -199,6 +202,7 @@ public class Dt_Usuario {
 						rsUsuario.updateString("apellidos", user.getApellidos());
 						rsUsuario.updateString("email", user.getEmail());
 						rsUsuario.updateTimestamp("fechaModificacion", user.getFechaModificacion());
+						rsUsuario.updateInt("telefono", user.getTelefono());
 						rsUsuario.updateInt("estado", 2);
 						rsUsuario.updateRow();
 						modificado=true;

@@ -110,7 +110,7 @@
 						</div>
 						<div class="col-sm-10 mb-3 mb-sm-3 input-group">
 							<input type="password" class="form-control form-control-user"
-								name="txtPwd" id="txtPwd" placeholder="Contraseña" required>
+								name="txtPwd" id="txtPwd" placeholder="Contraseña" minlength="8" maxlength="32" required>
 							<div class="input-group-append">
 								<button id="show_password" class="btn btn-primary" type="button"
 									onclick="mostrarPassword()">
@@ -120,8 +120,12 @@
 						</div>
 						<div class="col-sm-12 mb-3 mb-sm-0">
 							<input type="password" class="form-control form-control-user"
-								name="txtPwd2" id="txtPwd2" placeholder="Repetir Contraseña"
+								name="txtPwd2" id="txtPwd2" placeholder="Repetir Contraseña" minlength="8" maxlength="32"
 								required>
+						</div>
+						<div class="col-sm-12 mb-3 mb-sm-0">
+							<input type="Tel" class="form-control form-control-user"
+								name="txttel" id="txttel" placeholder="Ingrese 0 si no posee numero de contacto" required>
 						</div>
 					</div>
 
@@ -130,7 +134,7 @@
 					<!-- Botones -->
 					<div class="button-formulario">
 						<input class="btn-user button button-formulario" type="submit"
-							value="Guardar" /> <a href="tblUsuarios.jsp"
+							value="Guardar" /> <a href="javascript:history.go(-1)"
 							style="padding: 13px 35px"
 							class="btn-user button button-formulario ">Regresar</a>
 					</div>
@@ -197,49 +201,45 @@
 	<script src="jAlert/dist/jAlert-functions.min.js"> //optional!!</script>
 
 	<script type="text/javascript">
+	     
+	
+	function mostrarPassword() {
+		var cambio = document.getElementById("txtPwd");
+		if (cambio.type == "password") {
+			cambio.type = "text";
+			$('.icon').removeClass('fa fa-eye-slash').addClass('fa fa-eye');
+		} else {
+			cambio.type = "password";
+			$('.icon').removeClass('fa fa-eye').addClass('fa fa-eye-slash');
+		}
+	}
 	
 	    $(document).ready(function ()
 	    {
 			/////////// VARIABLE DE CONTROL MSJ ///////////
 	        var mensaje = "";
-	        mensaje = "<%=varMsj%>
-		";
+	        mensaje = "<%=varMsj%>";
 
-							if (mensaje == "existe") {
-								errorAlert(
-										'Error',
-										'El nombre de usuario que esta intentando registrar ya existe en la base de datos!');
-							}
-
-							$("#txtPwd2")
-									.change(
-											function() {
-												var clave = "";
-												var clave2 = "";
-												clave = $("#txtPwd").val();
-												clave2 = $("#txtPwd2").val();
-												if (clave != clave2) {
-													errorAlert('Error',
-															'Las contraseñas no coinciden');
-													$("#txtPwd").val("");
-													$("#txtPwd2").val("");
-												}
-											});
-						});
-	</script>
-
-	<script type="text/javascript">
-		function mostrarPassword() {
-			var cambio = document.getElementById("txtPwd");
-			if (cambio.type == "password") {
-				cambio.type = "text";
-				$('.icon').removeClass('fa fa-eye-slash').addClass('fa fa-eye');
-			} else {
-				cambio.type = "password";
-				$('.icon').removeClass('fa fa-eye').addClass('fa fa-eye-slash');
+			if (mensaje == "existe") {
+				errorAlert('Error','El nombre de usuario que esta intentando registrar ya existe en la base de datos!');
 			}
-		}
+
+			$("#txtPwd2").change(
+				function() {
+					var clave = "";
+					var clave2 = "";
+					clave = $("#txtPwd").val();
+					clave2 = $("#txtPwd2").val();
+					if (clave != clave2) {
+						errorAlert('Error','Las contraseñas no coinciden');
+						$("#txtPwd").val("");
+						$("#txtPwd2").val("");
+						}
+					});
+		});
 	</script>
+
+	
 
 </body>
 </html>

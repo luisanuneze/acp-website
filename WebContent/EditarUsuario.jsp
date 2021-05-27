@@ -113,11 +113,15 @@
 						</div>
 						<div class="col-sm-12">
 							<input type="password" class="form-control form-control-user"
-								name="txtPwd" id="txtPwd" placeholder="Contraseña" required>
+								name="txtPwd" id="txtPwd" placeholder="Contraseña" minlength="8" maxlength="32" required>
 						</div>
 						<div class="col-sm-12">
 							<input type="password" class="form-control form-control-user"
-								name="txtPwd2" id="txtPwd2" placeholder="Repetir Contraseña" required>
+								name="txtPwd2" id="txtPwd2" placeholder="Repetir Contraseña" minlength="8" maxlength="32" required>
+						</div>
+						<div class="col-sm-12">
+							<input type="Tel" class="form-control form-control-user"
+								name="txttel" id="txttel" placeholder="Ingrese 0 si no posee numero de contacto" required>
 						</div>
 					</div>
 
@@ -128,7 +132,7 @@
 					<!-- Botones -->
 					<div class="button-formulario">
 						<input class="btn-user button button-formulario" type="submit"
-							value="Actualizar" /> <a href="tblUsuarios.jsp"
+							value="Actualizar" /> <a href="javascript:history.go(-1)"
 							style="padding: 13px 35px"
 							class="btn-user button button-formulario ">Regresar</a>
 					</div>
@@ -205,6 +209,7 @@
 		$("#txtEmail").val("<%=user.getEmail()%>");
 		$("#txtPwd").val("<%=user.getContrasenia()%>");
 		$("#txtPwd2").val("<%=user.getContrasenia()%>");
+		$("#txttel").val("<%=user.getTelefono()%>");
 	});
    
 	   

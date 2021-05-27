@@ -33,17 +33,20 @@ public class Dt_RolOpciones {
 	}
 
 	// Metodo para listar los Roles con Opciones asignadas
-	public ArrayList<VW_RolOpciones> listaRolOpc() {
+	/*public ArrayList<VW_RolOpciones> listaRolOpc2(int rolid) {
 		ArrayList<VW_RolOpciones> listRolOpc = new ArrayList<VW_RolOpciones>();
 		try {
+			
 			c = PoolConexion.getConnection();
-			ps = c.prepareStatement("select * from public.vw_rolopciones", ResultSet.TYPE_SCROLL_SENSITIVE,
-					ResultSet.CONCUR_UPDATABLE, ResultSet.HOLD_CURSORS_OVER_COMMIT);
+			ps = c.prepareStatement("select * from public.vw_rolopciones where rolid=?", ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.HOLD_CURSORS_OVER_COMMIT);
 			rs = ps.executeQuery();
+			ps.setInt(1, rolid);
 			while (rs.next()) {
 				VW_RolOpciones ropc = new VW_RolOpciones();
 				ropc.setID(rs.getInt("iD"));
+				ropc.setRolid(rs.getInt("rolid"));
 				ropc.setRol(rs.getString("rol"));
+				ropc.setRolid(rs.getInt("opcionesid"));
 				ropc.setOpcion(rs.getString("opcion"));
 				listRolOpc.add(ropc);
 			}
@@ -69,7 +72,91 @@ public class Dt_RolOpciones {
 
 		}
 		return listRolOpc;
-	}
+	}*/
+	//Metodo para visualizar las opciones de un rol
+		public ArrayList<VW_RolOpciones> listaRolOpc2(int idRol){
+			ArrayList<VW_RolOpciones> listropc = new ArrayList<VW_RolOpciones>();
+			try{
+				c = PoolConexion.getConnection();
+				ps = c.prepareStatement("select * from public.vw_rolopciones where rolid=?", ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.HOLD_CURSORS_OVER_COMMIT);
+				ps.setInt(1, idRol);
+				rs = ps.executeQuery();
+				while(rs.next()){
+					VW_RolOpciones vwrop = new VW_RolOpciones();
+					vwrop.setID(rs.getInt("iD"));
+					vwrop.setRolid(rs.getInt("rolid"));
+					vwrop.setRol(rs.getString("rol"));
+					vwrop.setOpcionesid(rs.getInt("opcionesid"));
+					vwrop.setOpcion(rs.getString("opcion"));
+					listropc.add(vwrop);
+				}
+			}
+			catch (Exception e){
+				System.out.println("DATOS: ERROR EN listaRolOpc "+ e.getMessage());
+				e.printStackTrace();
+			}
+			finally{
+				try {
+					if(rs != null){
+						rs.close();
+					}
+					if(ps != null){
+						ps.close();
+					}
+					if(c != null){
+						PoolConexion.closeConnection(c);
+					}
+					
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				
+			}
+			return listropc;
+		}
+	
+	// Metodo para listar los Roles con Opciones asignadas
+		public ArrayList<VW_RolOpciones> listaRolOpc() {
+			ArrayList<VW_RolOpciones> listRolOpc = new ArrayList<VW_RolOpciones>();
+			try {
+				c = PoolConexion.getConnection();
+				ps = c.prepareStatement("select * from public.vw_rolopciones", ResultSet.TYPE_SCROLL_SENSITIVE,
+						ResultSet.CONCUR_UPDATABLE, ResultSet.HOLD_CURSORS_OVER_COMMIT);
+				rs = ps.executeQuery();
+				
+				while (rs.next()) {
+					VW_RolOpciones ropc = new VW_RolOpciones();
+					ropc.setID(rs.getInt("iD"));
+					//ropc.setRolid(rs.getInt("rolid"));
+					ropc.setRol(rs.getString("rol"));
+					//ropc.setRolid(rs.getInt("opcionesid"));
+					ropc.setOpcion(rs.getString("opcion"));
+					listRolOpc.add(ropc);
+				}
+			} catch (Exception e) {
+				System.out.println("DATOS: ERROR EN LISTAR ROLES CON OPCIONES " + e.getMessage());
+				e.printStackTrace();
+			} finally {
+				try {
+					if (rs != null) {
+						rs.close();
+					}
+					if (ps != null) {
+						ps.close();
+					}
+					if (c != null) {
+						PoolConexion.closeConnection(c);
+					}
+
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+
+			}
+			return listRolOpc;
+		}
 	
 	// Metodo para visualizar los datos de un usuario específico
 		public RolOpciones getRolOpciones(int rol_opcionesID) {

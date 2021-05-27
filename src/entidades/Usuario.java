@@ -14,6 +14,7 @@ public class Usuario {
 	private Timestamp fechaCreacion;
 	private Timestamp fechaModificacion;
 	private Timestamp fechaEliminacion;
+	private int telefono;
 	private int estado;
 	
 	//Metodos
@@ -78,6 +79,13 @@ public class Usuario {
 	public void setEstado(int estado) {
 		this.estado = estado;
 	}
+	public int getTelefono() {
+		return telefono;
+	}
+	public void setTelefono(int telefono) {
+		this.telefono = telefono;
+	}
+	
 	
 	
 	

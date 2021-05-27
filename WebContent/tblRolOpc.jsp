@@ -86,7 +86,7 @@
         <div class="container-fluid">
 
             <!-- Page Heading -->
-            <h1 class="h3 mb-2 text-gray-800">Gestión de Roles a Usuarios</h1>
+            <h1 class="h3 mb-2 text-gray-800">Gestión de Opciones a Rol</h1>
             <p class="mb-4">Desde esta pantalla del sistema usted podrá controlar la creación, actualización y el dar de
                 baja a opciones de roles.</p>
 
@@ -174,9 +174,7 @@
                         							<i class="fas fa-trash-alt" title="Eliminar esta Opcion a Rol"></i>
                         						</a> 
                         						
-                                    <a href="#">
-                                        <i class="fas fa-eye" title="Visualizar las Opciones de este Rol"></i>
-                                    </a>
+                                    
 
                                 </td>
                             </tr>

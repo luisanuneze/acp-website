@@ -373,7 +373,8 @@ CREATE TABLE  Usuario
 	 FechaCreacion  date NOT NULL,
 	 FechaModificacion  date NULL,
 	 FechaEliminacion  date NULL,
-	 UsuarioID  integer NOT NULL
+	 UsuarioID  integer NOT NULL,
+	 Telefono integer NULL
 )
 ;
 

@@ -10,8 +10,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import datos.Dt_RolOpciones;
-import datos.Dt_RolUsuario;
 import entidades.RolOpciones;
+import negocio.Ng_RolOpc;
 
 /**
  * Servlet implementation class Sl_GestionRolOpc
@@ -61,6 +61,7 @@ public class Sl_GestionRolOpc extends HttpServlet {
 		RolOpciones ro = new RolOpciones();		
 		ro.setOpcionesID(Integer.parseInt(request.getParameter("cbxOpc")));
 		ro.setRolId(Integer.parseInt(request.getParameter("cbxRol")));
+		Ng_RolOpc ngro = new Ng_RolOpc();
 		Dt_RolOpciones dtro = new Dt_RolOpciones(); 
 		
 		
@@ -74,12 +75,17 @@ public class Sl_GestionRolOpc extends HttpServlet {
 			        ro.setFechaCreacion(new java.sql.Timestamp(fechaSistema.getTime()));
 			        System.out.println("ro.getFechaCreacion(): "+ro.getFechaCreacion());
 		        	
-			        if(dtro.guardarRolOpc(ro)) {
-			        	response.sendRedirect("tblRolOpc.jsp?msj=1");
+			        if(ngro.existeRolOpc(ro.getOpcionesID(), ro.getRolId())){
+			        	response.sendRedirect("NuevoRolOpc.jsp?msj=existe");
+			        }else{
+			        	if(dtro.guardarRolOpc(ro)) {
+				        	response.sendRedirect("tblRolOpc.jsp?msj=1");
+				        }
+				        else {
+				        	response.sendRedirect("tblRolOpc.jsp?msj=2");
+				        }
 			        }
-			        else {
-			        	response.sendRedirect("tblRolOpc.jsp?msj=2");
-			        }
+			        
 			        	
 		        }
 		        catch(Exception e) {
@@ -97,9 +103,8 @@ public class Sl_GestionRolOpc extends HttpServlet {
 				//PARA GUARDAR LA FECHA Y HORA DE MODIFICACION
 				Date fechaSistema = new Date();
 				ro.setFechaModificacion(new java.sql.Timestamp(fechaSistema.getTime()));
-				System.out.println("user.getFechaModificacion(): "+ro.getFechaModificacion());
+				System.out.println("ro.getFechaModificacion(): "+ro.getFechaModificacion());
 
-	        	
 		        if(dtro.modificarRolOpc(ro)) {
 		        	response.sendRedirect("tblRolOpc.jsp?msj=3");
 		        }
@@ -118,7 +123,7 @@ public class Sl_GestionRolOpc extends HttpServlet {
 			}
 		
 		default:
-			response.sendRedirect("tblRolOpc.jsp?msj=5");	
+			response.sendRedirect("tblRolOpc.jsp?msj=7");	
 			break;
 	}
 		

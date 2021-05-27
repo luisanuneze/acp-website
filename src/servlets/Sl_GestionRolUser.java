@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import datos.Dt_RolUsuario;
 import entidades.RolUsuario;
+import negocio.Ng_RolUsuario;
 
 /**
  * Servlet implementation class Sl_GestionRolUser
@@ -61,6 +62,7 @@ public class Sl_GestionRolUser extends HttpServlet {
 		ru.setUsuarioID(Integer.parseInt(request.getParameter("cbxUser")));
 		ru.setRolId(Integer.parseInt(request.getParameter("cbxRol")));
 		Dt_RolUsuario dtru = new Dt_RolUsuario(); 
+		Ng_RolUsuario ngru = new Ng_RolUsuario();
 		
 		
 		switch (opc){
@@ -73,11 +75,15 @@ public class Sl_GestionRolUser extends HttpServlet {
 			        ru.setFechaCreacion(new java.sql.Timestamp(fechaSistema.getTime()));
 			        System.out.println("user.getFechaCreacion(): "+ru.getFechaCreacion());
 		        	
-			        if(dtru.guardarRolUser(ru)) {
-			        	response.sendRedirect("tblRolUser.jsp?msj=1");
-			        }
-			        else {
-			        	response.sendRedirect("tblRolUser.jsp?msj=2");
+			        if(ngru.existeRolUser(ru.getRolId(), ru.getUsuarioID())) {
+			        	response.sendRedirect("NuevoRolUser.jsp?msj=existe");
+			        }else {
+			        	if(dtru.guardarRolUser(ru)) {
+				        	response.sendRedirect("tblRolUser.jsp?msj=1");
+				        }
+				        else {
+				        	response.sendRedirect("tblRolUser.jsp?msj=2");
+				        }
 			        }
 			        	
 		        }
@@ -117,7 +123,7 @@ public class Sl_GestionRolUser extends HttpServlet {
 			}
 		
 		default:
-			response.sendRedirect("tblRolUser.jsp?msj=5");	
+			response.sendRedirect("tblRolUser.jsp?msj=7");	
 			break;
 	}
 		

@@ -188,11 +188,9 @@
                         							<i class="fas fa-trash-alt" title="Eliminar Publicacion"></i>
                         						</a> 
                         		<a href="documento.jsp?publicacionesID=<%=pu.getPublicacionesid()%>">
-                        							<i class="fas fa-camera" title="Guardar documento"></i>
+                        							<i class="fa fa-file" aria-hidden="true" title="Guardar documento"></i>
                         						</a>
-                                <a href="#"> 
-                                	<i class="fas fa-eye" title="Visualizar Publicación"></i>
-                                </a>
+                                
                                 </td>
                             </tr>
                             <%

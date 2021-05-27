@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
          pageEncoding="ISO-8859-1" import="entidades.*, datos.*, java.util.*;" %>
+<%
+    //Variable de control de mensajes
+	String varMsj = request.getParameter("msj")==null?"":request.getParameter("msj");
+%>
 <!DOCTYPE html>
 <html>
 
@@ -42,6 +46,9 @@
     <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
     <link href="assets/vendor/glightbox/css/glightbox.min.css"
           rel="stylesheet">
+    
+    <!-- jAlert css  -->
+    <link rel="stylesheet" href="jAlert/dist/jAlert.css" />
 
     <!-- Template Main CSS File -->
     <link href="assets/css/style.css" rel="stylesheet">
@@ -160,7 +167,7 @@
 				            <div class="button-formulario">
 				                <input class="btn-user button button-formulario" type="submit"
 				                                       value="Guardar"/>
-				                <a href="tblRolOpc.jsp" style="padding: 13px 35px" class="btn-user button button-formulario ">Regresar</a>
+				                <a href="javascript:history.go(-1)" style="padding: 13px 35px" class="btn-user button button-formulario ">Regresar</a>
 				            </div>
                         </form>
                     </div>
@@ -213,6 +220,27 @@
 
 <!-- js Datatable buttons excel -->
 <script src="DataTables/JSZip-2.5.0/jszip.min.js"></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+
+<!-- jAlert js -->
+<script src="jAlert/dist/jAlert.min.js"></script>
+<script src="jAlert/dist/jAlert-functions.min.js"> //optional!!</script>
+
+<script type="text/javascript">
+	
+	    $(document).ready(function ()
+	    {
+			/////////// VARIABLE DE CONTROL MSJ ///////////
+	        var mensaje = "";
+	        mensaje = "<%=varMsj%>";
+
+			if (mensaje == "existe") {
+				errorAlert('Error','Este rol ya tiene esta opción asignada!');
+			}
+		});
+	</script>
 
 <script>
     $(document).ready(function () {
