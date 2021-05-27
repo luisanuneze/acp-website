@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-         pageEncoding="ISO-8859-1" import="entidades.*, datos.*, vistas.VW_Distribucion, java.util.*;" %>
+         pageEncoding="ISO-8859-1" import="entidades.*, datos.*, vistas.*, java.util.*;" %>
 <!DOCTYPE html>
 
 <html>
@@ -37,7 +37,7 @@
 <body>
 
 <!-- ======= Header ======= -->
-<%@ include file="/menu/header.jsp" %>
+<%@ include file="/menu/v_header.jsp" %>
 <!-- End Header -->
 
 
@@ -51,31 +51,52 @@
     <!-- ======= Inicio Section ======= -->
     <section id="about" class="about">
 
-        <div class="container arboles" data-aos="fade-up">
+        <div class="container" data-aos="fade-up">
 
             <div class="row ">
                 <!-- Cardview -->
-               <div class="col-sm-5 card-view">
-                    <div class="" style="width:70%">
-                        <img style="width:100%; height:auto; object-fit:fill;" src="https://image.flaticon.com/icons/png/512/2975/2975970.png">
+                  <%
+                            	String us = "";
+								us = request.getParameter("arbolID")==null?"0":request.getParameter("arbolID");
+														
+								Arbol arb = new Arbol();
+								Dt_Arbol dta = new Dt_Arbol();
+								arb = dta.getArbol(Integer.parseInt(us));
+							
+                            %>
+                            
+                            <%
+                            	String rous = "";
+								rous = request.getParameter("arbolID")==null?"0":request.getParameter("arbolID");
+														
+								VW_Arbol vwru = new VW_Arbol();
+								Dt_Arbol dtrous = new Dt_Arbol();
+								vwru = dtrous.getArbol2(Integer.parseInt(rous));
+                            %>
+                            
+                <div  class="col-sm-2 arboles card-view ">
+                    <div class="">
+                        <img name="imgArbol" id="imgArbol" src="<%=arb.getImagen()==null?"#":arb.getImagen()%>">
+                           <hr></hr>
+                        <p name="txtNombreCo" id="txtNombreCo"><%=arb.getNombrecomun()%></p>
                     </div>
                 </div>
                 <!-- Fin cardview -->
+            
 
 
                 <%
-                    ArrayList<Genero> listGenero = new ArrayList<Genero>();
-                    Dt_Genero dtg = new Dt_Genero();
-                    listGenero = dtg.listaGenerosActivos();
+                	ArrayList<Genero> listGenero = new ArrayList<Genero>();
+                Dt_Genero dtg = new Dt_Genero();
+                listGenero = dtg.listaGenerosActivos();
 
-                    ArrayList<Familia> listFamilia = new ArrayList<Familia>();
-                    Dt_Familia dtf = new Dt_Familia();
-                    listFamilia = dtf.listaFamiliasActivas();
+                ArrayList<Familia> listFamilia = new ArrayList<Familia>();
+                Dt_Familia dtf = new Dt_Familia();
+                listFamilia = dtf.listaFamiliasActivas();
 
-                    ArrayList<Floracion> listFloracion = new ArrayList<Floracion>();
-                    Dt_Floracion dtfl = new Dt_Floracion();
-                    listFloracion = dtfl.listaFloracionsActivos();
-                    
+                ArrayList<Floracion> listFloracion = new ArrayList<Floracion>();
+                Dt_Floracion dtfl = new Dt_Floracion();
+                listFloracion = dtfl.listaFloracionsActivos();
                 %>
 
 
@@ -84,32 +105,40 @@
 
                     
                     <table class="table table-bordered center">
+                    
 	                    <tr>
-	                    	<th colspan="2" style="background-color:#081C44; text-align:center; color:white"> Nombre Común</th>
+	                    	<th colspan="2" style="background-color:#081C44; text-align:center; color:white"> Características del <%=arb.getNombrecomun()%> </th>
 	                    </tr>
 	                    <tr>
 	                    	<th> Nombre Común</th>
-	                    	<td> Item 1 </td>
+	                    	<td> <p name="txtNombreCo" id="txtNombreCo"><%=arb.getNombrecomun()%></p> </td>
 	                    </tr>
 	                    <tr>
 	                    	<th> Nombre Científico</th>
-	                    	<td> Item 2 </td>
+	                    	<td> <p name="txtNombreCi" id="txtNombreCi"><%=arb.getNombrecientifico()%></p> </td>
 	                    </tr>
 	                    <tr>
 	                    	<th> Género</th>
-	                    	<td> Item 2 </td>
+	                    	 
+	                    	<td> <p name="cbxGenero" id="cbxGenero"><%= vwru.getGenero()%></p> </td>
+	                    	
 	                    </tr>
 	                    <tr>
 	                    	<th> Familia</th>
-	                    	<td> Item 2 </td>
+	                    	
+	                    	<td> <p name="cbxFamilia" id="cbxFamilia"><%= vwru.getFamilia()%></p> </td>
+	                    	
+	                    	
 	                    </tr>
 	                    <tr>
 	                    	<th> Floracion</th>
-	                    	<td> Item 2 </td>
+	                    	
+	                    	<td> <p name="cbxFlora" id="cbxFlora"><%= vwru.getEpocaFloracion()%></p> </td>
+	                    		
 	                    </tr>
 	                    <tr>
 	                    	<th> Descripción</th>
-	                    	<td> Item 2 </td>
+	                    	<td> <p name="txaDescrip" id="txaDescrip"><%=arb.getDescripcion()%></p> </td>
 	                    </tr>
                     
                     </table>
@@ -151,7 +180,23 @@
 <!-- Template Main JS File -->
 <script src="assets/js/main.js"></script>
 
-
+<script>  
+   $(document).ready(function()
+	{
+	   $("#imgArbol").val("<%=arb.getImagen()%>");
+	   $("#txtNombreo").val("<%=arb.getNombrecomun()%>");
+	   $("#txtNombreC").val("<%=arb.getNombrecomun()%>");
+	   $("#txtNombreCi").val("<%=arb.getNombrecientifico()%>");
+	   $("#cbxGenero").val("<%=arb.getGeneroID()%>");
+	   $("#cbxFamilia").val("<%=arb.getFamiliaID()%>");
+	   $("#cbxFlora").val("<%=arb.getFloracionID()%>");
+	   $("#txaDescrip").val("<%=arb.getDescripcion()%>");
+	   
+	 
+		
+		
+	});
+</script>
 </body>
 
 </html>

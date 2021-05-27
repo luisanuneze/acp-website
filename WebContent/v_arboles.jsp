@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-         pageEncoding="ISO-8859-1" import="entidades.*, datos.*, vistas.*, java.util.*;" %>
+         pageEncoding="ISO-8859-1" import="entidades.Arbol, vistas.VW_Arbol, datos.Dt_Arbol, java.util.*;" %>
 <!DOCTYPE html>
 <html>
 
@@ -50,16 +50,7 @@
 
         <div class="container" data-aos="fade-up">
 
-            <!-- Despliegue de filtros -->
-            <div class="form-group row">
-                <div class="col-sm-4">  
-                </div>
-                <div class="col" align="right">
-                    
-                </div>
- <h1 class="h3 mb-2 text-gray-800">Cátologo de árboles</h1>
-            </div>
-            <!-- Termina despliegue de filtros-->
+ 
 
             <%
                 ArrayList<VW_Arbol> listArbol = new ArrayList<VW_Arbol>();
@@ -72,165 +63,27 @@
                 <%
                     for (VW_Arbol ar : listArbol) {
                 %>
-              
-						<div class="arboles d-flex flex-column">
-                        <img src="<%=ar.getImagen() == null ? "#" : ar.getImagen()%>">
-                        <hr>
+
+                <a href="v_vistaArbol.jsp?arbolID=<%=ar.getID() %>">
+                    <div class="arboles d-flex flex-column" style="height:280px; width:240px">
+
+                        <img src="<%=ar.getImagen()==null?"#":ar.getImagen()%>">
+                       <hr></hr>
                         <p><%=ar.getNombreComun() %>
                         </p>
-                       
                     </div>
-                     
+                </a>
                 <%
                     }
                 %>
 
 
-              <button type="button" class="btn btn-outline-primary btn-block"
-							data-toggle="modal"
-							data-target="#exampleModal">
-							Ver</button>
-
             </div>
             <!-- Fin cardviews -->
 
         </div>
-<%
-                            	String us = "";
-								us = request.getParameter("arbolID")==null?"0":request.getParameter("arbolID");
-														
-								Arbol arb = new Arbol();
-								Dt_Arbol dtar = new Dt_Arbol();
-								arb = dta.getArbol(Integer.parseInt(us));
-							
-                            %>
-                            
-                            <%
-                            	String rous = "";
-								rous = request.getParameter("arbolID")==null?"0":request.getParameter("arbolID");
-														
-								VW_Arbol vwru = new VW_Arbol();
-								Dt_Arbol dtrous = new Dt_Arbol();
-								vwru = dtrous.getArbol2(Integer.parseInt(rous));
-                            %>
 
-							<%
-								ArrayList<Genero> listGenero = new ArrayList<Genero>();
-										Dt_Genero dtg = new Dt_Genero();
-										listGenero = dtg.listaGenerosActivos();
-
-										ArrayList<Familia> listFamilia = new ArrayList<Familia>();
-										Dt_Familia dtf = new Dt_Familia();
-										listFamilia = dtf.listaFamiliasActivas();
-
-										ArrayList<Floracion> listFloracion = new ArrayList<Floracion>();
-										Dt_Floracion dtfl = new Dt_Floracion();
-										listFloracion = dtfl.listaFloracionsActivos();
-							%>
-
-
-			<!-- Modal -->
-			<div class="modal fade" id="exampleModal"  tabindex="-1" role="dialog"
-				aria-labelledby="exampleModal" aria-hidden="true">
-				<div class="modal-dialog modal-dialog-centered" role="document">
-					<div class="modal-content">
-						<div class="modal-header  bg-primary text-white">
-							<h5 class="modal-title" id="exampleModalLongTitle">Arbol</h5>
-							<button type="button" class="close text-white"
-								data-dismiss="modal" aria-label="Close">
-								<span aria-hidden="true">&times;</span>
-							</button>
-						</div>
-						<div class="modal-body">
-
-							<form>
-							<!-- El valor de este input es para el Servlet opcion guardar -->
-								<input name="idArbol" type="hidden" value="<%=arb.getArbolId()%>" /> 
-								<input name="opcion" type="hidden" value="2" /> 
-								<input name="ID" type="hidden" value="<%=vwru.getID()%>" /> 
-								<input name="opcion" type="hidden" value="2" />
-								<div class="form-group">
-									<div class="">
-										<img name="imgArbol" id="imgArbol"
-											src="<%=arb.getImagen() == null ? "#" : arb.getImagen()%>">
-										<hr>
-										<p></p>
-									</div>
-								</div>
-								<div class="form-group">
-									<label for="recipient-name" class="col-form-label">Nombre Común:</label>
-									<input type="text" class="form-control" name="txtNombreC" id="txtNombreC">
-								</div>
-
-								<div class="form-group">
-									<label for="recipient-name" class="col-form-label">Nombre Científico:</label>
-									<input type="text" class="form-control" name="txtNombreCi" id="txtNombreCi">
-								</div>
-
-								<div class="form-group">
-									<label for="message-text" class="col-form-label">Género:</label>  
-										<select class="form-select" name="cbxGenero" id="cbxGenero" required>
-                                                <option value="">Seleccione</option>
-                                                <%
-                                                    for (Genero ar : listGenero) {
-                                                %>
-                                                <option value="<%= ar.getGeneroID() %>"><%= ar.getNombre() %>
-                                                </option>
-                                                <%
-                                                    }
-                                                %>
-
-                                            </select>
-								</div>
-								<div class="form-group">
-									<label for="message-text" class="col-form-label">Familia:</label>
-									 <select class="form-select" name="cbxFamilia" id="cbxFamilia" required>
-                                                <option value="">Seleccione</option>
-                                                <%
-                                                    for (Familia fr : listFamilia) {
-                                                %>
-                                                <option value="<%= fr.getFamiliaID() %>"><%= fr.getNombre() %>
-                                                </option>
-                                                <%
-                                                    }
-                                                %>
-
-                                            </select>
-								</div>
-								<div class="form-group">
-									<label for="message-text" class="col-form-label">Floración:</label>
-									 <select class="form-select" name="cbxFlora" id="cbxFlora" required>
-                                                <option value="">Seleccione</option>
-                                                <%
-                                                    for (Floracion flr : listFloracion) {
-                                                %>
-                                                <option value="<%= flr.getFloracionID() %>"><%= flr.getNombre() %>
-                                                </option>
-                                                <%
-                                                    }
-                                                %>
-
-                                            </select>
-								</div>
-								<div class="form-group">
-									<label for="message-text" class="col-form-label">Descripción:</label>
-									<textarea class="form-control" name="txaDescrip" id="txaDescrip"></textarea>
-								</div>
-
-								<br>
-
-							</form>
-
-							<button type="button" class="btn btn-secondary"
-								data-dismiss="modal">Cerrar</button>
-						</div>
-					</div>
-				</div>
-			</div>
-
-
-
-		</section>
+    </section>
     <!-- End Inicio Section -->
 
 </main>
@@ -254,26 +107,6 @@
 
 <!-- Template Main JS File -->
 <script src="assets/js/main.js"></script>
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-
-<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-<script>  
-   $(document).ready(function()
-	{
-	   $("#imgArbol").val("<%=arb.getImagen()%>");
-	   $("#txtNombreC").val("<%=arb.getNombrecomun()%>");
-	   $("#txtNombreCi").val("<%=arb.getNombrecientifico()%>");
-	   $("#cbxGenero").val("<%=arb.getGeneroID()%>");
-	   $("#cbxFamilia").val("<%=arb.getFamiliaID()%>");
-	   $("#cbxFlora").val("<%=arb.getFloracionID()%>");
-	   $("#txaDescrip").val("<%=arb.getDescripcion()%>");
-	   
-	 
-		
-		
-	});
-</script>
 
 </body>
 
