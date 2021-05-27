@@ -826,6 +826,7 @@ button:hover {
 }
 
 .arboles{
+	align-items: center;
 	height:280px; 
 	width:240px;
     margin-top: 40px;
@@ -842,6 +843,8 @@ button:hover {
 
 .arboles img {
     width: 150px;
+    height: 150px;
+    object-fit: cover;
 }
 
 .arboles hr{
