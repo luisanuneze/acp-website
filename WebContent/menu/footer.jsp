@@ -15,8 +15,8 @@
     
     <%
          ArrayList<Info_Footer> listInfo_Footer = new ArrayList<Info_Footer>();
-         Dt_InfoFooter dtf = new Dt_InfoFooter();
-         listInfo_Footer = dtf.listaFooter();
+         Dt_InfoFooter dtfo = new Dt_InfoFooter();
+         listInfo_Footer = dtfo.listaFooter();
      %>
 
       <h4><strong>Contacto</strong></h4>
