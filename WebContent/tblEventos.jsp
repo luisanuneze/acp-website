@@ -133,6 +133,7 @@
                                 <th>Fecha de Inicio</th>
                                 <th>Fecha de Fin</th>
                                 <th>Hora</th>
+                                <th>Foto</th>
                                 <th>Estado</th>
                                 <th>Opciones</th>
                             </tr>
@@ -146,6 +147,7 @@
                                 <th>Fecha de Inicio</th>
                                 <th>Fecha de Fin</th>
                                 <th>Hora</th>
+                                <th>Foto</th>
                                 <th>Estado</th>
                                 <th>Opciones</th>
                             </tr>
@@ -169,6 +171,11 @@
                                 </td>
                                 <td><%=eve.getHora() %>
                                 </td>
+                                <td>
+                                	<a href="<%= eve.getHipervinculo() %>">
+                                		<img src="<%= eve.getHipervinculo() %>" style="max-height:100px; max-width:100px;" alt="...">
+	                               	</a>
+                               	</td>
                                 <td><%=eve.getEstado() != 3 ? "ACTIVO" : "INACTIVO" %>
                                 </td>
                                 <td>
@@ -198,6 +205,9 @@
                         						</a> 
                                     <a href="#">
                                         <i class="fas fa-eye" title="Visualizar Evento"></i>
+                                    </a>
+                                    <a href="fotoEvento.jsp?idEvento=<%=eve.getEventoid()%>">
+                                        <i class="fas fa-camera" title="Registrar Foto del Evento"></i>
                                     </a>
 
                                 </td>

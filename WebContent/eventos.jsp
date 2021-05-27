@@ -76,7 +76,7 @@
                 %>
 
                     <div class="content div-eventos">
-                        <img src="https://img.ecologiahoy.com/2014/01/Movimiento-ecologista.jpg">
+                        <img src="<%=ev.getHipervinculo()==null?"#":ev.getHipervinculo()%>">
                         <div id="Content-evento" class="Content-evento">
                             <h2><%=ev.getNombre() %></h2>
                             <p><strong>Descripción: </strong><%=ev.getDescripcion() %><br>
