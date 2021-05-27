@@ -54,7 +54,7 @@
         <div class="container" data-aos="fade-up">
 
 
-            <div class="row ">
+            <div class="row">
                 <!-- Cardview -->
                   <%
                             	String us = "";
@@ -104,7 +104,7 @@
 
 
                 <!-- Formulario arboles -->
-                <div class="contenido-arboles formulario col-sm-10">
+                <div class="contenido-arboles formulario col-sm-9">
                     <h2 class="form-header" style="color: black;">Editar Árbol</h2>
 
 

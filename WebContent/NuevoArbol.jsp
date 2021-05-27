@@ -57,7 +57,7 @@
 
         <div class="container" data-aos="fade-up">
 
-            <div class="row ">
+            <div >
                 <!-- Cardview -->
                <!--  <div class="col-sm-2 arboles card-view">
                     <div class="">
@@ -88,7 +88,7 @@
 
 
                 <!-- Formulario arboles -->
-                <div class="contenido-arboles formulario col-sm-10">
+                <div class="contenido-arboles formulario">
                     <h2 class="form-header" style="color: black;">Agregar Nuevo Árbol</h2>
 
                     <form method="post" action="./Sl_GestionArbol" class="row">
