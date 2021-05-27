@@ -713,11 +713,10 @@ SELECT * FROM VW_Arbol;
 	
 --- VW_Distribucion DistribucionArbol ---
 	CREATE OR REPLACE VIEW VW_DistribucionArbol AS
-	SELECT arbol.arbolid, arbol.nombrecomun AS "NombreArbol",
-	distribucion.distribucionid , distribucion.nombre AS "NombreDistribucion",
-	arbol_distribucion.arbol_distribucionid AS "ID"
+	SELECT arbol.nombrecomun AS "NombreArbol",
+	 distribucion.nombre AS "NombreDistribucion"
 	FROM arbol, distribucion, arbol_distribucion
-	WHERE arbol_distribucion.arbolid = arbol.arbolid;
+	WHERE arbol_distribucion.arbolid = arbol.arbolid AND arbol_distribucion.distribucionid = distribucion.distribucionid;
 	
 	SELECT * FROM VW_DistribucionArbol;
 
