@@ -115,7 +115,7 @@
                                     </td>
                                     <td><a id="btn-edita-abrir" href="EditarRegion.jsp?RegionID=<%=re.getRegionID() %>"> <i
                                             class="fas fa-edit" title="Editar Región"></i></a>
-                                        <a href="#"> <i class="fas fa-trash-alt" title="Eliminar Región"></i></a>
+                                        <a href="Sl_GestionRegion?RegionID=<%=re.getRegionID()%>"> <i class="fas fa-trash-alt" title="Eliminar Región"></i></a>
                                         <a href="#"> <i class="fas fa-eye" title="Visualizar Región"></i>
                                         </a></td>
                                 </tr>

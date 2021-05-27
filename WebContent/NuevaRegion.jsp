@@ -52,17 +52,20 @@
 
             <h2 class="form-header" style="color: black;">Registrar Nueva Región</h2>
             <br>
-            <form action="forms/contact.php" method="post" class="php-email-form">
+            <form action="./Sl_GestionRegion" method="post" class="region">
+            <!-- El valor de este input es para el Servlet opcion guardar -->
+					<input name="opcion" type="hidden" value="1" />
                 <div class="row gy-4">
                     <div class="col-md-12">
-                        <input type="text" class="form-control" placeholder="Nombre" required>
+                        <input type="text" class="form-control" placeholder="Nombre" name="txtname" id="txtname" required>
                     </div>
                 </div>
                 <br>
 
                 <!-- Botones -->
                 <div class="button-formulario">
-                    <button> Guardar</button>
+                    <input class="btn-user button button-formulario" type="submit"
+							value="Guardar" />
                     <a href="javascript:history.go(-1)" class="button">Regresar </a>
                 </div>
             </form>

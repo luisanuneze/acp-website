@@ -5,7 +5,10 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Date;
+
 import entidades.Region;
+import entidades.Rol;
 
 
 public class Dt_Region {
@@ -35,7 +38,7 @@ public class Dt_Region {
 				ArrayList<Region> listRegion= new ArrayList<Region>();
 				try{
 					c = PoolConexion.getConnection();
-					ps = c.prepareStatement("select * from public.\"region\"", ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE, ResultSet.HOLD_CURSORS_OVER_COMMIT);
+					ps = c.prepareStatement("select * from public.\"region\" where estado <> 3", ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE, ResultSet.HOLD_CURSORS_OVER_COMMIT);
 					rs = ps.executeQuery();
 					while(rs.next()){
 						Region reg = new Region();
@@ -129,9 +132,9 @@ public class Dt_Region {
 					this.llenaRsRegion(c);
 					rsRegion.moveToInsertRow();
 //								rsUsuario.updateInt("UsuarioID", 2);
-					rsRegion.updateString("nombre", reg.getNombre());
-					rsRegion.updateTimestamp("fechaCreacion", reg.getFechaCreacion());
-					rsRegion.updateInt("estado", 1);
+					rsRegion.updateString("Nombre", reg.getNombre());
+					rsRegion.updateTimestamp("FechaCreacion", reg.getFechaCreacion());
+					rsRegion.updateInt("Estado", 1);
 					rsRegion.insertRow();
 					rsRegion.moveToCurrentRow();
 					guardado = true;
@@ -158,6 +161,102 @@ public class Dt_Region {
 				return guardado;
 			}
 			
+			// Metodo para modificar region
+			public boolean modificarReg(Region Reg)
+				{
+					System.out.println("Esta en el modificar");
+					boolean modificado=false;	
+					try
+						{
+							c = PoolConexion.getConnection();
+							this.llenaRsRegion(c);
+							rsRegion.beforeFirst();
+							while (rsRegion.next())
+								{
+									System.out.println("Esta en el while del modificar");
+									System.out.println("este es el valor del while " + rsRegion.getInt(1) + " y este es el valor del region a editar " + Reg.getRegionID()) ;
+									if(rsRegion.getInt(6)==Reg.getRegionID())
+									{
+										System.out.println("Entro al if");
+										rsRegion.updateString("Nombre", Reg.getNombre());
+										rsRegion.updateTimestamp("Fechamodificacion", Reg.getFechaModificacion());
+										rsRegion.updateInt("Estado", 2);
+										rsRegion.updateRow();
+										modificado=true;
+										System.out.println("Yastaaa");
+										break;
+									}
+								} 
+							}
+							catch (Exception e)
+							{
+								System.err.println("ERROR AL ACTUALIZAR ROL "+e.getMessage());
+								e.printStackTrace();
+							}
+							finally
+							{
+								try {
+									if(rsRegion != null){
+										rsRegion.close();
+									}
+									if(c != null){
+										PoolConexion.closeConnection(c);
+									}
+									
+								} catch (SQLException e) {
+									// TODO Auto-generated catch block
+									e.printStackTrace();
+								}
+							}
+							return modificado;
+						}
+			// Metodo para eliminar region
+			public boolean eliminarReg(int RegionID)
+				{
+				System.out.println("Esta en el metodo");
+					boolean eliminado=false;	
+					try
+					{
+						c = PoolConexion.getConnection();
+						this.llenaRsRegion(c);
+						rsRegion.beforeFirst();
+						Date fechaSistema = new Date();
+						while (rsRegion.next())
+							{
+							if(rsRegion.getInt(1)==RegionID)
+								{
+									rsRegion.updateTimestamp("FechaEliminacion", new java.sql.Timestamp(fechaSistema.getTime()));
+									rsRegion.updateInt("Estado", 3);
+									rsRegion.updateRow();
+									eliminado=true;
+									break;
+								}
+							}
+					}
+							
+						catch (Exception e)
+						{
+							System.err.println("ERROR AL ELIMINAR REGION "+e.getMessage());
+							e.printStackTrace();
+						}
+						finally
+						{
+							try {
+								if(rsRegion != null){
+									rsRegion.close();
+								}
+								if(c != null){
+									PoolConexion.closeConnection(c);
+								}
+								
+							} catch (SQLException e) {
+								// TODO Auto-generated catch block
+								e.printStackTrace();
+						}
+					}
+						return eliminado;
+				}
+
 			
 			
 			

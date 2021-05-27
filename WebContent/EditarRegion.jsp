@@ -61,17 +61,21 @@
 				reg = dtr.getRegion(Integer.parseInt(re));
 		
             %>
-            <form action="forms/contact.php" method="post" class="php-email-form">
+            <form action="./Sl_GestionRegion" method="post" class="region">
+            <!-- El valor de este input es para el Servlet opcion guardar -->
+                <input name="RegionID" type="hidden" value="<%=reg.getRegionID()%>"/> 
+                <input name="opcion" type="hidden" value="2"/>
                 <div class="row gy-4">
                     <div class="col-md-12">
-                        <input type="text" class="form-control" placeholder="Nombre" id="txtNombre" name="txtNombre"required>
+                        <input type="text" class="form-control" placeholder="Nombre" id="txtname" name="txtname"required>
                     </div>
                 </div>
                 <br>
 
                 <!-- Botones -->
                 <div class="button-formulario">
-                    <button> Guardar</button>
+                    <input class="btn-user button button-formulario" type="submit"
+                                       value="Actualizar"/>
                     <a href="javascript:history.go(-1)" class="button">Regresar </a>
                 </div>
             </form>
@@ -109,7 +113,7 @@
 <script>  
    $(document).ready(function()
 	{
-	   $("#txtNombre").val("<%=reg.getNombre()%>");
+	   $("#txtname").val("<%=reg.getNombre()%>");
 	 
 	});
 </script>
