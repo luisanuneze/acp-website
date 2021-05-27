@@ -81,7 +81,8 @@
                             <h2><%=ev.getNombre() %></h2>
                             <p><strong>Descripción: </strong><%=ev.getDescripcion() %><br>
                             <strong>Ubicación:</strong> <%=ev.getUbicacion() %>
-                                <br><strong>Fecha: </strong><%=ev.getFechainicio() %></p>
+                                <br><strong>Fecha: </strong><%=ev.getFechainicio() %>
+                                <br><strong>Hora: </strong><%=ev.getHora() %></p>
 
                         </div>
                     </div>

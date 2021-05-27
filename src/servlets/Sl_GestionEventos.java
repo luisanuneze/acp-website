@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import datos.Dt_Eventos;
 import datos.Dt_Usuario;
 import entidades.Eventos;
+import negocio.Ng_Eventos;
 
 /**
  * Servlet implementation class Sl_GestionEventos
@@ -66,9 +67,11 @@ private static final long serialVersionUID = 1L;
 		String ffin = request.getParameter("txtFechafin");
 		System.out.print(ffin);
 				
-		//CONSTRUIR EL OBJETO USUARIO
+		//CONSTRUIR EL OBJETO EVENTO
 			Dt_Eventos dte = new Dt_Eventos();
 			Eventos eve = new Eventos();
+			Ng_Eventos nge = new Ng_Eventos();
+			
 			//eve.setEventoid(Integer.parseInt(request.getParameter("eventoid")));
 			eve.setNombre(request.getParameter("txtEvento"));
 			eve.setDescripcion(request.getParameter("txtDescripcion"));
@@ -88,11 +91,17 @@ private static final long serialVersionUID = 1L;
 		        	// Para Guardar la Fecha y Hora de creación.
 		        	
 		        	
-			        if(dte.guardarEvent(eve)) {
-			        	response.sendRedirect("tblEventos.jsp?msj=1");
+			        if(nge.existeEvent(eve.getNombre())){
+			        	response.sendRedirect("NuevoEvento.jsp?msj=existe");
+			        	
 			        }
 			        else {
-			        	response.sendRedirect("tblEventos.jsp?msj=2");
+			        	if(dte.guardarEvent(eve)) {
+				        	response.sendRedirect("tblEventos.jsp?msj=1");
+				        }
+				        else {
+				        	response.sendRedirect("tblEventos.jsp?msj=2");
+				        }
 			        }
 			        	
 		        }

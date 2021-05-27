@@ -1,6 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
          pageEncoding="ISO-8859-1" import="datos.Dt_Usuario, entidades.Usuario, datos.PoolConexion,java.util.*" %>
 <!DOCTYPE html>
+<%
+    //Variable de control de mensajes
+	String varMsj = request.getParameter("msj")==null?"":request.getParameter("msj");
+%>
 <html>
 <head>
     <meta charset="ISO-8859-1">
@@ -31,6 +35,9 @@
 
     <!-- Template Main CSS File -->
     <link href="assets/css/style.css" rel="stylesheet">
+    
+    <!-- jAlert css  -->
+	<link rel="stylesheet" href="jAlert/dist/jAlert.css" />
 
     <!-- =======================================================
     * Template Name: FlexStart - v1.1.1
@@ -91,11 +98,13 @@
 
                     </div>
                     <br>
-                  	
+                    
                     <!-- Botones -->
                     <div class="button-formulario col-md-6">
-                    	<button> Guardar</button>
+                		<button>Guardar</button>
                     </div>
+
+
 
                 </div>
                 <div class="col-sm-4">
@@ -199,6 +208,21 @@
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/locale/es.js"></script>
 <script type="text/javascript" src="assets/js/calendar.js"></script>
 
+<!-- Bootstrap core JavaScript-->
+	<script src="assets/vendor/jquery/jquery.min.js"></script>
+	<script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+	<!-- Core plugin JavaScript-->
+	<script src="assets/vendor/jquery-easing/jquery.easing.min.js"></script>
+	
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+
+	<!-- jAlert js -->
+	<script src="jAlert/dist/jAlert.min.js"></script>
+	<script src="jAlert/dist/jAlert-functions.min.js"> //optional!!</script>
+
 <!-- Template Main JS File -->
 <script src="assets/js/main.js"></script>
 
@@ -207,6 +231,23 @@
     calendar.getElement().addEventListener('change', e => {
         console.log(calendar.value().format('LLL'));
     });
+</script>
+
+<script type="text/javascript">
+$(document).ready(function ()
+	    {
+			/////////// VARIABLE DE CONTROL MSJ ///////////
+	        var mensaje = "";
+	        mensaje = "<%=varMsj%>";
+
+		if (mensaje == "existe") {
+			errorAlert(
+			'Error',
+			'El nombre de evento que esta intentando registrar ya existe en la base de datos!');
+			}
+
+							
+		});
 </script>
 
 </body>
