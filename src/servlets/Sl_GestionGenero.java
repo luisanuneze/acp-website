@@ -87,7 +87,7 @@ public class Sl_GestionGenero extends HttpServlet {
 				        	
 					        
 					        if(ngg.existeGenero(gen.getNombre())) {
-					        	response.sendRedirect("NuevoGenero.jsp?msj=9");
+					        	response.sendRedirect("NuevoGenero.jsp?msj=existe");
 					        }
 					        else {
 					        	if(dtg.guardarGen(gen)) {

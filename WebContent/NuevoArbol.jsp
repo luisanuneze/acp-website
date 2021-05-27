@@ -240,9 +240,9 @@
 	    {
 			/////////// VARIABLE DE CONTROL MSJ ///////////
 	        var mensaje = "";
-	        mensaje = "<%=varMsj%> ";
+	        mensaje = "<%=varMsj%> " ;
 
-			if (mensaje == "9") {
+			if (mensaje == "existe") { 
 				errorAlert('Error', 'El nombre de género que esta intentando registrar ya existe en la base de datos!');
 			}
 

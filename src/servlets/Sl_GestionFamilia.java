@@ -83,7 +83,7 @@ public class Sl_GestionFamilia extends HttpServlet {
 			        System.out.println("fam.getFechaCreacion(): "+fam.getFechaCreacion());
 		        	
 			        if(ngf.existeFamilia(fam.getNombre())) {
-			        	response.sendRedirect("NuevaFamilia.jsp?msj=9");
+			        	response.sendRedirect("NuevaFamilia.jsp?msj=existe");
 			        }
 			        else {
 			        	if(dtf.guardarFam(fam)) {

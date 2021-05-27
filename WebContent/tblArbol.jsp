@@ -212,7 +212,7 @@
                         							<i class="fas fa-trash-alt" title="Eliminar Arbol"></i>
                         						</a> 
                         						
-                                        <a href="#"> <i class="fas fa-eye" title="Visualizar Arbol"></i>
+                                        <a href="v_vistaArbol.jsp?arbolID=<%=ar.getID()%>"> <i class="fas fa-eye" title="Visualizar Arbol"></i>
                                         </a>
                                         <a href="fotoArbol.jsp?idArbol=<%=ar.getID()%>">
                                         <i class="fas fa-camera" title="Registrar Foto del Arbol"></i></a></td>

@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import entidades.Pais;
+import negocio.Ng_Pais;
 import datos.Dt_Pais;
 
 /**
@@ -66,6 +67,7 @@ public class Sl_GestionPais extends HttpServlet {
 		// CONSTRUIR EL OBJETO ROL
 		Dt_Pais dtpa = new Dt_Pais();
 		Pais pa = new Pais();
+		Ng_Pais ngpa = new Ng_Pais();
 		
 		//rol.setRolID(Integer.parseInt(request.getParameter("rolID")));
 		pa.setNombre(request.getParameter("txtNombre"));
@@ -86,12 +88,19 @@ public class Sl_GestionPais extends HttpServlet {
 				pa.setFechaCreacion(new java.sql.Timestamp(fechaSistema.getTime()));
 				System.out.println("pa.getFechaCreacion(): " + pa.getFechaCreacion());
 				
-					if(dtpa.guardarPaisReg(pa)) {
-			        	response.sendRedirect("tblPais.jsp?msj=1");
-			        }
-			        else {
-			        	response.sendRedirect("tblPais.jsp?msj=2");
-			        }
+					
+					  if(ngpa.existePais(pa.getNombre())) {
+				        	response.sendRedirect("NuevoPais.jsp?msj=existe");
+				        }
+				        else {
+				        	if(dtpa.guardarPaisReg(pa)) {
+					        	response.sendRedirect("tblPais.jsp?msj=1");
+					        }
+					        else {
+					        	response.sendRedirect("tblPais.jsp?msj=2");
+					        }
+				        }
+					
 
 			} catch (Exception e) {
 				System.out.println("Sl_GestionPais, el error es: " + e.getMessage());
