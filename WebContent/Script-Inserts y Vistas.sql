@@ -253,6 +253,23 @@ INSERT INTO public.opciones(
 INSERT INTO public.opciones(
 	opcion, descripcion, estado)
 	VALUES ('EditarFooter.jsp', 'Edita la seccion de Footer', 1);
+
+INSERT INTO public.opciones(
+	opcion, descripcion, estado)
+	VALUES ('mapa.jsp', 'Interfaz que gestiona a mapa', 1);
+
+INSERT INTO public.opciones(
+	opcion, descripcion, estado)
+	VALUES ('tblServicios.jsp', 'Interfaz que servicios', 1);
+
+INSERT INTO public.opciones(
+	opcion, descripcion, estado)
+	VALUES ('arboles.jsp', 'Interfaz que servicios', 1);
+
+INSERT INTO public.opciones(
+	opcion, descripcion, estado)
+	VALUES ('eventos.jsp', 'Interfaz que servicios', 1);
+
 	
 SELECT * FROM opciones;
 
@@ -496,6 +513,22 @@ INSERT INTO public.rol_opciones(
 INSERT INTO public.rol_opciones(
 	rolid, opcionesid, fechacreacion)
 	VALUES (1, 55, '2021-04-18 00:00:00');
+
+INSERT INTO public.rol_opciones(
+	rolid, opcionesid, fechacreacion)
+	VALUES (1, 56, '2021-04-18 00:00:00');
+	
+INSERT INTO public.rol_opciones(
+	rolid, opcionesid, fechacreacion)
+	VALUES (1, 57, '2021-04-18 00:00:00');
+
+INSERT INTO public.rol_opciones(
+	rolid, opcionesid, fechacreacion)
+	VALUES (1, 58, '2021-04-18 00:00:00');
+
+INSERT INTO public.rol_opciones(
+	rolid, opcionesid, fechacreacion)
+	VALUES (1, 59, '2021-04-18 00:00:00');
 
 SELECT * FROM rol_opciones;
 

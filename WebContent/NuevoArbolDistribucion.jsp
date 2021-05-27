@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
          pageEncoding="ISO-8859-1"
-         import="entidades.Arbol, datos.Dt_Arbol, vistas.VW_Arbol, entidades.Distribucion, datos.Dt_Distribucion, vistas.VW_Distribucion, java.util.*;" %>
+         import="entidades.Arbol, datos.Dt_Arbol, vistas.VW_Arbol, entidades.Distribucion, datos.Dt_Distribucion, vistas.VW_Distribucion, vistas.VW_Rolusuario, datos.Dt_RolOpciones, java.util.*;" %>
 <!DOCTYPE html>
 <html>
 
