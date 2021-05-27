@@ -90,7 +90,7 @@ public class Dt_InfoFooter {
 					hom.setVision(rs.getString("vision"));
 					hom.setHistoria(rs.getString("historia"));
 					
-				}
+				} 
 			}
 			catch (Exception e)
 			{
