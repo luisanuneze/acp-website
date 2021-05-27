@@ -65,12 +65,9 @@
             
             <form action="forms/contact.php" method="post" class="php-email-form">
                 <div class="row gy-4">
-                    <div class="col-md-12">
-                        <input type="text" class="form-control" name="titulo" placeholder="Título" required>
-                    </div>
 
                     <div class="col-md-12">
-                        <textarea class="form-control" name="message" rows="6" placeholder="Contenido"
+                        <textarea class="form-control" name="txtVision" id="txtVision" rows="6" placeholder="Contenido"
                                   required></textarea>
                     </div>
                 </div>

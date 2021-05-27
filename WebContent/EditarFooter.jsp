@@ -59,21 +59,30 @@
 
             <form class="user row">
                 <div class="form-group col-sm-6">
-                    <div class="col-sm-12">
-                        <input type="email" class="form-control form-control-user" name="txtEmail" id="txtEmail"
-                               placeholder="Email" required>
-                    </div>
                     <div class="col-sm-12 mb-3 mb-sm-0">
+                    Teléfono:
                         <input type="text" class="form-control form-control-user" name="txtTelefono" id="txtTelefono"
                                placeholder="Telefono" required>
                     </div>
                     <div class="col-sm-12">
+                    Extensión:
                         <input type="text" class="form-control form-control-user" name="txtExtension" id="txtExtension"
                                placeholder="Extension" required>
+                    </div>      
+                    <div class="col-sm-12">
+                    Dirección:
+                        <input type="text" class="form-control form-control-user" name="txtExtension" id="txtExtension"
+                               placeholder="Dirección" required>
                     </div>
                 </div>
                 <div class="form-group col-sm-6">
                     <div class="col-sm-12">
+                    Correo:
+                        <input type="email" class="form-control form-control-user" name="txtEmail" id="txtEmail"
+                               placeholder="Correo" required>
+                    </div>
+                    <div class="col-sm-12">
+                    Descripción:
                         <textarea class="form-control" name="message" rows="6" placeholder="Descripción"
                                   required></textarea>
                     </div>
