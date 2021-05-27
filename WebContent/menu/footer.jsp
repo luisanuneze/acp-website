@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+    pageEncoding="ISO-8859-1" import="entidades.Info_Footer, datos.Dt_InfoFooter, java.util.*;" %>
 <!DOCTYPE html>
 <html>
 
@@ -12,14 +12,27 @@
   <footer id="footer" class="footer">
 
     <div class="container">
+    
+    <%
+         ArrayList<Info_Footer> listInfo_Footer = new ArrayList<Info_Footer>();
+         Dt_InfoFooter dtf = new Dt_InfoFooter();
+         listInfo_Footer = dtf.listaFooter();
+     %>
 
       <h4><strong>Contacto</strong></h4>
+      <%
+          for (Info_Footer foo : listInfo_Footer) {
+      %>
       <p>
-        Universidad Centroamericana (UCA) <br>
+        <%=foo.getDireccion() %><br>
         Managua, Nicaragua<br><br>
-        <strong>Teléfono:</strong> (+505) 2278 3923<br>
-        <strong>Ext:</strong> 1155<br>
+        <strong>Teléfono: </strong><%=foo.getTelefono() %><br>
+        <strong>Ext: </strong><%=foo.getExtension() %><br>
+        <strong>Correo: </strong><%=foo.getCorreo() %><br>
       </p>      
+       <%
+           }
+       %>
 
       <br><center><hr></center>
 

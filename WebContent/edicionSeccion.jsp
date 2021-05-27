@@ -64,18 +64,18 @@
                  for (Home ho : listHome) {
              %>
 
-                <a href="EditarVision.jsp?homeID=<%=ho.getHomeID()%>">
+                <a href="EditarMision.jsp?homeID=<%=ho.getHomeID()%>">
                     <div class="content">
                         <div id="Content-edicion" class="Content-edicion">
-                            <h2>Editar sección de visión</h2>
+                            <h2>Editar sección de misión</h2>
                         </div>
                     </div>
                 </a>
 
-                <a href="EditarMision.jsp?HomeID=<%=ho.getHomeID()%>">
+                <a href="EditarVision.jsp?homeID=<%=ho.getHomeID()%>">
                     <div class="content">
                         <div id="Content-edicion" class="Content-edicion">
-                            <h2>Editar sección de misión</h2>
+                            <h2>Editar sección de visión</h2>
                         </div>
                     </div>
                 </a>
@@ -88,7 +88,7 @@
                     </div>
                 </a>
 
-                <a href="EditarFooter.jsp">
+                <a href="EditarFooter.jsp?homeID=<%=ho.getHomeID()%>">
                     <div class="content">
                         <div id="Content-edicion" class="Content-edicion">
                             <h2>Editar información del footer</h2>

@@ -540,6 +540,10 @@ Gracias al liderazgo de la Universidad Centroamericana, apoyo de las autoridades
 del Missouri Botanical Garden se llevó a cabo el proyecto de Flora de Nicaragua, cuyos resultados 
 se publicaron en 2001 y 2009.' WHERE homeid=1;
 
+
+alter table info_footer
+  add direccion varchar NULL;
+
 ---=============---
 --- SCRIPT YARÓ ---
 ---=============---
