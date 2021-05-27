@@ -53,7 +53,11 @@
 
             <h2 class="form-header" style="color: black;">Registrar Nueva Distribución</h2>
             <br>
-            <form action="forms/contact.php" method="post" class="php-email-form">
+            <form action="./Sl_GestionDistribucion" action="forms/contact.php" method="post" class="distribucion">
+            
+            <!-- El valor de este input es para el Servlet opcion guardar -->
+            <input name="opcion" type="hidden" value="1"/>
+            
                 <div class="row gy-4">
 
                     <%
@@ -64,12 +68,12 @@
                     %>
 
                     <div class="col-md-12">
-                        <input type="text" class="form-control" placeholder="Nombre" required>
+                        <input type="text" class="form-control" placeholder="Nombre" name="txtNombre" id="txtNombre" required>
                         <br>
                     </div>
                     <div class="row col-md-12">
                         <div class="col-sm-11">
-                            <select class="form-select" name="" required>
+                            <select class="form-select" name="cbxPais" id="cbxPais" required>
                                 <option value="">País...</option>
                                 <%
                                     for (VW_PaisRegion pa : listPais) {
@@ -90,7 +94,7 @@
                     <br>
 
                     <div class="col-md-12">
-                        <textarea class="form-control" name="message" rows="6" placeholder="Descripción"
+                        <textarea class="form-control" name="txtDesc" id="txtDesc" rows="6" placeholder="Descripción"
                                   required></textarea>
                     </div>
                 </div>

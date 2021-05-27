@@ -67,7 +67,13 @@
 
             <h2 class="form-header" style="color: black;">Editar Distribución</h2>
             <br>
-            <form action="forms/contact.php" method="post" class="php-email-form">
+            <form action="./Sl_GestionDistribucion" method="post" class="distribucion">
+            
+            	<!-- El valor de este input es para el Servlet opcion guardar -->
+				<input name="distribucionid" type="hidden"
+					value="<%=di.getDistribucionID()%>" /> 
+				<input name="opcion" type="hidden" value="2" />
+				
                 <div class="row gy-4">
 
                     <%

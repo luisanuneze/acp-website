@@ -104,8 +104,8 @@
                     <br>
                     
                     <!-- Botones -->
-                    <div class="col-md-6">
-                		<input class="btn btn-primary btn-user btn-block" type="submit" value="Actualizar" />
+                    <div class="button-formulario col-md-6">
+                    	<button>Actualizar</button>
                     </div>
 
 

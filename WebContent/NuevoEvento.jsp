@@ -91,13 +91,11 @@
 
                     </div>
                     <br>
-                    
+                  	
                     <!-- Botones -->
-                    <div class="col-md-6">
-                		<input class="btn btn-primary btn-user btn-block" type="submit" value="Guardar" />
+                    <div class="button-formulario col-md-6">
+                    	<button> Guardar</button>
                     </div>
-
-
 
                 </div>
                 <div class="col-sm-4">

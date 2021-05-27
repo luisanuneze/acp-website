@@ -99,7 +99,6 @@
                                 <tr>
                                     <th>ID</th>
                                     <th>Nombre</th>
-                                    <th>Fecha creación</th>
                                     <th class="col-sm-3">Opciones</th>
                                 </tr>
                                 </thead>
@@ -107,7 +106,6 @@
                                 <tr>
                                     <th>ID</th>
                                     <th>Nombre</th>
-                                    <th>Fecha creación</th>
                                     <th class="col-sm-3">Opciones</th>
                                 </tr>
                                 </tfoot>
@@ -119,8 +117,6 @@
                                     <td><%=re.getRegionID() %>
                                     </td>
                                     <td><%=re.getNombre() %>
-                                    </td>
-                                    <td><%=re.getFechaCreacion() %>
                                     </td>
                                     <td><a id="btn-edita-abrir" href="EditarRegion.jsp?RegionID=<%=re.getRegionID() %>"> <i
                                             class="fas fa-edit" title="Editar Región"></i></a>

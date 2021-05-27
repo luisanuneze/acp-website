@@ -8,7 +8,8 @@ package datos;
 
 	import entidades.Arbol;
 	import entidades.ArbolDistribucion;
-	import vistas.VW_DistribucionArbol;
+import entidades.Distribucion;
+import vistas.VW_DistribucionArbol;
 import vistas.VW_RolUsuario;
 	
 public class Dt_ArbolDistribucion {
@@ -115,6 +116,132 @@ public class Dt_ArbolDistribucion {
 
 			return ardi;
 		}
+		
+		// Metodo para modificar distribucion
+		public boolean modificarArbolDistribucion(ArbolDistribucion dis)
+		{
+			boolean modificado=false;	
+			try
+			{
+				c= PoolConexion.getConnection();
+				this.llenaRsArbolDistribucion(c);
+				rsArbol.beforeFirst();
+				while (rsArbol.next())
+				{
+					if(rsArbol.getInt(7)==dis.getArbol_DistribucionId())
+					{
+						rsArbol.updateInt("DistribucionId", dis.getDistribucionId());
+						rsArbol.updateInt("ArbolId", dis.getArbolId());
+						rsArbol.updateRow();
+						modificado=true;
+						break;
+					}
+				}
+			}
+			catch (Exception e)
+			{
+				System.err.println("ERROR AL ACTUALIZAR "+e.getMessage());
+				e.printStackTrace();
+			}
+			finally
+			{
+				try {
+					if(rsArbol != null){
+						rsArbol.close();
+					}
+					if(c != null){
+						PoolConexion.closeConnection(c);
+						
+					}
+					
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+			return modificado;
+		}
+
+					
+		//Metodo para guardar una distribucion
+		public boolean guardarArbolDistribucion(ArbolDistribucion d){
+			boolean guardado = false;
+			
+			try{
+				c = PoolConexion.getConnection();
+				this.llenaRsArbolDistribucion(c);
+				rsArbol.moveToInsertRow();
+				rsArbol.updateInt("ArbolId", d.getArbolId());
+				rsArbol.updateInt("DistribucionId", d.getDistribucionId());
+				rsArbol.insertRow();
+				rsArbol.moveToCurrentRow();
+				guardado = true;
+			}
+			catch (Exception e) {
+				System.err.println("ERROR AL guardar Árbol Distribución "+e.getMessage());
+				e.printStackTrace();
+			}
+			finally{
+				try {
+					if(rsArbol != null){
+						rsArbol.close();
+					}
+					if(c != null){
+						PoolConexion.closeConnection(c);
+					}
+					
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+			
+			return guardado;
+		}
+
+		
+		// Metodo para eliminar distribucion arbol
+		public boolean eliminarArbolDistribucion(int Arbol_DistribucionId)
+		{
+			boolean eliminado=false;	
+			try
+			{
+				c = PoolConexion.getConnection();
+				this.llenaRsArbolDistribucion(c);
+				rsArbol.beforeFirst();
+				while (rsArbol.next())
+				{
+					if(rsArbol.getInt("Arbol_DistribucionId")==Arbol_DistribucionId)
+					{
+						rsArbol.deleteRow();
+						eliminado = true;
+						break;
+					}
+				}
+			}
+			catch (Exception e)
+			{
+				System.err.println("ERROR AL ELIMINAR ÁRBOL DISTRIBUCIÓN "+e.getMessage());
+				e.printStackTrace();
+			}
+			finally
+			{
+				try {
+					if(rsArbol != null){
+						rsArbol.close();
+					}
+					if(c != null){
+						PoolConexion.closeConnection(c);
+					}
+					
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+			return eliminado;
+		}
+		
 		
 		
 	}

@@ -63,7 +63,13 @@
 
             <h2 class="form-header" style="color: black;">Editar Árbol Distribución</h2>
             <br></br>
-            <form action="forms/contact.php" method="post" class="php-email-form">
+            <form action="./Sl_GestionDistribucionArbol" method="post" class="ArbolDistribucion">
+            
+            <!-- El valor de este input es para el Servlet opcion guardar -->
+				<input name="Arbol_DistribucionId" type="hidden"
+					value="<%=ard.getArbol_DistribucionId()%>" /> 
+				<input name="opcion" type="hidden" value="2" />
+            
                 <div class="row gy-4">
 
                     <%

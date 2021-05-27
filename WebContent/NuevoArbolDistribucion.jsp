@@ -53,7 +53,11 @@
 
             <h2 class="form-header" style="color: black;">Registrar Nueva Distribución</h2>
             <br></br>
-            <form action="forms/contact.php" method="post" class="php-email-form">
+            <form action="./Sl_GestionDistribucionArbol" method="post" class="ArbolDistribucion">
+            
+            <!-- El valor de este input es para el Servlet opcion guardar -->
+            <input name="opcion" type="hidden" value="1"/>
+            
                 <div class="row gy-4">
 
                     <%
@@ -69,7 +73,7 @@
 				<div class="row col-md-6">
                     <div class="row col-md-12">
                         <div class="col-sm-11">
-                            <select class="form-select" name="" required>
+                            <select class="form-select" name="cbxArbol" id="cbxArbol" required>
                                 <option value="">Árbol...</option>
                                 <%
                                     for (VW_Arbol ar : listArbol) {
@@ -90,7 +94,7 @@
                     <br></br>
                     <div class="row col-md-12">
                         <div class="col-sm-11">
-                            <select class="form-select" name="" required>
+                            <select class="form-select" name="cbxDistribucion" id="cbxDistribucion" required>
                                 <option value="">Distribución...</option>
                                 <%
                                     for (VW_Distribucion di : listDistribucion) {

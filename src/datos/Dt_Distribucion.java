@@ -25,7 +25,7 @@ public class Dt_Distribucion {
 					rsDistribucion = ps.executeQuery();
 				}
 				catch (Exception e){
-					System.out.println("DATOS: ERROR EN LISTAR Distribucion "+ e.getMessage());
+					System.out.println("DATOS: ERROR EN LISTAR DISTRIBUCION "+ e.getMessage());
 					e.printStackTrace();
 				}
 			}
@@ -35,7 +35,7 @@ public class Dt_Distribucion {
 				ArrayList<VW_Distribucion> listDistribucion = new ArrayList<VW_Distribucion>();
 				try{
 					c = PoolConexion.getConnection();
-					ps = c.prepareStatement("select * from public.vw_distribucion", ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE, ResultSet.HOLD_CURSORS_OVER_COMMIT);
+					ps = c.prepareStatement("select * from public.vw_distribucion where \"Estado\" <> 3", ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE, ResultSet.HOLD_CURSORS_OVER_COMMIT);
 					rs = ps.executeQuery();
 					while(rs.next()){
 						VW_Distribucion ds = new VW_Distribucion();
@@ -77,7 +77,7 @@ public class Dt_Distribucion {
 				ArrayList<Distribucion> listDistribucion = new ArrayList<Distribucion>();
 				try{
 					c = PoolConexion.getConnection();
-					ps = c.prepareStatement("select * from public.distribucion", ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE, ResultSet.HOLD_CURSORS_OVER_COMMIT);
+					ps = c.prepareStatement("select * from public.\"distribucion\" where estado <> 3", ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE, ResultSet.HOLD_CURSORS_OVER_COMMIT);
 					rs = ps.executeQuery();
 					while(rs.next()){
 						Distribucion ds = new Distribucion();
@@ -166,55 +166,53 @@ public class Dt_Distribucion {
 			}
 			
 			// Metodo para modificar distribucion
-						public boolean modificarDistribucion(Distribucion dis)
+			public boolean modificarDistribucion(Distribucion dis)
+			{
+				boolean modificado=false;	
+				try
+				{
+					c= PoolConexion.getConnection();
+					this.llenaRsDistribucion(c);
+					rsDistribucion.beforeFirst();
+					while (rsDistribucion.next())
+					{
+						if(rsDistribucion.getInt(7)==dis.getDistribucionID())
 						{
-							boolean modificado=false;	
-							try
-							{
-								c= PoolConexion.getConnection();
-								this.llenaRsDistribucion(c);
-								rsDistribucion.beforeFirst();
-								while (rsDistribucion.next())
-								{
-									if(rsDistribucion.getInt(7)==dis.getDistribucionID())
-									{
-										rsDistribucion.updateString("nombre", dis.getNombre());
-										rsDistribucion.updateString("descripcion", dis.getDescripcion());
-										rsDistribucion.updateInt("paisid", dis.getPaisID());
-										rsDistribucion.updateTimestamp("fechaModificacion", dis.getFechaModificacion());
-										rsDistribucion.updateInt("estado", 2);
-										rsDistribucion.updateRow();
-										modificado=true;
-										break;
-									}
-								}
-							}
-							catch (Exception e)
-							{
-								System.err.println("ERROR AL ACTUALIZAR "+e.getMessage());
-								e.printStackTrace();
-							}
-							finally
-							{
-								try {
-									if(rsDistribucion != null){
-										rsDistribucion.close();
-									}
-									if(c != null){
-										PoolConexion.closeConnection(c);
-										
-									}
-									
-								} catch (SQLException e) {
-									// TODO Auto-generated catch block
-									e.printStackTrace();
-								}
-							}
-							return modificado;
+							rsDistribucion.updateString("nombre", dis.getNombre());
+							rsDistribucion.updateString("descripcion", dis.getDescripcion());
+							rsDistribucion.updateInt("paisid", dis.getPaisID());
+							rsDistribucion.updateTimestamp("fechaModificacion", dis.getFechaModificacion());
+							rsDistribucion.updateInt("estado", 2);
+							rsDistribucion.updateRow();
+							modificado=true;
+							break;
 						}
-			
-	
-			
+					}
+				}
+				catch (Exception e)
+				{
+					System.err.println("ERROR AL ACTUALIZAR "+e.getMessage());
+					e.printStackTrace();
+				}
+				finally
+				{
+					try {
+						if(rsDistribucion != null){
+							rsDistribucion.close();
+						}
+						if(c != null){
+							PoolConexion.closeConnection(c);
+							
+						}
+						
+					} catch (SQLException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				}
+				return modificado;
+			}
+
 			
 			//Metodo para guardar una distribucion
 			public boolean guardarDistribucion(Distribucion d){
@@ -254,4 +252,48 @@ public class Dt_Distribucion {
 				
 				return guardado;
 			}
+			
+			// Metodo para eliminar usuario
+			public boolean eliminarDistribucion(int distribucionid)
+			{
+				boolean eliminado=false;	
+				try
+				{
+					c = PoolConexion.getConnection();
+					this.llenaRsDistribucion(c);
+					rsDistribucion.beforeFirst();
+					while (rsDistribucion.next())
+					{
+						if(rsDistribucion.getInt("distribucionid")==distribucionid)
+						{
+							rsDistribucion.updateInt("estado", 3);
+							rsDistribucion.updateRow();
+							eliminado=true;
+							break;
+						}
+					}
+				}
+				catch (Exception e)
+				{
+					System.err.println("ERROR AL ELIMINAR DISTRIBUCIÓN "+e.getMessage());
+					e.printStackTrace();
+				}
+				finally
+				{
+					try {
+						if(rsDistribucion != null){
+							rsDistribucion.close();
+						}
+						if(c != null){
+							PoolConexion.closeConnection(c);
+						}
+						
+					} catch (SQLException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				}
+				return eliminado;
+			}
+			
 }
