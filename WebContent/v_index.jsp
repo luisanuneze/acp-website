@@ -53,11 +53,6 @@
 
 <main id="main">
 
-    <!-- Empty seccion for space-->
-    <div id="empty" class="empty">
-    </div>
-    <!-- End Empty Section -->
-
     <!-- ======= Inicio Section ======= -->
     <section id="about" class="about">
 
