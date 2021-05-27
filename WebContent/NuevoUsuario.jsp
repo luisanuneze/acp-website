@@ -123,6 +123,10 @@
 								name="txtPwd2" id="txtPwd2" placeholder="Repetir Contraseña" minlength="8" maxlength="32"
 								required>
 						</div>
+						<div class="col-sm-12 mb-3 mb-sm-0">
+							<input type="Tel" class="form-control form-control-user"
+								name="txttel" id="txttel" placeholder="Ingrese 0 si no posee numero de contacto" required>
+						</div>
 					</div>
 
 					<br>

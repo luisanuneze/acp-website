@@ -141,6 +141,7 @@
                                 <th>Nombre</th>
                                 <th>Apellido</th>
                                 <th>Correo</th>
+                                <th>Telefono</th>
                                 <th>Estado</th>
                                 <th>Opciones</th>
                             </tr>
@@ -152,6 +153,7 @@
                                 <th>Nombre</th>
                                 <th>Apellido</th>
                                 <th>Correo</th>
+                                <th>Telefono</th>
                                 <th>Estado</th>
                                 <th>Opciones</th>
                             </tr>
@@ -170,6 +172,8 @@
                                 <td><%=us.getApellidos() %>
                                 </td>
                                 <td><%=us.getEmail() %>
+                                </td>
+                                <td><%=us.getTelefono() %>
                                 </td>
                                 <td><%=us.getEstado() != 3 ? "ACTIVO" : "INACTIVO" %>
                                 </td>
