@@ -54,7 +54,7 @@
                     <!-- Boton de edicion-->
                     <div id="button-edicion" class="button-edicion">
                         <a href="tblPublicaciones.jsp">
-                            <button> Administrar árboles</button>
+                            <button> Administrar publicaciones</button>
                         </a>
                     </div>
                     <!-- Termina boton de edicion-->

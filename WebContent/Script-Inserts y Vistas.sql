@@ -36,15 +36,223 @@ SELECT * FROM rol;
 -- Inserts Opciones --
 INSERT INTO public.opciones(
 	opcion, descripcion, estado)
-	VALUES ('tblUsuarios.jsp', 'Interfaz que controla la gestion de Usuarios', 1);
+	VALUES ('index.jsp', 'Home de la seccion administrativa', 1);
 
 INSERT INTO public.opciones(
 	opcion, descripcion, estado)
-	VALUES ('tblRol.jsp', 'Interfaz que controla la gestion de Roles', 1);
+	VALUES ('tblUsuarios.jsp', 'Interfaz que lista Usuarios', 1);
+
+INSERT INTO public.opciones(
+	opcion, descripcion, estado)
+	VALUES ('NuevoUsuario.jsp', 'Interfaz donde se agrega un nuevo Usuario', 1);
+	
+INSERT INTO public.opciones(
+	opcion, descripcion, estado)
+	VALUES ('EditarUsuario.jsp', 'Interfaz donde se actualiza Usuarios', 1);
+
+INSERT INTO public.opciones(
+	opcion, descripcion, estado)
+	VALUES ('tblRol.jsp', 'Interfaz que lista Roles', 1);
+
+INSERT INTO public.opciones(
+	opcion, descripcion, estado)
+	VALUES ('NuevoRol.jsp', 'Interfaz donde se agrega un nuevo rol', 1);
+
+INSERT INTO public.opciones(
+	opcion, descripcion, estado)
+	VALUES ('EditarRol.jsp', 'Interfaz donde se editan roles', 1);
 
 INSERT INTO public.opciones(
 	opcion, descripcion, estado)
 	VALUES ('tblOpciones.jsp', 'Interfaz que lista las Opcioens del portal', 1);
+	
+INSERT INTO public.opciones(
+	opcion, descripcion, estado)
+	VALUES ('tblRolUser.jsp', 'Interfaz que lista los usuarios con roles', 1);
+
+INSERT INTO public.opciones(
+	opcion, descripcion, estado)
+	VALUES ('NuevoRolUser.jsp', 'Interfaz donde se asignan roles a usuarios', 1);
+	
+INSERT INTO public.opciones(
+	opcion, descripcion, estado)
+	VALUES ('editRolUsuario.jsp', 'Interfaz donde se editan las asignaciones de roles a usuarios', 1);	
+
+INSERT INTO public.opciones(
+	opcion, descripcion, estado)
+	VALUES ('tblRolOpc.jsp', 'Interfaz que lista los roles con opciones', 1);
+
+INSERT INTO public.opciones(
+	opcion, descripcion, estado)
+	VALUES ('NuevoRolOpc.jsp', 'Interfaz donde se asignan opciones a roles', 1);
+
+INSERT INTO public.opciones(
+	opcion, descripcion, estado)
+	VALUES ('editRolOpc.jsp', 'Interfaz que actualiza las asignaciones de opciones a roles', 1);
+	
+INSERT INTO public.opciones(
+	opcion, descripcion, estado)
+	VALUES ('edicionSeccion.jsp', 'Interfaz que actualiza seccion del home', 1);
+
+INSERT INTO public.opciones(
+	opcion, descripcion, estado)
+	VALUES ('editRolOpc.jsp', 'Interfaz que actualiza las asignaciones de opciones a roles', 1);
+
+INSERT INTO public.opciones(
+	opcion, descripcion, estado)
+	VALUES ('servicios.jsp', 'Interfaz que gestiona los servicios del arboreto', 1);
+
+INSERT INTO public.opciones(
+	opcion, descripcion, estado)
+	VALUES ('NuevoServicio.jsp', 'Interfaz donde se guarda un nuevo servicio', 1);
+
+INSERT INTO public.opciones(
+	opcion, descripcion, estado)
+	VALUES ('EditarServicio.jsp', 'Interfaz que actualiza los servicios', 1);
+
+INSERT INTO public.opciones(
+	opcion, descripcion, estado)
+	VALUES ('tblRegion.jsp', 'Interfaz que lista las regiones', 1);
+
+INSERT INTO public.opciones(
+	opcion, descripcion, estado)
+	VALUES ('NuevaRegion.jsp', 'Interfaz donde se agregan nuevas regiones', 1);
+
+INSERT INTO public.opciones(
+	opcion, descripcion, estado)
+	VALUES ('EditarRegion.jsp', 'Interfaz que actualiza las regiones', 1);
+
+INSERT INTO public.opciones(
+	opcion, descripcion, estado)
+	VALUES ('publicaciones.jsp', 'Interfaz que gestiona publicaciones', 1);
+
+INSERT INTO public.opciones(
+	opcion, descripcion, estado)
+	VALUES ('tblPublicaciones.jsp', 'Interfaz que lista las publicaciones', 1);
+
+INSERT INTO public.opciones(
+	opcion, descripcion, estado)
+	VALUES ('NuevaPublicacion.jsp', 'Interfaz que guarda publicaciones', 1);
+
+INSERT INTO public.opciones(
+	opcion, descripcion, estado)
+	VALUES ('EditarPublicacion.jsp', 'Interfaz que actualiza publicaciones', 1);
+
+INSERT INTO public.opciones(
+	opcion, descripcion, estado)
+	VALUES ('documento.jsp', 'Interfaz que sube un documento a publicaciones', 1);
+
+INSERT INTO public.opciones(
+	opcion, descripcion, estado)
+	VALUES ('tblPais.jsp', 'Interfaz que lista paises', 1);
+
+INSERT INTO public.opciones(
+	opcion, descripcion, estado)
+	VALUES ('NuevoPais.jsp', 'Interfaz que guarda paises', 1);
+
+INSERT INTO public.opciones(
+	opcion, descripcion, estado)
+	VALUES ('EditarPais.jsp', 'Interfaz que actualiza paises', 1);
+
+INSERT INTO public.opciones(
+	opcion, descripcion, estado)
+	VALUES ('tblGenero.jsp', 'Interfaz que lista genero', 1);
+
+INSERT INTO public.opciones(
+	opcion, descripcion, estado)
+	VALUES ('NuevoGenero.jsp', 'Interfaz que agrega genero', 1);
+
+INSERT INTO public.opciones(
+	opcion, descripcion, estado)
+	VALUES ('EditarGenero.jsp', 'Interfaz que actualiza genero', 1);
+
+INSERT INTO public.opciones(
+	opcion, descripcion, estado)
+	VALUES ('tblFloracion.jsp', 'Interfaz que lista las espocas de floracion', 1);
+
+INSERT INTO public.opciones(
+	opcion, descripcion, estado)
+	VALUES ('tblFamilia.jsp', 'Interfaz que lista familias de arboles', 1);
+
+INSERT INTO public.opciones(
+	opcion, descripcion, estado)
+	VALUES ('NuevaFamilia.jsp', 'Interfaz que agrega familias de arboles', 1);
+
+INSERT INTO public.opciones(
+	opcion, descripcion, estado)
+	VALUES ('EditarFamilia.jsp', 'Interfaz que actualiza familias de arboles', 1);
+
+INSERT INTO public.opciones(
+	opcion, descripcion, estado)
+	VALUES ('tblEventos.jsp', 'Interfaz que lista los eventos', 1);
+
+INSERT INTO public.opciones(
+	opcion, descripcion, estado)
+	VALUES ('NuevoEvento.jsp', 'Interfaz que agrega eventos', 1);
+
+INSERT INTO public.opciones(
+	opcion, descripcion, estado)
+	VALUES ('EditarEventos.jsp', 'Interfaz que actualiza eventos', 1);
+
+INSERT INTO public.opciones(
+	opcion, descripcion, estado)
+	VALUES ('fotoEvento.jsp', 'Interfaz que guarda foto de evento', 1);
+
+INSERT INTO public.opciones(
+	opcion, descripcion, estado)
+	VALUES ('tblDistribucio.jsp', 'Interfaz que lista distribuciones', 1);
+
+INSERT INTO public.opciones(
+	opcion, descripcion, estado)
+	VALUES ('NuevaDistribucion.jsp', 'Interfaz que agrega distribuciones', 1);
+
+INSERT INTO public.opciones(
+	opcion, descripcion, estado)
+	VALUES ('EditarDistribucion.jsp', 'Interfaz que actualiza distribuciones', 1);
+
+INSERT INTO public.opciones(
+	opcion, descripcion, estado)
+	VALUES ('tblDistribucion.jsp', 'Interfaz que lista los arboles con distribucion asignada', 1);
+
+INSERT INTO public.opciones(
+	opcion, descripcion, estado)
+	VALUES ('NuevoArbolDistribucion.jsp', 'Interfaz que asigna una distribucion a arbol', 1);
+
+INSERT INTO public.opciones(
+	opcion, descripcion, estado)
+	VALUES ('EditarArbolDistribucion.jsp', 'Interfaz que actualiza las asiganaciones de distribuciones a arboles', 1);
+
+INSERT INTO public.opciones(
+	opcion, descripcion, estado)
+	VALUES ('tblArbol.jsp', 'Interfaz que lista arboles', 1);
+
+INSERT INTO public.opciones(
+	opcion, descripcion, estado)
+	VALUES ('NuevoArbol.jsp', 'Interfaz que agrega arboles', 1);
+
+INSERT INTO public.opciones(
+	opcion, descripcion, estado)
+	VALUES ('EditarArboles.jsp', 'Interfaz que actualiza arboles', 1);
+
+INSERT INTO public.opciones(
+	opcion, descripcion, estado)
+	VALUES ('fotoArbol.jsp', 'Interfaz donde se guarda una foto al arbol', 1);
+
+INSERT INTO public.opciones(
+	opcion, descripcion, estado)
+	VALUES ('EditarMision.jsp', 'Edita la seccion de Mision', 1);
+
+INSERT INTO public.opciones(
+	opcion, descripcion, estado)
+	VALUES ('EditarVision.jsp', 'Edita la seccion de Vision', 1);
+
+INSERT INTO public.opciones(
+	opcion, descripcion, estado)
+	VALUES ('EditarHistoria.jsp', 'Edita la seccion de Historia', 1);
+
+INSERT INTO public.opciones(
+	opcion, descripcion, estado)
+	VALUES ('EditarFooter.jsp', 'Edita la seccion de Footer', 1);
 	
 SELECT * FROM opciones;
 
@@ -55,30 +263,239 @@ SELECT * FROM opciones;
 -- Inserts RolUsuario --
 INSERT INTO public.rol_usuario(
 	usuarioid, rolid, fechacreacion)
-	VALUES (1, 1, '2021-04-16');
+	VALUES (1, 1, '2021-04-16 00:00:00');
 	
 INSERT INTO public.rol_usuario(
 	usuarioid, rolid, fechacreacion)
-	VALUES (2, 3, '2021-04-18');
+	VALUES (2, 3, '2021-04-18 00:00:00');
 	
 INSERT INTO public.rol_usuario(
 	usuarioid, rolid, fechacreacion)
-	VALUES (3, 2, '2021-04-18');
+	VALUES (3, 2, '2021-04-18 00:00:00');
 
 SELECT * FROM rol_usuario;
 
 -- Inserts RolOpciones --
 INSERT INTO public.rol_opciones(
 	rolid, opcionesid, fechacreacion)
-	VALUES (1, 1, '2021-04-16');
+	VALUES (1, 1, '2021-04-16 00:00:00');
 	
 INSERT INTO public.rol_opciones(
 	rolid, opcionesid, fechacreacion)
-	VALUES (1, 2, '2021-04-18');
+	VALUES (1, 2, '2021-04-18 00:00:00');
 	
 INSERT INTO public.rol_opciones(
 	rolid, opcionesid, fechacreacion)
-	VALUES (1, 3, '2021-04-18');
+	VALUES (1, 3, '2021-04-18 00:00:00');
+
+INSERT INTO public.rol_opciones(
+	rolid, opcionesid, fechacreacion)
+	VALUES (1, 4, '2021-04-18 00:00:00');
+
+INSERT INTO public.rol_opciones(
+	rolid, opcionesid, fechacreacion)
+	VALUES (1, 5, '2021-04-18 00:00:00');
+	
+INSERT INTO public.rol_opciones(
+	rolid, opcionesid, fechacreacion)
+	VALUES (1, 6, '2021-04-18 00:00:00');	
+	
+INSERT INTO public.rol_opciones(
+	rolid, opcionesid, fechacreacion)
+	VALUES (1, 7, '2021-04-18 00:00:00');	
+	
+INSERT INTO public.rol_opciones(
+	rolid, opcionesid, fechacreacion)
+	VALUES (1, 8, '2021-04-18 00:00:00');	
+	
+INSERT INTO public.rol_opciones(
+	rolid, opcionesid, fechacreacion)
+	VALUES (1, 9, '2021-04-18 00:00:00');	
+	
+INSERT INTO public.rol_opciones(
+	rolid, opcionesid, fechacreacion)
+	VALUES (1, 10, '2021-04-18 00:00:00');	
+	
+INSERT INTO public.rol_opciones(
+	rolid, opcionesid, fechacreacion)
+	VALUES (1, 11, '2021-04-18 00:00:00');	
+	
+INSERT INTO public.rol_opciones(
+	rolid, opcionesid, fechacreacion)
+	VALUES (1, 12, '2021-04-18 00:00:00');	
+	
+INSERT INTO public.rol_opciones(
+	rolid, opcionesid, fechacreacion)
+	VALUES (1, 13, '2021-04-18 00:00:00');	
+	
+INSERT INTO public.rol_opciones(
+	rolid, opcionesid, fechacreacion)
+	VALUES (1, 14, '2021-04-18 00:00:00');	
+	
+INSERT INTO public.rol_opciones(
+	rolid, opcionesid, fechacreacion)
+	VALUES (1, 15, '2021-04-18 00:00:00');	
+	
+INSERT INTO public.rol_opciones(
+	rolid, opcionesid, fechacreacion)
+	VALUES (1, 16, '2021-04-18 00:00:00');	
+	
+INSERT INTO public.rol_opciones(
+	rolid, opcionesid, fechacreacion)
+	VALUES (1, 17, '2021-04-18 00:00:00');	
+	
+INSERT INTO public.rol_opciones(
+	rolid, opcionesid, fechacreacion)
+	VALUES (1, 18, '2021-04-18 00:00:00');	
+	
+INSERT INTO public.rol_opciones(
+	rolid, opcionesid, fechacreacion)
+	VALUES (1, 19, '2021-04-18 00:00:00');	
+	
+INSERT INTO public.rol_opciones(
+	rolid, opcionesid, fechacreacion)
+	VALUES (1, 20, '2021-04-18 00:00:00');	
+	
+INSERT INTO public.rol_opciones(
+	rolid, opcionesid, fechacreacion)
+	VALUES (1, 21, '2021-04-18 00:00:00');	
+	
+INSERT INTO public.rol_opciones(
+	rolid, opcionesid, fechacreacion)
+	VALUES (1, 22, '2021-04-18 00:00:00');	
+	
+INSERT INTO public.rol_opciones(
+	rolid, opcionesid, fechacreacion)
+	VALUES (1, 23, '2021-04-18 00:00:00');	
+	
+INSERT INTO public.rol_opciones(
+	rolid, opcionesid, fechacreacion)
+	VALUES (1, 24, '2021-04-18 00:00:00');	
+	
+	
+INSERT INTO public.rol_opciones(
+	rolid, opcionesid, fechacreacion)
+	VALUES (1, 25, '2021-04-18 00:00:00');	
+	
+INSERT INTO public.rol_opciones(
+	rolid, opcionesid, fechacreacion)
+	VALUES (1, 26, '2021-04-18 00:00:00');	
+	
+INSERT INTO public.rol_opciones(
+	rolid, opcionesid, fechacreacion)
+	VALUES (1, 27, '2021-04-18 00:00:00');	
+	
+INSERT INTO public.rol_opciones(
+	rolid, opcionesid, fechacreacion)
+	VALUES (1, 28, '2021-04-18 00:00:00');	
+	
+INSERT INTO public.rol_opciones(
+	rolid, opcionesid, fechacreacion)
+	VALUES (1, 29, '2021-04-18 00:00:00');	
+	
+INSERT INTO public.rol_opciones(
+	rolid, opcionesid, fechacreacion)
+	VALUES (1, 30, '2021-04-18 00:00:00');	
+	
+INSERT INTO public.rol_opciones(
+	rolid, opcionesid, fechacreacion)
+	VALUES (1, 31, '2021-04-18 00:00:00');	
+	
+INSERT INTO public.rol_opciones(
+	rolid, opcionesid, fechacreacion)
+	VALUES (1, 32, '2021-04-18 00:00:00');	
+	
+INSERT INTO public.rol_opciones(
+	rolid, opcionesid, fechacreacion)
+	VALUES (1, 33, '2021-04-18 00:00:00');	
+	
+INSERT INTO public.rol_opciones(
+	rolid, opcionesid, fechacreacion)
+	VALUES (1, 34, '2021-04-18 00:00:00');	
+	
+INSERT INTO public.rol_opciones(
+	rolid, opcionesid, fechacreacion)
+	VALUES (1, 35, '2021-04-18 00:00:00');	
+	
+INSERT INTO public.rol_opciones(
+	rolid, opcionesid, fechacreacion)
+	VALUES (1, 36, '2021-04-18 00:00:00');	
+	
+INSERT INTO public.rol_opciones(
+	rolid, opcionesid, fechacreacion)
+	VALUES (1, 37, '2021-04-18 00:00:00');	
+	
+INSERT INTO public.rol_opciones(
+	rolid, opcionesid, fechacreacion)
+	VALUES (1, 38, '2021-04-18 00:00:00');	
+	
+INSERT INTO public.rol_opciones(
+	rolid, opcionesid, fechacreacion)
+	VALUES (1, 39, '2021-04-18 00:00:00');	
+	
+INSERT INTO public.rol_opciones(
+	rolid, opcionesid, fechacreacion)
+	VALUES (1, 40, '2021-04-18 00:00:00');	
+	
+INSERT INTO public.rol_opciones(
+	rolid, opcionesid, fechacreacion)
+	VALUES (1, 41, '2021-04-18 00:00:00');	
+	
+INSERT INTO public.rol_opciones(
+	rolid, opcionesid, fechacreacion)
+	VALUES (1, 42, '2021-04-18 00:00:00');	
+	
+INSERT INTO public.rol_opciones(
+	rolid, opcionesid, fechacreacion)
+	VALUES (1, 43, '2021-04-18 00:00:00');	
+	
+INSERT INTO public.rol_opciones(
+	rolid, opcionesid, fechacreacion)
+	VALUES (1, 44, '2021-04-18 00:00:00');	
+	
+INSERT INTO public.rol_opciones(
+	rolid, opcionesid, fechacreacion)
+	VALUES (1, 45, '2021-04-18 00:00:00');	
+	
+INSERT INTO public.rol_opciones(
+	rolid, opcionesid, fechacreacion)
+	VALUES (1, 46, '2021-04-18 00:00:00');	
+	
+INSERT INTO public.rol_opciones(
+	rolid, opcionesid, fechacreacion)
+	VALUES (1, 47, '2021-04-18 00:00:00');	
+	
+INSERT INTO public.rol_opciones(
+	rolid, opcionesid, fechacreacion)
+	VALUES (1, 48, '2021-04-18 00:00:00');	
+	
+INSERT INTO public.rol_opciones(
+	rolid, opcionesid, fechacreacion)
+	VALUES (1, 49, '2021-04-18 00:00:00');	
+	
+INSERT INTO public.rol_opciones(
+	rolid, opcionesid, fechacreacion)
+	VALUES (1, 50, '2021-04-18 00:00:00');	
+	
+INSERT INTO public.rol_opciones(
+	rolid, opcionesid, fechacreacion)
+	VALUES (1, 51, '2021-04-18 00:00:00');	
+	
+INSERT INTO public.rol_opciones(
+	rolid, opcionesid, fechacreacion)
+	VALUES (1, 52, '2021-04-18 00:00:00');	
+	
+INSERT INTO public.rol_opciones(
+	rolid, opcionesid, fechacreacion)
+	VALUES (1, 53, '2021-04-18 00:00:00');	
+	
+INSERT INTO public.rol_opciones(
+	rolid, opcionesid, fechacreacion)
+	VALUES (1, 54, '2021-04-18 00:00:00');	
+	
+INSERT INTO public.rol_opciones(
+	rolid, opcionesid, fechacreacion)
+	VALUES (1, 55, '2021-04-18 00:00:00');
 
 SELECT * FROM rol_opciones;
 

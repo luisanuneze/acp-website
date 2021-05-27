@@ -187,8 +187,7 @@
                                            		  });">
                         							<i class="fas fa-trash-alt" title="Eliminar Rol"></i>
                         						</a> 
-                                <a href="#"> <i class="fas fa-eye" title="Visualizar Rol"></i>
-                                </a>
+                               
                                 </td>
                             </tr>
                             <%

@@ -104,7 +104,7 @@
 					<!-- Botones -->
 					<div class="button-formulario">
 						<input class="btn-user button button-formulario" type="submit"
-							value="Guardar" /> <a href="tblRol.jsp"
+							value="Guardar" /> <a href="javascript:history.go(-1)"
 							style="padding: 13px 35px"
 							class="btn-user button button-formulario ">Regresar</a>
 					</div>
@@ -177,17 +177,14 @@
 	    {
 			/////////// VARIABLE DE CONTROL MSJ ///////////
 	        var mensaje = "";
-	        mensaje = "<%=varMsj%>
-		";
+	        mensaje = "<%=varMsj%>";
 
-							if (mensaje == "existe") {
-								errorAlert(
-										'Error',
-										'El rol que esta intentando registrar ya existe en la base de datos!');
-							}
+			if (mensaje == "existe") {
+				errorAlert('Error', 'El rol que esta intentando registrar ya existe en la base de datos!');
+			}
 
 							
-						});
+		});
 	</script>
 
 </body>

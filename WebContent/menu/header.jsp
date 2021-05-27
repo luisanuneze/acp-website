@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+         pageEncoding="ISO-8859-1"
+         import="entidades.Genero, datos.Dt_Genero, entidades.Home, datos.Dt_Home, vistas.*, datos.Dt_RolOpciones, java.util.*;" %>
+
 <!DOCTYPE html>
 <html>
 
@@ -65,9 +67,18 @@
               <li><a class="nav-link" href="tblOpciones.jsp">Opciones</a></li>
             </ul>
           </li>
+          <%
+            /*String Username = null;
+            if(vru == null){
+            	
+            }else
+            {
+            	Username = vru.getUsuario();
+            }*/
+          %>
           <li class="dropdown"><a href="#"><img src="assets/img/usuario.png"><i class="bi bi-chevron-down"></i></a>
             <ul>
-              <li><a class="nav-link" href="#">Nombre</a></li>
+              <li><a class="nav-link" href="#">User: <%//=Username%></a></li>
               <li><a class="nav-link" href="#">Editar datos</a></li>
               <li><a class="nav-link" href="inicioSesion.jsp">Salir</a></li>  
             </ul>

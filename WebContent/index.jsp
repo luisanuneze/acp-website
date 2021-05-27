@@ -7,7 +7,7 @@
 	response.setDateHeader( "Expires", 0 );
 	response.setDateHeader( "Expires", -1 );
 	
-	/*VW_RolUsuario vru = new VW_RolUsuario();
+	VW_RolUsuario vru = new VW_RolUsuario();
 	Dt_RolOpciones dtro = new Dt_RolOpciones();
 	ArrayList<VW_RolOpciones> listRolOpc = new ArrayList<VW_RolOpciones>();
 	
@@ -18,7 +18,8 @@
 	}
 	else{
 		//OBTENEMOS LA LISTA DE OPCIONES ASIGNADAS AL ROL
-		listRolOpc = dtro.listaRolOpc(vru.getRolid());
+		listRolOpc = dtro.listaRolOpc2(vru.getRolid());
+		//listOpc = dtro.listaRolOpc(vru.getIdrol());
 		
 		//RECUPERAMOS LA URL = MI OPCION ACTUAL
 		int index = request.getRequestURL().lastIndexOf("/");
@@ -36,7 +37,7 @@
 		if(!permiso){
 			response.sendRedirect("401.jsp");
 		}	
-	}*/
+	}
 %>
 <!DOCTYPE html>
 <html>
