@@ -119,6 +119,10 @@
 							<input type="password" class="form-control form-control-user"
 								name="txtPwd2" id="txtPwd2" placeholder="Repetir Contraseña" required>
 						</div>
+						<div class="col-sm-12">
+							<input type="Tel" class="form-control form-control-user"
+								name="txttel" id="txttel" placeholder="Ingrese 0 si no posee numero de contacto" required>
+						</div>
 					</div>
 
 
@@ -205,6 +209,7 @@
 		$("#txtEmail").val("<%=user.getEmail()%>");
 		$("#txtPwd").val("<%=user.getContrasenia()%>");
 		$("#txtPwd2").val("<%=user.getContrasenia()%>");
+		$("#txttel").val("<%=user.getTelefono()%>");
 	});
    
 	   
