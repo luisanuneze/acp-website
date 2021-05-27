@@ -174,9 +174,7 @@
                         							<i class="fas fa-trash-alt" title="Eliminar esta Opcion a Rol"></i>
                         						</a> 
                         						
-                                    <a href="#">
-                                        <i class="fas fa-eye" title="Visualizar las Opciones de este Rol"></i>
-                                    </a>
+                                    
 
                                 </td>
                             </tr>

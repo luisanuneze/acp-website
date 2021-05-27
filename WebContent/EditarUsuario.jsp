@@ -113,11 +113,11 @@
 						</div>
 						<div class="col-sm-12">
 							<input type="password" class="form-control form-control-user"
-								name="txtPwd" id="txtPwd" placeholder="Contraseña" required>
+								name="txtPwd" id="txtPwd" placeholder="Contraseña" minlength="8" maxlength="32" required>
 						</div>
 						<div class="col-sm-12">
 							<input type="password" class="form-control form-control-user"
-								name="txtPwd2" id="txtPwd2" placeholder="Repetir Contraseña" required>
+								name="txtPwd2" id="txtPwd2" placeholder="Repetir Contraseña" minlength="8" maxlength="32" required>
 						</div>
 					</div>
 
