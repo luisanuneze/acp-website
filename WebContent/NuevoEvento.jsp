@@ -77,10 +77,8 @@
     <!-- jAlert css  -->
 	<link rel="stylesheet" href="jAlert/dist/jAlert.css" />
 	
-	<script
-	src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-	<script
-	src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
     <!-- =======================================================
     * Template Name: FlexStart - v1.1.1
@@ -266,7 +264,7 @@
 	<script src="jAlert/dist/jAlert.min.js"></script>
 	<script src="jAlert/dist/jAlert-functions.min.js"> //optional!!</script>
 	
-	<script src="../vendor/jquery-easing/jquery.easing.min.js"></script>
+	<script src="assets/vendor/jquery-easing/jquery.easing.min.js"></script>
 
 <!-- Template Main JS File -->
 <script src="assets/js/main.js"></script>
