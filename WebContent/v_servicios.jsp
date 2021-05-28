@@ -15,6 +15,7 @@
     <!-- Favicons -->
     <link href="assets/img/logo.png" rel="icon">
     <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+    <link href="assets/fontawesome-free-5.14.0-web/css/fontawesome.min.css" rel="stylesheet">
 
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
@@ -47,10 +48,46 @@
 
     <!-- ======= Inicio Section ======= -->
     <section id="about" class="about">
+
         <div class="container" data-aos="fade-up">
-				<img style="object-fit: cover; width: 100%; height: 100%"
-					alt="mantenimiento" src="assets/img/pagina-inhabilitada.png">
-			</div>
+
+
+                   <%
+                		ArrayList<Servicios> listEventP = new ArrayList<Servicios>();
+                		Dt_Servicios dte = new Dt_Servicios();
+                		listServicios = dte.listaServicios();
+
+           			%>
+
+            <div class="eventos row">
+                <div class="eventos col-sm-8">
+                
+                <%
+                    for (Servicios serv : listServicios) {
+                %>
+
+                    <div class="content div-eventos">
+                        <img src="<%=serv.getHipervinculo()==null?"#":serv.getHipervinculo()%>">
+                        <div id="Content-servicio" class="Content-servicio">
+                            <h2><%=serv.getNombre() %></h2>
+                            <p><strong>Descripci�n: </strong><%=ev.getDescripcion() %><br>
+                            <strong>Foto:</strong> <%=ev.getFoto() %>
+                                <br><strong>Fecha: </strong><%=ev.getFechainicio() %>
+
+                        </div>
+                    </div>
+                    
+                    <%
+	                    }
+	                %>
+                </div>
+            </div>
+        </div>
+
+        </div>
+        <!-- <div class="col-lg-6 d-flex align-items-center" data-aos="zoom-out" data-aos-delay="200">
+            <img src="assets/img/about.jpg" class="img-fluid" alt="">
+        </div> -->
     </section>
     <!-- End Inicio Section -->
 
@@ -72,6 +109,10 @@
 <script src="assets/vendor/purecounter/purecounter.js"></script>
 <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
 <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/locale/es.js"></script>
+<script type="text/javascript" src="assets/js/calendar.js"></script>
 
 <!-- Template Main JS File -->
 <script src="assets/js/main.js"></script>
