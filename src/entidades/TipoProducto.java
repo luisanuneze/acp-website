@@ -5,7 +5,7 @@ import java.sql.Timestamp;
 public class TipoProducto {
 
 	private int tipoproductoid;
-	private String tipoproductp;
+	private String tipoproducto;
 	private String descripcion;
 	private Timestamp fechaCreacion;
 	private Timestamp fechaModificacion;
@@ -19,11 +19,11 @@ public class TipoProducto {
 	public void setTipoproductoid(int tipoproductoid) {
 		this.tipoproductoid = tipoproductoid;
 	}
-	public String getTipoproductp() {
-		return tipoproductp;
+	public String getTipoproducto() {
+		return tipoproducto;
 	}
-	public void setTipoproductp(String tipoproductp) {
-		this.tipoproductp = tipoproductp;
+	public void setTipoproductp(String tipoproducto) {
+		this.tipoproducto = tipoproducto;
 	}
 	public String getDescripcion() {
 		return descripcion;
