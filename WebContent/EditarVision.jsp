@@ -101,7 +101,9 @@
 
             %>
             
-            <form action="forms/contact.php" method="post" class="php-email-form">
+            <form action="./Sl_GestionHome" method="post" class="user row">
+             <input name="homeID" type="hidden" value="<%=hom.getHomeID()%>" />
+             <input name="opcion" type="hidden" value="3" /> 
                 <div class="row gy-4">
 
                     <div class="col-md-12">
@@ -109,17 +111,16 @@
                                   required></textarea>
                     </div>
                 </div>
-            </form>
-
-            <br>
-
-            <!-- Botones -->
+                            <!-- Botones -->
             <div class="col-md-6 button-formulario">
                 <button> Guardar</button>
                 <a href="edicionSeccion.jsp">
                     <button> Regresar</button>
                 </a>
             </div>
+            </form>
+
+            <br>
 
         </div>
 

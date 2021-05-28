@@ -85,6 +85,55 @@ public class Sl_GestionHome extends HttpServlet {
 			}
 			break;
 		}
+			
+		case 2: {
+
+			ho.setMision(request.getParameter("txtMision"));
+			ho.setHomeID(Integer.parseInt(request.getParameter("homeID")));
+
+			try {
+				//pa.setPaisID(Integer.parseInt(request.getParameter("PaisID")));
+				// PARA GUARDAR LA FECHA Y HORA DE MODIFICACION
+				Date fechaSistema = new Date();
+				ho.setFechaModificacion(new java.sql.Timestamp(fechaSistema.getTime()));
+				System.out.println("ho.getFechaModificacion(): " + ho.getFechaModificacion());
+				if (dtho.modificarHome(ho)) {
+					response.sendRedirect("index.jsp?msj=3");
+				} 
+				else {
+					response.sendRedirect("index.jsp?msj=4");
+				}
+
+			} catch (Exception e) {
+				System.out.println("Sl_GestionHome, el error es: " + e.getMessage());
+				e.printStackTrace();
+			}
+			break;
+		}
+		case 3: {
+
+			ho.setVision(request.getParameter("txtVision"));
+			ho.setHomeID(Integer.parseInt(request.getParameter("homeID")));
+
+			try {
+				//pa.setPaisID(Integer.parseInt(request.getParameter("PaisID")));
+				// PARA GUARDAR LA FECHA Y HORA DE MODIFICACION
+				Date fechaSistema = new Date();
+				ho.setFechaModificacion(new java.sql.Timestamp(fechaSistema.getTime()));
+				System.out.println("ho.getFechaModificacion(): " + ho.getFechaModificacion());
+				if (dtho.modificarHome(ho)) {
+					response.sendRedirect("index.jsp?msj=3");
+				} 
+				else {
+					response.sendRedirect("index.jsp?msj=4");
+				}
+
+			} catch (Exception e) {
+				System.out.println("Sl_GestionHome, el error es: " + e.getMessage());
+				e.printStackTrace();
+			}
+			break;
+		}
 
 		default:
 			response.sendRedirect("index.jsp?msj=5");
