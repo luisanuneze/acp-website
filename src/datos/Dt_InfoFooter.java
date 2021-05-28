@@ -20,7 +20,7 @@ public class Dt_InfoFooter {
 		// Metodo para llenar el ResultSet
 		public void llenaRsInfo_Footer(Connection c){
 			try{
-				ps = c.prepareStatement("select * from public.\"info_footer\"", ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE, ResultSet.HOLD_CURSORS_OVER_COMMIT);
+				ps = c.prepareStatement("SELECT info_footerid,correo, descripcion, extencion, telefono, fechamodificacion, usuarioid, direccion FROM public.info_footer;", ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE, ResultSet.HOLD_CURSORS_OVER_COMMIT);
 				rsInfo_Footer = ps.executeQuery();
 			}
 			catch (Exception e){
