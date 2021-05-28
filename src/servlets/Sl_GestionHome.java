@@ -59,15 +59,11 @@ public class Sl_GestionHome extends HttpServlet {
 		// CONSTRUIR EL OBJETO ROL
 		Dt_Home dtho = new Dt_Home();
 		Home ho = new Home();
-		
-		//rol.setRolID(Integer.parseInt(request.getParameter("rolID")));
-		ho.setHistoria(request.getParameter("txtHistoria"));
-		ho.setHistoria(request.getParameter("txtMision"));
-		ho.setHistoria(request.getParameter("txtVision"));
 
 		switch (opc) {
 		case 1: {
-			
+
+			ho.setHistoria(request.getParameter("txtHistoria"));
 			ho.setHomeID(Integer.parseInt(request.getParameter("homeID")));
 
 			try {
@@ -77,10 +73,10 @@ public class Sl_GestionHome extends HttpServlet {
 				ho.setFechaModificacion(new java.sql.Timestamp(fechaSistema.getTime()));
 				System.out.println("ho.getFechaModificacion(): " + ho.getFechaModificacion());
 				if (dtho.modificarHome(ho)) {
-					response.sendRedirect("edicionSeccion.jsp?msj=3");
+					response.sendRedirect("index.jsp?msj=3");
 				} 
 				else {
-					response.sendRedirect("edicionSeccion.jsp?msj=4");
+					response.sendRedirect("index.jsp?msj=4");
 				}
 
 			} catch (Exception e) {
@@ -91,7 +87,7 @@ public class Sl_GestionHome extends HttpServlet {
 		}
 
 		default:
-			response.sendRedirect("edicionSeccion.jsp?msj=5");
+			response.sendRedirect("index.jsp?msj=5");
 			break;
 		}
 	}

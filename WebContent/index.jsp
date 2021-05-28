@@ -40,6 +40,12 @@
 	}
 %>
 <!DOCTYPE html>
+<%
+	//Variable de control de mensajes
+	String varMsj = request.getParameter("msj")==null?"":request.getParameter("msj");
+
+
+%>
 <html>
 
 <head>
@@ -70,6 +76,9 @@
     <!-- Template Main CSS File -->
     <link href="assets/css/style.css" rel="stylesheet">
 
+    <!-- jAlert css  -->
+	<link rel="stylesheet" href="jAlert/dist/jAlert.css" />
+	
     <!-- =======================================================
     * Template Name: FlexStart - v1.1.1
     * Template URL: https://bootstrapmade.com/flexstart-bootstrap-startup-template/
@@ -199,6 +208,57 @@
 
 <!-- Template Main JS File -->
 <script src="assets/js/main.js"></script>
+
+<!-- Bootstrap core JavaScript-->
+<script src="assets/vendor/jquery/jquery.min.js"></script>
+<script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+<!-- Core plugin JavaScript-->
+<script src="assets/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+<!-- DATATABLE -->
+<script src="DataTables/DataTables-1.10.21/js/jquery.dataTables.js"></script>
+
+<!-- jAlert js -->
+<script src="jAlert/dist/jAlert.min.js"></script>
+<script src="jAlert/dist/jAlert-functions.min.js"> //optional!!</script>
+
+<script>
+    $(document).ready(function () {
+
+        ////////////////////////////////////////////////
+        /////////// VARIABLE DE CONTROL MSJ ///////////
+        var mensaje = "";
+        mensaje = "<%=varMsj%>";
+
+        if(mensaje == "1")
+        {
+            successAlert('Éxito', 'Los datos han sido registrados exitosamente!');
+        }
+        if(mensaje == "2")
+        {
+            errorAlert('Error', 'Revise los datos e intente nuevamente!!!');
+        }
+        if(mensaje == "3")
+        {
+            successAlert('Éxito', 'Los datos han sido actualizados exitosamente!');
+        }
+        if(mensaje == "4")
+        {
+            errorAlert('Error', 'Revise los datos e intente nuevamente!!!');
+        }
+        if(mensaje == "5")
+        {
+            successAlert('Éxito', 'Los datos han sido dado de baja exitosamente!');
+        }
+        if(mensaje == "6")
+        {
+            errorAlert('Error', 'Revise los datos e intente nuevamente!!!');
+        }
+
+
+    });
+</script>
 
 </body>
 

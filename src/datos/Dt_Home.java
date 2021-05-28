@@ -123,7 +123,6 @@ public class Dt_Home {
 		// Metodo para modificar home
 		public boolean modificarHome(Home ho)
 		{
-			System.out.println("Ya entro 1");
 			boolean modificado=false;	
 			try
 			{
@@ -132,14 +131,12 @@ public class Dt_Home {
 				rsHome.beforeFirst();
 				while (rsHome.next())
 				{
-					System.out.println("Ya entro 2");
 					if(rsHome.getInt("homeID")==ho.getHomeID())
 					{
-						System.out.println("Ya entro 3");
 
 						rsHome.updateString("mision", ho.getMision());
-						rsHome.updateString("vision", ho.getMision());
-						rsHome.updateString("historia", ho.getMision());
+						rsHome.updateString("vision", ho.getVision());
+						rsHome.updateString("historia", ho.getHistoria());
 						rsHome.updateTimestamp("fechaModificacion", ho.getFechaModificacion());
 						rsHome.updateRow();
 						modificado=true;

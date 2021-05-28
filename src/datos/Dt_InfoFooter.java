@@ -7,7 +7,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import entidades.Info_Footer;
-import entidades.Home;
 
 public class Dt_InfoFooter {
 	
@@ -21,7 +20,7 @@ public class Dt_InfoFooter {
 		// Metodo para llenar el ResultSet
 		public void llenaRsInfo_Footer(Connection c){
 			try{
-				ps = c.prepareStatement("SELECT info_footerid,correo, descripcion, extencion, telefono, fechamodificacion, usuarioid, direccion FROM public.info_footer;", ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE, ResultSet.HOLD_CURSORS_OVER_COMMIT);
+				ps = c.prepareStatement("select * from public.\"info_footer\"", ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE, ResultSet.HOLD_CURSORS_OVER_COMMIT);
 				rsInfo_Footer = ps.executeQuery();
 			}
 			catch (Exception e){
@@ -122,55 +121,6 @@ public class Dt_InfoFooter {
 			
 			return foo;
 		}
-		
-	/*	// Metodo para modificar footer
-		public boolean modificarFooter(Info_Footer foo)
-		{
-			boolean modificado=false;	
-			try
-			{
-				c = PoolConexion.getConnection();
-				this.llenaRsInfo_Footer(c);
-				rsInfo_Footer.beforeFirst();
-				while (rsInfo_Footer.next())
-				{
-					if(rsInfo_Footer.getInt(1)==foo.getInfo_footerID())
-					{
-						rsInfo_Footer.updateString("correo", foo.getCorreo());
-						//rsInfo_Footer.updateString("descripcion", foo.getDescripcion());
-						rsInfo_Footer.updateString("direccion", foo.getDireccion());
-						rsInfo_Footer.updateString("extencion", foo.getExtension());
-						rsInfo_Footer.updateString("telefono", foo.getTelefono());
-						rsInfo_Footer.updateTimestamp("fechaModicacion", foo.getFechaModificacion());
-						rsInfo_Footer.updateRow();
-						modificado=true;
-						break;
-					}
-				}
-			}
-			catch (Exception e)
-			{
-				System.err.println("ERROR AL ACTUALIZAR FOOTER "+e.getMessage());
-				e.printStackTrace();
-			}
-			finally
-			{
-				try {
-					if(rsInfo_Footer != null){
-						rsInfo_Footer.close();
-					}
-					if(c != null){
-						PoolConexion.closeConnection(c);
-					}
-					
-				} catch (SQLException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-			}
-			return modificado;
-		}*/
-
 		
 		// Metodo para modificar footer
 		public boolean modificarFooter(Info_Footer foo)
