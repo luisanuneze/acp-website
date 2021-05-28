@@ -76,6 +76,11 @@
     
     <!-- jAlert css  -->
 	<link rel="stylesheet" href="jAlert/dist/jAlert.css" />
+	
+	<script
+	src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+	<script
+	src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
     <!-- =======================================================
     * Template Name: FlexStart - v1.1.1
@@ -260,6 +265,8 @@
 	<!-- jAlert js -->
 	<script src="jAlert/dist/jAlert.min.js"></script>
 	<script src="jAlert/dist/jAlert-functions.min.js"> //optional!!</script>
+	
+	<script src="../vendor/jquery-easing/jquery.easing.min.js"></script>
 
 <!-- Template Main JS File -->
 <script src="assets/js/main.js"></script>
@@ -284,7 +291,29 @@ $(document).ready(function ()
 			'El nombre de evento que esta intentando registrar ya existe en la base de datos!');
 			}
 
-							
+			
+		$("#txtFechafin").change(function(){
+	       	var startDate = document.getElementById("txtFechainicio").value;
+			    var endDate = document.getElementById("txtFechafin").value;
+	        	
+		        if(Date.parse(endDate) <= Date.parse(startDate)){
+		        	errorAlert('Error', 'Rango de tiempo invalido!');
+		        	$("#txtFechainicio").val("");
+		        	$("#txtFechafin").val("");
+	          	}
+	        });
+		
+		$("#txtFechainicio").change(function(){
+        	var startDate = document.getElementById("txtFechainicio").value;
+		    var endDate = document.getElementById("txtFechafin").value;
+        	
+	        if(Date.parse(endDate) <= Date.parse(startDate)){
+	        	errorAlert('Error', 'Rango de tiempo invalido!');
+	        	$("#txtFechainicio").val("");
+	        	$("#txtFechafin").val("");
+          	}
+        });
+		
 		});
 </script>
 

@@ -69,6 +69,14 @@
 
     <!-- Template Main CSS File -->
     <link href="assets/css/style.css" rel="stylesheet">
+    
+    <!-- jAlert css  -->
+	<link rel="stylesheet" href="jAlert/dist/jAlert.css" />
+	
+	<script
+	src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+	<script
+	src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
     <!-- =======================================================
     * Template Name: FlexStart - v1.1.1
@@ -245,6 +253,23 @@
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/locale/es.js"></script>
 <script type="text/javascript" src="assets/js/calendar.js"></script>
 
+<!-- Bootstrap core JavaScript-->
+	<script src="assets/vendor/jquery/jquery.min.js"></script>
+	<script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+	<!-- Core plugin JavaScript-->
+	<script src="assets/vendor/jquery-easing/jquery.easing.min.js"></script>
+	
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+
+	<!-- jAlert js -->
+	<script src="jAlert/dist/jAlert.min.js"></script>
+	<script src="jAlert/dist/jAlert-functions.min.js"> //optional!!</script>
+	
+	<script src="../vendor/jquery-easing/jquery.easing.min.js"></script>
+
 <!-- Template Main JS File -->
 <script src="assets/js/main.js"></script>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
@@ -268,6 +293,29 @@
 		$("#txtHora").val("<%=eve.getHora()%>");
 		$("#cbxuser").val("<%=eve.getUsuarioid()%>");
 		$("#TipoEvento").val("<%=eve.getTipoevento()%>");
+		
+		$("#txtFechafin").change(function(){
+	       	var startDate = document.getElementById("txtFechainicio").value;
+			    var endDate = document.getElementById("txtFechafin").value;
+	        	
+		        if(Date.parse(endDate) <= Date.parse(startDate)){
+		        	errorAlert('Error', 'Rango de tiempo invalido!');
+		        	$("#txtFechainicio").val("");
+		        	$("#txtFechafin").val("");
+	          	}
+	        });
+		
+		$("#txtFechainicio").change(function(){
+        	var startDate = document.getElementById("txtFechainicio").value;
+		    var endDate = document.getElementById("txtFechafin").value;
+        	
+	        if(Date.parse(endDate) <= Date.parse(startDate)){
+	        	errorAlert('Error', 'Rango de tiempo invalido!');
+	        	$("#txtFechainicio").val("");
+	        	$("#txtFechafin").val("");
+          	}
+        });
+		
 	});
 </script>
 
