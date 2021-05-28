@@ -111,7 +111,7 @@
                 <div class="form-group col-sm-6">
                     <div class="col-sm-12 mb-3 mb-sm-0">
                     Teléfono:
-                        <input type="text" class="form-control form-control-user" name="txtTelefono" id="txtTelefono"
+                        <input type="number" class="form-control form-control-user" name="txtTelefono" id="txtTelefono"
                                placeholder="Telefono" required>
                     </div>
                     <div class="col-sm-12">
