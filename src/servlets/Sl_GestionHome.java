@@ -61,30 +61,31 @@ public class Sl_GestionHome extends HttpServlet {
 		Home ho = new Home();
 
 		switch (opc) {
-		case 1: {
+		case 1: {			
+		
+				ho.setHistoria((request.getParameter("txtHistoria")));
+				ho.setHomeID(Integer.parseInt(request.getParameter("homeID")));
 
-			ho.setHistoria(request.getParameter("txtHistoria"));
-			ho.setHomeID(Integer.parseInt(request.getParameter("homeID")));
+				try {
+					//pa.setPaisID(Integer.parseInt(request.getParameter("PaisID")));
+					// PARA GUARDAR LA FECHA Y HORA DE MODIFICACION
+					Date fechaSistema = new Date();
+					ho.setFechaModificacion(new java.sql.Timestamp(fechaSistema.getTime()));
+					System.out.println("ho.getFechaModificacion(): " + ho.getFechaModificacion());
+					if (dtho.modificarHome(ho,1)) {
+						response.sendRedirect("index.jsp?msj=3");
+					} 
+					else {
+						response.sendRedirect("index.jsp?msj=4");
+					}
 
-			try {
-				//pa.setPaisID(Integer.parseInt(request.getParameter("PaisID")));
-				// PARA GUARDAR LA FECHA Y HORA DE MODIFICACION
-				Date fechaSistema = new Date();
-				ho.setFechaModificacion(new java.sql.Timestamp(fechaSistema.getTime()));
-				System.out.println("ho.getFechaModificacion(): " + ho.getFechaModificacion());
-				if (dtho.modificarHome(ho)) {
-					response.sendRedirect("index.jsp?msj=3");
-				} 
-				else {
-					response.sendRedirect("index.jsp?msj=4");
+				} catch (Exception e) {
+					System.out.println("Sl_GestionHome, el error es: " + e.getMessage());
+					e.printStackTrace();
 				}
-
-			} catch (Exception e) {
-				System.out.println("Sl_GestionHome, el error es: " + e.getMessage());
-				e.printStackTrace();
 			}
 			break;
-		}
+		
 			
 		case 2: {
 
@@ -97,7 +98,7 @@ public class Sl_GestionHome extends HttpServlet {
 				Date fechaSistema = new Date();
 				ho.setFechaModificacion(new java.sql.Timestamp(fechaSistema.getTime()));
 				System.out.println("ho.getFechaModificacion(): " + ho.getFechaModificacion());
-				if (dtho.modificarHome(ho)) {
+				if (dtho.modificarHome(ho,2)) {
 					response.sendRedirect("index.jsp?msj=3");
 				} 
 				else {
@@ -121,7 +122,7 @@ public class Sl_GestionHome extends HttpServlet {
 				Date fechaSistema = new Date();
 				ho.setFechaModificacion(new java.sql.Timestamp(fechaSistema.getTime()));
 				System.out.println("ho.getFechaModificacion(): " + ho.getFechaModificacion());
-				if (dtho.modificarHome(ho)) {
+				if (dtho.modificarHome(ho,3)) {
 					response.sendRedirect("index.jsp?msj=3");
 				} 
 				else {

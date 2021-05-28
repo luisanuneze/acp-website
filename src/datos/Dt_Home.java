@@ -121,7 +121,7 @@ public class Dt_Home {
 		}
 		
 		// Metodo para modificar home
-		public boolean modificarHome(Home ho)
+		public boolean modificarHome(Home ho, int opc)
 		{
 			boolean modificado=false;	
 			try
@@ -133,15 +133,29 @@ public class Dt_Home {
 				{
 					if(rsHome.getInt("homeID")==ho.getHomeID())
 					{
-
-						rsHome.updateString("mision", ho.getMision());
-						rsHome.updateString("vision", ho.getVision());
-						rsHome.updateString("historia", ho.getHistoria());
+						int control=opc;
+						
+						
+						switch(control){
+						case 1:{
+							rsHome.updateString("historia", ho.getHistoria());	
+							break;				
+						}
+						case 2:{
+							rsHome.updateString("mision", ho.getMision());	
+							break;
+						}
+						case 3:{
+							rsHome.updateString("vision", ho.getVision());
+							break;
+						}						
+							
+						}	
 						rsHome.updateTimestamp("fechaModificacion", ho.getFechaModificacion());
 						rsHome.updateRow();
 						modificado=true;
-						break;
-					}
+						break;																	
+ 				}
 				}
 			}
 			catch (Exception e)
