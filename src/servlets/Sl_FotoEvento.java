@@ -94,7 +94,7 @@ public class Sl_FotoEvento extends HttpServlet {
 						System.out.println("Filetype: "+uploaded.getContentType());
 						
 						rutaFichero = "fotoEvento_"+idevento+".jpg";
-						path = "C:\\payara5\\glassfish\\foto_evento\\";
+						path = "C:\\payara5\\glassfish\\PWACP-fotos_eventos\\";
 						System.out.println(path+rutaFichero);
 						
 						fichero = new File(path+rutaFichero);
@@ -105,7 +105,7 @@ public class Sl_FotoEvento extends HttpServlet {
 						
 						System.out.println("SERVIDOR: FOTO GUARDADA CON EXITO!!!");
 						/////// ACTUALIZAMOS EL CAMPO URLFOTO EN LA BASE DE DATOS
-						String url = "foto_evento/"+rutaFichero;
+						String url = "PWACP-fotos_eventos/"+rutaFichero;
 						
 						if(dte.guardarFotoEvento(Integer.parseInt(idevento),url))
 						{

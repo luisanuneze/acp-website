@@ -113,9 +113,7 @@
                                data-target="#modalNuevoUsuario"> <i
                                     class="fas fa-file-medical fa-2x" title="Agregar nueva región"></i>
                             </a>&nbsp;&nbsp;
-                            <a href="#"> <i class="fas fa-print fa-2x"
-                                            title="Imprimir registro"></i>
-                            </a>
+                           
                             <!-- Fin Button agregar e imprimir -->
 
                         </div>
@@ -179,8 +177,7 @@
                                            		  });">
                         							<i class="fas fa-trash-alt" title="Eliminar Región"></i>
                         						</a> 
-                                        <a href="#"> <i class="fas fa-eye" title="Visualizar Región"></i>
-                                        </a></td>
+                                       </td>
                                 </tr>
                                 <%
                                     }

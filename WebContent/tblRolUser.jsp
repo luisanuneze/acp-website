@@ -144,9 +144,7 @@
                         </a>
                         <!-- FIN Button trigger modal -->
                         &nbsp;&nbsp;
-                        <a href="#">
-                            <i class="fas fa-print fa-2x" title="Imprimir Lista de Usuarios con Roles"></i>
-                        </a>
+                        
 
                     </div>
 
@@ -219,9 +217,7 @@
                         							<i class="fas fa-trash-alt" title="Eliminar este Rol a Usuario"></i>
                         						</a> 
                                     
-                                    <a href="#">
-                                        <i class="fas fa-eye" title="Visualizar el Rol de este Usuario"></i>
-                                    </a>
+                                   
 
                                 </td>
                             </tr>

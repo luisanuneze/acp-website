@@ -270,6 +270,9 @@ INSERT INTO public.opciones(
 	opcion, descripcion, estado)
 	VALUES ('eventos.jsp', 'Interfaz que servicios', 1);
 
+INSERT INTO public.opciones(
+	opcion, descripcion, estado)
+	VALUES ('tblArbolDistribucion.jsp', 'Interfaz que servicios', 1);
 	
 SELECT * FROM opciones;
 
@@ -529,6 +532,10 @@ INSERT INTO public.rol_opciones(
 INSERT INTO public.rol_opciones(
 	rolid, opcionesid, fechacreacion)
 	VALUES (1, 59, '2021-04-18 00:00:00');
+	
+INSERT INTO public.rol_opciones(
+	rolid, opcionesid, fechacreacion)
+	VALUES (1, 60, '2021-04-18 00:00:00');
 
 SELECT * FROM rol_opciones;
 
@@ -538,7 +545,8 @@ SELECT rol_usuario.rol_usuarioid AS "ID", usuario.usuarioid, usuario.usuario AS 
 usuario.nombres AS "Nombres", usuario.apellidos AS "Apellidos", usuario.contrasenia, 
 rol.rolid, rol.rol AS "Rol"
 FROM rol_usuario, usuario, rol
-WHERE rol_usuario.usuarioid = usuario.usuarioid AND rol_usuario.rolid = rol.rolid;
+WHERE rol_usuario.usuarioid = usuario.usuarioid AND rol_usuario.rolid = rol.rolid 
+AND usuario.estado<>3 AND rol.estado<>3;
 
 SELECT * FROM vw_rolusuario;
 
@@ -547,7 +555,8 @@ CREATE OR REPLACE VIEW VW_RolOpciones AS
 SELECT rol_opciones.rol_opcionesid AS "ID", rol.rolid, rol.rol AS "Rol", 
 opciones.opcionesid, opciones.opcion AS "Opcion"
 FROM rol_opciones, opciones, rol
-WHERE rol_opciones.opcionesid = opciones.opcionesid AND rol_opciones.rolid = rol.rolid;
+WHERE rol_opciones.opcionesid = opciones.opcionesid AND rol_opciones.rolid = rol.rolid
+AND opciones.estado<>3 AND rol.estado<>3;
 
 SELECT * FROM VW_RolOpciones;
 ---===================---

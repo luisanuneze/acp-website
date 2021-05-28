@@ -1,6 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
          pageEncoding="ISO-8859-1" import="entidades.*, datos.*, vistas.VW_Distribucion, vistas.VW_RolUsuario, java.util.*;" %>
 <%
+	//Variable de control de mensajes
+	String varMsj = request.getParameter("msj") == null ? "" : request.getParameter("msj");
+%>
+<%
 	response.setHeader( "Pragma", "no-cache" );
 	response.setHeader( "Cache-Control", "no-store" );
 	response.setDateHeader( "Expires", 0 );
@@ -39,11 +43,6 @@
 	}
 %>
 <!DOCTYPE html>
-
-<%
-	//Variable de control de mensajes
-	String varMsj = request.getParameter("msj") == null ? "" : request.getParameter("msj");
-%>
 <html>
 
 <head>
@@ -73,6 +72,14 @@
 
     <!-- Template Main CSS File -->
     <link href="assets/css/style.css" rel="stylesheet">
+    
+    <!-- jAlert css  -->
+    <link rel="stylesheet" href="jAlert/dist/jAlert.css" />
+    
+    <link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 
 </head>
 
@@ -271,6 +278,19 @@
 <script src="assets/js/main.js"></script>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 
+<!-- Bootstrap core JavaScript-->
+	<script src="assets/vendor/jquery/jquery.min.js"></script>
+	<script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+	<!-- Core plugin JavaScript-->
+	<script src="assets/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+
+<!-- jAlert js -->
+<script src="jAlert/dist/jAlert.min.js"></script>
+<script src="jAlert/dist/jAlert-functions.min.js"> //optional!!</script>
 
 	<script type="text/javascript">
 	

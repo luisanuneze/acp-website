@@ -152,9 +152,7 @@
                                 class="fas fa-user-plus fa-2x" title="Registrar Nuevo Usuario"></i>
                         </a>
                         <!-- FIN Button trigger modal -->
-                        &nbsp;&nbsp; <a href="#"> <i class="fas fa-print fa-2x"
-                                                     title="Imprimir Lista de Usuarios Activos"></i>
-                    </a>
+                        &nbsp;&nbsp; 
                         <a href="tblRolUser.jsp">
                             <button style="background-color: #0e203f; color: white">
                                 Asignar Rol
@@ -241,9 +239,7 @@
                                            		  });">
                         							<i class="fas fa-trash-alt" title="Eliminar Usuario"></i>
                         						</a> 
-                                <a href="#"> 
-                                	<i class="fas fa-eye" title="Visualizar Usuario"></i>
-                                </a>
+                                
                                 </td>
                             </tr>
                             <%

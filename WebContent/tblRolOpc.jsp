@@ -144,9 +144,7 @@
                         </a>
                         <!-- FIN Button trigger modal -->
                         &nbsp;&nbsp;
-                        <a href="#">
-                            <i class="fas fa-print fa-2x" title="Imprimir Lista de Roles con Opciones"></i>
-                        </a>
+                        
 
                     </div>
 

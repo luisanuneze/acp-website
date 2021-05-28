@@ -116,14 +116,23 @@ public class Sl_GestionUsuario  extends HttpServlet{
 					Date fechaSistema = new Date();
 					user.setFechaModificacion(new java.sql.Timestamp(fechaSistema.getTime()));
 					System.out.println("user.getFechaModificacion(): "+user.getFechaModificacion());
+					
+					if(ngu.existeUserA(user.getUsuarioID(), user.getUsuario())) {
+			        	response.sendRedirect("EditarUsuario.jsp?UsuarioID="+user.getUsuarioID()+"&msj=existe");
+			        }
+					else {
+						if(dtu.modificarUser(user)) {
+				        	response.sendRedirect("tblUsuarios.jsp?msj=3");
+				        	
+				        }
+				        else {
+				        	response.sendRedirect("tblUsuarios.jsp?msj=4");
+				        }
+					}
+					
+					
 							        	
-		        if(dtu.modificarUser(user)) {
-		        	response.sendRedirect("tblUsuarios.jsp?msj=3");
-		        	
-		        }
-		        else {
-		        	response.sendRedirect("tblUsuarios.jsp?msj=4");
-		        }
+		        
 		        
 	        	
 	        }

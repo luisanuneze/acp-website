@@ -99,7 +99,7 @@
                  
                  ArrayList<Info_Footer> listFooter = new ArrayList<Info_Footer>();
                  Dt_InfoFooter dtfoo = new Dt_InfoFooter();
-                 listFooter = dtfoo.listFooter();
+                 listFooter = dtfoo.listaFooter();
              %>
              
              <%
@@ -130,11 +130,16 @@
                     </div>
                 </a>
 
-             <%
+               <%
+                   }
+               %>
+
+              <%
                  for (Info_Footer foo : listFooter) {
-             %>
+             %>  
 
                 <a href="EditarFooter.jsp?info_footerID=<%=foo.getInfo_footerID()%>">
+<%--                	<a href="EditarHistoria.jsp?homeID=<%=ho.getHomeID()%>"> --%>                
                     <div class="content">
                         <div id="Content-edicion" class="Content-edicion">
                             <h2>Editar información del footer</h2>
@@ -181,6 +186,13 @@
 
 <!-- Template Main JS File -->
 <script src="assets/js/main.js"></script>
+
+<!-- Bootstrap core JavaScript-->
+	<script src="assets/vendor/jquery/jquery.min.js"></script>
+	<script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+	<!-- Core plugin JavaScript-->
+	<script src="assets/vendor/jquery-easing/jquery.easing.min.js"></script>
 
 </body>
 

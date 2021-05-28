@@ -59,8 +59,12 @@
 
         <div class="container" data-aos="fade-up">
 
-            <h20 class="text-center">ERROR - 401</h20>
+            <center><h20 class="text-center" style="font-size: 50px">ERROR - 401</h20><br><br>
             
+            <div class="button-formulario">
+            <a href="inicioSesion.jsp"><button class="button">Ir a Log In</button></a>
+            <a href="javascript:history.go(-1)"><button class="button">Regresar</button></a></center>
+            </div>
         </div>
 
     </section>

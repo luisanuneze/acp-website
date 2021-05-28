@@ -39,6 +39,10 @@
 		}	
 	}
 %>
+<%
+    //Variable de control de mensajes
+	String varMsj = request.getParameter("msj")==null?"":request.getParameter("msj");
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -248,7 +252,17 @@
 		$("#txtPwd").val("<%=user.getContrasenia()%>");
 		$("#txtPwd2").val("<%=user.getContrasenia()%>");
 		$("#txttel").val("<%=user.getTelefono()%>");
+		
+		
+        /////////// VARIABLE DE CONTROL MSJ ///////////
+		var mensaje = "";
+		mensaje = "<%=varMsj%>";
+
+		if (mensaje == "existe") {
+			errorAlert('Error','El nombre de usuario que esta intentando registrar ya existe en la base de datos!');
+		}
 	});
+    
    
 	   
 </script>
@@ -268,6 +282,8 @@ $("#txtPwd2").change(
 			}
 		});
 });
+
+
 </script>
 
 

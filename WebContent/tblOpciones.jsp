@@ -127,9 +127,7 @@
 
 
                         &nbsp;&nbsp;
-                        <a href="#">
-                            <i class="fas fa-print fa-2x" title="Imprimir Lista de Opciones Activas"></i>
-                        </a>
+                       
 
                     </div>
 

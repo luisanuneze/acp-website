@@ -148,9 +148,7 @@
                                 class="fas fa-file-medical fa-2x" title="Registrar Nuevo Evento"></i>
                         </a>
                         <!-- FIN Button trigger modal -->
-                        &nbsp;&nbsp; <a href="#"> <i class="fas fa-print fa-2x"
-                                                     title="Imprimir Lista de Eventos Activos"></i>
-                    </a>
+                       
 
                     </div>
 
@@ -241,9 +239,7 @@
                                            		  });">
                         							<i class="fas fa-trash-alt" title="Eliminar Evento"></i>
                         						</a> 
-                                    <a href="#">
-                                        <i class="fas fa-eye" title="Visualizar Evento"></i>
-                                    </a>
+                                   
                                     <a href="fotoEvento.jsp?idEvento=<%=eve.getEventoid()%>">
                                         <i class="fas fa-camera" title="Registrar Foto del Evento"></i>
                                     </a>

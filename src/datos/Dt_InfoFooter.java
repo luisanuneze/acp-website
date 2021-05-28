@@ -133,7 +133,7 @@ public class Dt_InfoFooter {
 				rsInfo_Footer.beforeFirst();
 				while (rsInfo_Footer.next())
 				{
-					if(rsInfo_Footer.getInt(1)==foo.getInfo_footerID())
+					if(rsInfo_Footer.getInt(6)==foo.getInfo_footerID())
 					{
 						rsInfo_Footer.updateString("telefono", foo.getTelefono());
 						rsInfo_Footer.updateString("extension", foo.getExtension());

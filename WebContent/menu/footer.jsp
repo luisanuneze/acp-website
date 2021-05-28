@@ -14,21 +14,21 @@
     <div class="container">
     
     <%
-         ArrayList<Info_Footer> listInfo_Footer = new ArrayList<Info_Footer>();
-         Dt_InfoFooter dtfo = new Dt_InfoFooter();
-         listInfo_Footer = dtfo.listaFooter();
+	    ArrayList<Info_Footer> listFooter = new ArrayList<Info_Footer>();
+	    Dt_InfoFooter dtfo = new Dt_InfoFooter();
+	    listFooter = dtfo.listaFooter();
      %>
 
       <h4><strong>Contacto</strong></h4>
       <%
-          for (Info_Footer foo : listInfo_Footer) {
+      	for (Info_Footer fo : listFooter) {
       %>
       <p>
-        <%=foo.getDireccion() %><br>
+        <%=fo.getDireccion() %><br>
         Managua, Nicaragua<br><br>
-        <strong>Teléfono: </strong><%=foo.getTelefono() %><br>
-        <strong>Ext: </strong><%=foo.getExtension() %><br>
-        <strong>Correo: </strong><%=foo.getCorreo() %><br>
+        <strong>Teléfono: </strong><%=fo.getTelefono() %><br>
+        <strong>Ext: </strong><%=fo.getExtension() %><br>
+        <strong>Correo: </strong><%=fo.getCorreo() %><br>
       </p>      
        <%
            }

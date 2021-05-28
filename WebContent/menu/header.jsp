@@ -2,6 +2,29 @@
          pageEncoding="ISO-8859-1"
          import="entidades.Genero, datos.Dt_Genero, entidades.Home, datos.Dt_Home, vistas.*, datos.Dt_RolOpciones, java.util.*;" %>
 
+<%
+	response.setHeader( "Pragma", "no-cache" );
+	response.setHeader( "Cache-Control", "no-store" );
+	response.setDateHeader( "Expires", 0 );
+	response.setDateHeader( "Expires", -1 );
+	
+	VW_RolUsuario vru1 = new VW_RolUsuario();
+	Dt_RolOpciones dtro2 = new Dt_RolOpciones();
+	ArrayList<VW_RolOpciones> listRolOpcH = new ArrayList<VW_RolOpciones>();
+	
+	//OBTENEMOS LA SESION
+	vru1 = (VW_RolUsuario) session.getAttribute("acceso");
+	if(vru1==null){
+		response.sendRedirect("inicioSesion.jsp?msj=401");
+	}
+	else{
+		//OBTENEMOS LA LISTA DE OPCIONES ASIGNADAS AL ROL
+		listRolOpcH = dtro2.listaRolOpc2(vru1.getRolid());
+		//listOpc = dtro.listaRolOpc(vru.getIdrol());
+		
+		
+	}
+%>
 <!DOCTYPE html>
 <html>
 
@@ -69,12 +92,14 @@
           </li>
           <%
             String Username = null;
-            if(vru == null){
+            if(vru1 == null){
             	
             }else
             {
-            	Username = vru.getUsuario();
+            	Username = vru1.getUsuario();
             }
+            
+            
           %>
           <li class="dropdown"><a href="#"><img src="assets/img/usuario.png"><i class="bi bi-chevron-down"></i></a>
             <ul>

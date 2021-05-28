@@ -150,9 +150,7 @@
                             <i class="fas fa-plus-square fa-2x" title="Registrar Nuevo Rol"></i>
                         </a>
                         <!-- FIN Button trigger modal -->
-                        &nbsp;&nbsp; <a href="#"> <i class="fas fa-print fa-2x"
-                                                     title="Imprimir Lista de Roles Activos"></i>
-                    </a>
+                        &nbsp;&nbsp; 
 
                         <a href="tblRolOpc.jsp">
                             <button style="background-color:#0e203f; color:white">Asignar Opción</button>
