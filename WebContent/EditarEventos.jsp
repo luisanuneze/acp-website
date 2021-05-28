@@ -77,10 +77,8 @@
     <!-- jAlert css  -->
 	<link rel="stylesheet" href="jAlert/dist/jAlert.css" />
 	
-	<script
-	src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-	<script
-	src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
     <!-- =======================================================
     * Template Name: FlexStart - v1.1.1
@@ -288,6 +286,10 @@
 <script type="text/javascript">  
    $(document).ready(function()
 	{
+	   
+/////////// VARIABLE DE CONTROL MSJ ///////////
+       var mensaje = "";
+       mensaje = "<%=varMsj%>";
 
 		$("#txtEvento").val("<%=eve.getNombre()%>");
 		$("#txtDescripcion").val("<%=eve.getDescripcion()%>");
