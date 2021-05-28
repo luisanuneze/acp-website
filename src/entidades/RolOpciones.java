@@ -9,6 +9,8 @@ public class RolOpciones {
 	private Timestamp fechaCreacion;
 	private Timestamp fechaModificacion;
 	private Timestamp fechaEliminacion;
+	private String Rol;
+	private String Opcion;
 	private int OpcionesID;
 	private int RolId;
 	
@@ -48,6 +50,18 @@ public class RolOpciones {
 	}
 	public void setRolId(int rolId) {
 		RolId = rolId;
+	}
+	public String getRol() {
+		return Rol;
+	}
+	public void setRol(String rol) {
+		Rol = rol;
+	}
+	public String getOpcion() {
+		return Opcion;
+	}
+	public void setOpcion(String opcion) {
+		Opcion = opcion;
 	}
 	
 	

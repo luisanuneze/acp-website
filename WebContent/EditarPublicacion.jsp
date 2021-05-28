@@ -118,7 +118,7 @@
                 <br>
                 <!-- Botones -->
                 <div class="button-formulario">
-                    <button> Guardar</button>
+                    <button>Actualizar</button>
                     <a href="javascript:history.go(-1)" class="button">Regresar </a>
                 </div>
             </form>

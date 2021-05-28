@@ -151,14 +151,16 @@
 								VW_RolOpciones vwro = new VW_RolOpciones();
 								Dt_RolOpciones dtvwro = new Dt_RolOpciones();
 								vwro = dtvwro.getRolOpciones2(Integer.parseInt(ropc));
-                            %>       
+                            %>
+                      
+                           
                     
                     <div class="container" data-aos="fade-up">
                         <form class="user" method="post" action="./Sl_GestionRolOpc">
                             <!-- El valor de este input es para el Servlet opcion guardar -->
                             <input name="idRolOpc" type="hidden" value="<%=ro.getRol_opcionesID()%>" /> 
 							<input name="opcion" type="hidden" value="2" />
-							<input name="ID" type="hidden" value="<%=vwro.getID()%>" /> 
+							<input name="ID" type="hidden" value="<%=vwro.getID()%>" />  
 							<input name="opcion" type="hidden" value="2" />
 							
 							<div class="row gy-4">
@@ -168,22 +170,20 @@
                                         ArrayList<Rol> listRol = new ArrayList<Rol>();
                                         Dt_Rol dtr = new Dt_Rol();
                                         listRol = dtr.listaRolActivos();
+                                        
                                     %>
-                                    <div class="col-sm-11">
-                                    <select class="form-control" name="cbxRol" id="cbxRol"
-                                            required>
-                                        <option value="">Seleccione...</option>
-                                        <%
+                                    <%
                                             for (Rol r : listRol) {
                                         %>
-                                        <option value="<%=r.getRolID()%>"><%=r.getRol()%>
-                                        </option>
+                                        <input type="hidden" name="cbxRol" id="cbxRol" value="<%=r.getRolID()%>"/>
+                                        
                                         <%
                                             }
                                         %>
-
-                                    </select>
+                                    <div class="col-sm-11">
+                                    <input type="text" readonly class="form-control" name="txtRol" id="txtRol" value="<%=vwro.getRol()%>"/>
                                     </div>
+                                    
                                 </div>
                                 <br></br>
                                 <div class="row col-md-12">
@@ -195,7 +195,7 @@
                                     <div class="col-sm-11">
                                     <select class="form-control" name="cbxOpc" id="cbxOpc"
                                             required>
-                                        <option value="">Seleccione...</option>
+                                        
                                         <%
                                             for (Opciones u : listOpc) {
                                         %>
@@ -274,7 +274,8 @@
 $(document).ready(function()
 		{
 			$("#cbxRol").val("<%=ro.getRolId()%>");
-			$("#cbxOpc").val("<%= ro.getOpcionesID()%>");
+			$("#txtRol").val("<%=vwro.getRol()%>");
+			$("#cbxOpc").val("<%=ro.getOpcionesID()%>");
 		});
 </script>
 
