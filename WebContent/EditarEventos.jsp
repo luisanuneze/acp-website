@@ -39,6 +39,10 @@
 	}
 %>
 <!DOCTYPE html>
+<%
+    //Variable de control de mensajes
+	String varMsj = request.getParameter("msj")==null?"":request.getParameter("msj");
+%>
 <html>
 <head>
 <meta charset="ISO-8859-1">
