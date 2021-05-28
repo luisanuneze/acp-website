@@ -44,7 +44,7 @@
 <body>
 
 <!-- ======= Header ======= -->
-<%@ include file="/menu/header.jsp" %>
+<%@ include file="/menu/v_header.jsp" %>
 <!-- End Header -->
 
 <main id="main">
@@ -59,7 +59,8 @@
 
         <div class="container" data-aos="fade-up">
 
-            <center><h20 class="text-center" style="font-size: 50px">ERROR - 401</h20><br><br>
+            <center><h20 class="text-center" style="font-size: 50px">ERROR - 401</h20>
+            <h2 style="color: gray"> Acceso denegado<h2>
             
             <div class="button-formulario">
             <a href="inicioSesion.jsp"><button class="button">Ir a Log In</button></a>

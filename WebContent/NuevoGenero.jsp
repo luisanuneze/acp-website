@@ -42,7 +42,9 @@
 %>
 <%
 	//Variable de control de mensajes
-	String varMsj = request.getParameter("msj") == null ? "" : request.getParameter("msj");
+	String varMsj = request.getParameter("msj")==null?"":request.getParameter("msj");
+
+
 %>
 <!DOCTYPE html>
 

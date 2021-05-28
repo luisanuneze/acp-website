@@ -39,13 +39,15 @@
 		}	
 	}
 %>
-<!DOCTYPE html>
+
 <%
 	//Variable de control de mensajes
 	String varMsj = request.getParameter("msj")==null?"":request.getParameter("msj");
 
 
 %>
+<!DOCTYPE html>
+
 <html>
 <head>
      <meta charset="ISO-8859-1">
@@ -129,16 +131,17 @@
                     <div class="card-header py-3 row">
                         <div class="col">
 
-                            <h1 class="h3 mb-2 text-gray-800">Gestión de Arboles</h1>
+                            <h1 class="h3 mb-2 text-gray-800">Gestión de Árboles</h1>
                         </div>
                         <div class="col" align="right">
 
-                            <!-- Button agregar e imprimir-->
+                            <!-- Button agregar-->
                             <a href="NuevoArbol.jsp" data-toggle="modal"
                                data-target="#modalNuevoUsuario"> <i
                                     class="fas fa-file-medical fa-2x" title="Agregar nuevo árbol"></i>
                             </a>&nbsp;&nbsp;
-                            <a href="#"> <i class="fas fa-print fa-2x"
+                            <!-- Button imprimir-->
+                           <a href="#" onclick="verRptArbol();"> <i class="fas fa-print fa-2x"
                                             title="Imprimir registro"></i>
                             </a>
                             
@@ -325,7 +328,15 @@
 <script src="jAlert/dist/jAlert.min.js"></script>
 <script src="jAlert/dist/jAlert-functions.min.js"> //optional!!</script>
 
-<script>
+
+<script type="text/javascript">
+	function verRptArbol()
+	{
+		window.open("Sl_ReporteArbol", '_blank');
+	}	
+    $(document).ready(function ()
+    {
+    });
     $(document).ready(function () {
         ////// APLICAMOS FORMATO Y BOTONES A LA TABLA //// INICIAMOS EL PLUGIN DATATABLE
         $('#tblArbol').DataTable({
@@ -340,7 +351,7 @@
         ////////////////////////////////////////////////
         /////////// VARIABLE DE CONTROL MSJ ///////////
         var mensaje = "";
-        mensaje = "<%=varMsj%>";
+        mensaje = "<%=varMsj%>" ;
 
         if(mensaje == "1")
         {

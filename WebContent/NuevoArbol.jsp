@@ -1,9 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-         pageEncoding="ISO-8859-1" import="entidades.*, datos.*, vistas.VW_Distribucion, vistas.VW_RolUsuario, java.util.*;" %>
-<%
-	//Variable de control de mensajes
-	String varMsj = request.getParameter("msj") == null ? "" : request.getParameter("msj");
-%>
+         pageEncoding="ISO-8859-1" import="entidades.*, datos.*, vistas.VW_Distribucion, vistas.VW_RolUsuario, java.util.*; " %>
 <%
 	response.setHeader( "Pragma", "no-cache" );
 	response.setHeader( "Cache-Control", "no-store" );
@@ -42,6 +38,14 @@
 		}	
 	}
 %>
+
+
+<%
+	//Variable de control de mensajes
+	String varMsj = request.getParameter("msj")==null?"":request.getParameter("msj");
+
+
+%>
 <!DOCTYPE html>
 <html>
 
@@ -73,8 +77,8 @@
     <!-- Template Main CSS File -->
     <link href="assets/css/style.css" rel="stylesheet">
     
-    <!-- jAlert css  -->
-    <link rel="stylesheet" href="jAlert/dist/jAlert.css" />
+       <!-- jAlert css  -->
+	<link rel="stylesheet" href="jAlert/dist/jAlert.css" />
     
     <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -276,21 +280,35 @@
 
 <!-- Template Main JS File -->
 <script src="assets/js/main.js"></script>
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 
 <!-- Bootstrap core JavaScript-->
-	<script src="assets/vendor/jquery/jquery.min.js"></script>
-	<script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="assets/vendor/jquery/jquery.min.js"></script>
+<script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-	<!-- Core plugin JavaScript-->
-	<script src="assets/vendor/jquery-easing/jquery.easing.min.js"></script>
+<!-- Core plugin JavaScript-->
+<script src="assets/vendor/jquery-easing/jquery.easing.min.js"></script>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<!-- DATATABLE -->
+<script src="DataTables/DataTables-1.10.21/js/jquery.dataTables.js"></script>
 
+<!-- DATATABLE buttons -->
+<script src="DataTables/Buttons-1.6.3/js/dataTables.buttons.min.js"></script>
+
+<!-- js Datatable buttons print -->
+<script src="DataTables/Buttons-1.6.3/js/buttons.html5.min.js"></script>
+<script src="DataTables/Buttons-1.6.3/js/buttons.print.min.js"></script>
+
+<!-- js Datatable buttons pdf -->
+<script src="DataTables/pdfmake-0.1.36/pdfmake.min.js"></script>
+<script src="DataTables/pdfmake-0.1.36/vfs_fonts.js"></script>
+
+<!-- js Datatable buttons excel -->
+<script src="DataTables/JSZip-2.5.0/jszip.min.js"></script>
 
 <!-- jAlert js -->
 <script src="jAlert/dist/jAlert.min.js"></script>
 <script src="jAlert/dist/jAlert-functions.min.js"> //optional!!</script>
+
 
 	<script type="text/javascript">
 	
