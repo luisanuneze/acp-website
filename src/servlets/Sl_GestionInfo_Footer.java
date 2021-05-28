@@ -62,10 +62,10 @@ public class Sl_GestionInfo_Footer extends HttpServlet {
 		Info_Footer foo = new Info_Footer();
 		
 		foo.setCorreo(request.getParameter("txtCorreo"));
-		foo.setDescripcion(request.getParameter("txtDescripcion"));
+		//foo.setDescripcion(request.getParameter("txtDescripcion"));
 		foo.setDireccion(request.getParameter("txtDireccion"));
 		foo.setExtension(request.getParameter("txtExtension"));
-		foo.setTelefono(request.getParameter("txtTelefono"));
+		foo.setTelefono(Integer.parseInt(request.getParameter("txtTelefono")));
 		
 		
 		//rol.setRolID(Integer.parseInt(request.getParameter("rolID")));
