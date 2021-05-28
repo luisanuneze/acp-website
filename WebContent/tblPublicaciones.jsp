@@ -195,11 +195,11 @@
                                 </td>
                                 <td><%=pu.getDescripcion() %>
                                 </td>
-                                <td><%=pu.getMultimedia() %>
+                                <td class="text-center"><a href="#"></a><i class="fa fa-file" aria-hidden="false" title="<%=pu.getMultimedia() %>"></i></a>
                                 </td>
                                 <td><%=pu.getEstado() != 3 ? "ACTIVO" : "INACTIVO" %>
                                 </td>
-                                <td>
+                                <td class="text-center">
                                 <a id="btn-edita-abrir" href="EditarPublicacion.jsp?PublicacionesID=<%=pu.getPublicacionesid()%>">
                                     <i class="fas fa-edit" title="Modificar datos de la Publicación"></i>
                                 </a> 
@@ -299,45 +299,46 @@
 
 
 <script>
-    /*$(document).ready(function () {
-        ////// APLICAMOS FORMATO Y BOTONES A LA TABLA //// INICIAMOS EL PLUGIN DATATABLE
-        $('#tblUsers').DataTable({
-            dom: 'Bfrtip',
-            buttons: [
-                //'pdf',
-                'excel']
-
-        });*/
 
         ////////////////////////////////////////////////
         /////////// VARIABLE DE CONTROL MSJ ///////////
-        var mensaje = "";
-        mensaje = "<%=varMsj%>";
+        $(document).ready(function)(){
+        	var mensaje = "";
+            mensaje = "<%=varMsj%>";
 
-        if(mensaje == "1")
-        {
-            successAlert('Éxito', 'Los datos han sido registrados exitosamente!');
-        }
-        if(mensaje == "2")
-        {
-            errorAlert('Error', 'Revise los datos e intente nuevamente!!!');
-        }
-        if(mensaje == "3")
-        {
-            successAlert('Éxito', 'Los datos han sido actualizados exitosamente!');
-        }
-        if(mensaje == "4")
-        {
-            errorAlert('Error', 'Revise los datos e intente nuevamente!!!');
-        }
-        if(mensaje == "5")
-        {
-            successAlert('Éxito', 'La Publicación ha sido dado de baja exitosamente!');
-        }
-        if(mensaje == "6")
-        {
-            errorAlert('Error', 'Revise los datos e intente nuevamente!!!');
-        }
+            if(mensaje == "1")
+            {
+                successAlert('Éxito', 'Los datos han sido registrados exitosamente!');
+            }
+            if(mensaje == "2")
+            {
+                errorAlert('Error', 'Revise los datos e intente nuevamente!!!');
+            }
+            if(mensaje == "3")
+            {
+                successAlert('Éxito', 'Los datos han sido actualizados exitosamente!');
+            }
+            if(mensaje == "4")
+            {
+                errorAlert('Error', 'Revise los datos e intente nuevamente!!!');
+            }
+            if(mensaje == "5")
+            {
+                successAlert('Éxito', 'La Publicación ha sido dado de baja exitosamente!');
+            }
+            if(mensaje == "6")
+            {
+                errorAlert('Error', 'Revise los datos e intente nuevamente!!!');
+            }
+            if(mensaje == "g1")
+            {
+                successAlert('Éxito', 'El documento se guardó con exito!!!');
+            }
+            if(mensaje == "g2")
+            {
+                successAlert('Éxito', 'El documento se guardó con exito!!!');
+            }
+        
 
     });
 </script>

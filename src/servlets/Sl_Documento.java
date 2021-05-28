@@ -50,9 +50,14 @@ public class Sl_Documento extends HttpServlet {
 		// TODO Auto-generated method stub
 		//doGet(request, response);
 		
+		Dt_Publicaciones dtpu = new Dt_Publicaciones();
+		String publicacionesid = null;
+		String rutaFichero = null;
+		String url2 = null;
+		
 		try
 		{
-			Dt_Publicaciones dtpu = new Dt_Publicaciones();
+			
 			
 			FileItemFactory factory = new DiskFileItemFactory();
 			ServletFileUpload upload = new ServletFileUpload(factory);
@@ -60,8 +65,7 @@ public class Sl_Documento extends HttpServlet {
 			List<FileItem> items = upload.parseRequest(request);
 			File fichero = null;
 			
-			String publicacionesid = null;
-			String rutaFichero = null;
+			
 			
 			for(FileItem item: items)
 			{
@@ -110,16 +114,12 @@ public class Sl_Documento extends HttpServlet {
 						/////// ACTUALIZAMOS EL CAMPO URLFOTO EN LA BASE DE DATOS
 						String url = "PWACP-documentos/"+rutaFichero;
 						
+						url2=url;
+						
 						System.out.println(url);
 						
-						if(dtpu.guardarDocumento(Integer.parseInt(publicacionesid),url))
-						{
-							response.sendRedirect("tblPublicaiones.jsp?msj=1"+publicacionesid+"&guardado=1");
-						}
-						else
-						{
-							response.sendRedirect("tblPublicaciones.jsp?msj=1"+publicacionesid+"&guardado=2");
-						}
+						
+						
 					}
 					else
 					{
@@ -136,6 +136,14 @@ public class Sl_Documento extends HttpServlet {
 			System.out.println("SERVLET: ERROR AL SUBIR EL DOCUMENTO: " + e.getMessage());
 		}
 		
+		if(dtpu.guardarDocumento(Integer.parseInt(publicacionesid),url2))
+		{
+			response.sendRedirect("tblPublicaciones.jsp?msj=g1");
+		}
+		else
+		{
+			response.sendRedirect("tblPublicaciones.jsp?msj=g2");
+		}
 		
 		
 		

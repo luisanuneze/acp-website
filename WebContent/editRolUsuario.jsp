@@ -167,20 +167,17 @@
                                         Dt_Usuario dtu = new Dt_Usuario();
                                         listUser = dtu.listaUserActivos();
                                     %>
-                                        <div class="col-sm-11">
-										<select class="form-control" name="cbxUser" id="cbxUser"
-											>
-											<option value="">Seleccione...</option>
-											<%
+                                    <%
                                             for (Usuario u : listUser) {
                                         %>
-											<option value="<%=u.getUsuarioID()%>"><%=u.getUsuario()%>
-											</option>
+											<input type="hidden" name="cbxUser" id="cbxUser" value="<%=u.getUsuarioID()%>"/>
+											
 											<%
                                             }
                                         %>
-
-										</select>
+                                        <div class="col-sm-11">
+										<input type="text" readonly class="form-control" name="txtUser" id="txtUser"/>
+											
 										</div>	
 										
 									</div>
@@ -194,7 +191,7 @@
                                         <div class="col-sm-11">
 										<select class="form-control" name="cbxRol" id="cbxRol"
 											required>
-											<option value="">Seleccione...</option>
+											
 											<%
                                             for (Rol r : listRol) {
                                         %>
@@ -273,6 +270,7 @@
    $(document).ready(function()
 	{
 		$("#cbxUser").val("<%=ru.getUsuarioID()%>");
+		$("#txtUser").val("<%=vwru.getUsuario()%>");
 		$("#cbxRol").val("<%= ru.getRolId()%>");
 	});
 </script>

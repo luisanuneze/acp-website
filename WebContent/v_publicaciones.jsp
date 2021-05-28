@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-         pageEncoding="ISO-8859-1" %>
+         pageEncoding="ISO-8859-1" 
+         import="entidades.Publicaciones, datos.Dt_Publicaciones, java.util.*;"%>
 <!DOCTYPE html>
 <html>
 
@@ -50,24 +51,27 @@
     <section id="about" class="about">
 
         <div class="container" data-aos="fade-up">
+        <%
+                ArrayList<Publicaciones> listPubli = new ArrayList<Publicaciones>();
+                Dt_Publicaciones dtpu = new Dt_Publicaciones();
+                listPubli = dtpu.listaPublisActivas();
+
+            %>
 
             <div class="publicaciones">
+            <%
+                    for (Publicaciones pu : listPubli) {
+                %>
 
                 <div class="content div-publicaciones">
                     <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/PDF_file_icon.svg/833px-PDF_file_icon.svg.png">
                     <div id="Content-publicacion" class="Content-publicacion">
-                        <h2>Investigación de especímenes descubiertos en zonas secas de la zona central de
-                            Nicaragua</h2>
+                        <h2 class="text-center"><%=pu.getDescripcion() %></h2>
                     </div>
                 </div>
-
-                <div class="content div-publicaciones">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/PDF_file_icon.svg/833px-PDF_file_icon.svg.png">
-                    <div id="Content-publicacion" class="Content-publicacion">
-                        <h2>Recopilación de ejecución de brigadas enfocadas en salvaguardar la flora del Atlántico
-                            Norte</h2>
-                    </div>
-                </div>
+                <%
+	                    }
+	                %>
 
             </div>
 

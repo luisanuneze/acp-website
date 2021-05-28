@@ -109,12 +109,17 @@ public class Sl_GestionRol extends HttpServlet {
 				Date fechaSistema = new Date();
 				rol.setFechaModificacion(new java.sql.Timestamp(fechaSistema.getTime()));
 				System.out.println("rol.getFechaModificacion(): " + rol.getFechaModificacion());
-				if (dtro.modificarRol(rol)) {
-					response.sendRedirect("tblRol.jsp?msj=3");
-				} 
-				else {
-					response.sendRedirect("tblRol.jsp?msj=4");
-				}
+				
+				if(ngr.existeRolA(rol.getRolID(), rol.getRol())) {
+		        	response.sendRedirect("EditarRol.jsp?RolID="+rol.getRolID()+"&msj=existe");
+		        }else {
+		        	if (dtro.modificarRol(rol)) {
+						response.sendRedirect("tblRol.jsp?msj=3");
+					} 
+					else {
+						response.sendRedirect("tblRol.jsp?msj=4");
+					}
+		        }
 
 			} catch (Exception e) {
 				System.out.println("Sl_GestionRol, el error es: " + e.getMessage());
