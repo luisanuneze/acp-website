@@ -9,7 +9,7 @@ public class Info_Footer {
 	private String descripcion;
 	private String direccion;
 	private String extension;
-	private String telefono;
+	private int telefono;
 	private Timestamp fechaModificacion;
 	private int info_footerID;
 	private int usuarioID;
@@ -40,10 +40,10 @@ public class Info_Footer {
 	public void setExtension(String extension) {
 		this.extension = extension;
 	}
-	public String getTelefono() {
+	public int getTelefono() {
 		return telefono;
 	}
-	public void setTelefono(String telefono) {
+	public void setTelefono(int telefono) {
 		this.telefono = telefono;
 	}
 	public Timestamp getFechaModificacion() {

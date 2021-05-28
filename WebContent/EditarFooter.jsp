@@ -121,14 +121,14 @@
                     </div>      
                     <div class="col-sm-12">
                     Dirección:
-                        <input type="text" class="form-control form-control-user" name="txtExtension" id="txtExtension"
+                        <input type="text" class="form-control form-control-user" name="txtDireccion" id="txtDireccion"
                                placeholder="Dirección" required>
                     </div>
                 </div>
                 <div class="form-group col-sm-6">
                     <div class="col-sm-12">
                     Correo:
-                        <input type="email" class="form-control form-control-user" name="txtEmail" id="txtEmail"
+                        <input type="email" class="form-control form-control-user" name="txtCorreo" id="txtCorreo"
                                placeholder="Correo" required>
                     </div>
                     <div class="col-sm-12">
