@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-         pageEncoding="ISO-8859-1" import="entidades.Servicios, datos.Dt_Servicios, java.util.*;" %>
+         pageEncoding="ISO-8859-1" import="entidades.CatProductos, vistas.VW_Productos, datos.Dt_Productos, java.util.*;" %>
 <!DOCTYPE html>
 <html>
 
@@ -47,10 +47,14 @@
 
     <!-- ======= Inicio Section ======= -->
     <section id="about" class="about">
+
         <div class="container" data-aos="fade-up">
+
 				<img style="object-fit: cover; width: 100%; height: 100%"
 					alt="mantenimiento" src="assets/img/pagina-inhabilitada.png">
+
 			</div>
+
     </section>
     <!-- End Inicio Section -->
 
