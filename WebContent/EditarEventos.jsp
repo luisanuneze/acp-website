@@ -268,7 +268,7 @@
 	<script src="jAlert/dist/jAlert.min.js"></script>
 	<script src="jAlert/dist/jAlert-functions.min.js"> //optional!!</script>
 	
-	<script src="../vendor/jquery-easing/jquery.easing.min.js"></script>
+	<script src="assets/vendor/jquery-easing/jquery.easing.min.js"></script>
 
 <!-- Template Main JS File -->
 <script src="assets/js/main.js"></script>
