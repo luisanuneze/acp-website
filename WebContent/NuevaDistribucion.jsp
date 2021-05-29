@@ -40,6 +40,10 @@
 	}
 %>
 <!DOCTYPE html>
+<%
+    //Variable de control de mensajes
+	String varMsj = request.getParameter("msj")==null?"":request.getParameter("msj");
+%>
 <html>
 
 <head>
@@ -69,6 +73,9 @@
 
     <!-- Template Main CSS File -->
     <link href="assets/css/style.css" rel="stylesheet">
+    
+     <!-- jAlert css  -->
+	<link rel="stylesheet" href="jAlert/dist/jAlert.css" />
 
 </head>
 
@@ -170,8 +177,38 @@
 <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
 <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
 
+<!-- Bootstrap core JavaScript-->
+<script src="assets/vendor/jquery/jquery.min.js"></script>
+<script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+<!-- Core plugin JavaScript-->
+<script src="assets/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+<script
+src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!-- jAlert js -->
+<script src="jAlert/dist/jAlert.min.js"></script>
+<script src="jAlert/dist/jAlert-functions.min.js"> //optional!!</script>
+
+
 <!-- Template Main JS File -->
 <script src="assets/js/main.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function ()
+	    {
+			/////////// VARIABLE DE CONTROL MSJ ///////////
+	        var mensaje = "";
+	        mensaje = "<%=varMsj%>";
+
+		if (mensaje == "existe") {
+			errorAlert(
+			'Error',
+			'La distribución que esta intentando registrar ya existe en la base de datos!');
+			}
+	    });
+</script>
 
 </body>
 </html>

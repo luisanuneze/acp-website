@@ -162,7 +162,7 @@
                                         <a class="ajax-link" href="javascript:void(0);" 
                                            		onclick="$.jAlert({
                                            		    'type': 'confirm',
-                                           		    'confirmQuestion': 'Realmente desea eliminar este registro?',
+                                           		    'confirmQuestion': '¿Realmente desea eliminar este registro?',
                                            		    'onConfirm': function(e, btn){
                                            		      e.preventDefault();
                                            		      //do something here
