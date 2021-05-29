@@ -89,7 +89,6 @@
         <div class="container" data-aos="fade-up">
 
             <h2 class="form-header" style="color: black;">Edición de Historia</h2>
-            <br>
             
             <%
                 String ho = "";
@@ -113,10 +112,9 @@
                 
             <!-- Botones -->
             <div class="col-md-6 button-formulario">
+            	<br><br>
                 <button> Guardar</button>
-                <a href="edicionSeccion.jsp">
-                    <button> Regresar</button>
-                </a>
+                <a href="edicionSeccion.jsp" class="button"> Regresar</a>
             </div>
             
             </form>
