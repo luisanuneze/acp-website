@@ -39,6 +39,9 @@
 		}	
 	}
 %>
+<%//Variable de control de mensajes
+String varMsj = request.getParameter("msj")==null?"":request.getParameter("msj");
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -72,6 +75,10 @@
 
     <!-- Template Main CSS File -->
     <link href="assets/css/style.css" rel="stylesheet">
+    
+        <!-- jAlert css  -->
+	<link rel="stylesheet" href="jAlert/dist/jAlert.css" />
+    
 
     <!-- =======================================================
       * Template Name: FlexStart - v1.1.1
@@ -181,11 +188,29 @@
 <script src="assets/vendor/jquery-easing/jquery.easing.min.js"></script>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 
+<!-- Bootstrap core JavaScript-->
+<script src="assets/vendor/jquery/jquery.min.js"></script>
+<script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+<!-- Core plugin JavaScript-->
+<script src="assets/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+<!-- jAlert js -->
+<script src="jAlert/dist/jAlert.min.js"></script>
+<script src="jAlert/dist/jAlert-functions.min.js"> //optional!!</script>
+
 <script>
     $(document).ready(function()
     {
         $("#txtRol").val("<%=r.getRol()%>");
         $("#txtdesc").val("<%=r.getRoldescripcion()%>");
+        
+        var mensaje = "";
+		mensaje = "<%=varMsj%>";
+
+		if (mensaje == "existe") {
+			errorAlert('Error','El rol que esta intentando registrar ya existe en la base de datos!');
+		}
     }
     )
     ;

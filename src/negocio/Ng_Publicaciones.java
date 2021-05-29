@@ -51,5 +51,45 @@ public class Ng_Publicaciones {
 		
 		return existe;
 	}
+	
+	// Metodo para validar el username
+				public boolean existePubliA(int publiID, String Title){
+					boolean existe = false;
+					try{
+						c = PoolConexion.getConnection();
+						ps = c.prepareStatement("select * from public.publicaciones where publicacionesid<>? and titulo=? and estado<>3", ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.HOLD_CURSORS_OVER_COMMIT);
+						ps.setInt(1, publiID);
+						ps.setString(2, Title);
+						rs = ps.executeQuery();
+						if(rs.next()){
+							existe=true;
+						}
+					}
+					catch (Exception e){
+						System.out.println("DATOS ERROR existePubliA(): "+ e.getMessage());
+						e.printStackTrace();
+					}
+					finally{
+						try {
+							if(rs != null){
+								rs.close();
+							}
+							if(ps != null){
+								ps.close();
+							}
+							if(c != null){
+								PoolConexion.closeConnection(c);
+							}
+							
+						} catch (SQLException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
+					}
+					
+					return existe;
+				}
+
+
 
 }

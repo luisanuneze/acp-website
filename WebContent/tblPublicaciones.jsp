@@ -38,14 +38,11 @@
 			response.sendRedirect("401.jsp");
 		}	
 	}
+	
+	//Variable de control de mensajes
+		String varMsj = request.getParameter("msj")==null?"":request.getParameter("msj");
 %>
 <!DOCTYPE html>
-<%
-	//Variable de control de mensajes
-	String varMsj = request.getParameter("msj")==null?"":request.getParameter("msj");
-
-
-%>
 <html>
 
 <head>
@@ -299,14 +296,14 @@
 
 
 <script>
-
-        ////////////////////////////////////////////////
-        /////////// VARIABLE DE CONTROL MSJ ///////////
-        $(document).ready(function)(){
-        	var mensaje = "";
-            mensaje = "<%=varMsj%>";
-
-            if(mensaje == "1")
+       $(document).ready(function()
+		{
+		 
+			
+		    var mensaje = "";
+			mensaje = "<%=varMsj%>";
+			
+			if(mensaje == "1")
             {
                 successAlert('Éxito', 'Los datos han sido registrados exitosamente!');
             }
@@ -338,9 +335,16 @@
             {
                 successAlert('Éxito', 'El documento se guardó con exito!!!');
             }
+
+			if (mensaje == "existe") {
+				errorAlert('Error','El titulo de la publicación que esta intentando registrar ya existe en la base de datos!');
+			}
+		});
+        ////////////////////////////////////////////////
+        /////////// VARIABLE DE CONTROL MSJ ///////////
         
 
-    });
+    
 </script>
 
 

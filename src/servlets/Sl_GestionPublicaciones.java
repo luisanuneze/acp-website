@@ -111,14 +111,19 @@ public class Sl_GestionPublicaciones  extends HttpServlet{
 					Date fechaSistema = new Date();
 					pub.setFechaModificacion(new java.sql.Timestamp(fechaSistema.getTime()));
 					System.out.println("pub.getFechaModificacion(): "+pub.getFechaModificacion());
-							        	
-		        if(dtpu.modificarPubli(pub)) {
-		        	response.sendRedirect("tblPublicaciones.jsp?msj=3");
-		        	
-		        }
-		        else {
-		        	response.sendRedirect("tblPublicaciones.jsp?msj=4");
-		        }
+				
+					if(ngpu.existePubliA(pub.getPublicacionesid(), pub.getTitulo())) {
+			        	response.sendRedirect("EditarPublicacion.jsp?PublicacionesID="+pub.getPublicacionesid()+"&msj=existe");
+			        }else {
+			        	if(dtpu.modificarPubli(pub)) {
+				        	response.sendRedirect("tblPublicaciones.jsp?msj=3");
+				        	
+				        }
+				        else {
+				        	response.sendRedirect("tblPublicaciones.jsp?msj=4");
+				        }
+			        }
+		        
 		        
 	        	
 	        }
