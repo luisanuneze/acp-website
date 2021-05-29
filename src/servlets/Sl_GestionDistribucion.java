@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import datos.Dt_Distribucion;
 import entidades.Distribucion;
+import negocio.Ng_Distribucion;
 
 /**
  * Servlet implementation class Sl_GestionDistribucion
@@ -63,6 +64,7 @@ private static final long serialVersionUID = 1L;
 		//CONSTRUIR EL OBJETO DISTRIBUCION
 			Dt_Distribucion dtd = new Dt_Distribucion();
 			Distribucion dis = new Distribucion();
+			Ng_Distribucion ngd = new Ng_Distribucion();
 			
 			//dis.setDistribucionID(Integer.parseInt(request.getParameter("distribucionid")));
 			dis.setNombre(request.getParameter("txtNombre"));
@@ -74,19 +76,24 @@ private static final long serialVersionUID = 1L;
 		switch (opc){
 		case 1:{
 			
-		        try {
-		        	
+				try {
 		        	// Para Guardar la Fecha y Hora de creación.
 		        	Date fechaSistema = new Date();
 			        dis.setFechaCreacion(new java.sql.Timestamp(fechaSistema.getTime()));
 			        System.out.println("dis.getFechaCreacion(): "+dis.getFechaCreacion());
 		        	
 		        	
-			        if(dtd.guardarDistribucion(dis)) {
-			        	response.sendRedirect("tblDistribucion.jsp?msj=1");
+			        if(ngd.existeDistribucion(dis.getNombre())){
+			        	response.sendRedirect("NuevaDistribucion.jsp?msj=existe");
+			        	
 			        }
 			        else {
-			        	response.sendRedirect("tblDistribucion.jsp?msj=2");
+			        	if(dtd.guardarDistribucion(dis)) {
+				        	response.sendRedirect("tblDistribucion.jsp?msj=1");
+				        }
+				        else {
+				        	response.sendRedirect("tblDistribucion.jsp?msj=2");
+				        }
 			        }
 			        	
 		        }

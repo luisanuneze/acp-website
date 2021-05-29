@@ -128,7 +128,7 @@ public class Dt_ArbolDistribucion {
 				rsArbol.beforeFirst();
 				while (rsArbol.next())
 				{
-					if(rsArbol.getInt(7)==dis.getArbol_DistribucionId())
+					if(rsArbol.getInt(1)==dis.getArbol_DistribucionId())
 					{
 						rsArbol.updateInt("DistribucionId", dis.getDistribucionId());
 						rsArbol.updateInt("ArbolId", dis.getArbolId());
