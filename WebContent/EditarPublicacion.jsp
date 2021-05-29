@@ -38,6 +38,9 @@
 		}	
 	}
 %>
+<%//Variable de control de mensajes
+String varMsj = request.getParameter("msj")==null?"":request.getParameter("msj");
+%>
 <!DOCTYPE html>
 <html>
 
@@ -68,6 +71,9 @@
 
     <!-- Template Main CSS File -->
     <link href="assets/css/style.css" rel="stylesheet">
+    
+    <!-- jAlert css  -->
+	<link rel="stylesheet" href="jAlert/dist/jAlert.css" />
 
 </head>
 
@@ -151,6 +157,16 @@
 <!-- Template Main JS File -->
 <script src="assets/js/main.js"></script>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<!-- Bootstrap core JavaScript-->
+<script src="assets/vendor/jquery/jquery.min.js"></script>
+<script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+<!-- Core plugin JavaScript-->
+<script src="assets/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+<!-- jAlert js -->
+<script src="jAlert/dist/jAlert.min.js"></script>
+<script src="jAlert/dist/jAlert-functions.min.js"> //optional!!</script>
 
 
 <script>  
@@ -160,7 +176,12 @@
 	   $("#txtDescrip").val("<%=pub.getDescripcion()%>");
 	 
 		
-		
+	    var mensaje = "";
+		mensaje = "<%=varMsj%>";
+
+		if (mensaje == "existe") {
+			errorAlert('Error','El titulo de la publicación que esta intentando registrar ya existe en la base de datos!');
+		}
 	});
 </script>
 
